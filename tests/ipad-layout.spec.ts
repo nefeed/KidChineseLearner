@@ -1,4 +1,4 @@
-import {test as base,expect,chromium,webkit,type Browser,type Page,type TestInfo} from '@playwright/test';
+import {test as base,expect,chromium,webkit,type Browser,type Locator,type Page,type TestInfo} from '@playwright/test';
 import {existsSync,readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {buildSync} from 'esbuild';
@@ -283,6 +283,97 @@ test('layout checker rejects hidden overflow, offscreen controls and covered act
   expect((await measure(page,'checker-offscreen')).failures.some(message=>message.includes('outside viewport'))).toBe(true);
   await page.setContent('<style>body{margin:0}button{position:absolute;left:20px;top:20px;width:100px;height:44px}.cover{position:absolute;left:20px;top:20px;width:100px;height:44px;background:black}</style><div class="app-frame"><button>Covered primary action</button><div class="cover"></div></div>');
   expect((await measure(page,'checker-covered')).failures.some(message=>message.includes('center is covered'))).toBe(true);
+});
+
+type CatalogKind='hanzi'|'poems';
+async function catalogGeometry(page:Page,kind:CatalogKind){
+  await page.evaluate(()=>document.fonts.ready);
+  await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+  return page.evaluate(kind=>{
+    const rect=(element:Element)=>{const r=element.getBoundingClientRect();return{left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};};
+    const name=(element:Element|null)=>element?`${element.tagName.toLowerCase()}.${element.getAttribute('class')??''}: ${(element.getAttribute('aria-label')??element.textContent??'').replace(/\s+/g,' ').trim().slice(0,80)}`:null;
+    const controls=[...document.querySelectorAll<HTMLElement>(`${kind==='hanzi'?'.word-tile':'.poem-card'},.pagination button`)].map(element=>{
+      const bounds=rect(element),x=bounds.left+bounds.width/2,y=bounds.top+bounds.height/2,hit=document.elementFromPoint(x,y);
+      return{name:name(element),rect:bounds,clientHeight:element.clientHeight,scrollHeight:element.scrollHeight,overflowY:getComputedStyle(element).overflowY,
+        disabled:element instanceof HTMLButtonElement&&element.disabled,
+        center:{x,y,inViewport:x>=0&&y>=0&&x<innerWidth&&y<innerHeight,receivesEvents:Boolean(hit&&element.contains(hit)),hit:name(hit)}};
+    });
+    const panels=[...document.querySelectorAll<HTMLElement>('.library-page,.hanzi-course,.poem-card-grid,.pagination')].map(element=>({
+      name:name(element),rect:rect(element),clientHeight:element.clientHeight,scrollHeight:element.scrollHeight,overflowY:getComputedStyle(element).overflowY}));
+    return{viewport:{width:innerWidth,height:innerHeight},controls,panels};
+  },kind);
+}
+async function firstCatalogCourse(page:Page,kind:CatalogKind):Promise<{id:string;button:Locator;dialog:string}>{
+  if(kind==='hanzi'){
+    const char=await page.locator('.word-tile b').first().innerText(),word=words.find(word=>word.char===char)!;
+    return{id:word.id,button:page.getByRole('button',{name:`学习${char}字`,exact:true}),dialog:`${char}字学习`};
+  }
+  const first=page.locator('.poem-card').first(),title=await first.locator('h2').innerText(),author=await first.locator('.poem-author').innerText(),line=await first.locator('p').innerText();
+  const poem=poems.find(poem=>poem.title===title&&`${poem.dynasty} · ${poem.author}`===author&&poem.lines[0]===line)!;
+  return{id:poem.id,button:page.locator('.poem-card').filter({has:page.getByRole('heading',{name:title,exact:true})})
+    .filter({has:page.getByText(author,{exact:true})}).filter({has:page.getByText(line,{exact:true})}),dialog:`${title}诗词学习`};
+}
+
+// These two semantic navigation checks sit outside the fixed-size layout
+// matrix. They drive actual pagination and browser resize, not device rotation.
+for(const kind of ['hanzi','poems'] as const)test(`${kind} catalog browsing position survives native resize`,async({page},info)=>{
+  test.setTimeout(60000);
+  const wide={width:1440,height:1000},tablet={width:1180,height:820},phone={width:390,height:844},landscape={width:844,height:390};
+  await page.setViewportSize(wide);
+  await page.addInitScript(({key,data})=>{if(!localStorage.getItem(key))localStorage.setItem(key,JSON.stringify(data));},{key:STORAGE_KEY,data:fixture()});
+  await page.goto(origin);await page.getByRole('button',{name:kind==='hanzi'?'汉字冒险':'诗词花园',exact:true}).click();
+  const cards=page.locator(kind==='hanzi'?'.word-tile':'.poem-card'),next=page.getByRole('button',{name:kind==='hanzi'?'下一片小岛':'下一页',exact:true});
+  const wideCount=kind==='hanzi'?50:12,tabletCount=kind==='hanzi'?10:4;
+  await expect(cards).toHaveCount(wideCount);await next.click();
+  const anchor=await firstCatalogCourse(page,kind);
+  const preserve=async(target:{width:number;height:number},count:number,course:typeof anchor,label:string,allControls=false)=>{
+    await test.step(`${label}: preserve ${course.id}`,async()=>{
+      await page.setViewportSize(target);await expect(cards).toHaveCount(count);
+      await info.attach(`catalog-${label}`,{contentType:'application/json',body:JSON.stringify({engine,kind,anchor:course.id,
+        geometry:await catalogGeometry(page,kind),pagination:await page.locator('.pagination span').innerText(),
+        rendered:await cards.allTextContents()})});
+      await expect(course.button).toBeVisible();await course.button.click({trial:true});
+      // A short window may scroll; each course and both pagination actions
+      // must remain reachable through normal browser actionability checks.
+      if(allControls){
+        for(const card of await cards.all()){
+          await card.click({trial:true});
+          if(kind==='poems'){
+            const clipped=await card.evaluate(element=>{
+              const card=element.getBoundingClientRect();
+              return [...element.querySelectorAll<HTMLElement>('h2,.poem-author,p,.poem-card-bottom')].map(text=>{
+                const bounds=text.getBoundingClientRect();
+                return{text:text.innerText,top:bounds.top,bottom:bounds.bottom,cardTop:card.top,cardBottom:card.bottom};
+              }).filter(text=>text.top<text.cardTop-2||text.bottom>text.cardBottom+2);
+            });
+            expect(clipped,'Poem title, author, first line and footer fit vertically inside their card').toEqual([]);
+          }
+        }
+        for(const button of await page.locator('.pagination button:enabled').all())await button.click({trial:true});
+      }
+    });
+  };
+  await preserve(tablet,tabletCount,anchor,'wide-to-tablet');
+  await preserve({width:1366,height:820},tabletCount,anchor,'tablet-upper-boundary');
+  await preserve({width:1367,height:1000},wideCount,anchor,'outside-upper-boundary');
+  await preserve(wide,wideCount,anchor,'return-wide');
+  await preserve(phone,wideCount,anchor,'phone-portrait');
+  await preserve({width:700,height:844},wideCount,anchor,'outside-lower-boundary');
+  await preserve({width:701,height:820},tabletCount,anchor,'tablet-lower-boundary');
+  await preserve(landscape,tabletCount,anchor,'phone-landscape-width',true);
+  await preserve({width:844,height:700},tabletCount,anchor,'short-window-700',true);
+  await preserve({width:844,height:701},tabletCount,anchor,'short-window-701',true);
+  await preserve({width:701,height:720},tabletCount,anchor,'narrow-short-window',true);
+  await preserve(phone,wideCount,anchor,'return-phone');
+  await page.setViewportSize(tablet);await expect(cards).toHaveCount(tabletCount);
+  await page.locator('.filter-tabs').getByRole('button',{name:'全部',exact:true}).click();
+  // Native deep paging exceeds the old wide-screen page range, exposing an
+  // incorrect clamp to the last page without injecting any library state.
+  for(let index=0;index<(kind==='hanzi'?20:27);index++)await next.click();
+  const deep=await firstCatalogCourse(page,kind);
+  await preserve(wide,wideCount,deep,'deep-tablet-to-wide');await expect(next).toBeEnabled();
+  await preserve(tablet,tabletCount,deep,'return-deep-tablet');
+  await deep.button.click();await expect(page.getByRole('dialog',{name:deep.dialog,exact:true})).toBeVisible();
 });
 
 for(const viewport of viewports){

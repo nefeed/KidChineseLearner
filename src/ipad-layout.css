@@ -67,7 +67,8 @@ body{min-height:100vh;min-height:100dvh}
   .course-ribbon{margin:0;padding:10px 14px;font-size:11px}
   .library-tools{margin:0;flex-shrink:0;align-items:center}.search-box{min-height:44px}
   .filter-tabs{gap:4px}.filter-tabs button{min-height:44px;padding:8px 10px;font-size:12px}
-  .hanzi-course{flex:1;min-height:0;display:flex;align-items:center}.word-group{width:100%;margin:0}
+  /* Short windows can scroll instead of compressing cards into their controls. */
+  .hanzi-course{flex:1;min-height:min-content;display:flex;align-items:center}.word-group{width:100%;margin:0}
   .word-group-heading{margin-bottom:12px}.word-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
   .word-tile{min-height:130px;padding:10px 5px}.word-tile b{font-size:38px}
   .pagination{margin:0;min-height:44px;flex-shrink:0;gap:16px}.pagination .pill-button{min-height:44px;font-size:12px}
@@ -75,7 +76,7 @@ body{min-height:100vh;min-height:100dvh}
   .poetry-banner{min-height:0;height:124px;flex-shrink:0;padding:12px 24px;margin:0}
   .poetry-banner h2 br{display:none}.poetry-banner h2{font-size:21px;line-height:1.3;margin:4px 0}.poetry-banner p{font-size:11px;margin:0}
   .poetry-banner-art{font-size:60px;width:210px}.poem-filter-row{margin:0;min-height:44px;flex-shrink:0}
-  .poem-card-grid{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:12px}
+  .poem-card-grid{flex:1;min-height:min-content;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:12px}
   .poem-card{padding:12px 18px;min-height:0;display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;align-content:center}
   .poem-card-top{grid-column:1;grid-row:1/5;display:flex;flex-direction:column;justify-content:center;gap:6px;margin:0}.poem-card-top small{font-size:10px;white-space:nowrap}.poem-card>h2,.poem-card>.poem-author,.poem-card>p,.poem-card>.poem-card-bottom{grid-column:2}.poem-card-top>span{font-size:36px;line-height:1.2}.poem-card h2{font-size:20px;line-height:1.35;margin:3px 0}
   .poem-card>p{font-size:14px;line-height:1.5;margin:8px 0;flex-shrink:0;white-space:normal;overflow:visible;text-overflow:clip}.poem-card-bottom{margin-top:8px}
