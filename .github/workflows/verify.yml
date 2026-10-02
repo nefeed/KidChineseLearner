@@ -33,6 +33,7 @@ jobs:
           PROMPT_TEST_URL: http://127.0.0.1:5173
           LESSON_PROMPT_TEST_URL: http://127.0.0.1:5173
           BACKUP_TEST_URL: http://127.0.0.1:5173
+          PROFILE_SYNC_TEST_URL: http://127.0.0.1:5173
         run: |
           mkdir -p test-results
           node scripts/serve-lan.mjs > test-results/server.log 2>&1 &
@@ -45,6 +46,8 @@ jobs:
           curl --fail --silent http://127.0.0.1:5173/ > /dev/null
           BACKUP_TEST_ENGINE=chromium npx playwright test tests/backup-recovery.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/backup-chromium
           BACKUP_TEST_ENGINE=webkit npx playwright test tests/backup-recovery.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/backup-webkit
+          PROFILE_SYNC_TEST_ENGINE=chromium npx playwright test tests/profile-sync.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/profile-sync-chromium
+          PROFILE_SYNC_TEST_ENGINE=webkit npx playwright test tests/profile-sync.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/profile-sync-webkit
           npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/ipad-touch
           npx playwright test tests/narration-browser.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/narration
           npx playwright test tests/zoo-narration.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/zoo-narration

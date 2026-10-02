@@ -63,7 +63,19 @@ export default function App(){
   },[commit,speech.stop]);
   useEffect(()=>{if(!loaded.error)commit(dataRef.current);},[commit,loaded.error]);
   useEffect(()=>{const timer=setInterval(()=>{if(Date.now()-restStart.current>=profile.settings.sessionMinutes*60_000){speech.stop();setRest(true);restStart.current=Date.now();}},15_000);return()=>clearInterval(timer);},[profile.id,profile.settings.sessionMinutes,speech.stop]);
-  useEffect(()=>{const handler=(e:StorageEvent)=>{if(e.key==='ziyou-island-v1'&&e.newValue){const fresh=loadSave(window.localStorage);if(!fresh.error&&fresh.data.savedAt>dataRef.current.savedAt){dataRef.current=fresh.data;setData(fresh.data);}}};window.addEventListener('storage',handler);return()=>window.removeEventListener('storage',handler);},[]);
+  useEffect(()=>{
+    const handler=(e:StorageEvent)=>{
+      if(e.key!=='ziyou-island-v1'||!e.newValue)return;
+      const fresh=loadSave(window.localStorage);
+      if(fresh.error||fresh.data.savedAt<=dataRef.current.savedAt)return;
+      if(fresh.data.activeId!==dataRef.current.activeId){
+        speech.stop();setLesson(null);setProfileMenu(false);setScreen('home');restStart.current=Date.now();
+      }
+      dataRef.current=fresh.data;setData(fresh.data);
+    };
+    window.addEventListener('storage',handler);
+    return()=>window.removeEventListener('storage',handler);
+  },[speech.stop]);
   const closeLesson=useCallback(()=>{speech.stop();setLesson(null);},[speech.stop]);
   useEffect(()=>{
     if(!lesson&&!parentGate&&!rest)return;
