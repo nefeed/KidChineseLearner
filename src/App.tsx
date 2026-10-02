@@ -56,6 +56,9 @@ export default function App(){
     const next={...current,profiles:current.profiles.map(p=>p.id===current.activeId?{...updater(p),updatedAt:Date.now()}:p)};commit(next);
   },[commit]);
   const replaceSave=useCallback((next:SaveData)=>{
+    speech.stop();setLesson(null);commit(next);
+  },[commit,speech.stop]);
+  const restoreSave=useCallback((next:SaveData)=>{
     blockedRef.current=false;setRecoveryBlocked(false);speech.stop();setLesson(null);commit(next,true);
   },[commit,speech.stop]);
   useEffect(()=>{if(!loaded.error)commit(dataRef.current);},[commit,loaded.error]);
@@ -98,7 +101,7 @@ export default function App(){
         {screen==='hanzi'&&<HanziLibrary words={words} profile={profile} onOpen={openWord} onSpeak={t=>void speech.speak(t)}/>}
         {screen==='poems'&&<PoemLibrary poems={poems} profile={profile} onOpen={openPoem}/>}
         {screen==='zoo'&&<Zoo initialView={zooEntry} profile={profile} onUpdate={updateProfile} onSpeak={t=>void speech.speak(t)}/>}
-        {screen==='parents'&&<Parents activeView={parentView} onViewChange={setParentView} musicStatus={music.status} onMusicStart={music.start} data={data} profile={profile} onReplace={replaceSave} onUpdate={updateProfile} saveError={saveError} corrupted={loaded.corrupted} onResumeSave={()=>{blockedRef.current=false;setRecoveryBlocked(false);commit(dataRef.current,true);}}/>}
+        {screen==='parents'&&<Parents activeView={parentView} onViewChange={setParentView} musicStatus={music.status} onMusicStart={music.start} data={data} profile={profile} onReplace={replaceSave} onRestore={restoreSave} onUpdate={updateProfile} saveError={saveError} recoveryBlocked={recoveryBlocked} corrupted={loaded.corrupted} onResumeSave={()=>{blockedRef.current=false;setRecoveryBlocked(false);commit(dataRef.current,true);}}/>}
       </main></div>
     </div>
     {activeWord&&<HanziLesson key={`${profile.id}-${activeWord.id}`} word={activeWord} words={words} profile={profile} onUpdate={updateProfile} onSpeak={t=>speech.speak(t,undefined,narrationText(activeWord,t))} onClose={closeLesson} onNext={()=>{const index=words.indexOf(activeWord);if(index<words.length-1)openWord(words[index+1]);else closeLesson();}} onZoo={()=>{closeLesson();navigate('zoo');}}/>}
