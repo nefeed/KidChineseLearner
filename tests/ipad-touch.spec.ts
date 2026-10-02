@@ -1,5 +1,5 @@
 import {test as base,expect,chromium,webkit,type Page,type CDPSession,type Locator} from '@playwright/test';
-import {existsSync,readFileSync} from 'node:fs';
+import {existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {buildSync} from 'esbuild';
 import {createProfile,initialProgress,STORAGE_KEY} from '../src/store';
@@ -8,9 +8,24 @@ import type {Hanzi,Profile,SaveData,StrokeData} from '../src/types';
 const url=process.env.IPAD_TEST_URL??'http://127.0.0.1:5173';
 const words=JSON.parse(readFileSync(new URL('../src/data/hanzi.json',import.meta.url),'utf8')) as Hanzi[];
 type Position={x:number;y:number};
+function recordTouchEvents(){
+  type Entry={time:number;type:string;target:string;path:string[];x:number|null;y:number|null;pointerId:number|null;primary:boolean|null;defaultPrevented:boolean;activeTouches:number|null};
+  const diagnostics=window as unknown as {__touchEvents:Entry[]};
+  diagnostics.__touchEvents=[];
+  const describe=(target:EventTarget|null)=>target instanceof Element?`${target.tagName.toLowerCase()}${target.id?`#${target.id}`:''}${target.getAttribute('class')?`.${target.getAttribute('class')!.trim().replace(/\s+/g,'.')}`:''}${target.getAttribute('aria-label')?`[${target.getAttribute('aria-label')}]`:''}`:String(target);
+  for(const type of ['pointerdown','pointermove','pointerup','pointercancel','gotpointercapture','lostpointercapture','touchstart','touchmove','touchend','touchcancel','click']){
+    window.addEventListener(type,event=>{
+      const pointer=event as PointerEvent,touch=event as TouchEvent,point=touch.changedTouches?.[0]??pointer;
+      const entry:Entry={time:performance.now(),type,target:describe(event.target),path:event.composedPath().slice(0,8).map(describe),x:point.clientX??null,y:point.clientY??null,pointerId:pointer.pointerId??null,primary:pointer.isPrimary??null,defaultPrevented:event.defaultPrevented,activeTouches:touch.touches?.length??null};
+      diagnostics.__touchEvents.push(entry);
+      if(diagnostics.__touchEvents.length>3000)diagnostics.__touchEvents.shift();
+      queueMicrotask(()=>{entry.defaultPrevented=event.defaultPrevented;});
+    },{capture:true,passive:true});
+  }
+}
 const test=base.extend<{engine:'chromium'|'webkit';page:Page}>({
   engine:['chromium',{option:true}],
-  page:async({engine},use)=>{
+  page:async({engine},use,testInfo)=>{
     // These launches are isolated from the user's Chrome and in-app browser.
     const requested=process.env.PLAYWRIGHT_CHANNEL;
     // Linux CI uses installed Playwright Chromium; an explicit "chromium"
@@ -18,7 +33,31 @@ const test=base.extend<{engine:'chromium'|'webkit';page:Page}>({
     const channel=requested==='chromium'?undefined:requested??(process.platform==='darwin'&&existsSync('/Applications/Google Chrome.app')?'chrome':undefined);
     const browser=await (engine==='chromium'?chromium.launch({channel}):webkit.launch());
     const context=await browser.newContext({viewport:{width:820,height:1180},deviceScaleFactor:2,isMobile:true,hasTouch:true});
-    try{await use(await context.newPage());}finally{await context.close();await browser.close();}
+    await context.addInitScript(recordTouchEvents);
+    const page=await context.newPage();await page.evaluate(recordTouchEvents);
+    const inputTrace:unknown[]=[];
+    const tracing=engine==='chromium'&&process.env.TOUCH_DIAGNOSTICS==='1'?await context.newCDPSession(page):null;
+    if(tracing){
+      tracing.on('Tracing.dataCollected',event=>inputTrace.push(...event.value));
+      await tracing.send('Tracing.start',{categories:'input,disabled-by-default-input',options:'record-as-much-as-possible',transferMode:'ReportEvents'});
+    }
+    try{await use(page);}finally{
+      if(tracing){
+        const complete=new Promise<void>(resolve=>tracing.once('Tracing.tracingComplete',()=>resolve()));
+        await tracing.send('Tracing.end');await complete;
+      }
+      if(testInfo.status!==testInfo.expectedStatus||process.env.TOUCH_DIAGNOSTICS==='1'){
+        const events=await page.evaluate(()=>({events:(window as unknown as {__touchEvents:unknown[]}).__touchEvents,timeOrigin:performance.timeOrigin,viewport:{innerWidth,innerHeight,scrollX,scrollY,visualScale:visualViewport?.scale},userAgent:navigator.userAgent}));
+        mkdirSync(testInfo.outputDir,{recursive:true});
+        const eventsPath=testInfo.outputPath('touch-events.json');writeFileSync(eventsPath,JSON.stringify(events,null,2));
+        await testInfo.attach('touch-events',{path:eventsPath,contentType:'application/json'});
+        if(tracing){
+          const tracePath=testInfo.outputPath('chromium-input-trace.json');writeFileSync(tracePath,JSON.stringify({traceEvents:inputTrace}));
+          await testInfo.attach('chromium-input-trace',{path:tracePath,contentType:'application/json'});
+        }
+      }
+      await context.close();await browser.close();
+    }
   },
 });
 
@@ -130,6 +169,7 @@ async function strokeFixture(page:Page){
   const bootstrap=await page.goto(new URL('/data/strokes/一.json',url).href);
   expect(bootstrap?.ok()).toBe(true);
   await page.setContent(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><style>.stroke-practice{width:310px;margin:auto}.trace-grid{width:100%;touch-action:none}.stroke-toolbar{display:flex;justify-content:space-between}.stroke-toolbar button{min-height:44px}${style}</style><div id="root"></div><script>${strokeBundle.replace(/<\/script/gi,'<\\/script')}</script>`);
+  await page.evaluate(recordTouchEvents);
 }
 
 for(const engine of ['chromium','webkit'] as const){

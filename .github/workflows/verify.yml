@@ -23,6 +23,7 @@ jobs:
       - name: iPad touch and application-window checks
         env:
           PLAYWRIGHT_CHANNEL: chromium
+          TOUCH_DIAGNOSTICS: '1'
           IPAD_TEST_URL: http://127.0.0.1:5173
           PWA_TEST_URL: http://127.0.0.1:5173
           IPAD_LAYOUT_TEST_URL: http://127.0.0.1:5173
