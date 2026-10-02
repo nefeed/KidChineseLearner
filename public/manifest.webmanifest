@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "字游小岛 · 快乐认识每一个字",
+  "short_name": "字游小岛",
+  "description": "和动物朋友一起认识汉字，听古诗，建设自己的动物园。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ecf6eb",
+  "theme_color": "#ecf6eb",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/icons/island-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/island-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/island-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

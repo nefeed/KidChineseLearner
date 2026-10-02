@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-02",
+  "origin": "http://localhost:5173",
+  "profile": "验证小熊 (development verification profile)",
+  "source": "Codex in-app browser DOM snapshots and readonly DOM attributes",
+  "poem": "春晓",
+  "playbackMethod": "local-audio",
+  "observations": [
+    "Start whole poem: data-speaking=true, first line reading, method=local-audio, music=playing",
+    "Immediate pause: data-speaking=false, reading class removed, control remains 慢慢听整首 (first cancelled line not counted)",
+    "Restart: local-audio and 暂停 control",
+    "Natural completion: data-speaking=false, 去听诗里的故事 unlocked",
+    "Restored 小小探险家 profile and home"
+  ],
+  "limits": [
+    "No subjective listening or full human pronunciation audit claimed",
+    "Music gain ducking/ramp verified by unit tests; DOM playing state alone does not expose actual gain",
+    "Real iPad hardware not tested"
+  ]
+}

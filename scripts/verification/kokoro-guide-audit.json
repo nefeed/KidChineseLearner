@@ -1,0 +1,768 @@
+{
+  "checkedAt": "2026-10-02T09:45:03.245617+00:00",
+  "planSHA256": "d72fb5ada746815606828718a180c56a7ee9169448af8750b34f1620ab439027",
+  "overrideSHA256": "5c2d67f5798bef5a15771be1e84a39e1d2a7cff0ec02ed6ccff26e1ac8940da5",
+  "checkedGuides": 126,
+  "latinGuides": 65,
+  "apicalGuides": 61,
+  "errors": [],
+  "records": [
+    {
+      "text": "声母b，听起来像波。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄅㄛ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄅㄛ1.",
+      "expectedCue": "ㄅㄛ1",
+      "matches": true
+    },
+    {
+      "text": "声母p，听起来像坡。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄆㄛ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄆㄛ1.",
+      "expectedCue": "ㄆㄛ1",
+      "matches": true
+    },
+    {
+      "text": "声母m，听起来像摸。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄇㄛ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄇㄛ1.",
+      "expectedCue": "ㄇㄛ1",
+      "matches": true
+    },
+    {
+      "text": "声母f，听起来像佛。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3 ㄈㄛ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄈㄛ2.",
+      "expectedCue": "ㄈㄛ2",
+      "matches": true
+    },
+    {
+      "text": "声母d，听起来像得。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3 ㄉㄜ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄉㄜ2.",
+      "expectedCue": "ㄉㄜ2",
+      "matches": true
+    },
+    {
+      "text": "声母t，听起来像特。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄊㄜ4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄊㄜ4.",
+      "expectedCue": "ㄊㄜ4",
+      "matches": true
+    },
+    {
+      "text": "声母n，听起来像呢。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄋㄜ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄋㄜ5.",
+      "expectedCue": "ㄋㄜ5",
+      "matches": true
+    },
+    {
+      "text": "声母l，听起来像勒。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3 ㄌㄜ4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄌㄜ4.",
+      "expectedCue": "ㄌㄜ4",
+      "matches": true
+    },
+    {
+      "text": "声母g，听起来像哥。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄍㄜ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄍㄜ1.",
+      "expectedCue": "ㄍㄜ1",
+      "matches": true
+    },
+    {
+      "text": "声母k，听起来像科。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄎㄜ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄎㄜ1.",
+      "expectedCue": "ㄎㄜ1",
+      "matches": true
+    },
+    {
+      "text": "声母h，听起来像喝。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄏㄜ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄏㄜ1.",
+      "expectedCue": "ㄏㄜ1",
+      "matches": true
+    },
+    {
+      "text": "声母j，听起来像鸡。",
+      "phonemes": "ㄕㄥ1/ㄇㄨ3ㄐㄧ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄐㄧ1.",
+      "expectedCue": "ㄐㄧ1",
+      "matches": true
+    },
+    {
+      "text": "声母q，听起来像七。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄑㄧ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄑㄧ1.",
+      "expectedCue": "ㄑㄧ1",
+      "matches": true
+    },
+    {
+      "text": "声母x，听起来像西。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄒㄧ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄒㄧ1.",
+      "expectedCue": "ㄒㄧ1",
+      "matches": true
+    },
+    {
+      "text": "声母zh，听起来像知。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄓ十1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄓ十1.",
+      "expectedCue": "ㄓ十1",
+      "matches": true
+    },
+    {
+      "text": "声母ch，听起来像吃。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄔ十1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄔ十1.",
+      "expectedCue": "ㄔ十1",
+      "matches": true
+    },
+    {
+      "text": "声母sh，听起来像诗。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄕ十1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄕ十1.",
+      "expectedCue": "ㄕ十1",
+      "matches": true
+    },
+    {
+      "text": "声母r，听起来像日。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄖ十4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄖ十4.",
+      "expectedCue": "ㄖ十4",
+      "matches": true
+    },
+    {
+      "text": "声母z，听起来像资。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄗㄭ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄗㄭ1.",
+      "expectedCue": "ㄗㄭ1",
+      "matches": true
+    },
+    {
+      "text": "声母c，听起来像词。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄘㄭ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄘㄭ2.",
+      "expectedCue": "ㄘㄭ2",
+      "matches": true
+    },
+    {
+      "text": "声母s，听起来像思。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄙㄭ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄙㄭ1.",
+      "expectedCue": "ㄙㄭ1",
+      "matches": true
+    },
+    {
+      "text": "声母y，听起来像衣。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄧ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄧ1.",
+      "expectedCue": "ㄧ1",
+      "matches": true
+    },
+    {
+      "text": "声母w，听起来像乌。",
+      "phonemes": "ㄕㄥ1ㄇㄨ3/ㄨ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄨ1.",
+      "expectedCue": "ㄨ1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读日。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄖ十4.",
+      "expectedCue": "ㄖ十4",
+      "matches": true
+    },
+    {
+      "text": "韵母üe，听起来像约。",
+      "phonemes": "云4ㄇㄨ3/月1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/月1.",
+      "expectedCue": "月1",
+      "matches": true
+    },
+    {
+      "text": "韵母an，听起来像安。",
+      "phonemes": "云4ㄇㄨ3/ㄢ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄢ1.",
+      "expectedCue": "ㄢ1",
+      "matches": true
+    },
+    {
+      "text": "韵母ui，听起来像威。",
+      "phonemes": "云4ㄇㄨ3/为1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/为1.",
+      "expectedCue": "为1",
+      "matches": true
+    },
+    {
+      "text": "韵母uo，听起来像窝。",
+      "phonemes": "云4ㄇㄨ3/我1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/我1.",
+      "expectedCue": "我1",
+      "matches": true
+    },
+    {
+      "text": "韵母u，听起来像乌。",
+      "phonemes": "云4ㄇㄨ3/ㄨ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄨ1.",
+      "expectedCue": "ㄨ1",
+      "matches": true
+    },
+    {
+      "text": "韵母ün，听起来像晕。",
+      "phonemes": "云4ㄇㄨ3/云1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/云1.",
+      "expectedCue": "云1",
+      "matches": true
+    },
+    {
+      "text": "韵母ü，听起来像迂。",
+      "phonemes": "云4ㄇㄨ3/ㄩ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄩ1.",
+      "expectedCue": "ㄩ1",
+      "matches": true
+    },
+    {
+      "text": "韵母eng，听起来像哼的后半段。",
+      "phonemes": "云4ㄇㄨ3/ㄏㄥ1/ㄉㄜ5/ㄏㄡ4ㄅㄢ4ㄉ万4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄏㄥ1/ㄉㄜ5/ㄏㄡ4ㄅㄢ4ㄉ万4.",
+      "expectedCue": "ㄏㄥ1",
+      "matches": true
+    },
+    {
+      "text": "韵母ao，听起来像凹。",
+      "phonemes": "云4ㄇㄨ3/ㄠ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄠ1.",
+      "expectedCue": "ㄠ1",
+      "matches": true
+    },
+    {
+      "text": "韵母ou，听起来像欧。",
+      "phonemes": "云4ㄇㄨ3/ㄡ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄡ1.",
+      "expectedCue": "ㄡ1",
+      "matches": true
+    },
+    {
+      "text": "韵母iao，听起来像腰。",
+      "phonemes": "云4ㄇㄨ3/要1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/要1.",
+      "expectedCue": "要1",
+      "matches": true
+    },
+    {
+      "text": "韵母iu，听起来像优。",
+      "phonemes": "云4ㄇㄨ3/又1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/又1.",
+      "expectedCue": "又1",
+      "matches": true
+    },
+    {
+      "text": "韵母iang，听起来像央。",
+      "phonemes": "云4ㄇㄨ3/阳1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/阳1.",
+      "expectedCue": "阳1",
+      "matches": true
+    },
+    {
+      "text": "韵母a，听起来像啊。",
+      "phonemes": "云4ㄇㄨ3/ㄚ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄚ5.",
+      "expectedCue": "ㄚ5",
+      "matches": true
+    },
+    {
+      "text": "韵母ong，听起来像翁的后半段。",
+      "phonemes": "云4ㄇㄨ3/瓮1/ㄉㄜ5/ㄏㄡ4ㄅㄢ4ㄉ万4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/瓮1/ㄉㄜ5/ㄏㄡ4ㄅㄢ4ㄉ万4.",
+      "expectedCue": "瓮1",
+      "matches": true
+    },
+    {
+      "text": "韵母en，听起来像恩。",
+      "phonemes": "云4ㄇㄨ3/ㄣ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄣ1.",
+      "expectedCue": "ㄣ1",
+      "matches": true
+    },
+    {
+      "text": "韵母er，听起来像耳。",
+      "phonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ3.",
+      "expectedCue": "ㄦ2",
+      "matches": true
+    },
+    {
+      "text": "韵母in，听起来像因。",
+      "phonemes": "云4ㄇㄨ3/阴1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/阴1.",
+      "expectedCue": "阴1",
+      "matches": true
+    },
+    {
+      "text": "韵母ia，听起来像呀。",
+      "phonemes": "云4ㄇㄨ3/压5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/压5.",
+      "expectedCue": "压5",
+      "matches": true
+    },
+    {
+      "text": "韵母ie，听起来像耶。",
+      "phonemes": "云4ㄇㄨ3/ㄝ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄝ5.",
+      "expectedCue": "ㄝ5",
+      "matches": true
+    },
+    {
+      "text": "韵母ai，听起来像哀。",
+      "phonemes": "云4ㄇㄨ3/ㄞ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄞ1.",
+      "expectedCue": "ㄞ1",
+      "matches": true
+    },
+    {
+      "text": "韵母e，听起来像鹅。",
+      "phonemes": "云4ㄇㄨ3/ㄜ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄜ2.",
+      "expectedCue": "ㄜ2",
+      "matches": true
+    },
+    {
+      "text": "韵母i，听起来像衣。",
+      "phonemes": "云4ㄇㄨ3/ㄧ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄧ1.",
+      "expectedCue": "ㄧ1",
+      "matches": true
+    },
+    {
+      "text": "韵母ei，听起来像诶。",
+      "phonemes": "云4ㄇㄨ3/ㄟ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄟ5.",
+      "expectedCue": "ㄟ5",
+      "matches": true
+    },
+    {
+      "text": "韵母iou，听起来像优。",
+      "phonemes": "云4ㄇㄨ3/又1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/又1.",
+      "expectedCue": "又1",
+      "matches": true
+    },
+    {
+      "text": "韵母er，听起来像二。",
+      "phonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ4.",
+      "expectedCue": "ㄦ2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读四。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄙㄭ4.",
+      "expectedCue": "ㄙㄭ4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读十。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "韵母ian，听起来像烟。",
+      "phonemes": "云4ㄇㄨ3/言1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/言1.",
+      "expectedCue": "言1",
+      "matches": true
+    },
+    {
+      "text": "韵母ua，听起来像蛙。",
+      "phonemes": "云4ㄇㄨ3/穵1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/穵1.",
+      "expectedCue": "穵1",
+      "matches": true
+    },
+    {
+      "text": "韵母ang，听起来像昂。",
+      "phonemes": "云4ㄇㄨ3/ㄤ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄤ2.",
+      "expectedCue": "ㄤ2",
+      "matches": true
+    },
+    {
+      "text": "韵母uang，听起来像汪。",
+      "phonemes": "云4ㄇㄨ3/王1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/王1.",
+      "expectedCue": "王1",
+      "matches": true
+    },
+    {
+      "text": "韵母ing，听起来像英。",
+      "phonemes": "云4ㄇㄨ3/应1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/应1.",
+      "expectedCue": "应1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读吃。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄔ十1.",
+      "expectedCue": "ㄔ十1",
+      "matches": true
+    },
+    {
+      "text": "韵母uan，听起来像弯。",
+      "phonemes": "云4ㄇㄨ3/万1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/万1.",
+      "expectedCue": "万1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读是。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "韵母uei，听起来像威。",
+      "phonemes": "云4ㄇㄨ3/为1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/为1.",
+      "expectedCue": "为1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读时。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "韵母er，听起来像而。",
+      "phonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ2.",
+      "expectedCue": "ㄦ2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读子。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2 ㄗㄭ3.",
+      "expectedCue": "ㄗㄭ3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读自。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄗㄭ4.",
+      "expectedCue": "ㄗㄭ4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读之。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄓ十1.",
+      "expectedCue": "ㄓ十1",
+      "matches": true
+    },
+    {
+      "text": "韵母iong，听起来像雍。",
+      "phonemes": "云4ㄇㄨ3/用1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/用1.",
+      "expectedCue": "用1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读事。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读只。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄓ十3.",
+      "expectedCue": "ㄓ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读实。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读此。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄘㄭ3.",
+      "expectedCue": "ㄘㄭ3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读使。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十3.",
+      "expectedCue": "ㄕ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读知。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十1.",
+      "expectedCue": "ㄓ十1",
+      "matches": true
+    },
+    {
+      "text": "韵母üan，听起来像冤。",
+      "phonemes": "云4ㄇㄨ3/元1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/元1.",
+      "expectedCue": "元1",
+      "matches": true
+    },
+    {
+      "text": "韵母uai，听起来像歪。",
+      "phonemes": "云4ㄇㄨ3/外1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/外1.",
+      "expectedCue": "外1",
+      "matches": true
+    },
+    {
+      "text": "韵母uen，听起来像温。",
+      "phonemes": "云4ㄇㄨ3/文1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/文1.",
+      "expectedCue": "文1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读制。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读斯。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄙㄭ1.",
+      "expectedCue": "ㄙㄭ1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读世。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读次。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄘㄭ4.",
+      "expectedCue": "ㄘㄭ4",
+      "matches": true
+    },
+    {
+      "text": "韵母er，听起来像儿。",
+      "phonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ2.",
+      "expectedCue": "ㄦ2",
+      "matches": true
+    },
+    {
+      "text": "韵母un，听起来像温。",
+      "phonemes": "云4ㄇㄨ3/文1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/文1.",
+      "expectedCue": "文1",
+      "matches": true
+    },
+    {
+      "text": "韵母er，听起来像尔。",
+      "phonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ3.",
+      "expectedCue": "ㄦ2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读市。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读直。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十2.",
+      "expectedCue": "ㄓ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读资。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄗㄭ1.",
+      "expectedCue": "ㄗㄭ1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读指。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十3.",
+      "expectedCue": "ㄓ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读至。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读治。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读司。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄙㄭ1.",
+      "expectedCue": "ㄙㄭ1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读思。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄙㄭ1.",
+      "expectedCue": "ㄙㄭ1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读式。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读死。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄙㄭ3.",
+      "expectedCue": "ㄙㄭ3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读师。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十1.",
+      "expectedCue": "ㄕ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读识。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读持。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄔ十2.",
+      "expectedCue": "ㄔ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读士。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读失。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十1.",
+      "expectedCue": "ㄕ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读始。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十3.",
+      "expectedCue": "ㄕ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读字。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄗㄭ4.",
+      "expectedCue": "ㄗㄭ4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读质。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读石。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读示。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读似。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2 ㄙㄭ4.",
+      "expectedCue": "ㄙㄭ4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读支。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十1.",
+      "expectedCue": "ㄓ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读视。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读史。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十3.",
+      "expectedCue": "ㄕ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读势。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读致。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读志。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读施。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十1.",
+      "expectedCue": "ㄕ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读织。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十1.",
+      "expectedCue": "ㄓ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读止。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十3.",
+      "expectedCue": "ㄓ十3",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读值。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十2.",
+      "expectedCue": "ㄓ十2",
+      "matches": true
+    },
+    {
+      "text": "韵母o，听起来像喔。",
+      "phonemes": "云4ㄇㄨ3/ㄛ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄛ5.",
+      "expectedCue": "ㄛ5",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读职。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十2.",
+      "expectedCue": "ㄓ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读试。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读适。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读食。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十2.",
+      "expectedCue": "ㄕ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读置。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读室。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读执。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2/ㄓ十2.",
+      "expectedCue": "ㄓ十2",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读释。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "expectedCue": "ㄕ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读智。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄓ十4.",
+      "expectedCue": "ㄓ十4",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读诗。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十1.",
+      "expectedCue": "ㄕ十1",
+      "matches": true
+    },
+    {
+      "text": "这是舌尖韵母，跟着读词。",
+      "phonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄘㄭ2.",
+      "expectedCue": "ㄘㄭ2",
+      "matches": true
+    }
+  ],
+  "boundary": "Checks frontend syllables in reading cues, not auditory quality or isolated phoneme articulation."
+}

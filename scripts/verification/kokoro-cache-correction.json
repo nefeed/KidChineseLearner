@@ -1,0 +1,882 @@
+{
+  "complete": true,
+  "overrideSHA256": "5c2d67f5798bef5a15771be1e84a39e1d2a7cff0ec02ed6ccff26e1ac8940da5",
+  "source": "before-after-phoneme-diff",
+  "checkedClips": 22453,
+  "changedClips": 91,
+  "invalidatedClips": 42,
+  "repairedAt": "2026-10-02T09:40:53.748666+00:00",
+  "incrementalFromOverrideSHA256": "6ddb444e007bb8ba58addbbda604f3531c9188257a40f69f9e8dc9c62989e878",
+  "incrementalChangedClips": 42,
+  "migration": "Exact current6ddb-to-quoted-quiz phoneme comparison; unchanged files retained.",
+  "config": {
+    "version": 1,
+    "scope": [
+      "standalone-course-glyph",
+      "glyph-before-full-stop",
+      "exact-read-as-feedback",
+      "exact-pinyin-teaching-template",
+      "exact-quoted-quiz-glyph"
+    ],
+    "primaryReadings": {
+      "长": {
+        "pinyin": "cháng",
+        "phonemes": "ㄔㄤ2"
+      },
+      "地": {
+        "pinyin": "dì",
+        "phonemes": "ㄉㄧ4"
+      },
+      "子": {
+        "pinyin": "zǐ",
+        "phonemes": "ㄗㄭ3"
+      },
+      "调": {
+        "pinyin": "tiáo",
+        "phonemes": "ㄊ要2"
+      },
+      "似": {
+        "pinyin": "sì",
+        "phonemes": "ㄙㄭ4"
+      },
+      "尽": {
+        "pinyin": "jìn",
+        "phonemes": "ㄐ阴4"
+      },
+      "倒": {
+        "pinyin": "dǎo",
+        "phonemes": "ㄉㄠ3"
+      },
+      "弹": {
+        "pinyin": "tán",
+        "phonemes": "ㄊㄢ2"
+      },
+      "佛": {
+        "pinyin": "fó",
+        "phonemes": "ㄈㄛ2"
+      },
+      "个": {
+        "pinyin": "gè",
+        "phonemes": "ㄍㄜ4"
+      },
+      "得": {
+        "pinyin": "dé",
+        "phonemes": "ㄉㄜ2"
+      },
+      "过": {
+        "pinyin": "guò",
+        "phonemes": "ㄍ我4"
+      }
+    },
+    "teachingTemplates": {
+      "声母佛，听起来像佛。": {
+        "before": "声母",
+        "glyph": "佛",
+        "middle": "，听起来像"
+      },
+      "声母得，听起来像得。": {
+        "before": "声母",
+        "glyph": "得",
+        "middle": "，听起来像"
+      },
+      "声母勒，听起来像勒。": {
+        "before": "声母",
+        "glyph": "勒",
+        "middle": "，听起来像",
+        "phonemes": "ㄌㄜ4"
+      },
+      "韵母儿，听起来像耳。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ3"
+      },
+      "韵母儿，听起来像二。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ4"
+      },
+      "韵母儿，听起来像而。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ2"
+      },
+      "韵母儿，听起来像儿。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ2"
+      },
+      "韵母儿，听起来像尔。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ3"
+      },
+      "这是舌尖韵母，跟着读子。": {
+        "before": "这是舌尖韵母，跟着读",
+        "glyph": "子"
+      },
+      "这是舌尖韵母，跟着读似。": {
+        "before": "这是舌尖韵母，跟着读",
+        "glyph": "似"
+      }
+    },
+    "quotedQuizReadings": {
+      "长": {
+        "pinyin": "cháng",
+        "phonemes": "ㄔㄤ2"
+      },
+      "地": {
+        "pinyin": "dì",
+        "phonemes": "ㄉㄧ4"
+      },
+      "子": {
+        "pinyin": "zǐ",
+        "phonemes": "ㄗㄭ3"
+      },
+      "调": {
+        "pinyin": "tiáo",
+        "phonemes": "ㄊ要2"
+      },
+      "似": {
+        "pinyin": "sì",
+        "phonemes": "ㄙㄭ4"
+      },
+      "尽": {
+        "pinyin": "jìn",
+        "phonemes": "ㄐ阴4"
+      },
+      "倒": {
+        "pinyin": "dǎo",
+        "phonemes": "ㄉㄠ3"
+      },
+      "弹": {
+        "pinyin": "tán",
+        "phonemes": "ㄊㄢ2"
+      },
+      "佛": {
+        "pinyin": "fó",
+        "phonemes": "ㄈㄛ2"
+      },
+      "个": {
+        "pinyin": "gè",
+        "phonemes": "ㄍㄜ4"
+      },
+      "得": {
+        "pinyin": "dé",
+        "phonemes": "ㄉㄜ2"
+      },
+      "过": {
+        "pinyin": "guò",
+        "phonemes": "ㄍ我4"
+      },
+      "为": {
+        "pinyin": "wéi",
+        "phonemes": "为2"
+      },
+      "教": {
+        "pinyin": "jiāo",
+        "phonemes": "ㄐ要1"
+      },
+      "处": {
+        "pinyin": "chǔ",
+        "phonemes": "ㄔㄨ3"
+      },
+      "切": {
+        "pinyin": "qiē",
+        "phonemes": "ㄑㄝ1"
+      },
+      "划": {
+        "pinyin": "huá",
+        "phonemes": "ㄏ穵2"
+      },
+      "兴": {
+        "pinyin": "xìng",
+        "phonemes": "ㄒ应4"
+      },
+      "斗": {
+        "pinyin": "dǒu",
+        "phonemes": "ㄉㄡ3"
+      },
+      "率": {
+        "pinyin": "shuài",
+        "phonemes": "ㄕ外4"
+      },
+      "背": {
+        "pinyin": "bēi",
+        "phonemes": "ㄅㄟ1"
+      }
+    },
+    "quotedQuizTemplates": [
+      "“{glyph}”是什么意思？",
+      "哪个词里有“{glyph}”？"
+    ],
+    "verifiedWordReading": {
+      "长绳": "cháng shéng"
+    },
+    "contextPolicy": "All other contexts use the unmodified Misaki phrase dictionary and tone sandhi."
+  },
+  "planSHA256": "d72fb5ada746815606828718a180c56a7ee9169448af8750b34f1620ab439027",
+  "changedEntries": [
+    {
+      "file": "kokoro-87d046ff264e47e94431.m4a",
+      "spoken": "长",
+      "beforePhonemes": "ㄓㄤ3",
+      "afterPhonemes": "ㄔㄤ2",
+      "validatedAACSHA256": "1ae3b5162c9246278ff75894b0944a6df8442f2d101887ccf77bd60a7cee17a7"
+    },
+    {
+      "file": "kokoro-fc7a14560aace1e74d40.m4a",
+      "spoken": "长绳",
+      "beforePhonemes": "ㄓㄤ3ㄕㄥ2",
+      "afterPhonemes": "ㄔㄤ2ㄕㄥ2",
+      "validatedAACSHA256": "8b3350e3f2fb0b1427a6160888d02a8a5442e3c754759133d5cb8c7324e42488"
+    },
+    {
+      "file": "kokoro-5c87174902b5dcdccb85.m4a",
+      "spoken": "长绳。这条绳子很长。",
+      "beforePhonemes": "ㄓㄤ3ㄕㄥ2. ㄓㄜ4/ㄊ要2/ㄕㄥ2ㄗㄭ5/ㄏㄣ2ㄓㄤ3.",
+      "afterPhonemes": "ㄔㄤ2ㄕㄥ2. ㄓㄜ4/ㄊ要2/ㄕㄥ2ㄗㄭ5/ㄏㄣ2ㄓㄤ3.",
+      "validatedAACSHA256": "a538c3af57e309246aa7b6775953638f23430ef67de1d067883d35a32fb81db6"
+    },
+    {
+      "file": "kokoro-f34b86bbe3c8cf33dd01.m4a",
+      "spoken": "长绳。两端之间的距离比较大。",
+      "beforePhonemes": "ㄓㄤ3ㄕㄥ2. ㄌ阳3ㄉ万1/ㄓ十1ㄐ言1/ㄉㄜ5/ㄐㄩ4ㄌㄧ2/ㄅㄧ3ㄐ要4/ㄉㄚ4.",
+      "afterPhonemes": "ㄔㄤ2ㄕㄥ2. ㄌ阳3ㄉ万1/ㄓ十1ㄐ言1/ㄉㄜ5/ㄐㄩ4ㄌㄧ2/ㄅㄧ3ㄐ要4/ㄉㄚ4.",
+      "validatedAACSHA256": "9454c4a8865dbeb5be5f5e3daa61657024714cc797aafef291687d71ed2093fd"
+    },
+    {
+      "file": "kokoro-309bf66eb051814f45c1.m4a",
+      "spoken": "长。两端之间的距离比较大。",
+      "beforePhonemes": "ㄓㄤ3. ㄌ阳3ㄉ万1/ㄓ十1ㄐ言1/ㄉㄜ5/ㄐㄩ4ㄌㄧ2/ㄅㄧ3ㄐ要4/ㄉㄚ4.",
+      "afterPhonemes": "ㄔㄤ2. ㄌ阳3ㄉ万1/ㄓ十1ㄐ言1/ㄉㄜ5/ㄐㄩ4ㄌㄧ2/ㄅㄧ3ㄐ要4/ㄉㄚ4.",
+      "validatedAACSHA256": "c8d189260eada68dcd21077d1b22e8a9d59afeb1354e73fdfaf1b8a5b32c7408"
+    },
+    {
+      "file": "kokoro-6ea2598e895b1f74063d.m4a",
+      "spoken": "再听句子，找找长绳。",
+      "beforePhonemes": "ㄗㄞ4/ㄊ应1/ㄐㄩ4ㄗㄭ5, ㄓㄠ3ㄓㄠ5/ㄓㄤ3ㄕㄥ2.",
+      "afterPhonemes": "ㄗㄞ4/ㄊ应1/ㄐㄩ4ㄗㄭ5, ㄓㄠ3ㄓㄠ5/ㄔㄤ2ㄕㄥ2.",
+      "validatedAACSHA256": "c43b56a3677e4f61aa3ea46a8be13123beba4d7f8a762c86f825ef0a015eea9a"
+    },
+    {
+      "file": "kokoro-9fa06ef933a393acf67f.m4a",
+      "spoken": "找对啦！长绳",
+      "beforePhonemes": "ㄓㄠ3ㄉ为4/ㄌㄚ5! ㄓㄤ3ㄕㄥ2",
+      "afterPhonemes": "ㄓㄠ3ㄉ为4/ㄌㄚ5! ㄔㄤ2ㄕㄥ2",
+      "validatedAACSHA256": "042ea14b2e16aea581d6bb6a682275116cf1328b29614dc1eb833b6afed66739"
+    },
+    {
+      "file": "kokoro-97fc4bd5294410a879c9.m4a",
+      "spoken": "“长”是什么意思？",
+      "beforePhonemes": "“ㄓㄤ3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄔㄤ2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "11767973b0a829a2b43d9efe0c8327d00c460d79d10f30c60b24122a6721f781"
+    },
+    {
+      "file": "kokoro-082fc1e7cd6711ffb2be.m4a",
+      "spoken": "哪个词里有“长”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄓㄤ3”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄔㄤ2”?",
+      "validatedAACSHA256": "b0d4a7b189470a83da7feb775d48dba210eb55c83b3426e724fa14ca4a00638d"
+    },
+    {
+      "file": "kokoro-46f189f7a32f831e90a5.m4a",
+      "spoken": "长。二声往上扬，像小车上山。",
+      "beforePhonemes": "ㄓㄤ3. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "afterPhonemes": "ㄔㄤ2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "validatedAACSHA256": "57beea6e4f9ef68520d9f24d759bdbcb5a69e4ae4fbe277200f1d88221fa9bee"
+    },
+    {
+      "file": "kokoro-5a3cc7c7a2cba90c29a8.m4a",
+      "spoken": "个",
+      "beforePhonemes": "ㄍㄜ5",
+      "afterPhonemes": "ㄍㄜ4",
+      "validatedAACSHA256": "f4cf4ca7b19549931fc297080730d0e8b1530910ab81397ae59cd51ac77265a3"
+    },
+    {
+      "file": "kokoro-39f3cca282e51a19b6c1.m4a",
+      "spoken": "个。数人和许多物品时使用的量词。",
+      "beforePhonemes": "ㄍㄜ5. ㄕㄨ4ㄖㄣ2/ㄏㄜ2/ㄒㄩ3ㄉ我1/ㄨ4ㄆ阴3/ㄕ十2/ㄕ十3用4/ㄉㄜ5/ㄌ阳4ㄘㄭ2.",
+      "afterPhonemes": "ㄍㄜ4. ㄕㄨ4ㄖㄣ2/ㄏㄜ2/ㄒㄩ3ㄉ我1/ㄨ4ㄆ阴3/ㄕ十2/ㄕ十3用4/ㄉㄜ5/ㄌ阳4ㄘㄭ2.",
+      "validatedAACSHA256": "e4af4c2699b544deab60e48811df73d843883d902a39a7a838093f48860c86e0"
+    },
+    {
+      "file": "kokoro-5b0f3c7608409144935d.m4a",
+      "spoken": "“个”是什么意思？",
+      "beforePhonemes": "“ㄍㄜ5”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄍㄜ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "b5b9d4d3566b0206768c0179734007695926e19df0086572a4729be7bb4338dd"
+    },
+    {
+      "file": "kokoro-734ee33fc2699b6db2e4.m4a",
+      "spoken": "哪个词里有“个”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄍㄜ5”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄍㄜ4”?",
+      "validatedAACSHA256": "957c779345f7615c892bbbc4f086ff6210cf68dd9545a4cebdd3dc113e9601f8"
+    },
+    {
+      "file": "kokoro-f3ebd67b53ac57cefe10.m4a",
+      "spoken": "个。四声从高到低，像滑滑梯。",
+      "beforePhonemes": "ㄍㄜ5. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "afterPhonemes": "ㄍㄜ4. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "validatedAACSHA256": "aae8c680fcbfe6154c1c5604c108157e0aebce05b1aef3df2d952ad4d7749163"
+    },
+    {
+      "file": "kokoro-2e2181ce56a7426e517d.m4a",
+      "spoken": "“为”是什么意思？",
+      "beforePhonemes": "“为4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“为2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "34070f56d836bfeff8dbf5c8f157a9c90cd9d06b624515a80c6b6e99b9c5dd81"
+    },
+    {
+      "file": "kokoro-816057017b68fa4f2a91.m4a",
+      "spoken": "哪个词里有“为”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“为4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“为2”?",
+      "validatedAACSHA256": "625aac517c7f87893952c98f1af2cdeea00549d21ebfc7e69ecc887f706fd9fd"
+    },
+    {
+      "file": "kokoro-99bce70b7793be735fe7.m4a",
+      "spoken": "地",
+      "beforePhonemes": "ㄉㄜ5",
+      "afterPhonemes": "ㄉㄧ4",
+      "validatedAACSHA256": "e192094271bc7d026d0056dd8eaba762079e0dd129a0cf535610ba14650379c4"
+    },
+    {
+      "file": "kokoro-b9c3bdd9881a2049dd37.m4a",
+      "spoken": "地。地面、土地，也可以表示地方。",
+      "beforePhonemes": "ㄉㄜ5. ㄉㄧ4ㄇ言4, ㄊㄨ3ㄉㄧ5, ㄝ3ㄎㄜ2ㄧ3/ㄅ要3ㄕ十4/ㄉㄧ4ㄈㄤ5.",
+      "afterPhonemes": "ㄉㄧ4. ㄉㄧ4ㄇ言4, ㄊㄨ3ㄉㄧ5, ㄝ3ㄎㄜ2ㄧ3/ㄅ要3ㄕ十4/ㄉㄧ4ㄈㄤ5.",
+      "validatedAACSHA256": "f4942aef761f1cca1a4f11e2f2fc39ae917f3a9afcead5e5d11acb5dec804448"
+    },
+    {
+      "file": "kokoro-43cc2d46f02df0dd8b1e.m4a",
+      "spoken": "“地”是什么意思？",
+      "beforePhonemes": "“ㄉㄜ5”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄉㄧ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "29cb2f99964c7d6dc724949e811b1f1c16588bb9df76462d527b71049d3222bd"
+    },
+    {
+      "file": "kokoro-6f409074037a47688a8d.m4a",
+      "spoken": "哪个词里有“地”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄜ5”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄧ4”?",
+      "validatedAACSHA256": "ecbcbfb4a3d56ac32878f70cadfd757832c1ecb3dc70b3d01f1389b794ecaf4f"
+    },
+    {
+      "file": "kokoro-72b23fece68a092a9e7f.m4a",
+      "spoken": "地。四声从高到低，像滑滑梯。",
+      "beforePhonemes": "ㄉㄜ5. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "afterPhonemes": "ㄉㄧ4. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "validatedAACSHA256": "c7117f2aadae9cf749f5b7d5f07175556d9a286ae1d791a097237e0e3287fa8d"
+    },
+    {
+      "file": "kokoro-e13dc8e43ce6ff0105c2.m4a",
+      "spoken": "子",
+      "beforePhonemes": "ㄗㄭ5",
+      "afterPhonemes": "ㄗㄭ3",
+      "validatedAACSHA256": "6aa1d4087337cea9bceb1a3ddd144f6d4de195509449bf20e25cfd8e52d223b5"
+    },
+    {
+      "file": "kokoro-36f9a1ef08d19de35bf7.m4a",
+      "spoken": "子。指子女，也能表示植物的种子等事物。",
+      "beforePhonemes": "ㄗㄭ5. ㄓ十3ㄗㄭ2ㄋㄩ3, ㄝ3/ㄋㄥ2/ㄅ要3ㄕ十4/ㄓ十2ㄨ4/ㄉㄜ5/ㄓ中3ㄗㄭ5/ㄉㄥ3/ㄕ十4ㄨ4.",
+      "afterPhonemes": "ㄗㄭ3. ㄓ十3ㄗㄭ2ㄋㄩ3, ㄝ3/ㄋㄥ2/ㄅ要3ㄕ十4/ㄓ十2ㄨ4/ㄉㄜ5/ㄓ中3ㄗㄭ5/ㄉㄥ3/ㄕ十4ㄨ4.",
+      "validatedAACSHA256": "362f5d6e7638c3b5d9d1623fd421a7a019c9bd863b114ce937b30491f57a9d31"
+    },
+    {
+      "file": "kokoro-82ee62b1c5eeeb5e0829.m4a",
+      "spoken": "“子”是什么意思？",
+      "beforePhonemes": "“ㄗㄭ5”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄗㄭ3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "fedaf28d5c830160088b344650174ecc60ecf149f9fba06de288bf5ac4ded498"
+    },
+    {
+      "file": "kokoro-4ee8f95ae0cb0249445d.m4a",
+      "spoken": "哪个词里有“子”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄗㄭ5”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄗㄭ3”?",
+      "validatedAACSHA256": "c22ea7a1c34fdddd129abfcf22e0cfcd6496ca502e6e565eb5a1a257e9b38584"
+    },
+    {
+      "file": "kokoro-4cfd549cc1a8e8eca41e.m4a",
+      "spoken": "子。三声先下后上，像走进小山谷。",
+      "beforePhonemes": "ㄗㄭ5. ㄙㄢ1ㄕㄥ1/ㄒ言1ㄒ压4/ㄏㄡ4ㄕㄤ5, ㄒ阳4/ㄗㄡ3ㄐ阴4/ㄒ要3/ㄕㄢ1ㄍㄨ3.",
+      "afterPhonemes": "ㄗㄭ3. ㄙㄢ1ㄕㄥ1/ㄒ言1ㄒ压4/ㄏㄡ4ㄕㄤ5, ㄒ阳4/ㄗㄡ3ㄐ阴4/ㄒ要3/ㄕㄢ1ㄍㄨ3.",
+      "validatedAACSHA256": "62265e1dcf3bd9725d30d75e6f93135bb9951031b6d4c905b532c1d1c4fadbd7"
+    },
+    {
+      "file": "kokoro-9dc6a6371217cc7ee50e.m4a",
+      "spoken": "得",
+      "beforePhonemes": "ㄉㄜ5",
+      "afterPhonemes": "ㄉㄜ2",
+      "validatedAACSHA256": "07cedcc7c0f12393392189660401bae2775868a9d6648c33426d3896ebca0d84"
+    },
+    {
+      "file": "kokoro-8cd82246ab452eea8d4a.m4a",
+      "spoken": "得。得到，获得。",
+      "beforePhonemes": "ㄉㄜ5. ㄉㄜ2ㄉㄠ4, ㄏ我4ㄉㄜ5.",
+      "afterPhonemes": "ㄉㄜ2. ㄉㄜ2ㄉㄠ4, ㄏ我4ㄉㄜ5.",
+      "validatedAACSHA256": "2acc0559d7418e75125ea52ba70ab3a5802d73f01a4c176a86e3ec30d46ca3f6"
+    },
+    {
+      "file": "kokoro-e6e1a00778aeb0619216.m4a",
+      "spoken": "“得”是什么意思？",
+      "beforePhonemes": "“ㄉㄜ5”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄉㄜ2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "3c3679613b2af8cd12aa00ccf3beca5c58ac87047dd73b97aa09e6ada2009005"
+    },
+    {
+      "file": "kokoro-8a944bed5f099871e72b.m4a",
+      "spoken": "哪个词里有“得”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄜ5”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄜ2”?",
+      "validatedAACSHA256": "f4e90c1b9f8b3e8ca18b714b83b9961720f32c2593c0f2bf52c263c1f25e26a3"
+    },
+    {
+      "file": "kokoro-77e837375880fb52495d.m4a",
+      "spoken": "得。二声往上扬，像小车上山。",
+      "beforePhonemes": "ㄉㄜ5. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "afterPhonemes": "ㄉㄜ2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "validatedAACSHA256": "06d0f022a58b683fd8ca4531abd63a64059bfe46c70c9b185e033949d4bf60e7"
+    },
+    {
+      "file": "kokoro-dc3e1bd19c80af64b1c4.m4a",
+      "spoken": "过",
+      "beforePhonemes": "ㄍ我5",
+      "afterPhonemes": "ㄍ我4",
+      "validatedAACSHA256": "1cf6b93cab6ab8e4a05932bca31911c0f433aa0ca9c5cf91e708f1446a4e07b2"
+    },
+    {
+      "file": "kokoro-d677496504e80bfb6bd0.m4a",
+      "spoken": "“过”是什么意思？",
+      "beforePhonemes": "“ㄍ我5”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄍ我4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "cb856cdcd54740cfc5eff26bef5945d74bece79045efb9be14fbd388a237437c"
+    },
+    {
+      "file": "kokoro-447c4fc176ab1a980c40.m4a",
+      "spoken": "哪个词里有“过”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄍ我5”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄍ我4”?",
+      "validatedAACSHA256": "74a40c3c72d4ce9ac9344ecb578c33613bc5780180eda1f0125ee141f7a870c8"
+    },
+    {
+      "file": "kokoro-08cc51401a1a7a8024a3.m4a",
+      "spoken": "“教”是什么意思？",
+      "beforePhonemes": "“ㄐ要4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄐ要1”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "69591f695815ac8a5dce9587702a9989b6a0de5097a70ad291b2ae0a1cf1bf48"
+    },
+    {
+      "file": "kokoro-2c26fbfcb01c15834e95.m4a",
+      "spoken": "哪个词里有“教”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄐ要4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄐ要1”?",
+      "validatedAACSHA256": "b204ad8ee208301ef2ba725e144fbc9eedd98df6f35f271469e7612bd04c0f01"
+    },
+    {
+      "file": "kokoro-d6abb7f4434b01402a57.m4a",
+      "spoken": "“处”是什么意思？",
+      "beforePhonemes": "“ㄔㄨ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄔㄨ3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "154e53bfecdf6f81a85086b984d640ee3785bee1921b308583a53f3d5adbaac7"
+    },
+    {
+      "file": "kokoro-61e1252ad83bf48ef709.m4a",
+      "spoken": "哪个词里有“处”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄔㄨ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄔㄨ3”?",
+      "validatedAACSHA256": "190bc3b33db8e728dcd5933d67a85ef1aa5ff51d5245fcecaf3c4281a5d58f46"
+    },
+    {
+      "file": "kokoro-d311eb8887ec087042dc.m4a",
+      "spoken": "“切”是什么意思？",
+      "beforePhonemes": "“ㄑㄝ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄑㄝ1”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "53764e8dfe5ba4b763a84fff0b6bd2c850d9baec64434f62a43649bcf0a1e5ac"
+    },
+    {
+      "file": "kokoro-054764f79cdf67f6523c.m4a",
+      "spoken": "哪个词里有“切”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄑㄝ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄑㄝ1”?",
+      "validatedAACSHA256": "41cf7e57d03a76e7eadc1e5489a0f90c2e0f9bc81f6be708838e7de4a368b4f7"
+    },
+    {
+      "file": "kokoro-d8489beaef897c1fb989.m4a",
+      "spoken": "调",
+      "beforePhonemes": "ㄉ要4",
+      "afterPhonemes": "ㄊ要2",
+      "validatedAACSHA256": "6bed7d4461e877f0e17d3869dc8056adc572c1a6935d711d6b4881fb8c1bb9f4"
+    },
+    {
+      "file": "kokoro-313a30075e953b7da774.m4a",
+      "spoken": "调。改变一下，让事情更合适。",
+      "beforePhonemes": "ㄉ要4. ㄍㄞ3ㄅ言4/ㄧ2ㄒ压4, ㄖㄤ4/ㄕ十4ㄑ应5/ㄍㄥ4/ㄏㄜ2ㄕ十4.",
+      "afterPhonemes": "ㄊ要2. ㄍㄞ3ㄅ言4/ㄧ2ㄒ压4, ㄖㄤ4/ㄕ十4ㄑ应5/ㄍㄥ4/ㄏㄜ2ㄕ十4.",
+      "validatedAACSHA256": "ff299cadf6154031ca6f882dc6b76ef12c9748ba6e1cbf93a86e63274c7041fd"
+    },
+    {
+      "file": "kokoro-17c8e91369e5303d42df.m4a",
+      "spoken": "“调”是什么意思？",
+      "beforePhonemes": "“ㄉ要4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄊ要2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "6621eca9e0d24e6373680dd7153c225625c63341708f87e6d53425cb9a849e6a"
+    },
+    {
+      "file": "kokoro-cf3c2f18cf61a692235c.m4a",
+      "spoken": "哪个词里有“调”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉ要4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄊ要2”?",
+      "validatedAACSHA256": "6d268f71e9a3132abf0d2e94869831c7345bd1ece8ea355383a5e18acb87cbfd"
+    },
+    {
+      "file": "kokoro-6125c5537a942a4b1516.m4a",
+      "spoken": "调。二声往上扬，像小车上山。",
+      "beforePhonemes": "ㄉ要4. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "afterPhonemes": "ㄊ要2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "validatedAACSHA256": "96fde8ed62f9a6bb2e68e554459a2813aeda9c1dbc3ddd4a02bd171829322a1e"
+    },
+    {
+      "file": "kokoro-1986d4575b85c34c9465.m4a",
+      "spoken": "似",
+      "beforePhonemes": "ㄕ十4",
+      "afterPhonemes": "ㄙㄭ4",
+      "validatedAACSHA256": "de28a83ebf7ac52e6711d579954a606d52921c9cc1a7e8d04dcf0c943f9633c2"
+    },
+    {
+      "file": "kokoro-af9496154d5fc6e7d053.m4a",
+      "spoken": "似。看起来有些相像。",
+      "beforePhonemes": "ㄕ十4. ㄎㄢ4ㄑㄧ3ㄌㄞ5/又3ㄒㄝ1/ㄒ阳1ㄒ阳4.",
+      "afterPhonemes": "ㄙㄭ4. ㄎㄢ4ㄑㄧ3ㄌㄞ5/又3ㄒㄝ1/ㄒ阳1ㄒ阳4.",
+      "validatedAACSHA256": "0f616eaf768e9cbf0f6b38210c5d61b5dfd3a86532987bafa5dfa691c4a62fd7"
+    },
+    {
+      "file": "kokoro-317c17a1c76e98456824.m4a",
+      "spoken": "“似”是什么意思？",
+      "beforePhonemes": "“ㄕ十4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄙㄭ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "a356c24ba9378f1aebe9b90636c86a93a36730f2b5e8d11896a342d628e90250"
+    },
+    {
+      "file": "kokoro-da4f57927defc67b9364.m4a",
+      "spoken": "哪个词里有“似”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄕ十4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄙㄭ4”?",
+      "validatedAACSHA256": "79cda2d52a5d83ef01474cf9ac96a8ae0adad740bacde4a03989888e81679856"
+    },
+    {
+      "file": "kokoro-77e90f6f4d67aff22d5b.m4a",
+      "spoken": "似。四声从高到低，像滑滑梯。",
+      "beforePhonemes": "ㄕ十4. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "afterPhonemes": "ㄙㄭ4. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "validatedAACSHA256": "1dcff7b3c5565d0917b7ba56c297ffaea50aa9483e35f6cb54058fe8e35f1c04"
+    },
+    {
+      "file": "kokoro-4644264e8cb311c4dc78.m4a",
+      "spoken": "尽",
+      "beforePhonemes": "ㄐ阴3",
+      "afterPhonemes": "ㄐ阴4",
+      "validatedAACSHA256": "f3b352af2e83d891a547c687600cb45ec2610a56246e2ff92ca1c54ed5363f87"
+    },
+    {
+      "file": "kokoro-94c223df16892ffcaae8.m4a",
+      "spoken": "尽。用上全部力量，或用完全部东西。",
+      "beforePhonemes": "ㄐ阴3. 用4/ㄕㄤ4/ㄑ元2ㄅㄨ4/ㄌㄧ4ㄌ阳4, ㄏ我4/用4/万2ㄑ元2/ㄅㄨ4/ㄉ中1ㄒㄧ5.",
+      "afterPhonemes": "ㄐ阴4. 用4/ㄕㄤ4/ㄑ元2ㄅㄨ4/ㄌㄧ4ㄌ阳4, ㄏ我4/用4/万2ㄑ元2/ㄅㄨ4/ㄉ中1ㄒㄧ5.",
+      "validatedAACSHA256": "fda3ca0a4da536c4e2ef23753ef5e84a029ec31261bf56f257824f82521cd645"
+    },
+    {
+      "file": "kokoro-ff9276b5ecf1ec9eb1f9.m4a",
+      "spoken": "“尽”是什么意思？",
+      "beforePhonemes": "“ㄐ阴3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄐ阴4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "0001506486385dc36e388ee0a545da21526939e8c9d09c07ce99d0ee4bc17b3c"
+    },
+    {
+      "file": "kokoro-7ad97e53c5adbba2e42e.m4a",
+      "spoken": "哪个词里有“尽”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄐ阴3”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄐ阴4”?",
+      "validatedAACSHA256": "1d0d334cb385a8e430fa17f5d17cb7a730c7c183038e309bc9e2ce727eec0889"
+    },
+    {
+      "file": "kokoro-e088e668fd3f10084d0c.m4a",
+      "spoken": "尽。四声从高到低，像滑滑梯。",
+      "beforePhonemes": "ㄐ阴3. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "afterPhonemes": "ㄐ阴4. ㄙㄭ4ㄕㄥ1/ㄘ中2/ㄍㄠ1/ㄉㄠ4/ㄉㄧ1, ㄒ阳4ㄏ穵2/ㄏ穵2ㄊㄧ1.",
+      "validatedAACSHA256": "e1759175c25e1558e1c2df0d264fec0f01cbf23a7f55fc1bbfe0c29638dace96"
+    },
+    {
+      "file": "kokoro-ddbe7a680ac1385a6a6c.m4a",
+      "spoken": "“划”是什么意思？",
+      "beforePhonemes": "“ㄏ穵4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄏ穵2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "81ad1d43cc0e247bcf35702c1cd9567533f988d5b90e0bea3c099fe64881e142"
+    },
+    {
+      "file": "kokoro-c05eae920a33d64c9ab0.m4a",
+      "spoken": "哪个词里有“划”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄏ穵4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄏ穵2”?",
+      "validatedAACSHA256": "090891f42fb70320f513d39312efb1ce8808d743b206779f4a46d687b1b995df"
+    },
+    {
+      "file": "kokoro-1dcc0befbfd06739a6b2.m4a",
+      "spoken": "“兴”是什么意思？",
+      "beforePhonemes": "“ㄒ应1”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄒ应4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "364a548e3a93efcec1f80815307ff2b5f3653cc53abea3532538f34c76a08121"
+    },
+    {
+      "file": "kokoro-765a444f9f24694191e6.m4a",
+      "spoken": "哪个词里有“兴”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄒ应1”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄒ应4”?",
+      "validatedAACSHA256": "dca15b011de2c32136bf846f53c353fb6ffb9053c10b8c85f8a3e5dcf18b061a"
+    },
+    {
+      "file": "kokoro-1c525e0bf5ee2c37c9a0.m4a",
+      "spoken": "“斗”是什么意思？",
+      "beforePhonemes": "“ㄉㄡ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄉㄡ3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "00f2d1af85ba869880293eeef2d6a417156c07fe2322ff8ae289a79907f96b33"
+    },
+    {
+      "file": "kokoro-6b7b377abc4139337664.m4a",
+      "spoken": "哪个词里有“斗”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄡ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄡ3”?",
+      "validatedAACSHA256": "118bf66a643f1b314fe0abdde909d9c66d03c82b52c89d6d85c1881ba2b3d68d"
+    },
+    {
+      "file": "kokoro-647a54274064e9e508ab.m4a",
+      "spoken": "倒",
+      "beforePhonemes": "ㄉㄠ4",
+      "afterPhonemes": "ㄉㄠ3",
+      "validatedAACSHA256": "fb0484f9e5a954686ef41ec3709cab06d7fc57c20784bd0a2bddecac97ed5b1a"
+    },
+    {
+      "file": "kokoro-ea3db0e2a5b8a248644b.m4a",
+      "spoken": "倒。站着的东西倾斜下来，或上下颠倒。",
+      "beforePhonemes": "ㄉㄠ4. ㄓㄢ4/ㄓㄜ5/ㄉㄜ5/ㄉ中1ㄒㄧ5/ㄑ应1ㄒㄝ2/ㄒ压4ㄌㄞ5, ㄏ我4/ㄕㄤ4ㄒ压4ㄉ言1ㄉㄠ3.",
+      "afterPhonemes": "ㄉㄠ3. ㄓㄢ4/ㄓㄜ5/ㄉㄜ5/ㄉ中1ㄒㄧ5/ㄑ应1ㄒㄝ2/ㄒ压4ㄌㄞ5, ㄏ我4/ㄕㄤ4ㄒ压4ㄉ言1ㄉㄠ3.",
+      "validatedAACSHA256": "671838c54570b2a33cf46fa0d37cd6cce3d6210494ec6de1b1d460f08270d231"
+    },
+    {
+      "file": "kokoro-cb82af393b13f7b34f84.m4a",
+      "spoken": "“倒”是什么意思？",
+      "beforePhonemes": "“ㄉㄠ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄉㄠ3”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "293aaa0284e9d9881011efcaa013da3f899a897642034b9a963e0799500afa8b"
+    },
+    {
+      "file": "kokoro-ae905ec2239d82c4a45d.m4a",
+      "spoken": "哪个词里有“倒”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄠ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄠ3”?",
+      "validatedAACSHA256": "2bf383f106acce2b5bb038d7bea93f21129bff696991c0bb264b64880b436ba4"
+    },
+    {
+      "file": "kokoro-21ff68f7244cb7c10f44.m4a",
+      "spoken": "倒。三声先下后上，像走进小山谷。",
+      "beforePhonemes": "ㄉㄠ4. ㄙㄢ1ㄕㄥ1/ㄒ言1ㄒ压4/ㄏㄡ4ㄕㄤ5, ㄒ阳4/ㄗㄡ3ㄐ阴4/ㄒ要3/ㄕㄢ1ㄍㄨ3.",
+      "afterPhonemes": "ㄉㄠ3. ㄙㄢ1ㄕㄥ1/ㄒ言1ㄒ压4/ㄏㄡ4ㄕㄤ5, ㄒ阳4/ㄗㄡ3ㄐ阴4/ㄒ要3/ㄕㄢ1ㄍㄨ3.",
+      "validatedAACSHA256": "afb1ade25d4632d307df5a2fa8e19a06f744ede4d8b1072e7704d9d147a91b97"
+    },
+    {
+      "file": "kokoro-769a9fcf68f5ea066446.m4a",
+      "spoken": "“率”是什么意思？",
+      "beforePhonemes": "“ㄌㄩ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄕ外4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "9e534a3519b0692916eb1b82c295beb337b1d1df9b5d82b81fd3bfa792918ed2"
+    },
+    {
+      "file": "kokoro-47c27de868ee29a445ea.m4a",
+      "spoken": "哪个词里有“率”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄌㄩ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄕ外4”?",
+      "validatedAACSHA256": "c3d46f13c902efb58de50dbaaaa963aea01fae338fa3deee02132fc6b1f3f891"
+    },
+    {
+      "file": "kokoro-8e0d6fa18a415a49ef0a.m4a",
+      "spoken": "弹",
+      "beforePhonemes": "ㄉㄢ4",
+      "afterPhonemes": "ㄊㄢ2",
+      "validatedAACSHA256": "0c4998033051f9af9aedc7bfba5d8c2253e6a782895d55b0eed78fa81f6191f1"
+    },
+    {
+      "file": "kokoro-71db171a8211235e6778.m4a",
+      "spoken": "弹。用手指拨动琴弦或按琴键等。",
+      "beforePhonemes": "ㄉㄢ4. 用4/ㄕㄡ2ㄓ十3/ㄅㄛ1ㄉ中4/ㄑ阴2ㄒ言2/ㄏ我4/ㄢ4/ㄑ阴2ㄐ言4/ㄉㄥ3.",
+      "afterPhonemes": "ㄊㄢ2. 用4/ㄕㄡ2ㄓ十3/ㄅㄛ1ㄉ中4/ㄑ阴2ㄒ言2/ㄏ我4/ㄢ4/ㄑ阴2ㄐ言4/ㄉㄥ3.",
+      "validatedAACSHA256": "5ef2a572dcff54638f1e041ffa2626a1cbbe277c66a1b42d243b73b0a3bc73e0"
+    },
+    {
+      "file": "kokoro-69ed4f75da2ca94cd66e.m4a",
+      "spoken": "“弹”是什么意思？",
+      "beforePhonemes": "“ㄉㄢ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄊㄢ2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "44503fd7bcd395f8dc6b5d6e90c30f4f0d8ceccb822c4db644e8b3fe08250ad3"
+    },
+    {
+      "file": "kokoro-4feaf03abdf97114658e.m4a",
+      "spoken": "哪个词里有“弹”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄉㄢ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄊㄢ2”?",
+      "validatedAACSHA256": "63430b63528e6b4a0461362e7e817043f7438122fe471c608e986e22086bf4d9"
+    },
+    {
+      "file": "kokoro-603de80e6d7d0563af50.m4a",
+      "spoken": "弹。二声往上扬，像小车上山。",
+      "beforePhonemes": "ㄉㄢ4. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "afterPhonemes": "ㄊㄢ2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "validatedAACSHA256": "27048aced8ea4f7c60b12c94129b8b8131d13bb346bfe97f9857e2b80aea296a"
+    },
+    {
+      "file": "kokoro-a8d4f0f5a5d6ebab4f84.m4a",
+      "spoken": "佛",
+      "beforePhonemes": "ㄈㄨ2",
+      "afterPhonemes": "ㄈㄛ2",
+      "validatedAACSHA256": "3104e1bad85c707b70a24a3bc3cb50c1b53892b6d5b489f1f30b83b2fe4ff817"
+    },
+    {
+      "file": "kokoro-98adb0a93b0c542555f3.m4a",
+      "spoken": "佛。佛教对觉悟者的称呼，也用于佛像等词。",
+      "beforePhonemes": "ㄈㄨ2. ㄈㄛ2ㄐ要4/ㄉ为4/ㄐ月2ㄨ4/ㄓㄜ3/ㄉㄜ5/ㄔㄥ1ㄏㄨ5, ㄝ3/用4ㄩ2/ㄈㄛ2ㄒ阳4/ㄉㄥ3/ㄘㄭ2.",
+      "afterPhonemes": "ㄈㄛ2. ㄈㄛ2ㄐ要4/ㄉ为4/ㄐ月2ㄨ4/ㄓㄜ3/ㄉㄜ5/ㄔㄥ1ㄏㄨ5, ㄝ3/用4ㄩ2/ㄈㄛ2ㄒ阳4/ㄉㄥ3/ㄘㄭ2.",
+      "validatedAACSHA256": "39ce89991066c1fb75cb1b18b63c8a445f2b514315f73efea984052cd01fe713"
+    },
+    {
+      "file": "kokoro-a3910837798f9521a059.m4a",
+      "spoken": "“佛”是什么意思？",
+      "beforePhonemes": "“ㄈㄨ2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄈㄛ2”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "0206e0253da6aae075e15b4ec039e0b3c1eb3b225c194f678fbef7c4679f51d9"
+    },
+    {
+      "file": "kokoro-9839444cfaa1e67e52a5.m4a",
+      "spoken": "哪个词里有“佛”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄈㄨ2”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄈㄛ2”?",
+      "validatedAACSHA256": "f63281858fe6da895578888bed0ec3b7e274503ea4c323b47603f16b6681fa12"
+    },
+    {
+      "file": "kokoro-cbefe31cf545c62b27de.m4a",
+      "spoken": "佛。二声往上扬，像小车上山。",
+      "beforePhonemes": "ㄈㄨ2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "afterPhonemes": "ㄈㄛ2. ㄦ4ㄕㄥ1/王3/ㄕㄤ4阳2, ㄒ阳4/ㄒ要3ㄔㄜ1/ㄕㄤ4ㄕㄢ1.",
+      "validatedAACSHA256": "1d468e3e3924cc587c2b15b3cb6a7f47ac9e282d7d943b594535f07e2f77c9ea"
+    },
+    {
+      "file": "kokoro-b9f059092553d7e08726.m4a",
+      "spoken": "“背”是什么意思？",
+      "beforePhonemes": "“ㄅㄟ4”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "afterPhonemes": "“ㄅㄟ1”ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄧ4ㄙㄭ5?",
+      "validatedAACSHA256": "534ddb2a7ca17e7ceb7f2b5881596d8fdb6813d4275087791b7bafd33a3261e2"
+    },
+    {
+      "file": "kokoro-20a51be4ed151c70c84d.m4a",
+      "spoken": "哪个词里有“背”？",
+      "beforePhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄅㄟ4”?",
+      "afterPhonemes": "ㄋㄟ3ㄍㄜ4/ㄘㄭ2/ㄌㄧ2又3“ㄅㄟ1”?",
+      "validatedAACSHA256": "542289853bfa0a3dc1a25b74338a73121f186890bd2f07752545fe9774c833b1"
+    },
+    {
+      "file": "kokoro-3256c093946d51eb4b4c.m4a",
+      "spoken": "声母f，听起来像佛。",
+      "beforePhonemes": "ㄕㄥ1ㄇㄨ3/ㄈㄨ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄈㄨ2.",
+      "afterPhonemes": "ㄕㄥ1ㄇㄨ3 ㄈㄛ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄈㄛ2.",
+      "validatedAACSHA256": "38bfd34778fc937b62bf5c17922823731da27be4d471cabc580f2a3c58d7688b"
+    },
+    {
+      "file": "kokoro-17ea96cd83622c802754.m4a",
+      "spoken": "声母d，听起来像得。",
+      "beforePhonemes": "ㄕㄥ1ㄇㄨ3/ㄉㄜ5, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄉㄜ5.",
+      "afterPhonemes": "ㄕㄥ1ㄇㄨ3 ㄉㄜ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄉㄜ2.",
+      "validatedAACSHA256": "e49a050346ff442b94678d9a9626c9204b3eb0276c6c0fc1e6b26cddd0712051"
+    },
+    {
+      "file": "kokoro-e77900da57d4f363c1c9.m4a",
+      "spoken": "声母l，听起来像勒。",
+      "beforePhonemes": "ㄕㄥ1ㄇㄨ3/ㄌㄟ1, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄌㄟ1.",
+      "afterPhonemes": "ㄕㄥ1ㄇㄨ3 ㄌㄜ4, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄌㄜ4.",
+      "validatedAACSHA256": "7b8d633d13dd039bcddfd01a481bcf63acbc158a2293a94a2ebe3fd2c9fab266"
+    },
+    {
+      "file": "kokoro-c01e7104420194f9f40e.m4a",
+      "spoken": "韵母er，听起来像耳。",
+      "beforePhonemes": "云4ㄇㄨR3, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄦ3.",
+      "afterPhonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ3.",
+      "validatedAACSHA256": "c2033180cdad6d7f4f446edd37c643ca65503c5b31a404153af33efa39e721bb"
+    },
+    {
+      "file": "kokoro-dbcd716fff1e458026c1.m4a",
+      "spoken": "韵母er，听起来像二。",
+      "beforePhonemes": "云4ㄇㄨR3, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄦ4.",
+      "afterPhonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ4.",
+      "validatedAACSHA256": "9f8b6bd2a8ecb6526cfd88f3022a325c5f2cbdaa9d8b48fced3889217a30041d"
+    },
+    {
+      "file": "kokoro-a8d79f8835256f28fdd2.m4a",
+      "spoken": "韵母er，听起来像而。",
+      "beforePhonemes": "云4ㄇㄨR3, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄦ2.",
+      "afterPhonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ2.",
+      "validatedAACSHA256": "efa6662bf5eda8a94bfe3d934a6a5a303667c85ecd9466116231d53f939b7950"
+    },
+    {
+      "file": "kokoro-aa9dc3e243ce31f665d8.m4a",
+      "spoken": "这是舌尖韵母，跟着读子。",
+      "beforePhonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄗㄭ5.",
+      "afterPhonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2 ㄗㄭ3.",
+      "validatedAACSHA256": "cd101bcea8e6f9744a4d33f789556975b39bc210af39541f5129444cf487463d"
+    },
+    {
+      "file": "kokoro-4d54ce580f5475ac0225.m4a",
+      "spoken": "韵母er，听起来像儿。",
+      "beforePhonemes": "云4ㄇㄨR3, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳R4.",
+      "afterPhonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ2.",
+      "validatedAACSHA256": "30b79dbfc1901bd2bf3dfd1139317044255eaeb9845dc569647b91a08b582f0b"
+    },
+    {
+      "file": "kokoro-59cb4f84e227a287b069.m4a",
+      "spoken": "韵母er，听起来像尔。",
+      "beforePhonemes": "云4ㄇㄨR3, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4/ㄦ3.",
+      "afterPhonemes": "云4ㄇㄨ3 ㄦ2, ㄊ应1/ㄑㄧ3ㄌㄞ5/ㄒ阳4 ㄦ3.",
+      "validatedAACSHA256": "73230eb9a885b3cca209081c452d3b7aafb16849fb5580034c19e1776539fc3a"
+    },
+    {
+      "file": "kokoro-3b26d8debaa9de77641e.m4a",
+      "spoken": "这是舌尖韵母，跟着读似。",
+      "beforePhonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2ㄕ十4.",
+      "afterPhonemes": "ㄓㄜ4/ㄕ十4/ㄕㄜ2ㄐ言1/云4ㄇㄨ3, ㄍㄣ1ㄓㄜ5/ㄉㄨ2 ㄙㄭ4.",
+      "validatedAACSHA256": "da957e1942e35202c149e7572017a671c54dbe2fd0de2836bb98a5f7bb671c86"
+    }
+  ],
+  "priorCorrection": {
+    "overrideSHA256": "6ddb444e007bb8ba58addbbda604f3531c9188257a40f69f9e8dc9c62989e878",
+    "changedClips": 49,
+    "invalidatedClips": 39,
+    "repairedAt": "2026-10-02T08:53:20.663314+00:00"
+  },
+  "boundary": "Exact prepublication cache migration: the baseline/current phoneme comparison identifies all 91 corrected clips; the 6ddb/current incremental comparison invalidated only 42 quoted quiz clips, retaining every unchanged recording. The renderer v1 namespace has a separately hashed reading configuration and active cache guard. Full AAC regeneration is confirmed only by the complete final manifest.",
+  "changedAACValidation": {
+    "checkedAt": "2026-10-02T10:18:54.730782+00:00",
+    "validatedClips": 91,
+    "actualDecodeValidated": true,
+    "silentOrInvalidClips": 0,
+    "sampleRate": 24000,
+    "boundary": "AAC decoder output was nonempty, finite and nonsilent; this is not a listening grade."
+  }
+}

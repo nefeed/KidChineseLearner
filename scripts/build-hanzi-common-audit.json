@@ -1,0 +1,5019 @@
+{
+  "source": "通用规范汉字表 (2013), first-level common set, encoded by Unicode Unihan 17.0.0 kTGH",
+  "sourceUrl": "https://www.unicode.org/Public/17.0.0/ucd/Unihan.zip",
+  "sourceSha256": "f7a48b2b545acfaa77b2d607ae28747404ce02baefee16396c5d2d7a8ef34b5e",
+  "propertyDocumentation": "https://www.unicode.org/reports/tr38/#kTGH",
+  "officialListExplanation": "https://www.moe.gov.cn/jyb_xwfb/xw_fbh/moe_2069/s7135/s7562/s7569/201308/t20130827_156353.html",
+  "sourcePropertyStatus": "Provisional",
+  "upstreamMappingCompared": true,
+  "firstLevelSize": 3500,
+  "selectedCharacters": 1000,
+  "selectedInFirstLevel": 1000,
+  "outsideFirstLevel": [],
+  "membershipPassed": true,
+  "frequencyRankValidated": false,
+  "indicesAreFrequencyRanks": false,
+  "selectedEntries": [
+    {
+      "id": "hz-001",
+      "char": "日",
+      "firstLevelListIndex": 112
+    },
+    {
+      "id": "hz-002",
+      "char": "月",
+      "firstLevelListIndex": 150
+    },
+    {
+      "id": "hz-003",
+      "char": "山",
+      "firstLevelListIndex": 39
+    },
+    {
+      "id": "hz-004",
+      "char": "水",
+      "firstLevelListIndex": 117
+    },
+    {
+      "id": "hz-005",
+      "char": "火",
+      "firstLevelListIndex": 164
+    },
+    {
+      "id": "hz-006",
+      "char": "木",
+      "firstLevelListIndex": 87
+    },
+    {
+      "id": "hz-007",
+      "char": "土",
+      "firstLevelListIndex": 27
+    },
+    {
+      "id": "hz-008",
+      "char": "云",
+      "firstLevelListIndex": 82
+    },
+    {
+      "id": "hz-009",
+      "char": "雨",
+      "firstLevelListIndex": 1041
+    },
+    {
+      "id": "hz-010",
+      "char": "风",
+      "firstLevelListIndex": 154
+    },
+    {
+      "id": "hz-011",
+      "char": "猫",
+      "firstLevelListIndex": 2367
+    },
+    {
+      "id": "hz-012",
+      "char": "狗",
+      "firstLevelListIndex": 1198
+    },
+    {
+      "id": "hz-013",
+      "char": "鸟",
+      "firstLevelListIndex": 296
+    },
+    {
+      "id": "hz-014",
+      "char": "鱼",
+      "firstLevelListIndex": 1194
+    },
+    {
+      "id": "hz-015",
+      "char": "牛",
+      "firstLevelListIndex": 120
+    },
+    {
+      "id": "hz-016",
+      "char": "羊",
+      "firstLevelListIndex": 530
+    },
+    {
+      "id": "hz-017",
+      "char": "马",
+      "firstLevelListIndex": 72
+    },
+    {
+      "id": "hz-018",
+      "char": "兔",
+      "firstLevelListIndex": 1195
+    },
+    {
+      "id": "hz-019",
+      "char": "虫",
+      "firstLevelListIndex": 423
+    },
+    {
+      "id": "hz-020",
+      "char": "龙",
+      "firstLevelListIndex": 221
+    },
+    {
+      "id": "hz-021",
+      "char": "人",
+      "firstLevelListIndex": 10
+    },
+    {
+      "id": "hz-022",
+      "char": "口",
+      "firstLevelListIndex": 38
+    },
+    {
+      "id": "hz-023",
+      "char": "手",
+      "firstLevelListIndex": 121
+    },
+    {
+      "id": "hz-024",
+      "char": "足",
+      "firstLevelListIndex": 731
+    },
+    {
+      "id": "hz-025",
+      "char": "目",
+      "firstLevelListIndex": 236
+    },
+    {
+      "id": "hz-026",
+      "char": "耳",
+      "firstLevelListIndex": 369
+    },
+    {
+      "id": "hz-027",
+      "char": "头",
+      "firstLevelListIndex": 310
+    },
+    {
+      "id": "hz-028",
+      "char": "心",
+      "firstLevelListIndex": 174
+    },
+    {
+      "id": "hz-029",
+      "char": "牙",
+      "firstLevelListIndex": 102
+    },
+    {
+      "id": "hz-030",
+      "char": "身",
+      "firstLevelListIndex": 786
+    },
+    {
+      "id": "hz-031",
+      "char": "爸",
+      "firstLevelListIndex": 1171
+    },
+    {
+      "id": "hz-032",
+      "char": "妈",
+      "firstLevelListIndex": 583
+    },
+    {
+      "id": "hz-033",
+      "char": "爷",
+      "firstLevelListIndex": 492
+    },
+    {
+      "id": "hz-034",
+      "char": "奶",
+      "firstLevelListIndex": 332
+    },
+    {
+      "id": "hz-035",
+      "char": "姐",
+      "firstLevelListIndex": 1326
+    },
+    {
+      "id": "hz-036",
+      "char": "哥",
+      "firstLevelListIndex": 1852
+    },
+    {
+      "id": "hz-037",
+      "char": "弟",
+      "firstLevelListIndex": 854
+    },
+    {
+      "id": "hz-038",
+      "char": "妹",
+      "firstLevelListIndex": 1324
+    },
+    {
+      "id": "hz-039",
+      "char": "家",
+      "firstLevelListIndex": 2099
+    },
+    {
+      "id": "hz-040",
+      "char": "友",
+      "firstLevelListIndex": 97
+    },
+    {
+      "id": "hz-041",
+      "char": "一",
+      "firstLevelListIndex": 1
+    },
+    {
+      "id": "hz-042",
+      "char": "二",
+      "firstLevelListIndex": 3
+    },
+    {
+      "id": "hz-043",
+      "char": "三",
+      "firstLevelListIndex": 22
+    },
+    {
+      "id": "hz-044",
+      "char": "四",
+      "firstLevelListIndex": 262
+    },
+    {
+      "id": "hz-045",
+      "char": "五",
+      "firstLevelListIndex": 88
+    },
+    {
+      "id": "hz-046",
+      "char": "六",
+      "firstLevelListIndex": 160
+    },
+    {
+      "id": "hz-047",
+      "char": "七",
+      "firstLevelListIndex": 7
+    },
+    {
+      "id": "hz-048",
+      "char": "八",
+      "firstLevelListIndex": 9
+    },
+    {
+      "id": "hz-049",
+      "char": "九",
+      "firstLevelListIndex": 15
+    },
+    {
+      "id": "hz-050",
+      "char": "十",
+      "firstLevelListIndex": 4
+    },
+    {
+      "id": "hz-051",
+      "char": "米",
+      "firstLevelListIndex": 533
+    },
+    {
+      "id": "hz-052",
+      "char": "面",
+      "firstLevelListIndex": 1455
+    },
+    {
+      "id": "hz-053",
+      "char": "瓜",
+      "firstLevelListIndex": 279
+    },
+    {
+      "id": "hz-054",
+      "char": "果",
+      "firstLevelListIndex": 1079
+    },
+    {
+      "id": "hz-055",
+      "char": "豆",
+      "firstLevelListIndex": 696
+    },
+    {
+      "id": "hz-056",
+      "char": "菜",
+      "firstLevelListIndex": 2207
+    },
+    {
+      "id": "hz-057",
+      "char": "肉",
+      "firstLevelListIndex": 443
+    },
+    {
+      "id": "hz-058",
+      "char": "蛋",
+      "firstLevelListIndex": 2477
+    },
+    {
+      "id": "hz-059",
+      "char": "饭",
+      "firstLevelListIndex": 823
+    },
+    {
+      "id": "hz-060",
+      "char": "糖",
+      "firstLevelListIndex": 3374
+    },
+    {
+      "id": "hz-061",
+      "char": "门",
+      "firstLevelListIndex": 55
+    },
+    {
+      "id": "hz-062",
+      "char": "窗",
+      "firstLevelListIndex": 2786
+    },
+    {
+      "id": "hz-063",
+      "char": "床",
+      "firstLevelListIndex": 831
+    },
+    {
+      "id": "hz-064",
+      "char": "桌",
+      "firstLevelListIndex": 1881
+    },
+    {
+      "id": "hz-065",
+      "char": "椅",
+      "firstLevelListIndex": 2569
+    },
+    {
+      "id": "hz-066",
+      "char": "书",
+      "firstLevelListIndex": 188
+    },
+    {
+      "id": "hz-067",
+      "char": "笔",
+      "firstLevelListIndex": 1951
+    },
+    {
+      "id": "hz-068",
+      "char": "包",
+      "firstLevelListIndex": 298
+    },
+    {
+      "id": "hz-069",
+      "char": "杯",
+      "firstLevelListIndex": 1020
+    },
+    {
+      "id": "hz-070",
+      "char": "衣",
+      "firstLevelListIndex": 520
+    },
+    {
+      "id": "hz-071",
+      "char": "走",
+      "firstLevelListIndex": 625
+    },
+    {
+      "id": "hz-072",
+      "char": "跑",
+      "firstLevelListIndex": 2631
+    },
+    {
+      "id": "hz-073",
+      "char": "跳",
+      "firstLevelListIndex": 2915
+    },
+    {
+      "id": "hz-074",
+      "char": "看",
+      "firstLevelListIndex": 1539
+    },
+    {
+      "id": "hz-075",
+      "char": "听",
+      "firstLevelListIndex": 739
+    },
+    {
+      "id": "hz-076",
+      "char": "说",
+      "firstLevelListIndex": 1717
+    },
+    {
+      "id": "hz-077",
+      "char": "吃",
+      "firstLevelListIndex": 429
+    },
+    {
+      "id": "hz-078",
+      "char": "喝",
+      "firstLevelListIndex": 2639
+    },
+    {
+      "id": "hz-079",
+      "char": "笑",
+      "firstLevelListIndex": 1952
+    },
+    {
+      "id": "hz-080",
+      "char": "哭",
+      "firstLevelListIndex": 1907
+    },
+    {
+      "id": "hz-081",
+      "char": "大",
+      "firstLevelListIndex": 32
+    },
+    {
+      "id": "hz-082",
+      "char": "小",
+      "firstLevelListIndex": 37
+    },
+    {
+      "id": "hz-083",
+      "char": "多",
+      "firstLevelListIndex": 507
+    },
+    {
+      "id": "hz-084",
+      "char": "少",
+      "firstLevelListIndex": 110
+    },
+    {
+      "id": "hz-085",
+      "char": "上",
+      "firstLevelListIndex": 36
+    },
+    {
+      "id": "hz-086",
+      "char": "下",
+      "firstLevelListIndex": 30
+    },
+    {
+      "id": "hz-087",
+      "char": "左",
+      "firstLevelListIndex": 214
+    },
+    {
+      "id": "hz-088",
+      "char": "右",
+      "firstLevelListIndex": 217
+    },
+    {
+      "id": "hz-089",
+      "char": "长",
+      "firstLevelListIndex": 127
+    },
+    {
+      "id": "hz-090",
+      "char": "短",
+      "firstLevelListIndex": 2669
+    },
+    {
+      "id": "hz-091",
+      "char": "红",
+      "firstLevelListIndex": 589
+    },
+    {
+      "id": "hz-092",
+      "char": "黄",
+      "firstLevelListIndex": 2201
+    },
+    {
+      "id": "hz-093",
+      "char": "蓝",
+      "firstLevelListIndex": 2852
+    },
+    {
+      "id": "hz-094",
+      "char": "绿",
+      "firstLevelListIndex": 2498
+    },
+    {
+      "id": "hz-095",
+      "char": "白",
+      "firstLevelListIndex": 275
+    },
+    {
+      "id": "hz-096",
+      "char": "黑",
+      "firstLevelListIndex": 2655
+    },
+    {
+      "id": "hz-097",
+      "char": "花",
+      "firstLevelListIndex": 665
+    },
+    {
+      "id": "hz-098",
+      "char": "草",
+      "firstLevelListIndex": 1408
+    },
+    {
+      "id": "hz-099",
+      "char": "叶",
+      "firstLevelListIndex": 238
+    },
+    {
+      "id": "hz-100",
+      "char": "树",
+      "firstLevelListIndex": 1439
+    },
+    {
+      "id": "hz-101",
+      "char": "的",
+      "firstLevelListIndex": 1155
+    },
+    {
+      "id": "hz-102",
+      "char": "是",
+      "firstLevelListIndex": 1479
+    },
+    {
+      "id": "hz-103",
+      "char": "不",
+      "firstLevelListIndex": 91
+    },
+    {
+      "id": "hz-104",
+      "char": "了",
+      "firstLevelListIndex": 17
+    },
+    {
+      "id": "hz-105",
+      "char": "在",
+      "firstLevelListIndex": 388
+    },
+    {
+      "id": "hz-106",
+      "char": "有",
+      "firstLevelListIndex": 390
+    },
+    {
+      "id": "hz-107",
+      "char": "我",
+      "firstLevelListIndex": 761
+    },
+    {
+      "id": "hz-108",
+      "char": "他",
+      "firstLevelListIndex": 277
+    },
+    {
+      "id": "hz-109",
+      "char": "这",
+      "firstLevelListIndex": 837
+    },
+    {
+      "id": "hz-110",
+      "char": "个",
+      "firstLevelListIndex": 45
+    },
+    {
+      "id": "hz-111",
+      "char": "们",
+      "firstLevelListIndex": 273
+    },
+    {
+      "id": "hz-112",
+      "char": "中",
+      "firstLevelListIndex": 113
+    },
+    {
+      "id": "hz-113",
+      "char": "来",
+      "firstLevelListIndex": 707
+    },
+    {
+      "id": "hz-114",
+      "char": "为",
+      "firstLevelListIndex": 165
+    },
+    {
+      "id": "hz-115",
+      "char": "和",
+      "firstLevelListIndex": 1131
+    },
+    {
+      "id": "hz-116",
+      "char": "国",
+      "firstLevelListIndex": 1081
+    },
+    {
+      "id": "hz-117",
+      "char": "地",
+      "firstLevelListIndex": 366
+    },
+    {
+      "id": "hz-118",
+      "char": "到",
+      "firstLevelListIndex": 1063
+    },
+    {
+      "id": "hz-119",
+      "char": "以",
+      "firstLevelListIndex": 182
+    },
+    {
+      "id": "hz-120",
+      "char": "时",
+      "firstLevelListIndex": 717
+    },
+    {
+      "id": "hz-121",
+      "char": "要",
+      "firstLevelListIndex": 1441
+    },
+    {
+      "id": "hz-122",
+      "char": "就",
+      "firstLevelListIndex": 2728
+    },
+    {
+      "id": "hz-123",
+      "char": "出",
+      "firstLevelListIndex": 330
+    },
+    {
+      "id": "hz-124",
+      "char": "会",
+      "firstLevelListIndex": 486
+    },
+    {
+      "id": "hz-125",
+      "char": "可",
+      "firstLevelListIndex": 212
+    },
+    {
+      "id": "hz-126",
+      "char": "也",
+      "firstLevelListIndex": 66
+    },
+    {
+      "id": "hz-127",
+      "char": "你",
+      "firstLevelListIndex": 782
+    },
+    {
+      "id": "hz-128",
+      "char": "对",
+      "firstLevelListIndex": 341
+    },
+    {
+      "id": "hz-129",
+      "char": "生",
+      "firstLevelListIndex": 263
+    },
+    {
+      "id": "hz-130",
+      "char": "能",
+      "firstLevelListIndex": 2146
+    },
+    {
+      "id": "hz-131",
+      "char": "而",
+      "firstLevelListIndex": 392
+    },
+    {
+      "id": "hz-132",
+      "char": "子",
+      "firstLevelListIndex": 64
+    },
+    {
+      "id": "hz-133",
+      "char": "那",
+      "firstLevelListIndex": 564
+    },
+    {
+      "id": "hz-134",
+      "char": "得",
+      "firstLevelListIndex": 2341
+    },
+    {
+      "id": "hz-135",
+      "char": "于",
+      "firstLevelListIndex": 24
+    },
+    {
+      "id": "hz-136",
+      "char": "着",
+      "firstLevelListIndex": 2398
+    },
+    {
+      "id": "hz-137",
+      "char": "自",
+      "firstLevelListIndex": 477
+    },
+    {
+      "id": "hz-138",
+      "char": "之",
+      "firstLevelListIndex": 58
+    },
+    {
+      "id": "hz-139",
+      "char": "年",
+      "firstLevelListIndex": 444
+    },
+    {
+      "id": "hz-140",
+      "char": "过",
+      "firstLevelListIndex": 379
+    },
+    {
+      "id": "hz-141",
+      "char": "发",
+      "firstLevelListIndex": 339
+    },
+    {
+      "id": "hz-142",
+      "char": "后",
+      "firstLevelListIndex": 482
+    },
+    {
+      "id": "hz-143",
+      "char": "作",
+      "firstLevelListIndex": 777
+    },
+    {
+      "id": "hz-144",
+      "char": "里",
+      "firstLevelListIndex": 721
+    },
+    {
+      "id": "hz-145",
+      "char": "用",
+      "firstLevelListIndex": 283
+    },
+    {
+      "id": "hz-146",
+      "char": "道",
+      "firstLevelListIndex": 2745
+    },
+    {
+      "id": "hz-147",
+      "char": "行",
+      "firstLevelListIndex": 483
+    },
+    {
+      "id": "hz-148",
+      "char": "所",
+      "firstLevelListIndex": 1164
+    },
+    {
+      "id": "hz-149",
+      "char": "然",
+      "firstLevelListIndex": 2723
+    },
+    {
+      "id": "hz-150",
+      "char": "种",
+      "firstLevelListIndex": 1549
+    },
+    {
+      "id": "hz-151",
+      "char": "事",
+      "firstLevelListIndex": 1038
+    },
+    {
+      "id": "hz-152",
+      "char": "成",
+      "firstLevelListIndex": 401
+    },
+    {
+      "id": "hz-153",
+      "char": "方",
+      "firstLevelListIndex": 163
+    },
+    {
+      "id": "hz-154",
+      "char": "经",
+      "firstLevelListIndex": 1350
+    },
+    {
+      "id": "hz-155",
+      "char": "么",
+      "firstLevelListIndex": 48
+    },
+    {
+      "id": "hz-156",
+      "char": "去",
+      "firstLevelListIndex": 204
+    },
+    {
+      "id": "hz-157",
+      "char": "法",
+      "firstLevelListIndex": 1241
+    },
+    {
+      "id": "hz-158",
+      "char": "学",
+      "firstLevelListIndex": 1273
+    },
+    {
+      "id": "hz-159",
+      "char": "如",
+      "firstLevelListIndex": 578
+    },
+    {
+      "id": "hz-160",
+      "char": "都",
+      "firstLevelListIndex": 1801
+    },
+    {
+      "id": "hz-161",
+      "char": "同",
+      "firstLevelListIndex": 427
+    },
+    {
+      "id": "hz-162",
+      "char": "现",
+      "firstLevelListIndex": 949
+    },
+    {
+      "id": "hz-163",
+      "char": "当",
+      "firstLevelListIndex": 418
+    },
+    {
+      "id": "hz-164",
+      "char": "没",
+      "firstLevelListIndex": 867
+    },
+    {
+      "id": "hz-165",
+      "char": "动",
+      "firstLevelListIndex": 353
+    },
+    {
+      "id": "hz-166",
+      "char": "起",
+      "firstLevelListIndex": 1789
+    },
+    {
+      "id": "hz-167",
+      "char": "定",
+      "firstLevelListIndex": 1276
+    },
+    {
+      "id": "hz-168",
+      "char": "天",
+      "firstLevelListIndex": 78
+    },
+    {
+      "id": "hz-169",
+      "char": "分",
+      "firstLevelListIndex": 146
+    },
+    {
+      "id": "hz-170",
+      "char": "还",
+      "firstLevelListIndex": 704
+    },
+    {
+      "id": "hz-171",
+      "char": "进",
+      "firstLevelListIndex": 605
+    },
+    {
+      "id": "hz-172",
+      "char": "好",
+      "firstLevelListIndex": 581
+    },
+    {
+      "id": "hz-173",
+      "char": "部",
+      "firstLevelListIndex": 2044
+    },
+    {
+      "id": "hz-174",
+      "char": "其",
+      "firstLevelListIndex": 996
+    },
+    {
+      "id": "hz-175",
+      "char": "些",
+      "firstLevelListIndex": 1069
+    },
+    {
+      "id": "hz-176",
+      "char": "主",
+      "firstLevelListIndex": 300
+    },
+    {
+      "id": "hz-177",
+      "char": "样",
+      "firstLevelListIndex": 1849
+    },
+    {
+      "id": "hz-178",
+      "char": "理",
+      "firstLevelListIndex": 2157
+    },
+    {
+      "id": "hz-179",
+      "char": "她",
+      "firstLevelListIndex": 582
+    },
+    {
+      "id": "hz-180",
+      "char": "本",
+      "firstLevelListIndex": 210
+    },
+    {
+      "id": "hz-181",
+      "char": "前",
+      "firstLevelListIndex": 1650
+    },
+    {
+      "id": "hz-182",
+      "char": "开",
+      "firstLevelListIndex": 76
+    },
+    {
+      "id": "hz-183",
+      "char": "但",
+      "firstLevelListIndex": 774
+    },
+    {
+      "id": "hz-184",
+      "char": "因",
+      "firstLevelListIndex": 430
+    },
+    {
+      "id": "hz-185",
+      "char": "只",
+      "firstLevelListIndex": 246
+    },
+    {
+      "id": "hz-186",
+      "char": "从",
+      "firstLevelListIndex": 142
+    },
+    {
+      "id": "hz-187",
+      "char": "想",
+      "firstLevelListIndex": 2867
+    },
+    {
+      "id": "hz-188",
+      "char": "实",
+      "firstLevelListIndex": 1285
+    },
+    {
+      "id": "hz-189",
+      "char": "军",
+      "firstLevelListIndex": 552
+    },
+    {
+      "id": "hz-190",
+      "char": "者",
+      "firstLevelListIndex": 969
+    },
+    {
+      "id": "hz-191",
+      "char": "意",
+      "firstLevelListIndex": 2996
+    },
+    {
+      "id": "hz-192",
+      "char": "无",
+      "firstLevelListIndex": 81
+    },
+    {
+      "id": "hz-193",
+      "char": "力",
+      "firstLevelListIndex": 19
+    },
+    {
+      "id": "hz-194",
+      "char": "它",
+      "firstLevelListIndex": 314
+    },
+    {
+      "id": "hz-195",
+      "char": "与",
+      "firstLevelListIndex": 34
+    },
+    {
+      "id": "hz-196",
+      "char": "把",
+      "firstLevelListIndex": 655
+    },
+    {
+      "id": "hz-197",
+      "char": "机",
+      "firstLevelListIndex": 377
+    },
+    {
+      "id": "hz-198",
+      "char": "民",
+      "firstLevelListIndex": 327
+    },
+    {
+      "id": "hz-199",
+      "char": "第",
+      "firstLevelListIndex": 2322
+    },
+    {
+      "id": "hz-200",
+      "char": "公",
+      "firstLevelListIndex": 148
+    },
+    {
+      "id": "hz-201",
+      "char": "此",
+      "firstLevelListIndex": 411
+    },
+    {
+      "id": "hz-202",
+      "char": "已",
+      "firstLevelListIndex": 61
+    },
+    {
+      "id": "hz-203",
+      "char": "工",
+      "firstLevelListIndex": 26
+    },
+    {
+      "id": "hz-204",
+      "char": "使",
+      "firstLevelListIndex": 1139
+    },
+    {
+      "id": "hz-205",
+      "char": "情",
+      "firstLevelListIndex": 2438
+    },
+    {
+      "id": "hz-206",
+      "char": "明",
+      "firstLevelListIndex": 1087
+    },
+    {
+      "id": "hz-207",
+      "char": "性",
+      "firstLevelListIndex": 1268
+    },
+    {
+      "id": "hz-208",
+      "char": "知",
+      "firstLevelListIndex": 1122
+    },
+    {
+      "id": "hz-209",
+      "char": "全",
+      "firstLevelListIndex": 485
+    },
+    {
+      "id": "hz-210",
+      "char": "又",
+      "firstLevelListIndex": 21
+    },
+    {
+      "id": "hz-211",
+      "char": "关",
+      "firstLevelListIndex": 532
+    },
+    {
+      "id": "hz-212",
+      "char": "点",
+      "firstLevelListIndex": 1469
+    },
+    {
+      "id": "hz-213",
+      "char": "正",
+      "firstLevelListIndex": 198
+    },
+    {
+      "id": "hz-214",
+      "char": "业",
+      "firstLevelListIndex": 231
+    },
+    {
+      "id": "hz-215",
+      "char": "外",
+      "firstLevelListIndex": 293
+    },
+    {
+      "id": "hz-216",
+      "char": "将",
+      "firstLevelListIndex": 1617
+    },
+    {
+      "id": "hz-217",
+      "char": "两",
+      "firstLevelListIndex": 697
+    },
+    {
+      "id": "hz-218",
+      "char": "高",
+      "firstLevelListIndex": 2021
+    },
+    {
+      "id": "hz-219",
+      "char": "间",
+      "firstLevelListIndex": 847
+    },
+    {
+      "id": "hz-220",
+      "char": "由",
+      "firstLevelListIndex": 245
+    },
+    {
+      "id": "hz-221",
+      "char": "问",
+      "firstLevelListIndex": 528
+    },
+    {
+      "id": "hz-222",
+      "char": "很",
+      "firstLevelListIndex": 1584
+    },
+    {
+      "id": "hz-223",
+      "char": "最",
+      "firstLevelListIndex": 2614
+    },
+    {
+      "id": "hz-224",
+      "char": "重",
+      "firstLevelListIndex": 1552
+    },
+    {
+      "id": "hz-225",
+      "char": "并",
+      "firstLevelListIndex": 531
+    },
+    {
+      "id": "hz-226",
+      "char": "物",
+      "firstLevelListIndex": 1127
+    },
+    {
+      "id": "hz-227",
+      "char": "应",
+      "firstLevelListIndex": 836
+    },
+    {
+      "id": "hz-228",
+      "char": "战",
+      "firstLevelListIndex": 1468
+    },
+    {
+      "id": "hz-229",
+      "char": "向",
+      "firstLevelListIndex": 480
+    },
+    {
+      "id": "hz-230",
+      "char": "文",
+      "firstLevelListIndex": 161
+    },
+    {
+      "id": "hz-231",
+      "char": "体",
+      "firstLevelListIndex": 770
+    },
+    {
+      "id": "hz-232",
+      "char": "政",
+      "firstLevelListIndex": 1376
+    },
+    {
+      "id": "hz-233",
+      "char": "美",
+      "firstLevelListIndex": 1642
+    },
+    {
+      "id": "hz-234",
+      "char": "相",
+      "firstLevelListIndex": 1430
+    },
+    {
+      "id": "hz-235",
+      "char": "见",
+      "firstLevelListIndex": 118
+    },
+    {
+      "id": "hz-236",
+      "char": "被",
+      "firstLevelListIndex": 2118
+    },
+    {
+      "id": "hz-237",
+      "char": "利",
+      "firstLevelListIndex": 763
+    },
+    {
+      "id": "hz-238",
+      "char": "什",
+      "firstLevelListIndex": 129
+    },
+    {
+      "id": "hz-239",
+      "char": "等",
+      "firstLevelListIndex": 2681
+    },
+    {
+      "id": "hz-240",
+      "char": "产",
+      "firstLevelListIndex": 522
+    },
+    {
+      "id": "hz-241",
+      "char": "或",
+      "firstLevelListIndex": 1035
+    },
+    {
+      "id": "hz-242",
+      "char": "新",
+      "firstLevelListIndex": 2994
+    },
+    {
+      "id": "hz-243",
+      "char": "己",
+      "firstLevelListIndex": 60
+    },
+    {
+      "id": "hz-244",
+      "char": "制",
+      "firstLevelListIndex": 1121
+    },
+    {
+      "id": "hz-245",
+      "char": "加",
+      "firstLevelListIndex": 335
+    },
+    {
+      "id": "hz-246",
+      "char": "西",
+      "firstLevelListIndex": 384
+    },
+    {
+      "id": "hz-247",
+      "char": "斯",
+      "firstLevelListIndex": 2541
+    },
+    {
+      "id": "hz-248",
+      "char": "话",
+      "firstLevelListIndex": 1296
+    },
+    {
+      "id": "hz-249",
+      "char": "合",
+      "firstLevelListIndex": 488
+    },
+    {
+      "id": "hz-250",
+      "char": "回",
+      "firstLevelListIndex": 438
+    },
+    {
+      "id": "hz-251",
+      "char": "特",
+      "firstLevelListIndex": 1938
+    },
+    {
+      "id": "hz-252",
+      "char": "代",
+      "firstLevelListIndex": 271
+    },
+    {
+      "id": "hz-253",
+      "char": "内",
+      "firstLevelListIndex": 116
+    },
+    {
+      "id": "hz-254",
+      "char": "信",
+      "firstLevelListIndex": 1570
+    },
+    {
+      "id": "hz-255",
+      "char": "表",
+      "firstLevelListIndex": 951
+    },
+    {
+      "id": "hz-256",
+      "char": "化",
+      "firstLevelListIndex": 132
+    },
+    {
+      "id": "hz-257",
+      "char": "老",
+      "firstLevelListIndex": 360
+    },
+    {
+      "id": "hz-258",
+      "char": "给",
+      "firstLevelListIndex": 1758
+    },
+    {
+      "id": "hz-259",
+      "char": "世",
+      "firstLevelListIndex": 206
+    },
+    {
+      "id": "hz-260",
+      "char": "位",
+      "firstLevelListIndex": 784
+    },
+    {
+      "id": "hz-261",
+      "char": "次",
+      "firstLevelListIndex": 521
+    },
+    {
+      "id": "hz-262",
+      "char": "度",
+      "firstLevelListIndex": 1622
+    },
+    {
+      "id": "hz-263",
+      "char": "任",
+      "firstLevelListIndex": 467
+    },
+    {
+      "id": "hz-264",
+      "char": "常",
+      "firstLevelListIndex": 2257
+    },
+    {
+      "id": "hz-265",
+      "char": "先",
+      "firstLevelListIndex": 446
+    },
+    {
+      "id": "hz-266",
+      "char": "海",
+      "firstLevelListIndex": 2074
+    },
+    {
+      "id": "hz-267",
+      "char": "通",
+      "firstLevelListIndex": 2145
+    },
+    {
+      "id": "hz-268",
+      "char": "教",
+      "firstLevelListIndex": 2179
+    },
+    {
+      "id": "hz-269",
+      "char": "儿",
+      "firstLevelListIndex": 12
+    },
+    {
+      "id": "hz-270",
+      "char": "原",
+      "firstLevelListIndex": 1868
+    },
+    {
+      "id": "hz-271",
+      "char": "东",
+      "firstLevelListIndex": 225
+    },
+    {
+      "id": "hz-272",
+      "char": "声",
+      "firstLevelListIndex": 654
+    },
+    {
+      "id": "hz-273",
+      "char": "提",
+      "firstLevelListIndex": 2520
+    },
+    {
+      "id": "hz-274",
+      "char": "立",
+      "firstLevelListIndex": 302
+    },
+    {
+      "id": "hz-275",
+      "char": "及",
+      "firstLevelListIndex": 52
+    },
+    {
+      "id": "hz-276",
+      "char": "比",
+      "firstLevelListIndex": 105
+    },
+    {
+      "id": "hz-277",
+      "char": "员",
+      "firstLevelListIndex": 737
+    },
+    {
+      "id": "hz-278",
+      "char": "解",
+      "firstLevelListIndex": 2981
+    },
+    {
+      "id": "hz-279",
+      "char": "名",
+      "firstLevelListIndex": 505
+    },
+    {
+      "id": "hz-280",
+      "char": "真",
+      "firstLevelListIndex": 1832
+    },
+    {
+      "id": "hz-281",
+      "char": "论",
+      "firstLevelListIndex": 556
+    },
+    {
+      "id": "hz-282",
+      "char": "处",
+      "firstLevelListIndex": 294
+    },
+    {
+      "id": "hz-283",
+      "char": "义",
+      "firstLevelListIndex": 57
+    },
+    {
+      "id": "hz-284",
+      "char": "各",
+      "firstLevelListIndex": 506
+    },
+    {
+      "id": "hz-285",
+      "char": "入",
+      "firstLevelListIndex": 11
+    },
+    {
+      "id": "hz-286",
+      "char": "几",
+      "firstLevelListIndex": 14
+    },
+    {
+      "id": "hz-287",
+      "char": "认",
+      "firstLevelListIndex": 171
+    },
+    {
+      "id": "hz-288",
+      "char": "条",
+      "firstLevelListIndex": 816
+    },
+    {
+      "id": "hz-289",
+      "char": "平",
+      "firstLevelListIndex": 222
+    },
+    {
+      "id": "hz-290",
+      "char": "系",
+      "firstLevelListIndex": 825
+    },
+    {
+      "id": "hz-291",
+      "char": "气",
+      "firstLevelListIndex": 122
+    },
+    {
+      "id": "hz-292",
+      "char": "题",
+      "firstLevelListIndex": 3233
+    },
+    {
+      "id": "hz-293",
+      "char": "活",
+      "firstLevelListIndex": 1672
+    },
+    {
+      "id": "hz-294",
+      "char": "尔",
+      "firstLevelListIndex": 286
+    },
+    {
+      "id": "hz-295",
+      "char": "更",
+      "firstLevelListIndex": 693
+    },
+    {
+      "id": "hz-296",
+      "char": "别",
+      "firstLevelListIndex": 751
+    },
+    {
+      "id": "hz-297",
+      "char": "打",
+      "firstLevelListIndex": 196
+    },
+    {
+      "id": "hz-298",
+      "char": "女",
+      "firstLevelListIndex": 67
+    },
+    {
+      "id": "hz-299",
+      "char": "变",
+      "firstLevelListIndex": 1204
+    },
+    {
+      "id": "hz-300",
+      "char": "神",
+      "firstLevelListIndex": 1711
+    },
+    {
+      "id": "hz-301",
+      "char": "总",
+      "firstLevelListIndex": 1654
+    },
+    {
+      "id": "hz-302",
+      "char": "何",
+      "firstLevelListIndex": 771
+    },
+    {
+      "id": "hz-303",
+      "char": "电",
+      "firstLevelListIndex": 242
+    },
+    {
+      "id": "hz-304",
+      "char": "数",
+      "firstLevelListIndex": 2999
+    },
+    {
+      "id": "hz-305",
+      "char": "安",
+      "firstLevelListIndex": 549
+    },
+    {
+      "id": "hz-306",
+      "char": "报",
+      "firstLevelListIndex": 656
+    },
+    {
+      "id": "hz-307",
+      "char": "才",
+      "firstLevelListIndex": 29
+    },
+    {
+      "id": "hz-308",
+      "char": "结",
+      "firstLevelListIndex": 1754
+    },
+    {
+      "id": "hz-309",
+      "char": "反",
+      "firstLevelListIndex": 139
+    },
+    {
+      "id": "hz-310",
+      "char": "受",
+      "firstLevelListIndex": 1174
+    },
+    {
+      "id": "hz-311",
+      "char": "太",
+      "firstLevelListIndex": 93
+    },
+    {
+      "id": "hz-312",
+      "char": "量",
+      "firstLevelListIndex": 2616
+    },
+    {
+      "id": "hz-313",
+      "char": "再",
+      "firstLevelListIndex": 382
+    },
+    {
+      "id": "hz-314",
+      "char": "感",
+      "firstLevelListIndex": 2875
+    },
+    {
+      "id": "hz-315",
+      "char": "建",
+      "firstLevelListIndex": 1302
+    },
+    {
+      "id": "hz-316",
+      "char": "务",
+      "firstLevelListIndex": 297
+    },
+    {
+      "id": "hz-317",
+      "char": "做",
+      "firstLevelListIndex": 2324
+    },
+    {
+      "id": "hz-318",
+      "char": "接",
+      "firstLevelListIndex": 2185
+    },
+    {
+      "id": "hz-319",
+      "char": "必",
+      "firstLevelListIndex": 321
+    },
+    {
+      "id": "hz-320",
+      "char": "场",
+      "firstLevelListIndex": 367
+    },
+    {
+      "id": "hz-321",
+      "char": "件",
+      "firstLevelListIndex": 466
+    },
+    {
+      "id": "hz-322",
+      "char": "计",
+      "firstLevelListIndex": 168
+    },
+    {
+      "id": "hz-323",
+      "char": "管",
+      "firstLevelListIndex": 3123
+    },
+    {
+      "id": "hz-324",
+      "char": "期",
+      "firstLevelListIndex": 2542
+    },
+    {
+      "id": "hz-325",
+      "char": "市",
+      "firstLevelListIndex": 301
+    },
+    {
+      "id": "hz-326",
+      "char": "直",
+      "firstLevelListIndex": 1011
+    },
+    {
+      "id": "hz-327",
+      "char": "德",
+      "firstLevelListIndex": 3272
+    },
+    {
+      "id": "hz-328",
+      "char": "资",
+      "firstLevelListIndex": 2039
+    },
+    {
+      "id": "hz-329",
+      "char": "命",
+      "firstLevelListIndex": 1168
+    },
+    {
+      "id": "hz-330",
+      "char": "金",
+      "firstLevelListIndex": 1166
+    },
+    {
+      "id": "hz-331",
+      "char": "指",
+      "firstLevelListIndex": 1389
+    },
+    {
+      "id": "hz-332",
+      "char": "克",
+      "firstLevelListIndex": 675
+    },
+    {
+      "id": "hz-333",
+      "char": "许",
+      "firstLevelListIndex": 554
+    },
+    {
+      "id": "hz-334",
+      "char": "统",
+      "firstLevelListIndex": 1765
+    },
+    {
+      "id": "hz-335",
+      "char": "区",
+      "firstLevelListIndex": 94
+    },
+    {
+      "id": "hz-336",
+      "char": "保",
+      "firstLevelListIndex": 1562
+    },
+    {
+      "id": "hz-337",
+      "char": "至",
+      "firstLevelListIndex": 410
+    },
+    {
+      "id": "hz-338",
+      "char": "队",
+      "firstLevelListIndex": 180
+    },
+    {
+      "id": "hz-339",
+      "char": "形",
+      "firstLevelListIndex": 604
+    },
+    {
+      "id": "hz-340",
+      "char": "社",
+      "firstLevelListIndex": 890
+    },
+    {
+      "id": "hz-341",
+      "char": "便",
+      "firstLevelListIndex": 1556
+    },
+    {
+      "id": "hz-342",
+      "char": "空",
+      "firstLevelListIndex": 1282
+    },
+    {
+      "id": "hz-343",
+      "char": "决",
+      "firstLevelListIndex": 523
+    },
+    {
+      "id": "hz-344",
+      "char": "治",
+      "firstLevelListIndex": 1264
+    },
+    {
+      "id": "hz-345",
+      "char": "展",
+      "firstLevelListIndex": 2131
+    },
+    {
+      "id": "hz-346",
+      "char": "科",
+      "firstLevelListIndex": 1551
+    },
+    {
+      "id": "hz-347",
+      "char": "司",
+      "firstLevelListIndex": 325
+    },
+    {
+      "id": "hz-348",
+      "char": "基",
+      "firstLevelListIndex": 2193
+    },
+    {
+      "id": "hz-349",
+      "char": "眼",
+      "firstLevelListIndex": 2263
+    },
+    {
+      "id": "hz-350",
+      "char": "非",
+      "firstLevelListIndex": 1064
+    },
+    {
+      "id": "hz-351",
+      "char": "则",
+      "firstLevelListIndex": 440
+    },
+    {
+      "id": "hz-352",
+      "char": "却",
+      "firstLevelListIndex": 658
+    },
+    {
+      "id": "hz-353",
+      "char": "界",
+      "firstLevelListIndex": 1496
+    },
+    {
+      "id": "hz-354",
+      "char": "达",
+      "firstLevelListIndex": 398
+    },
+    {
+      "id": "hz-355",
+      "char": "光",
+      "firstLevelListIndex": 417
+    },
+    {
+      "id": "hz-356",
+      "char": "放",
+      "firstLevelListIndex": 1223
+    },
+    {
+      "id": "hz-357",
+      "char": "强",
+      "firstLevelListIndex": 2802
+    },
+    {
+      "id": "hz-358",
+      "char": "即",
+      "firstLevelListIndex": 901
+    },
+    {
+      "id": "hz-359",
+      "char": "像",
+      "firstLevelListIndex": 2961
+    },
+    {
+      "id": "hz-360",
+      "char": "难",
+      "firstLevelListIndex": 2147
+    },
+    {
+      "id": "hz-361",
+      "char": "且",
+      "firstLevelListIndex": 237
+    },
+    {
+      "id": "hz-362",
+      "char": "权",
+      "firstLevelListIndex": 378
+    },
+    {
+      "id": "hz-363",
+      "char": "思",
+      "firstLevelListIndex": 1500
+    },
+    {
+      "id": "hz-364",
+      "char": "王",
+      "firstLevelListIndex": 75
+    },
+    {
+      "id": "hz-365",
+      "char": "象",
+      "firstLevelListIndex": 2361
+    },
+    {
+      "id": "hz-366",
+      "char": "完",
+      "firstLevelListIndex": 877
+    },
+    {
+      "id": "hz-367",
+      "char": "设",
+      "firstLevelListIndex": 560
+    },
+    {
+      "id": "hz-368",
+      "char": "式",
+      "firstLevelListIndex": 349
+    },
+    {
+      "id": "hz-369",
+      "char": "色",
+      "firstLevelListIndex": 509
+    },
+    {
+      "id": "hz-370",
+      "char": "路",
+      "firstLevelListIndex": 2918
+    },
+    {
+      "id": "hz-371",
+      "char": "记",
+      "firstLevelListIndex": 323
+    },
+    {
+      "id": "hz-372",
+      "char": "南",
+      "firstLevelListIndex": 1422
+    },
+    {
+      "id": "hz-373",
+      "char": "品",
+      "firstLevelListIndex": 1503
+    },
+    {
+      "id": "hz-374",
+      "char": "住",
+      "firstLevelListIndex": 783
+    },
+    {
+      "id": "hz-375",
+      "char": "告",
+      "firstLevelListIndex": 760
+    },
+    {
+      "id": "hz-376",
+      "char": "类",
+      "firstLevelListIndex": 1646
+    },
+    {
+      "id": "hz-377",
+      "char": "求",
+      "firstLevelListIndex": 690
+    },
+    {
+      "id": "hz-378",
+      "char": "据",
+      "firstLevelListIndex": 2189
+    },
+    {
+      "id": "hz-379",
+      "char": "程",
+      "firstLevelListIndex": 2677
+    },
+    {
+      "id": "hz-380",
+      "char": "北",
+      "firstLevelListIndex": 227
+    },
+    {
+      "id": "hz-381",
+      "char": "边",
+      "firstLevelListIndex": 337
+    },
+    {
+      "id": "hz-382",
+      "char": "死",
+      "firstLevelListIndex": 400
+    },
+    {
+      "id": "hz-383",
+      "char": "张",
+      "firstLevelListIndex": 909
+    },
+    {
+      "id": "hz-384",
+      "char": "该",
+      "firstLevelListIndex": 1300
+    },
+    {
+      "id": "hz-385",
+      "char": "交",
+      "firstLevelListIndex": 519
+    },
+    {
+      "id": "hz-386",
+      "char": "规",
+      "firstLevelListIndex": 952
+    },
+    {
+      "id": "hz-387",
+      "char": "万",
+      "firstLevelListIndex": 35
+    },
+    {
+      "id": "hz-388",
+      "char": "取",
+      "firstLevelListIndex": 997
+    },
+    {
+      "id": "hz-389",
+      "char": "拉",
+      "firstLevelListIndex": 981
+    },
+    {
+      "id": "hz-390",
+      "char": "格",
+      "firstLevelListIndex": 1845
+    },
+    {
+      "id": "hz-391",
+      "char": "望",
+      "firstLevelListIndex": 2394
+    },
+    {
+      "id": "hz-392",
+      "char": "觉",
+      "firstLevelListIndex": 1694
+    },
+    {
+      "id": "hz-393",
+      "char": "术",
+      "firstLevelListIndex": 211
+    },
+    {
+      "id": "hz-394",
+      "char": "领",
+      "firstLevelListIndex": 2354
+    },
+    {
+      "id": "hz-395",
+      "char": "共",
+      "firstLevelListIndex": 371
+    },
+    {
+      "id": "hz-396",
+      "char": "确",
+      "firstLevelListIndex": 2591
+    },
+    {
+      "id": "hz-397",
+      "char": "传",
+      "firstLevelListIndex": 455
+    },
+    {
+      "id": "hz-398",
+      "char": "师",
+      "firstLevelListIndex": 413
+    },
+    {
+      "id": "hz-399",
+      "char": "观",
+      "firstLevelListIndex": 586
+    },
+    {
+      "id": "hz-400",
+      "char": "清",
+      "firstLevelListIndex": 2410
+    },
+    {
+      "id": "hz-401",
+      "char": "今",
+      "firstLevelListIndex": 144
+    },
+    {
+      "id": "hz-402",
+      "char": "切",
+      "firstLevelListIndex": 107
+    },
+    {
+      "id": "hz-403",
+      "char": "院",
+      "firstLevelListIndex": 1734
+    },
+    {
+      "id": "hz-404",
+      "char": "让",
+      "firstLevelListIndex": 317
+    },
+    {
+      "id": "hz-405",
+      "char": "识",
+      "firstLevelListIndex": 892
+    },
+    {
+      "id": "hz-406",
+      "char": "候",
+      "firstLevelListIndex": 1964
+    },
+    {
+      "id": "hz-407",
+      "char": "带",
+      "firstLevelListIndex": 1407
+    },
+    {
+      "id": "hz-408",
+      "char": "导",
+      "firstLevelListIndex": 567
+    },
+    {
+      "id": "hz-409",
+      "char": "争",
+      "firstLevelListIndex": 508
+    },
+    {
+      "id": "hz-410",
+      "char": "运",
+      "firstLevelListIndex": 611
+    },
+    {
+      "id": "hz-411",
+      "char": "飞",
+      "firstLevelListIndex": 69
+    },
+    {
+      "id": "hz-412",
+      "char": "步",
+      "firstLevelListIndex": 710
+    },
+    {
+      "id": "hz-413",
+      "char": "改",
+      "firstLevelListIndex": 908
+    },
+    {
+      "id": "hz-414",
+      "char": "收",
+      "firstLevelListIndex": 573
+    },
+    {
+      "id": "hz-415",
+      "char": "根",
+      "firstLevelListIndex": 1850
+    },
+    {
+      "id": "hz-416",
+      "char": "干",
+      "firstLevelListIndex": 23
+    },
+    {
+      "id": "hz-417",
+      "char": "造",
+      "firstLevelListIndex": 1940
+    },
+    {
+      "id": "hz-418",
+      "char": "言",
+      "firstLevelListIndex": 826
+    },
+    {
+      "id": "hz-419",
+      "char": "联",
+      "firstLevelListIndex": 2544
+    },
+    {
+      "id": "hz-420",
+      "char": "持",
+      "firstLevelListIndex": 1367
+    },
+    {
+      "id": "hz-421",
+      "char": "组",
+      "firstLevelListIndex": 1338
+    },
+    {
+      "id": "hz-422",
+      "char": "每",
+      "firstLevelListIndex": 767
+    },
+    {
+      "id": "hz-423",
+      "char": "济",
+      "firstLevelListIndex": 1678
+    },
+    {
+      "id": "hz-424",
+      "char": "车",
+      "firstLevelListIndex": 100
+    },
+    {
+      "id": "hz-425",
+      "char": "亲",
+      "firstLevelListIndex": 1631
+    },
+    {
+      "id": "hz-426",
+      "char": "极",
+      "firstLevelListIndex": 687
+    },
+    {
+      "id": "hz-427",
+      "char": "林",
+      "firstLevelListIndex": 1018
+    },
+    {
+      "id": "hz-428",
+      "char": "服",
+      "firstLevelListIndex": 1190
+    },
+    {
+      "id": "hz-429",
+      "char": "快",
+      "firstLevelListIndex": 876
+    },
+    {
+      "id": "hz-430",
+      "char": "办",
+      "firstLevelListIndex": 181
+    },
+    {
+      "id": "hz-431",
+      "char": "议",
+      "firstLevelListIndex": 320
+    },
+    {
+      "id": "hz-432",
+      "char": "往",
+      "firstLevelListIndex": 1160
+    },
+    {
+      "id": "hz-433",
+      "char": "元",
+      "firstLevelListIndex": 80
+    },
+    {
+      "id": "hz-434",
+      "char": "英",
+      "firstLevelListIndex": 1006
+    },
+    {
+      "id": "hz-435",
+      "char": "士",
+      "firstLevelListIndex": 28
+    },
+    {
+      "id": "hz-436",
+      "char": "证",
+      "firstLevelListIndex": 885
+    },
+    {
+      "id": "hz-437",
+      "char": "近",
+      "firstLevelListIndex": 791
+    },
+    {
+      "id": "hz-438",
+      "char": "失",
+      "firstLevelListIndex": 265
+    },
+    {
+      "id": "hz-439",
+      "char": "转",
+      "firstLevelListIndex": 1059
+    },
+    {
+      "id": "hz-440",
+      "char": "夫",
+      "firstLevelListIndex": 79
+    },
+    {
+      "id": "hz-441",
+      "char": "令",
+      "firstLevelListIndex": 282
+    },
+    {
+      "id": "hz-442",
+      "char": "准",
+      "firstLevelListIndex": 2024
+    },
+    {
+      "id": "hz-443",
+      "char": "布",
+      "firstLevelListIndex": 218
+    },
+    {
+      "id": "hz-444",
+      "char": "始",
+      "firstLevelListIndex": 1329
+    },
+    {
+      "id": "hz-445",
+      "char": "怎",
+      "firstLevelListIndex": 1543
+    },
+    {
+      "id": "hz-446",
+      "char": "呢",
+      "firstLevelListIndex": 1102
+    },
+    {
+      "id": "hz-447",
+      "char": "存",
+      "firstLevelListIndex": 391
+    },
+    {
+      "id": "hz-448",
+      "char": "未",
+      "firstLevelListIndex": 192
+    },
+    {
+      "id": "hz-449",
+      "char": "远",
+      "firstLevelListIndex": 608
+    },
+    {
+      "id": "hz-450",
+      "char": "叫",
+      "firstLevelListIndex": 253
+    },
+    {
+      "id": "hz-451",
+      "char": "台",
+      "firstLevelListIndex": 342
+    },
+    {
+      "id": "hz-452",
+      "char": "单",
+      "firstLevelListIndex": 1232
+    },
+    {
+      "id": "hz-453",
+      "char": "影",
+      "firstLevelListIndex": 3240
+    },
+    {
+      "id": "hz-454",
+      "char": "具",
+      "firstLevelListIndex": 1077
+    },
+    {
+      "id": "hz-455",
+      "char": "罗",
+      "firstLevelListIndex": 1108
+    },
+    {
+      "id": "hz-456",
+      "char": "字",
+      "firstLevelListIndex": 548
+    },
+    {
+      "id": "hz-457",
+      "char": "爱",
+      "firstLevelListIndex": 1987
+    },
+    {
+      "id": "hz-458",
+      "char": "击",
+      "firstLevelListIndex": 195
+    },
+    {
+      "id": "hz-459",
+      "char": "流",
+      "firstLevelListIndex": 2080
+    },
+    {
+      "id": "hz-460",
+      "char": "备",
+      "firstLevelListIndex": 1200
+    },
+    {
+      "id": "hz-461",
+      "char": "兵",
+      "firstLevelListIndex": 768
+    },
+    {
+      "id": "hz-462",
+      "char": "连",
+      "firstLevelListIndex": 708
+    },
+    {
+      "id": "hz-463",
+      "char": "调",
+      "firstLevelListIndex": 2123
+    },
+    {
+      "id": "hz-464",
+      "char": "深",
+      "firstLevelListIndex": 2432
+    },
+    {
+      "id": "hz-465",
+      "char": "商",
+      "firstLevelListIndex": 2391
+    },
+    {
+      "id": "hz-466",
+      "char": "算",
+      "firstLevelListIndex": 3121
+    },
+    {
+      "id": "hz-467",
+      "char": "质",
+      "firstLevelListIndex": 1157
+    },
+    {
+      "id": "hz-468",
+      "char": "团",
+      "firstLevelListIndex": 425
+    },
+    {
+      "id": "hz-469",
+      "char": "集",
+      "firstLevelListIndex": 2694
+    },
+    {
+      "id": "hz-470",
+      "char": "百",
+      "firstLevelListIndex": 389
+    },
+    {
+      "id": "hz-471",
+      "char": "需",
+      "firstLevelListIndex": 3095
+    },
+    {
+      "id": "hz-472",
+      "char": "价",
+      "firstLevelListIndex": 469
+    },
+    {
+      "id": "hz-473",
+      "char": "党",
+      "firstLevelListIndex": 1885
+    },
+    {
+      "id": "hz-474",
+      "char": "华",
+      "firstLevelListIndex": 472
+    },
+    {
+      "id": "hz-475",
+      "char": "城",
+      "firstLevelListIndex": 1373
+    },
+    {
+      "id": "hz-476",
+      "char": "石",
+      "firstLevelListIndex": 216
+    },
+    {
+      "id": "hz-477",
+      "char": "级",
+      "firstLevelListIndex": 594
+    },
+    {
+      "id": "hz-478",
+      "char": "整",
+      "firstLevelListIndex": 3333
+    },
+    {
+      "id": "hz-479",
+      "char": "府",
+      "firstLevelListIndex": 1211
+    },
+    {
+      "id": "hz-480",
+      "char": "离",
+      "firstLevelListIndex": 2035
+    },
+    {
+      "id": "hz-481",
+      "char": "况",
+      "firstLevelListIndex": 830
+    },
+    {
+      "id": "hz-482",
+      "char": "亚",
+      "firstLevelListIndex": 373
+    },
+    {
+      "id": "hz-483",
+      "char": "请",
+      "firstLevelListIndex": 2108
+    },
+    {
+      "id": "hz-484",
+      "char": "技",
+      "firstLevelListIndex": 615
+    },
+    {
+      "id": "hz-485",
+      "char": "际",
+      "firstLevelListIndex": 911
+    },
+    {
+      "id": "hz-486",
+      "char": "约",
+      "firstLevelListIndex": 593
+    },
+    {
+      "id": "hz-487",
+      "char": "示",
+      "firstLevelListIndex": 194
+    },
+    {
+      "id": "hz-488",
+      "char": "复",
+      "firstLevelListIndex": 1553
+    },
+    {
+      "id": "hz-489",
+      "char": "病",
+      "firstLevelListIndex": 2027
+    },
+    {
+      "id": "hz-490",
+      "char": "息",
+      "firstLevelListIndex": 1973
+    },
+    {
+      "id": "hz-491",
+      "char": "究",
+      "firstLevelListIndex": 881
+    },
+    {
+      "id": "hz-492",
+      "char": "线",
+      "firstLevelListIndex": 1336
+    },
+    {
+      "id": "hz-493",
+      "char": "似",
+      "firstLevelListIndex": 481
+    },
+    {
+      "id": "hz-494",
+      "char": "官",
+      "firstLevelListIndex": 1281
+    },
+    {
+      "id": "hz-495",
+      "char": "断",
+      "firstLevelListIndex": 2405
+    },
+    {
+      "id": "hz-496",
+      "char": "精",
+      "firstLevelListIndex": 3153
+    },
+    {
+      "id": "hz-497",
+      "char": "满",
+      "firstLevelListIndex": 3005
+    },
+    {
+      "id": "hz-498",
+      "char": "支",
+      "firstLevelListIndex": 89
+    },
+    {
+      "id": "hz-499",
+      "char": "视",
+      "firstLevelListIndex": 1294
+    },
+    {
+      "id": "hz-500",
+      "char": "消",
+      "firstLevelListIndex": 2071
+    },
+    {
+      "id": "hz-501",
+      "char": "越",
+      "firstLevelListIndex": 2514
+    },
+    {
+      "id": "hz-502",
+      "char": "器",
+      "firstLevelListIndex": 3348
+    },
+    {
+      "id": "hz-503",
+      "char": "容",
+      "firstLevelListIndex": 2105
+    },
+    {
+      "id": "hz-504",
+      "char": "照",
+      "firstLevelListIndex": 2911
+    },
+    {
+      "id": "hz-505",
+      "char": "须",
+      "firstLevelListIndex": 1585
+    },
+    {
+      "id": "hz-506",
+      "char": "增",
+      "firstLevelListIndex": 3204
+    },
+    {
+      "id": "hz-507",
+      "char": "研",
+      "firstLevelListIndex": 1446
+    },
+    {
+      "id": "hz-508",
+      "char": "写",
+      "firstLevelListIndex": 316
+    },
+    {
+      "id": "hz-509",
+      "char": "称",
+      "firstLevelListIndex": 1948
+    },
+    {
+      "id": "hz-510",
+      "char": "企",
+      "firstLevelListIndex": 490
+    },
+    {
+      "id": "hz-511",
+      "char": "功",
+      "firstLevelListIndex": 202
+    },
+    {
+      "id": "hz-512",
+      "char": "吗",
+      "firstLevelListIndex": 432
+    },
+    {
+      "id": "hz-513",
+      "char": "片",
+      "firstLevelListIndex": 130
+    },
+    {
+      "id": "hz-514",
+      "char": "史",
+      "firstLevelListIndex": 248
+    },
+    {
+      "id": "hz-515",
+      "char": "委",
+      "firstLevelListIndex": 1133
+    },
+    {
+      "id": "hz-516",
+      "char": "乎",
+      "firstLevelListIndex": 280
+    },
+    {
+      "id": "hz-517",
+      "char": "查",
+      "firstLevelListIndex": 1431
+    },
+    {
+      "id": "hz-518",
+      "char": "轻",
+      "firstLevelListIndex": 1463
+    },
+    {
+      "id": "hz-519",
+      "char": "易",
+      "firstLevelListIndex": 1088
+    },
+    {
+      "id": "hz-520",
+      "char": "早",
+      "firstLevelListIndex": 419
+    },
+    {
+      "id": "hz-521",
+      "char": "曾",
+      "firstLevelListIndex": 2747
+    },
+    {
+      "id": "hz-522",
+      "char": "除",
+      "firstLevelListIndex": 1732
+    },
+    {
+      "id": "hz-523",
+      "char": "农",
+      "firstLevelListIndex": 558
+    },
+    {
+      "id": "hz-524",
+      "char": "找",
+      "firstLevelListIndex": 621
+    },
+    {
+      "id": "hz-525",
+      "char": "装",
+      "firstLevelListIndex": 2726
+    },
+    {
+      "id": "hz-526",
+      "char": "广",
+      "firstLevelListIndex": 53
+    },
+    {
+      "id": "hz-527",
+      "char": "显",
+      "firstLevelListIndex": 1485
+    },
+    {
+      "id": "hz-528",
+      "char": "吧",
+      "firstLevelListIndex": 747
+    },
+    {
+      "id": "hz-529",
+      "char": "阿",
+      "firstLevelListIndex": 913
+    },
+    {
+      "id": "hz-530",
+      "char": "李",
+      "firstLevelListIndex": 688
+    },
+    {
+      "id": "hz-531",
+      "char": "标",
+      "firstLevelListIndex": 1424
+    },
+    {
+      "id": "hz-532",
+      "char": "谈",
+      "firstLevelListIndex": 2127
+    },
+    {
+      "id": "hz-533",
+      "char": "图",
+      "firstLevelListIndex": 1119
+    },
+    {
+      "id": "hz-534",
+      "char": "念",
+      "firstLevelListIndex": 1177
+    },
+    {
+      "id": "hz-535",
+      "char": "引",
+      "firstLevelListIndex": 176
+    },
+    {
+      "id": "hz-536",
+      "char": "历",
+      "firstLevelListIndex": 95
+    },
+    {
+      "id": "hz-537",
+      "char": "首",
+      "firstLevelListIndex": 1651
+    },
+    {
+      "id": "hz-538",
+      "char": "医",
+      "firstLevelListIndex": 700
+    },
+    {
+      "id": "hz-539",
+      "char": "局",
+      "firstLevelListIndex": 907
+    },
+    {
+      "id": "hz-540",
+      "char": "突",
+      "firstLevelListIndex": 1700
+    },
+    {
+      "id": "hz-541",
+      "char": "专",
+      "firstLevelListIndex": 83
+    },
+    {
+      "id": "hz-542",
+      "char": "费",
+      "firstLevelListIndex": 1726
+    },
+    {
+      "id": "hz-543",
+      "char": "号",
+      "firstLevelListIndex": 243
+    },
+    {
+      "id": "hz-544",
+      "char": "尽",
+      "firstLevelListIndex": 566
+    },
+    {
+      "id": "hz-545",
+      "char": "另",
+      "firstLevelListIndex": 256
+    },
+    {
+      "id": "hz-546",
+      "char": "周",
+      "firstLevelListIndex": 1192
+    },
+    {
+      "id": "hz-547",
+      "char": "较",
+      "firstLevelListIndex": 1876
+    },
+    {
+      "id": "hz-548",
+      "char": "注",
+      "firstLevelListIndex": 1252
+    },
+    {
+      "id": "hz-549",
+      "char": "语",
+      "firstLevelListIndex": 1707
+    },
+    {
+      "id": "hz-550",
+      "char": "仅",
+      "firstLevelListIndex": 136
+    },
+    {
+      "id": "hz-551",
+      "char": "考",
+      "firstLevelListIndex": 358
+    },
+    {
+      "id": "hz-552",
+      "char": "落",
+      "firstLevelListIndex": 2557
+    },
+    {
+      "id": "hz-553",
+      "char": "青",
+      "firstLevelListIndex": 947
+    },
+    {
+      "id": "hz-554",
+      "char": "随",
+      "firstLevelListIndex": 2476
+    },
+    {
+      "id": "hz-555",
+      "char": "选",
+      "firstLevelListIndex": 1545
+    },
+    {
+      "id": "hz-556",
+      "char": "列",
+      "firstLevelListIndex": 399
+    },
+    {
+      "id": "hz-557",
+      "char": "武",
+      "firstLevelListIndex": 946
+    },
+    {
+      "id": "hz-558",
+      "char": "响",
+      "firstLevelListIndex": 1509
+    },
+    {
+      "id": "hz-559",
+      "char": "虽",
+      "firstLevelListIndex": 1502
+    },
+    {
+      "id": "hz-560",
+      "char": "推",
+      "firstLevelListIndex": 2174
+    },
+    {
+      "id": "hz-561",
+      "char": "势",
+      "firstLevelListIndex": 977
+    },
+    {
+      "id": "hz-562",
+      "char": "参",
+      "firstLevelListIndex": 1334
+    },
+    {
+      "id": "hz-563",
+      "char": "希",
+      "firstLevelListIndex": 796
+    },
+    {
+      "id": "hz-564",
+      "char": "古",
+      "firstLevelListIndex": 208
+    },
+    {
+      "id": "hz-565",
+      "char": "众",
+      "firstLevelListIndex": 491
+    },
+    {
+      "id": "hz-566",
+      "char": "构",
+      "firstLevelListIndex": 1029
+    },
+    {
+      "id": "hz-567",
+      "char": "房",
+      "firstLevelListIndex": 1290
+    },
+    {
+      "id": "hz-568",
+      "char": "半",
+      "firstLevelListIndex": 307
+    },
+    {
+      "id": "hz-569",
+      "char": "节",
+      "firstLevelListIndex": 209
+    },
+    {
+      "id": "hz-570",
+      "char": "投",
+      "firstLevelListIndex": 643
+    },
+    {
+      "id": "hz-571",
+      "char": "某",
+      "firstLevelListIndex": 1399
+    },
+    {
+      "id": "hz-572",
+      "char": "案",
+      "firstLevelListIndex": 2107
+    },
+    {
+      "id": "hz-573",
+      "char": "维",
+      "firstLevelListIndex": 2492
+    },
+    {
+      "id": "hz-574",
+      "char": "革",
+      "firstLevelListIndex": 1403
+    },
+    {
+      "id": "hz-575",
+      "char": "划",
+      "firstLevelListIndex": 407
+    },
+    {
+      "id": "hz-576",
+      "char": "敌",
+      "firstLevelListIndex": 1942
+    },
+    {
+      "id": "hz-577",
+      "char": "致",
+      "firstLevelListIndex": 1879
+    },
+    {
+      "id": "hz-578",
+      "char": "陈",
+      "firstLevelListIndex": 914
+    },
+    {
+      "id": "hz-579",
+      "char": "律",
+      "firstLevelListIndex": 1583
+    },
+    {
+      "id": "hz-580",
+      "char": "态",
+      "firstLevelListIndex": 1052
+    },
+    {
+      "id": "hz-581",
+      "char": "护",
+      "firstLevelListIndex": 649
+    },
+    {
+      "id": "hz-582",
+      "char": "兴",
+      "firstLevelListIndex": 544
+    },
+    {
+      "id": "hz-583",
+      "char": "派",
+      "firstLevelListIndex": 1673
+    },
+    {
+      "id": "hz-584",
+      "char": "孩",
+      "firstLevelListIndex": 1730
+    },
+    {
+      "id": "hz-585",
+      "char": "验",
+      "firstLevelListIndex": 2152
+    },
+    {
+      "id": "hz-586",
+      "char": "责",
+      "firstLevelListIndex": 948
+    },
+    {
+      "id": "hz-587",
+      "char": "营",
+      "firstLevelListIndex": 2214
+    },
+    {
+      "id": "hz-588",
+      "char": "星",
+      "firstLevelListIndex": 1488
+    },
+    {
+      "id": "hz-589",
+      "char": "够",
+      "firstLevelListIndex": 2362
+    },
+    {
+      "id": "hz-590",
+      "char": "章",
+      "firstLevelListIndex": 2389
+    },
+    {
+      "id": "hz-591",
+      "char": "音",
+      "firstLevelListIndex": 1632
+    },
+    {
+      "id": "hz-592",
+      "char": "跟",
+      "firstLevelListIndex": 2920
+    },
+    {
+      "id": "hz-593",
+      "char": "志",
+      "firstLevelListIndex": 651
+    },
+    {
+      "id": "hz-594",
+      "char": "底",
+      "firstLevelListIndex": 1212
+    },
+    {
+      "id": "hz-595",
+      "char": "站",
+      "firstLevelListIndex": 2041
+    },
+    {
+      "id": "hz-596",
+      "char": "严",
+      "firstLevelListIndex": 671
+    },
+    {
+      "id": "hz-597",
+      "char": "巴",
+      "firstLevelListIndex": 178
+    },
+    {
+      "id": "hz-598",
+      "char": "例",
+      "firstLevelListIndex": 1140
+    },
+    {
+      "id": "hz-599",
+      "char": "防",
+      "firstLevelListIndex": 576
+    },
+    {
+      "id": "hz-600",
+      "char": "族",
+      "firstLevelListIndex": 2392
+    },
+    {
+      "id": "hz-601",
+      "char": "供",
+      "firstLevelListIndex": 1138
+    },
+    {
+      "id": "hz-602",
+      "char": "效",
+      "firstLevelListIndex": 2034
+    },
+    {
+      "id": "hz-603",
+      "char": "续",
+      "firstLevelListIndex": 2488
+    },
+    {
+      "id": "hz-604",
+      "char": "施",
+      "firstLevelListIndex": 1634
+    },
+    {
+      "id": "hz-605",
+      "char": "留",
+      "firstLevelListIndex": 2009
+    },
+    {
+      "id": "hz-606",
+      "char": "讲",
+      "firstLevelListIndex": 550
+    },
+    {
+      "id": "hz-607",
+      "char": "型",
+      "firstLevelListIndex": 1363
+    },
+    {
+      "id": "hz-608",
+      "char": "料",
+      "firstLevelListIndex": 2054
+    },
+    {
+      "id": "hz-609",
+      "char": "终",
+      "firstLevelListIndex": 1344
+    },
+    {
+      "id": "hz-610",
+      "char": "答",
+      "firstLevelListIndex": 2687
+    },
+    {
+      "id": "hz-611",
+      "char": "紧",
+      "firstLevelListIndex": 1884
+    },
+    {
+      "id": "hz-612",
+      "char": "绝",
+      "firstLevelListIndex": 1762
+    },
+    {
+      "id": "hz-613",
+      "char": "奇",
+      "firstLevelListIndex": 1050
+    },
+    {
+      "id": "hz-614",
+      "char": "察",
+      "firstLevelListIndex": 3174
+    },
+    {
+      "id": "hz-615",
+      "char": "母",
+      "firstLevelListIndex": 345
+    },
+    {
+      "id": "hz-616",
+      "char": "京",
+      "firstLevelListIndex": 1205
+    },
+    {
+      "id": "hz-617",
+      "char": "段",
+      "firstLevelListIndex": 1555
+    },
+    {
+      "id": "hz-618",
+      "char": "依",
+      "firstLevelListIndex": 1153
+    },
+    {
+      "id": "hz-619",
+      "char": "批",
+      "firstLevelListIndex": 622
+    },
+    {
+      "id": "hz-620",
+      "char": "群",
+      "firstLevelListIndex": 3035
+    },
+    {
+      "id": "hz-621",
+      "char": "项",
+      "firstLevelListIndex": 1370
+    },
+    {
+      "id": "hz-622",
+      "char": "故",
+      "firstLevelListIndex": 1418
+    },
+    {
+      "id": "hz-623",
+      "char": "按",
+      "firstLevelListIndex": 1395
+    },
+    {
+      "id": "hz-624",
+      "char": "河",
+      "firstLevelListIndex": 1244
+    },
+    {
+      "id": "hz-625",
+      "char": "围",
+      "firstLevelListIndex": 728
+    },
+    {
+      "id": "hz-626",
+      "char": "江",
+      "firstLevelListIndex": 538
+    },
+    {
+      "id": "hz-627",
+      "char": "织",
+      "firstLevelListIndex": 1342
+    },
+    {
+      "id": "hz-628",
+      "char": "害",
+      "firstLevelListIndex": 2097
+    },
+    {
+      "id": "hz-629",
+      "char": "斗",
+      "firstLevelListIndex": 166
+    },
+    {
+      "id": "hz-630",
+      "char": "双",
+      "firstLevelListIndex": 187
+    },
+    {
+      "id": "hz-631",
+      "char": "境",
+      "firstLevelListIndex": 3061
+    },
+    {
+      "id": "hz-632",
+      "char": "客",
+      "firstLevelListIndex": 1703
+    },
+    {
+      "id": "hz-633",
+      "char": "纪",
+      "firstLevelListIndex": 595
+    },
+    {
+      "id": "hz-634",
+      "char": "采",
+      "firstLevelListIndex": 1172
+    },
+    {
+      "id": "hz-635",
+      "char": "举",
+      "firstLevelListIndex": 1693
+    },
+    {
+      "id": "hz-636",
+      "char": "杀",
+      "firstLevelListIndex": 487
+    },
+    {
+      "id": "hz-637",
+      "char": "攻",
+      "firstLevelListIndex": 630
+    },
+    {
+      "id": "hz-638",
+      "char": "父",
+      "firstLevelListIndex": 141
+    },
+    {
+      "id": "hz-639",
+      "char": "苏",
+      "firstLevelListIndex": 677
+    },
+    {
+      "id": "hz-640",
+      "char": "密",
+      "firstLevelListIndex": 2458
+    },
+    {
+      "id": "hz-641",
+      "char": "低",
+      "firstLevelListIndex": 781
+    },
+    {
+      "id": "hz-642",
+      "char": "朝",
+      "firstLevelListIndex": 2559
+    },
+    {
+      "id": "hz-643",
+      "char": "诉",
+      "firstLevelListIndex": 894
+    },
+    {
+      "id": "hz-644",
+      "char": "止",
+      "firstLevelListIndex": 109
+    },
+    {
+      "id": "hz-645",
+      "char": "细",
+      "firstLevelListIndex": 1340
+    },
+    {
+      "id": "hz-646",
+      "char": "愿",
+      "firstLevelListIndex": 3094
+    },
+    {
+      "id": "hz-647",
+      "char": "千",
+      "firstLevelListIndex": 41
+    },
+    {
+      "id": "hz-648",
+      "char": "值",
+      "firstLevelListIndex": 1956
+    },
+    {
+      "id": "hz-649",
+      "char": "仍",
+      "firstLevelListIndex": 135
+    },
+    {
+      "id": "hz-650",
+      "char": "男",
+      "firstLevelListIndex": 733
+    },
+    {
+      "id": "hz-651",
+      "char": "钱",
+      "firstLevelListIndex": 1928
+    },
+    {
+      "id": "hz-652",
+      "char": "破",
+      "firstLevelListIndex": 1867
+    },
+    {
+      "id": "hz-653",
+      "char": "网",
+      "firstLevelListIndex": 442
+    },
+    {
+      "id": "hz-654",
+      "char": "热",
+      "firstLevelListIndex": 1809
+    },
+    {
+      "id": "hz-655",
+      "char": "助",
+      "firstLevelListIndex": 719
+    },
+    {
+      "id": "hz-656",
+      "char": "倒",
+      "firstLevelListIndex": 1960
+    },
+    {
+      "id": "hz-657",
+      "char": "育",
+      "firstLevelListIndex": 1225
+    },
+    {
+      "id": "hz-658",
+      "char": "属",
+      "firstLevelListIndex": 2800
+    },
+    {
+      "id": "hz-659",
+      "char": "坐",
+      "firstLevelListIndex": 797
+    },
+    {
+      "id": "hz-660",
+      "char": "帝",
+      "firstLevelListIndex": 1633
+    },
+    {
+      "id": "hz-661",
+      "char": "限",
+      "firstLevelListIndex": 1323
+    },
+    {
+      "id": "hz-662",
+      "char": "船",
+      "firstLevelListIndex": 2345
+    },
+    {
+      "id": "hz-663",
+      "char": "脸",
+      "firstLevelListIndex": 2359
+    },
+    {
+      "id": "hz-664",
+      "char": "职",
+      "firstLevelListIndex": 2192
+    },
+    {
+      "id": "hz-665",
+      "char": "速",
+      "firstLevelListIndex": 1853
+    },
+    {
+      "id": "hz-666",
+      "char": "刻",
+      "firstLevelListIndex": 1224
+    },
+    {
+      "id": "hz-667",
+      "char": "乐",
+      "firstLevelListIndex": 287
+    },
+    {
+      "id": "hz-668",
+      "char": "否",
+      "firstLevelListIndex": 703
+    },
+    {
+      "id": "hz-669",
+      "char": "刚",
+      "firstLevelListIndex": 441
+    },
+    {
+      "id": "hz-670",
+      "char": "威",
+      "firstLevelListIndex": 1444
+    },
+    {
+      "id": "hz-671",
+      "char": "毛",
+      "firstLevelListIndex": 123
+    },
+    {
+      "id": "hz-672",
+      "char": "状",
+      "firstLevelListIndex": 828
+    },
+    {
+      "id": "hz-673",
+      "char": "率",
+      "firstLevelListIndex": 2395
+    },
+    {
+      "id": "hz-674",
+      "char": "甚",
+      "firstLevelListIndex": 1400
+    },
+    {
+      "id": "hz-675",
+      "char": "独",
+      "firstLevelListIndex": 1602
+    },
+    {
+      "id": "hz-676",
+      "char": "球",
+      "firstLevelListIndex": 2155
+    },
+    {
+      "id": "hz-677",
+      "char": "般",
+      "firstLevelListIndex": 1980
+    },
+    {
+      "id": "hz-678",
+      "char": "普",
+      "firstLevelListIndex": 2741
+    },
+    {
+      "id": "hz-679",
+      "char": "怕",
+      "firstLevelListIndex": 1269
+    },
+    {
+      "id": "hz-680",
+      "char": "弹",
+      "firstLevelListIndex": 2473
+    },
+    {
+      "id": "hz-681",
+      "char": "校",
+      "firstLevelListIndex": 1847
+    },
+    {
+      "id": "hz-682",
+      "char": "苦",
+      "firstLevelListIndex": 999
+    },
+    {
+      "id": "hz-683",
+      "char": "创",
+      "firstLevelListIndex": 494
+    },
+    {
+      "id": "hz-684",
+      "char": "假",
+      "firstLevelListIndex": 2337
+    },
+    {
+      "id": "hz-685",
+      "char": "久",
+      "firstLevelListIndex": 47
+    },
+    {
+      "id": "hz-686",
+      "char": "错",
+      "firstLevelListIndex": 2936
+    },
+    {
+      "id": "hz-687",
+      "char": "承",
+      "firstLevelListIndex": 1315
+    },
+    {
+      "id": "hz-688",
+      "char": "印",
+      "firstLevelListIndex": 285
+    },
+    {
+      "id": "hz-689",
+      "char": "晚",
+      "firstLevelListIndex": 2270
+    },
+    {
+      "id": "hz-690",
+      "char": "兰",
+      "firstLevelListIndex": 306
+    },
+    {
+      "id": "hz-691",
+      "char": "试",
+      "firstLevelListIndex": 1286
+    },
+    {
+      "id": "hz-692",
+      "char": "股",
+      "firstLevelListIndex": 1186
+    },
+    {
+      "id": "hz-693",
+      "char": "拿",
+      "firstLevelListIndex": 1983
+    },
+    {
+      "id": "hz-694",
+      "char": "脑",
+      "firstLevelListIndex": 2001
+    },
+    {
+      "id": "hz-695",
+      "char": "预",
+      "firstLevelListIndex": 2148
+    },
+    {
+      "id": "hz-696",
+      "char": "谁",
+      "firstLevelListIndex": 2122
+    },
+    {
+      "id": "hz-697",
+      "char": "益",
+      "firstLevelListIndex": 2055
+    },
+    {
+      "id": "hz-698",
+      "char": "阳",
+      "firstLevelListIndex": 572
+    },
+    {
+      "id": "hz-699",
+      "char": "若",
+      "firstLevelListIndex": 1002
+    },
+    {
+      "id": "hz-700",
+      "char": "哪",
+      "firstLevelListIndex": 1515
+    },
+    {
+      "id": "hz-701",
+      "char": "微",
+      "firstLevelListIndex": 2965
+    },
+    {
+      "id": "hz-702",
+      "char": "尼",
+      "firstLevelListIndex": 326
+    },
+    {
+      "id": "hz-703",
+      "char": "继",
+      "firstLevelListIndex": 2153
+    },
+    {
+      "id": "hz-704",
+      "char": "送",
+      "firstLevelListIndex": 1645
+    },
+    {
+      "id": "hz-705",
+      "char": "急",
+      "firstLevelListIndex": 1609
+    },
+    {
+      "id": "hz-706",
+      "char": "血",
+      "firstLevelListIndex": 479
+    },
+    {
+      "id": "hz-707",
+      "char": "惊",
+      "firstLevelListIndex": 2445
+    },
+    {
+      "id": "hz-708",
+      "char": "伤",
+      "firstLevelListIndex": 468
+    },
+    {
+      "id": "hz-709",
+      "char": "素",
+      "firstLevelListIndex": 1775
+    },
+    {
+      "id": "hz-710",
+      "char": "药",
+      "firstLevelListIndex": 1423
+    },
+    {
+      "id": "hz-711",
+      "char": "适",
+      "firstLevelListIndex": 1546
+    },
+    {
+      "id": "hz-712",
+      "char": "波",
+      "firstLevelListIndex": 1261
+    },
+    {
+      "id": "hz-713",
+      "char": "夜",
+      "firstLevelListIndex": 1209
+    },
+    {
+      "id": "hz-714",
+      "char": "省",
+      "firstLevelListIndex": 1474
+    },
+    {
+      "id": "hz-715",
+      "char": "初",
+      "firstLevelListIndex": 889
+    },
+    {
+      "id": "hz-716",
+      "char": "喜",
+      "firstLevelListIndex": 2523
+    },
+    {
+      "id": "hz-717",
+      "char": "卫",
+      "firstLevelListIndex": 65
+    },
+    {
+      "id": "hz-718",
+      "char": "源",
+      "firstLevelListIndex": 3008
+    },
+    {
+      "id": "hz-719",
+      "char": "食",
+      "firstLevelListIndex": 1589
+    },
+    {
+      "id": "hz-720",
+      "char": "险",
+      "firstLevelListIndex": 1733
+    },
+    {
+      "id": "hz-721",
+      "char": "待",
+      "firstLevelListIndex": 1580
+    },
+    {
+      "id": "hz-722",
+      "char": "述",
+      "firstLevelListIndex": 1032
+    },
+    {
+      "id": "hz-723",
+      "char": "陆",
+      "firstLevelListIndex": 912
+    },
+    {
+      "id": "hz-724",
+      "char": "习",
+      "firstLevelListIndex": 70
+    },
+    {
+      "id": "hz-725",
+      "char": "置",
+      "firstLevelListIndex": 2931
+    },
+    {
+      "id": "hz-726",
+      "char": "居",
+      "firstLevelListIndex": 1308
+    },
+    {
+      "id": "hz-727",
+      "char": "劳",
+      "firstLevelListIndex": 674
+    },
+    {
+      "id": "hz-728",
+      "char": "财",
+      "firstLevelListIndex": 756
+    },
+    {
+      "id": "hz-729",
+      "char": "环",
+      "firstLevelListIndex": 945
+    },
+    {
+      "id": "hz-730",
+      "char": "排",
+      "firstLevelListIndex": 2168
+    },
+    {
+      "id": "hz-731",
+      "char": "福",
+      "firstLevelListIndex": 3033
+    },
+    {
+      "id": "hz-732",
+      "char": "纳",
+      "firstLevelListIndex": 934
+    },
+    {
+      "id": "hz-733",
+      "char": "欢",
+      "firstLevelListIndex": 587
+    },
+    {
+      "id": "hz-734",
+      "char": "雷",
+      "firstLevelListIndex": 2884
+    },
+    {
+      "id": "hz-735",
+      "char": "警",
+      "firstLevelListIndex": 3453
+    },
+    {
+      "id": "hz-736",
+      "char": "获",
+      "firstLevelListIndex": 1827
+    },
+    {
+      "id": "hz-737",
+      "char": "模",
+      "firstLevelListIndex": 3078
+    },
+    {
+      "id": "hz-738",
+      "char": "充",
+      "firstLevelListIndex": 525
+    },
+    {
+      "id": "hz-739",
+      "char": "负",
+      "firstLevelListIndex": 503
+    },
+    {
+      "id": "hz-740",
+      "char": "停",
+      "firstLevelListIndex": 2333
+    },
+    {
+      "id": "hz-741",
+      "char": "游",
+      "firstLevelListIndex": 2766
+    },
+    {
+      "id": "hz-742",
+      "char": "疑",
+      "firstLevelListIndex": 3136
+    },
+    {
+      "id": "hz-743",
+      "char": "层",
+      "firstLevelListIndex": 902
+    },
+    {
+      "id": "hz-744",
+      "char": "冷",
+      "firstLevelListIndex": 838
+    },
+    {
+      "id": "hz-745",
+      "char": "洲",
+      "firstLevelListIndex": 1680
+    },
+    {
+      "id": "hz-746",
+      "char": "冲",
+      "firstLevelListIndex": 511
+    },
+    {
+      "id": "hz-747",
+      "char": "射",
+      "firstLevelListIndex": 1971
+    },
+    {
+      "id": "hz-748",
+      "char": "略",
+      "firstLevelListIndex": 2277
+    },
+    {
+      "id": "hz-749",
+      "char": "范",
+      "firstLevelListIndex": 1010
+    },
+    {
+      "id": "hz-750",
+      "char": "竟",
+      "firstLevelListIndex": 2390
+    },
+    {
+      "id": "hz-751",
+      "char": "句",
+      "firstLevelListIndex": 288
+    },
+    {
+      "id": "hz-752",
+      "char": "室",
+      "firstLevelListIndex": 1697
+    },
+    {
+      "id": "hz-753",
+      "char": "异",
+      "firstLevelListIndex": 568
+    },
+    {
+      "id": "hz-754",
+      "char": "激",
+      "firstLevelListIndex": 3379
+    },
+    {
+      "id": "hz-755",
+      "char": "汉",
+      "firstLevelListIndex": 311
+    },
+    {
+      "id": "hz-756",
+      "char": "村",
+      "firstLevelListIndex": 682
+    },
+    {
+      "id": "hz-757",
+      "char": "哈",
+      "firstLevelListIndex": 1510
+    },
+    {
+      "id": "hz-758",
+      "char": "策",
+      "firstLevelListIndex": 2683
+    },
+    {
+      "id": "hz-759",
+      "char": "演",
+      "firstLevelListIndex": 3167
+    },
+    {
+      "id": "hz-760",
+      "char": "简",
+      "firstLevelListIndex": 2954
+    },
+    {
+      "id": "hz-761",
+      "char": "卡",
+      "firstLevelListIndex": 226
+    },
+    {
+      "id": "hz-762",
+      "char": "罪",
+      "firstLevelListIndex": 2932
+    },
+    {
+      "id": "hz-763",
+      "char": "判",
+      "firstLevelListIndex": 849
+    },
+    {
+      "id": "hz-764",
+      "char": "担",
+      "firstLevelListIndex": 963
+    },
+    {
+      "id": "hz-765",
+      "char": "州",
+      "firstLevelListIndex": 535
+    },
+    {
+      "id": "hz-766",
+      "char": "静",
+      "firstLevelListIndex": 3049
+    },
+    {
+      "id": "hz-767",
+      "char": "退",
+      "firstLevelListIndex": 1720
+    },
+    {
+      "id": "hz-768",
+      "char": "既",
+      "firstLevelListIndex": 1721
+    },
+    {
+      "id": "hz-769",
+      "char": "您",
+      "firstLevelListIndex": 2331
+    },
+    {
+      "id": "hz-770",
+      "char": "宗",
+      "firstLevelListIndex": 1275
+    },
+    {
+      "id": "hz-771",
+      "char": "积",
+      "firstLevelListIndex": 1945
+    },
+    {
+      "id": "hz-772",
+      "char": "余",
+      "firstLevelListIndex": 795
+    },
+    {
+      "id": "hz-773",
+      "char": "痛",
+      "firstLevelListIndex": 2734
+    },
+    {
+      "id": "hz-774",
+      "char": "检",
+      "firstLevelListIndex": 2227
+    },
+    {
+      "id": "hz-775",
+      "char": "差",
+      "firstLevelListIndex": 1640
+    },
+    {
+      "id": "hz-776",
+      "char": "富",
+      "firstLevelListIndex": 2781
+    },
+    {
+      "id": "hz-777",
+      "char": "灵",
+      "firstLevelListIndex": 900
+    },
+    {
+      "id": "hz-778",
+      "char": "协",
+      "firstLevelListIndex": 383
+    },
+    {
+      "id": "hz-779",
+      "char": "角",
+      "firstLevelListIndex": 814
+    },
+    {
+      "id": "hz-780",
+      "char": "占",
+      "firstLevelListIndex": 228
+    },
+    {
+      "id": "hz-781",
+      "char": "配",
+      "firstLevelListIndex": 1858
+    },
+    {
+      "id": "hz-782",
+      "char": "征",
+      "firstLevelListIndex": 1159
+    },
+    {
+      "id": "hz-783",
+      "char": "修",
+      "firstLevelListIndex": 1560
+    },
+    {
+      "id": "hz-784",
+      "char": "皮",
+      "firstLevelListIndex": 336
+    },
+    {
+      "id": "hz-785",
+      "char": "挥",
+      "firstLevelListIndex": 1396
+    },
+    {
+      "id": "hz-786",
+      "char": "胜",
+      "firstLevelListIndex": 1594
+    },
+    {
+      "id": "hz-787",
+      "char": "降",
+      "firstLevelListIndex": 1321
+    },
+    {
+      "id": "hz-788",
+      "char": "阶",
+      "firstLevelListIndex": 574
+    },
+    {
+      "id": "hz-789",
+      "char": "审",
+      "firstLevelListIndex": 1279
+    },
+    {
+      "id": "hz-790",
+      "char": "沉",
+      "firstLevelListIndex": 871
+    },
+    {
+      "id": "hz-791",
+      "char": "坚",
+      "firstLevelListIndex": 712
+    },
+    {
+      "id": "hz-792",
+      "char": "善",
+      "firstLevelListIndex": 2738
+    },
+    {
+      "id": "hz-793",
+      "char": "刘",
+      "firstLevelListIndex": 517
+    },
+    {
+      "id": "hz-794",
+      "char": "读",
+      "firstLevelListIndex": 2112
+    },
+    {
+      "id": "hz-795",
+      "char": "啊",
+      "firstLevelListIndex": 1915
+    },
+    {
+      "id": "hz-796",
+      "char": "超",
+      "firstLevelListIndex": 2517
+    },
+    {
+      "id": "hz-797",
+      "char": "免",
+      "firstLevelListIndex": 810
+    },
+    {
+      "id": "hz-798",
+      "char": "压",
+      "firstLevelListIndex": 385
+    },
+    {
+      "id": "hz-799",
+      "char": "银",
+      "firstLevelListIndex": 2309
+    },
+    {
+      "id": "hz-800",
+      "char": "买",
+      "firstLevelListIndex": 588
+    },
+    {
+      "id": "hz-801",
+      "char": "皇",
+      "firstLevelListIndex": 1571
+    },
+    {
+      "id": "hz-802",
+      "char": "养",
+      "firstLevelListIndex": 1641
+    },
+    {
+      "id": "hz-803",
+      "char": "伊",
+      "firstLevelListIndex": 478
+    },
+    {
+      "id": "hz-804",
+      "char": "怀",
+      "firstLevelListIndex": 873
+    },
+    {
+      "id": "hz-805",
+      "char": "执",
+      "firstLevelListIndex": 363
+    },
+    {
+      "id": "hz-806",
+      "char": "副",
+      "firstLevelListIndex": 2234
+    },
+    {
+      "id": "hz-807",
+      "char": "乱",
+      "firstLevelListIndex": 762
+    },
+    {
+      "id": "hz-808",
+      "char": "抗",
+      "firstLevelListIndex": 646
+    },
+    {
+      "id": "hz-809",
+      "char": "犯",
+      "firstLevelListIndex": 292
+    },
+    {
+      "id": "hz-810",
+      "char": "追",
+      "firstLevelListIndex": 1577
+    },
+    {
+      "id": "hz-811",
+      "char": "帮",
+      "firstLevelListIndex": 1356
+    },
+    {
+      "id": "hz-812",
+      "char": "宣",
+      "firstLevelListIndex": 1695
+    },
+    {
+      "id": "hz-813",
+      "char": "佛",
+      "firstLevelListIndex": 789
+    },
+    {
+      "id": "hz-814",
+      "char": "岁",
+      "firstLevelListIndex": 436
+    },
+    {
+      "id": "hz-815",
+      "char": "航",
+      "firstLevelListIndex": 1981
+    },
+    {
+      "id": "hz-816",
+      "char": "优",
+      "firstLevelListIndex": 461
+    },
+    {
+      "id": "hz-817",
+      "char": "怪",
+      "firstLevelListIndex": 1271
+    },
+    {
+      "id": "hz-818",
+      "char": "香",
+      "firstLevelListIndex": 1548
+    },
+    {
+      "id": "hz-819",
+      "char": "著",
+      "firstLevelListIndex": 2198
+    },
+    {
+      "id": "hz-820",
+      "char": "田",
+      "firstLevelListIndex": 244
+    },
+    {
+      "id": "hz-821",
+      "char": "铁",
+      "firstLevelListIndex": 1932
+    },
+    {
+      "id": "hz-822",
+      "char": "控",
+      "firstLevelListIndex": 2187
+    },
+    {
+      "id": "hz-823",
+      "char": "税",
+      "firstLevelListIndex": 2679
+    },
+    {
+      "id": "hz-824",
+      "char": "份",
+      "firstLevelListIndex": 471
+    },
+    {
+      "id": "hz-825",
+      "char": "穿",
+      "firstLevelListIndex": 1701
+    },
+    {
+      "id": "hz-826",
+      "char": "艺",
+      "firstLevelListIndex": 86
+    },
+    {
+      "id": "hz-827",
+      "char": "背",
+      "firstLevelListIndex": 1467
+    },
+    {
+      "id": "hz-828",
+      "char": "阵",
+      "firstLevelListIndex": 571
+    },
+    {
+      "id": "hz-829",
+      "char": "脚",
+      "firstLevelListIndex": 2355
+    },
+    {
+      "id": "hz-830",
+      "char": "概",
+      "firstLevelListIndex": 2871
+    },
+    {
+      "id": "hz-831",
+      "char": "恶",
+      "firstLevelListIndex": 1829
+    },
+    {
+      "id": "hz-832",
+      "char": "块",
+      "firstLevelListIndex": 652
+    },
+    {
+      "id": "hz-833",
+      "char": "顿",
+      "firstLevelListIndex": 1877
+    },
+    {
+      "id": "hz-834",
+      "char": "敢",
+      "firstLevelListIndex": 2470
+    },
+    {
+      "id": "hz-835",
+      "char": "守",
+      "firstLevelListIndex": 546
+    },
+    {
+      "id": "hz-836",
+      "char": "酒",
+      "firstLevelListIndex": 2069
+    },
+    {
+      "id": "hz-837",
+      "char": "岛",
+      "firstLevelListIndex": 820
+    },
+    {
+      "id": "hz-838",
+      "char": "托",
+      "firstLevelListIndex": 359
+    },
+    {
+      "id": "hz-839",
+      "char": "央",
+      "firstLevelListIndex": 249
+    },
+    {
+      "id": "hz-840",
+      "char": "户",
+      "firstLevelListIndex": 170
+    },
+    {
+      "id": "hz-841",
+      "char": "烈",
+      "firstLevelListIndex": 1871
+    },
+    {
+      "id": "hz-842",
+      "char": "洋",
+      "firstLevelListIndex": 1679
+    },
+    {
+      "id": "hz-843",
+      "char": "索",
+      "firstLevelListIndex": 1851
+    },
+    {
+      "id": "hz-844",
+      "char": "胡",
+      "firstLevelListIndex": 1419
+    },
+    {
+      "id": "hz-845",
+      "char": "款",
+      "firstLevelListIndex": 2508
+    },
+    {
+      "id": "hz-846",
+      "char": "靠",
+      "firstLevelListIndex": 3259
+    },
+    {
+      "id": "hz-847",
+      "char": "评",
+      "firstLevelListIndex": 887
+    },
+    {
+      "id": "hz-848",
+      "char": "版",
+      "firstLevelListIndex": 1143
+    },
+    {
+      "id": "hz-849",
+      "char": "宝",
+      "firstLevelListIndex": 1274
+    },
+    {
+      "id": "hz-850",
+      "char": "座",
+      "firstLevelListIndex": 2025
+    },
+    {
+      "id": "hz-851",
+      "char": "释",
+      "firstLevelListIndex": 2710
+    },
+    {
+      "id": "hz-852",
+      "char": "景",
+      "firstLevelListIndex": 2626
+    },
+    {
+      "id": "hz-853",
+      "char": "顾",
+      "firstLevelListIndex": 1874
+    },
+    {
+      "id": "hz-854",
+      "char": "登",
+      "firstLevelListIndex": 2813
+    },
+    {
+      "id": "hz-855",
+      "char": "货",
+      "firstLevelListIndex": 1151
+    },
+    {
+      "id": "hz-856",
+      "char": "互",
+      "firstLevelListIndex": 106
+    },
+    {
+      "id": "hz-857",
+      "char": "付",
+      "firstLevelListIndex": 269
+    },
+    {
+      "id": "hz-858",
+      "char": "伯",
+      "firstLevelListIndex": 778
+    },
+    {
+      "id": "hz-859",
+      "char": "慢",
+      "firstLevelListIndex": 3169
+    },
+    {
+      "id": "hz-860",
+      "char": "欧",
+      "firstLevelListIndex": 1053
+    },
+    {
+      "id": "hz-861",
+      "char": "换",
+      "firstLevelListIndex": 1806
+    },
+    {
+      "id": "hz-862",
+      "char": "闻",
+      "firstLevelListIndex": 1636
+    },
+    {
+      "id": "hz-863",
+      "char": "危",
+      "firstLevelListIndex": 499
+    },
+    {
+      "id": "hz-864",
+      "char": "忙",
+      "firstLevelListIndex": 543
+    },
+    {
+      "id": "hz-865",
+      "char": "核",
+      "firstLevelListIndex": 1848
+    },
+    {
+      "id": "hz-866",
+      "char": "暗",
+      "firstLevelListIndex": 2909
+    },
+    {
+      "id": "hz-867",
+      "char": "介",
+      "firstLevelListIndex": 140
+    },
+    {
+      "id": "hz-868",
+      "char": "坏",
+      "firstLevelListIndex": 616
+    },
+    {
+      "id": "hz-869",
+      "char": "讨",
+      "firstLevelListIndex": 315
+    },
+    {
+      "id": "hz-870",
+      "char": "丽",
+      "firstLevelListIndex": 699
+    },
+    {
+      "id": "hz-871",
+      "char": "良",
+      "firstLevelListIndex": 884
+    },
+    {
+      "id": "hz-872",
+      "char": "序",
+      "firstLevelListIndex": 840
+    },
+    {
+      "id": "hz-873",
+      "char": "升",
+      "firstLevelListIndex": 125
+    },
+    {
+      "id": "hz-874",
+      "char": "监",
+      "firstLevelListIndex": 1883
+    },
+    {
+      "id": "hz-875",
+      "char": "临",
+      "firstLevelListIndex": 1471
+    },
+    {
+      "id": "hz-876",
+      "char": "亮",
+      "firstLevelListIndex": 1621
+    },
+    {
+      "id": "hz-877",
+      "char": "露",
+      "firstLevelListIndex": 3490
+    },
+    {
+      "id": "hz-878",
+      "char": "永",
+      "firstLevelListIndex": 324
+    },
+    {
+      "id": "hz-879",
+      "char": "呼",
+      "firstLevelListIndex": 1099
+    },
+    {
+      "id": "hz-880",
+      "char": "味",
+      "firstLevelListIndex": 1078
+    },
+    {
+      "id": "hz-881",
+      "char": "野",
+      "firstLevelListIndex": 2265
+    },
+    {
+      "id": "hz-882",
+      "char": "架",
+      "firstLevelListIndex": 1743
+    },
+    {
+      "id": "hz-883",
+      "char": "域",
+      "firstLevelListIndex": 2164
+    },
+    {
+      "id": "hz-884",
+      "char": "沙",
+      "firstLevelListIndex": 860
+    },
+    {
+      "id": "hz-885",
+      "char": "掉",
+      "firstLevelListIndex": 2170
+    },
+    {
+      "id": "hz-886",
+      "char": "括",
+      "firstLevelListIndex": 1383
+    },
+    {
+      "id": "hz-887",
+      "char": "舰",
+      "firstLevelListIndex": 1978
+    },
+    {
+      "id": "hz-888",
+      "char": "杂",
+      "firstLevelListIndex": 498
+    },
+    {
+      "id": "hz-889",
+      "char": "误",
+      "firstLevelListIndex": 1714
+    },
+    {
+      "id": "hz-890",
+      "char": "湾",
+      "firstLevelListIndex": 2764
+    },
+    {
+      "id": "hz-891",
+      "char": "吉",
+      "firstLevelListIndex": 356
+    },
+    {
+      "id": "hz-892",
+      "char": "减",
+      "firstLevelListIndex": 2375
+    },
+    {
+      "id": "hz-893",
+      "char": "编",
+      "firstLevelListIndex": 2822
+    },
+    {
+      "id": "hz-894",
+      "char": "楚",
+      "firstLevelListIndex": 2864
+    },
+    {
+      "id": "hz-895",
+      "char": "肯",
+      "firstLevelListIndex": 1067
+    },
+    {
+      "id": "hz-896",
+      "char": "测",
+      "firstLevelListIndex": 1670
+    },
+    {
+      "id": "hz-897",
+      "char": "败",
+      "firstLevelListIndex": 1113
+    },
+    {
+      "id": "hz-898",
+      "char": "屋",
+      "firstLevelListIndex": 1722
+    },
+    {
+      "id": "hz-899",
+      "char": "梦",
+      "firstLevelListIndex": 2221
+    },
+    {
+      "id": "hz-900",
+      "char": "散",
+      "firstLevelListIndex": 2546
+    },
+    {
+      "id": "hz-901",
+      "char": "温",
+      "firstLevelListIndex": 2757
+    },
+    {
+      "id": "hz-902",
+      "char": "困",
+      "firstLevelListIndex": 734
+    },
+    {
+      "id": "hz-903",
+      "char": "剑",
+      "firstLevelListIndex": 1587
+    },
+    {
+      "id": "hz-904",
+      "char": "渐",
+      "firstLevelListIndex": 2417
+    },
+    {
+      "id": "hz-905",
+      "char": "封",
+      "firstLevelListIndex": 1366
+    },
+    {
+      "id": "hz-906",
+      "char": "救",
+      "firstLevelListIndex": 2232
+    },
+    {
+      "id": "hz-907",
+      "char": "贵",
+      "firstLevelListIndex": 1495
+    },
+    {
+      "id": "hz-908",
+      "char": "枪",
+      "firstLevelListIndex": 1027
+    },
+    {
+      "id": "hz-909",
+      "char": "缺",
+      "firstLevelListIndex": 1935
+    },
+    {
+      "id": "hz-910",
+      "char": "楼",
+      "firstLevelListIndex": 2870
+    },
+    {
+      "id": "hz-911",
+      "char": "县",
+      "firstLevelListIndex": 720
+    },
+    {
+      "id": "hz-912",
+      "char": "尚",
+      "firstLevelListIndex": 1075
+    },
+    {
+      "id": "hz-913",
+      "char": "毫",
+      "firstLevelListIndex": 2376
+    },
+    {
+      "id": "hz-914",
+      "char": "移",
+      "firstLevelListIndex": 2316
+    },
+    {
+      "id": "hz-915",
+      "char": "娘",
+      "firstLevelListIndex": 2144
+    },
+    {
+      "id": "hz-916",
+      "char": "朋",
+      "firstLevelListIndex": 1185
+    },
+    {
+      "id": "hz-917",
+      "char": "画",
+      "firstLevelListIndex": 1036
+    },
+    {
+      "id": "hz-918",
+      "char": "班",
+      "firstLevelListIndex": 1774
+    },
+    {
+      "id": "hz-919",
+      "char": "智",
+      "firstLevelListIndex": 2670
+    },
+    {
+      "id": "hz-920",
+      "char": "亦",
+      "firstLevelListIndex": 516
+    },
+    {
+      "id": "hz-921",
+      "char": "恩",
+      "firstLevelListIndex": 1909
+    },
+    {
+      "id": "hz-922",
+      "char": "掌",
+      "firstLevelListIndex": 2610
+    },
+    {
+      "id": "hz-923",
+      "char": "恐",
+      "firstLevelListIndex": 1810
+    },
+    {
+      "id": "hz-924",
+      "char": "遗",
+      "firstLevelListIndex": 2633
+    },
+    {
+      "id": "hz-925",
+      "char": "固",
+      "firstLevelListIndex": 1093
+    },
+    {
+      "id": "hz-926",
+      "char": "席",
+      "firstLevelListIndex": 2023
+    },
+    {
+      "id": "hz-927",
+      "char": "松",
+      "firstLevelListIndex": 1026
+    },
+    {
+      "id": "hz-928",
+      "char": "秘",
+      "firstLevelListIndex": 1949
+    },
+    {
+      "id": "hz-929",
+      "char": "谢",
+      "firstLevelListIndex": 2795
+    },
+    {
+      "id": "hz-930",
+      "char": "鲁",
+      "firstLevelListIndex": 2717
+    },
+    {
+      "id": "hz-931",
+      "char": "遇",
+      "firstLevelListIndex": 2622
+    },
+    {
+      "id": "hz-932",
+      "char": "康",
+      "firstLevelListIndex": 2385
+    },
+    {
+      "id": "hz-933",
+      "char": "虑",
+      "firstLevelListIndex": 1882
+    },
+    {
+      "id": "hz-934",
+      "char": "幸",
+      "firstLevelListIndex": 983
+    },
+    {
+      "id": "hz-935",
+      "char": "均",
+      "firstLevelListIndex": 640
+    },
+    {
+      "id": "hz-936",
+      "char": "销",
+      "firstLevelListIndex": 2659
+    },
+    {
+      "id": "hz-937",
+      "char": "钟",
+      "firstLevelListIndex": 1528
+    },
+    {
+      "id": "hz-938",
+      "char": "诗",
+      "firstLevelListIndex": 1288
+    },
+    {
+      "id": "hz-939",
+      "char": "藏",
+      "firstLevelListIndex": 3392
+    },
+    {
+      "id": "hz-940",
+      "char": "赶",
+      "firstLevelListIndex": 1788
+    },
+    {
+      "id": "hz-941",
+      "char": "剧",
+      "firstLevelListIndex": 2132
+    },
+    {
+      "id": "hz-942",
+      "char": "票",
+      "firstLevelListIndex": 2235
+    },
+    {
+      "id": "hz-943",
+      "char": "损",
+      "firstLevelListIndex": 1798
+    },
+    {
+      "id": "hz-944",
+      "char": "忽",
+      "firstLevelListIndex": 1197
+    },
+    {
+      "id": "hz-945",
+      "char": "巨",
+      "firstLevelListIndex": 101
+    },
+    {
+      "id": "hz-946",
+      "char": "炮",
+      "firstLevelListIndex": 1658
+    },
+    {
+      "id": "hz-947",
+      "char": "旧",
+      "firstLevelListIndex": 232
+    },
+    {
+      "id": "hz-948",
+      "char": "端",
+      "firstLevelListIndex": 3151
+    },
+    {
+      "id": "hz-949",
+      "char": "探",
+      "firstLevelListIndex": 2188
+    },
+    {
+      "id": "hz-950",
+      "char": "湖",
+      "firstLevelListIndex": 2751
+    },
+    {
+      "id": "hz-951",
+      "char": "录",
+      "firstLevelListIndex": 1304
+    },
+    {
+      "id": "hz-952",
+      "char": "春",
+      "firstLevelListIndex": 1355
+    },
+    {
+      "id": "hz-953",
+      "char": "乡",
+      "firstLevelListIndex": 73
+    },
+    {
+      "id": "hz-954",
+      "char": "附",
+      "firstLevelListIndex": 916
+    },
+    {
+      "id": "hz-955",
+      "char": "吸",
+      "firstLevelListIndex": 431
+    },
+    {
+      "id": "hz-956",
+      "char": "予",
+      "firstLevelListIndex": 184
+    },
+    {
+      "id": "hz-957",
+      "char": "礼",
+      "firstLevelListIndex": 318
+    },
+    {
+      "id": "hz-958",
+      "char": "港",
+      "firstLevelListIndex": 2749
+    },
+    {
+      "id": "hz-959",
+      "char": "呀",
+      "firstLevelListIndex": 729
+    },
+    {
+      "id": "hz-960",
+      "char": "板",
+      "firstLevelListIndex": 1025
+    },
+    {
+      "id": "hz-961",
+      "char": "庭",
+      "firstLevelListIndex": 1624
+    },
+    {
+      "id": "hz-962",
+      "char": "妇",
+      "firstLevelListIndex": 579
+    },
+    {
+      "id": "hz-963",
+      "char": "归",
+      "firstLevelListIndex": 234
+    },
+    {
+      "id": "hz-964",
+      "char": "睛",
+      "firstLevelListIndex": 2895
+    },
+    {
+      "id": "hz-965",
+      "char": "额",
+      "firstLevelListIndex": 3304
+    },
+    {
+      "id": "hz-966",
+      "char": "含",
+      "firstLevelListIndex": 800
+    },
+    {
+      "id": "hz-967",
+      "char": "顺",
+      "firstLevelListIndex": 1559
+    },
+    {
+      "id": "hz-968",
+      "char": "输",
+      "firstLevelListIndex": 2890
+    },
+    {
+      "id": "hz-969",
+      "char": "摇",
+      "firstLevelListIndex": 2841
+    },
+    {
+      "id": "hz-970",
+      "char": "招",
+      "firstLevelListIndex": 988
+    },
+    {
+      "id": "hz-971",
+      "char": "婚",
+      "firstLevelListIndex": 2481
+    },
+    {
+      "id": "hz-972",
+      "char": "脱",
+      "firstLevelListIndex": 2360
+    },
+    {
+      "id": "hz-973",
+      "char": "补",
+      "firstLevelListIndex": 888
+    },
+    {
+      "id": "hz-974",
+      "char": "谓",
+      "firstLevelListIndex": 2466
+    },
+    {
+      "id": "hz-975",
+      "char": "督",
+      "firstLevelListIndex": 2891
+    },
+    {
+      "id": "hz-976",
+      "char": "毒",
+      "firstLevelListIndex": 1362
+    },
+    {
+      "id": "hz-977",
+      "char": "油",
+      "firstLevelListIndex": 1248
+    },
+    {
+      "id": "hz-978",
+      "char": "疗",
+      "firstLevelListIndex": 834
+    },
+    {
+      "id": "hz-979",
+      "char": "旅",
+      "firstLevelListIndex": 2046
+    },
+    {
+      "id": "hz-980",
+      "char": "泽",
+      "firstLevelListIndex": 1263
+    },
+    {
+      "id": "hz-981",
+      "char": "材",
+      "firstLevelListIndex": 681
+    },
+    {
+      "id": "hz-982",
+      "char": "灭",
+      "firstLevelListIndex": 223
+    },
+    {
+      "id": "hz-983",
+      "char": "逐",
+      "firstLevelListIndex": 1870
+    },
+    {
+      "id": "hz-984",
+      "char": "莫",
+      "firstLevelListIndex": 1824
+    },
+    {
+      "id": "hz-985",
+      "char": "亡",
+      "firstLevelListIndex": 54
+    },
+    {
+      "id": "hz-986",
+      "char": "鲜",
+      "firstLevelListIndex": 3135
+    },
+    {
+      "id": "hz-987",
+      "char": "词",
+      "firstLevelListIndex": 897
+    },
+    {
+      "id": "hz-988",
+      "char": "圣",
+      "firstLevelListIndex": 340
+    },
+    {
+      "id": "hz-989",
+      "char": "择",
+      "firstLevelListIndex": 992
+    },
+    {
+      "id": "hz-990",
+      "char": "寻",
+      "firstLevelListIndex": 563
+    },
+    {
+      "id": "hz-991",
+      "char": "厂",
+      "firstLevelListIndex": 6
+    },
+    {
+      "id": "hz-992",
+      "char": "睡",
+      "firstLevelListIndex": 2900
+    },
+    {
+      "id": "hz-993",
+      "char": "博",
+      "firstLevelListIndex": 2521
+    },
+    {
+      "id": "hz-994",
+      "char": "勒",
+      "firstLevelListIndex": 2200
+    },
+    {
+      "id": "hz-995",
+      "char": "烟",
+      "firstLevelListIndex": 2062
+    },
+    {
+      "id": "hz-996",
+      "char": "授",
+      "firstLevelListIndex": 2177
+    },
+    {
+      "id": "hz-997",
+      "char": "诺",
+      "firstLevelListIndex": 2111
+    },
+    {
+      "id": "hz-998",
+      "char": "伦",
+      "firstLevelListIndex": 470
+    },
+    {
+      "id": "hz-999",
+      "char": "岸",
+      "firstLevelListIndex": 1105
+    },
+    {
+      "id": "hz-1000",
+      "char": "奥",
+      "firstLevelListIndex": 2701
+    }
+  ],
+  "note": "Confirms membership in the authoritative common-character set through the Unicode transcription. Does not establish a corpus top 1000 ranking, prove the Gist methodology, or define preschool teaching suitability."
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#ecf6eb"/>
+  <circle cx="369" cy="137" r="26" fill="#e3c47b"/>
+  <path d="M167 162c-15-33-3-61 29-66 12 27 2 54-29 66Z" fill="#8daf78"/>
+  <path d="M166 162c-2-23-25-41-48-32 2 27 20 39 48 32Z" fill="#71976c"/>
+  <path d="m167 163 4 20" stroke="#71976c" stroke-width="9" stroke-linecap="round"/>
+  <ellipse cx="256" cy="364" rx="154" ry="40" fill="#a9c499"/>
+  <ellipse cx="256" cy="355" rx="138" ry="31" fill="#789c70"/>
+  <path d="M111 402c48-19 85-19 128-1 51 19 96 18 158-6" fill="none" stroke="#b2d4c7" stroke-width="15" stroke-linecap="round"/>
+  <text x="256" y="328" text-anchor="middle" font-family="Hiragino Sans GB,PingFang SC,sans-serif" font-size="213" font-weight="600" fill="#507649">字</text>
+</svg>

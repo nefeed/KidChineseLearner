@@ -1,0 +1,247 @@
+{
+  "checkedAt": "2026-10-02T09:53:36.805302+00:00",
+  "planSHA256": "d72fb5ada746815606828718a180c56a7ee9169448af8750b34f1620ab439027",
+  "model": "hexgrad/Kokoro-82M-v1.1-zh",
+  "modelRevision": "01e7505bd6a7a2ac4975463114c3a7650a9f7218",
+  "modelSHA256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
+  "voice": "zf_001",
+  "speed": 0.85,
+  "kokoro": "0.9.4",
+  "misaki": "0.9.4",
+  "requiredTexts": 23505,
+  "uniqueSpokenTexts": 22453,
+  "checkedSegments": 22454,
+  "unknownPhonemes": 0,
+  "unsupportedModelSymbols": {},
+  "maximumSegmentPhonemes": 482,
+  "modelPhonemeLimit": 510,
+  "allTextPreserved": true,
+  "errors": [],
+  "pronunciationOverridesSHA256": "5c2d67f5798bef5a15771be1e84a39e1d2a7cff0ec02ed6ccff26e1ac8940da5",
+  "readingAdaptations": {
+    "pinyinGuides": "Latin labels use the Chinese reading cues already supplied by the course; exact teaching templates preserve instructional glyph readings.",
+    "titleSeparator": "Middle dot is rendered as a comma pause; written labels are unchanged.",
+    "extensionGlyphs": {
+      "𣲗": "湋 (wei2)",
+      "𫛸": "鶗 (ti2)"
+    },
+    "titleSeparatorOccurrences": 369,
+    "extensionGlyphOccurrences": 11,
+    "courseReadingOverrides": {
+      "version": 1,
+      "scope": [
+        "standalone-course-glyph",
+        "glyph-before-full-stop",
+        "exact-read-as-feedback",
+        "exact-pinyin-teaching-template",
+        "exact-quoted-quiz-glyph"
+      ],
+      "primaryReadings": {
+        "长": {
+          "pinyin": "cháng",
+          "phonemes": "ㄔㄤ2"
+        },
+        "地": {
+          "pinyin": "dì",
+          "phonemes": "ㄉㄧ4"
+        },
+        "子": {
+          "pinyin": "zǐ",
+          "phonemes": "ㄗㄭ3"
+        },
+        "调": {
+          "pinyin": "tiáo",
+          "phonemes": "ㄊ要2"
+        },
+        "似": {
+          "pinyin": "sì",
+          "phonemes": "ㄙㄭ4"
+        },
+        "尽": {
+          "pinyin": "jìn",
+          "phonemes": "ㄐ阴4"
+        },
+        "倒": {
+          "pinyin": "dǎo",
+          "phonemes": "ㄉㄠ3"
+        },
+        "弹": {
+          "pinyin": "tán",
+          "phonemes": "ㄊㄢ2"
+        },
+        "佛": {
+          "pinyin": "fó",
+          "phonemes": "ㄈㄛ2"
+        },
+        "个": {
+          "pinyin": "gè",
+          "phonemes": "ㄍㄜ4"
+        },
+        "得": {
+          "pinyin": "dé",
+          "phonemes": "ㄉㄜ2"
+        },
+        "过": {
+          "pinyin": "guò",
+          "phonemes": "ㄍ我4"
+        }
+      },
+      "teachingTemplates": {
+        "声母佛，听起来像佛。": {
+          "before": "声母",
+          "glyph": "佛",
+          "middle": "，听起来像"
+        },
+        "声母得，听起来像得。": {
+          "before": "声母",
+          "glyph": "得",
+          "middle": "，听起来像"
+        },
+        "声母勒，听起来像勒。": {
+          "before": "声母",
+          "glyph": "勒",
+          "middle": "，听起来像",
+          "phonemes": "ㄌㄜ4"
+        },
+        "韵母儿，听起来像耳。": {
+          "before": "韵母",
+          "glyph": "儿",
+          "middle": "，听起来像",
+          "phonemes": "ㄦ2",
+          "secondPhonemes": "ㄦ3"
+        },
+        "韵母儿，听起来像二。": {
+          "before": "韵母",
+          "glyph": "儿",
+          "middle": "，听起来像",
+          "phonemes": "ㄦ2",
+          "secondPhonemes": "ㄦ4"
+        },
+        "韵母儿，听起来像而。": {
+          "before": "韵母",
+          "glyph": "儿",
+          "middle": "，听起来像",
+          "phonemes": "ㄦ2",
+          "secondPhonemes": "ㄦ2"
+        },
+        "韵母儿，听起来像儿。": {
+          "before": "韵母",
+          "glyph": "儿",
+          "middle": "，听起来像",
+          "phonemes": "ㄦ2",
+          "secondPhonemes": "ㄦ2"
+        },
+        "韵母儿，听起来像尔。": {
+          "before": "韵母",
+          "glyph": "儿",
+          "middle": "，听起来像",
+          "phonemes": "ㄦ2",
+          "secondPhonemes": "ㄦ3"
+        },
+        "这是舌尖韵母，跟着读子。": {
+          "before": "这是舌尖韵母，跟着读",
+          "glyph": "子"
+        },
+        "这是舌尖韵母，跟着读似。": {
+          "before": "这是舌尖韵母，跟着读",
+          "glyph": "似"
+        }
+      },
+      "quotedQuizReadings": {
+        "长": {
+          "pinyin": "cháng",
+          "phonemes": "ㄔㄤ2"
+        },
+        "地": {
+          "pinyin": "dì",
+          "phonemes": "ㄉㄧ4"
+        },
+        "子": {
+          "pinyin": "zǐ",
+          "phonemes": "ㄗㄭ3"
+        },
+        "调": {
+          "pinyin": "tiáo",
+          "phonemes": "ㄊ要2"
+        },
+        "似": {
+          "pinyin": "sì",
+          "phonemes": "ㄙㄭ4"
+        },
+        "尽": {
+          "pinyin": "jìn",
+          "phonemes": "ㄐ阴4"
+        },
+        "倒": {
+          "pinyin": "dǎo",
+          "phonemes": "ㄉㄠ3"
+        },
+        "弹": {
+          "pinyin": "tán",
+          "phonemes": "ㄊㄢ2"
+        },
+        "佛": {
+          "pinyin": "fó",
+          "phonemes": "ㄈㄛ2"
+        },
+        "个": {
+          "pinyin": "gè",
+          "phonemes": "ㄍㄜ4"
+        },
+        "得": {
+          "pinyin": "dé",
+          "phonemes": "ㄉㄜ2"
+        },
+        "过": {
+          "pinyin": "guò",
+          "phonemes": "ㄍ我4"
+        },
+        "为": {
+          "pinyin": "wéi",
+          "phonemes": "为2"
+        },
+        "教": {
+          "pinyin": "jiāo",
+          "phonemes": "ㄐ要1"
+        },
+        "处": {
+          "pinyin": "chǔ",
+          "phonemes": "ㄔㄨ3"
+        },
+        "切": {
+          "pinyin": "qiē",
+          "phonemes": "ㄑㄝ1"
+        },
+        "划": {
+          "pinyin": "huá",
+          "phonemes": "ㄏ穵2"
+        },
+        "兴": {
+          "pinyin": "xìng",
+          "phonemes": "ㄒ应4"
+        },
+        "斗": {
+          "pinyin": "dǒu",
+          "phonemes": "ㄉㄡ3"
+        },
+        "率": {
+          "pinyin": "shuài",
+          "phonemes": "ㄕ外4"
+        },
+        "背": {
+          "pinyin": "bēi",
+          "phonemes": "ㄅㄟ1"
+        }
+      },
+      "quotedQuizTemplates": [
+        "“{glyph}”是什么意思？",
+        "哪个词里有“{glyph}”？"
+      ],
+      "verifiedWordReading": {
+        "长绳": "cháng shéng"
+      },
+      "contextPolicy": "All other contexts use the unmodified Misaki phrase dictionary and tone sandhi."
+    }
+  },
+  "boundary": "Checks that all planned narration yields supported phonemes, preserves text across chunks and respects the 510 limit. Does not establish pronunciation or listening quality."
+}

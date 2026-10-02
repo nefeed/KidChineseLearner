@@ -1,0 +1,30 @@
+{
+  "total": 300,
+  "dynasty": {
+    "唐": 219,
+    "宋": 81
+  },
+  "kind": {
+    "诗": 219,
+    "词": 81
+  },
+  "reviewStatus": {
+    "edited": 300
+  },
+  "level": {
+    "1": 31,
+    "2": 82,
+    "3": 137,
+    "4": 50
+  },
+  "characters": 10156,
+  "pinyinSyllables": 10156,
+  "sourceSnapshots": {
+    "song300.json": "ca5d74f7fdb9d5a6acc22a7c8b4395228cad4bb8be53df44c19ba83ab6983b20",
+    "tang300.json": "8423b65d938d0327e369972e790549b42609fa7ac4a2a72df59f4cb5a49c08f8",
+    "qianjiashi.json": "cf34d01ed29528052da5d96543e725ab67814a6cb093183808c889400ff62417"
+  },
+  "editorialPatches": {
+    "edits-221-300.json": "5cc3ad6292fc969206e9a1f68c8195d09e6d11421352401f8d2ae1f80fb5f15f"
+  }
+}

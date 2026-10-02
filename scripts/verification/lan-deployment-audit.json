@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-02T10:23:29.345Z",
+  "base": "http://192.168.31.48:5173",
+  "bind": "0.0.0.0:5173",
+  "service": "com.nefeed.kidchineselearner",
+  "pid": 82934,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "status": 200,
+      "type": "application/manifest+json; charset=utf-8"
+    },
+    {
+      "path": "/icons/apple-touch-icon.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/icons/island-512.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/LICENSE",
+      "status": 200,
+      "type": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/docs/IPAD_VERIFICATION.md",
+      "status": 200,
+      "type": "text/plain; charset=utf-8"
+    }
+  ],
+  "range": {
+    "filename": "/audio/kokoro-b8bea0a7d8eae7703f07.m4a",
+    "status": 206,
+    "contentRange": "bytes 0-1023/8570",
+    "bytes": 1024
+  },
+  "manifestComplete": true,
+  "audioFiles": 22453,
+  "limit": "Requests from this Mac to its LAN IP; external iPad access and router isolation not tested"
+}

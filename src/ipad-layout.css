@@ -1,0 +1,15 @@
+/* Safari's changing toolbar and iPad home indicator must not cover controls. */
+html{min-height:100%;overscroll-behavior-y:none}
+body{min-height:100vh;min-height:100dvh}
+.topbar{padding-top:env(safe-area-inset-top,0px);height:calc(90px + env(safe-area-inset-top,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}
+.sidebar{padding-top:calc(29px + env(safe-area-inset-top,0px));padding-left:max(17px,env(safe-area-inset-left,0px));padding-bottom:calc(29px + env(safe-area-inset-bottom,0px))}
+.modal-backdrop{padding-top:max(20px,env(safe-area-inset-top,0px));padding-bottom:max(20px,env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.lesson-overlay{padding-top:calc(22px + env(safe-area-inset-top,0px));padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.lesson-shell{min-height:calc(100dvh - 44px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+@media(pointer:coarse){button,a,input,select,summary{touch-action:manipulation}}
+@media(max-width:1100px){.topbar{padding-right:max(26px,env(safe-area-inset-right,0px))}.sidebar{padding-left:max(12px,env(safe-area-inset-left,0px))}}
+@media(max-width:1000px){.topbar{height:calc(76px + env(safe-area-inset-top,0px))}.sidebar{padding-top:calc(25px + env(safe-area-inset-top,0px));padding-left:max(11px,env(safe-area-inset-left,0px))}}
+@media(max-width:700px){.topbar{height:calc(69px + env(safe-area-inset-top,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}.sidebar{height:calc(75px + env(safe-area-inset-bottom,0px));padding:5px max(10px,env(safe-area-inset-right,0px)) calc(5px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}.main-frame{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}}
+@media(max-width:480px){.topbar{padding-right:max(12px,env(safe-area-inset-right,0px))}}
+
+@media(max-width:700px){.lesson-overlay{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}.lesson-shell{min-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}}

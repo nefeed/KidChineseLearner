@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.DS_Store
+test-results/
+playwright-report/
+*.tsbuildinfo
+
+tests/fixtures/*.json
+.env
+.env.*
+!.env.example
+output/
+.audio-cache/
+*.pem
+*.key
+__pycache__/
+.venv/

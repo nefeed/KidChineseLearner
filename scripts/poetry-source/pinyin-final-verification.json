@@ -1,0 +1,3083 @@
+{
+  "verifiedAt": "2026-10-02",
+  "dataPath": "src/data/poems.json",
+  "dataSha256": "68873b9ec64c5b3f7b4b3071e8c1154caa7ea6d38adc4a29f94e6bc5ed7c6d5b",
+  "externalPatchSha256": "5cc3ad6292fc969206e9a1f68c8195d09e6d11421352401f8d2ae1f80fb5f15f",
+  "method": "Read the persisted final 300 poems and aligned pinyin arrays. Match the literal Han phrase in each full poem; record actual occurrence positions, contexts and stored syllables. Compare every found occurrence with the 85 manually recorded expected phrases. This is neither isolated pronounce() testing nor listening to audio. Phrases may span display lines; indices are zero based Han-character indices after punctuation removal.",
+  "reproducibleBuildCheck": {
+    "command": "/tmp/kidchinese-poetry-venv/bin/python scripts/build-poems.py --check",
+    "exitCode": 0,
+    "totalPoems": 300,
+    "characters": 10156,
+    "syllables": 10156
+  },
+  "summary": {
+    "phrases": 85,
+    "present_and_matching": 85,
+    "not_present": 0,
+    "present_with_mismatch": 0,
+    "occurrences": 85,
+    "alignmentErrors": 0
+  },
+  "alignmentErrors": [],
+  "phrases": [
+    {
+      "phrase": "载歌春兴曲",
+      "expected": [
+        "zài",
+        "gē",
+        "chūn",
+        "xìng",
+        "qǔ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-221",
+          "title": "恩赐丽正殿书院赐宴应制得林字",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 4
+          },
+          "context": "叨醉酒深载歌春兴曲情竭为知",
+          "actual": [
+            "zài",
+            "gē",
+            "chūn",
+            "xìng",
+            "qǔ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "恩叨醉酒深",
+      "expected": [
+        "ēn",
+        "tāo",
+        "zuì",
+        "jiǔ",
+        "shēn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-221",
+          "title": "恩赐丽正殿书院赐宴应制得林字",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 5
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 9
+          },
+          "context": "窃和羹重恩叨醉酒深载歌春兴",
+          "actual": [
+            "ēn",
+            "tāo",
+            "zuì",
+            "jiǔ",
+            "shēn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "还家万里梦",
+      "expected": [
+        "huán",
+        "jiā",
+        "wàn",
+        "lǐ",
+        "mèng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-222",
+          "title": "同王征君洞庭有怀",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "湘水北流还家万里梦为客五更",
+          "actual": [
+            "huán",
+            "jiā",
+            "wàn",
+            "lǐ",
+            "mèng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "为客五更愁",
+      "expected": [
+        "wéi",
+        "kè",
+        "wǔ",
+        "gēng",
+        "chóu"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-222",
+          "title": "同王征君洞庭有怀",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 5
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 9
+          },
+          "context": "家万里梦为客五更愁不用开书",
+          "actual": [
+            "wéi",
+            "kè",
+            "wǔ",
+            "gēng",
+            "chóu"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "城阙夜千重",
+      "expected": [
+        "chéng",
+        "què",
+        "yè",
+        "qiān",
+        "chóng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-223",
+          "title": "客夜与故人偶集",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 5
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 9
+          },
+          "context": "秋月又满城阙夜千重还作江南",
+          "actual": [
+            "chéng",
+            "què",
+            "yè",
+            "qiān",
+            "chóng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "羁旅长堪醉",
+      "expected": [
+        "jī",
+        "lǚ",
+        "cháng",
+        "kān",
+        "zuì"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-223",
+          "title": "客夜与故人偶集",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 4
+          },
+          "context": "草覆寒蛩羁旅长堪醉相留畏晓",
+          "actual": [
+            "jī",
+            "lǚ",
+            "cháng",
+            "kān",
+            "zuì"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "天涯占梦数",
+      "expected": [
+        "tiān",
+        "yá",
+        "zhān",
+        "mèng",
+        "shuò"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-224",
+          "title": "凉思",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 10
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 14
+          },
+          "context": "陵寓使迟天涯占梦数疑误有新",
+          "actual": [
+            "tiān",
+            "yá",
+            "zhān",
+            "mèng",
+            "shuò"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "参差连曲陌",
+      "expected": [
+        "cēn",
+        "cī",
+        "lián",
+        "qū",
+        "mò"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-226",
+          "title": "落花",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 10
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 14
+          },
+          "context": "园花乱飞参差连曲陌迢递送斜",
+          "actual": [
+            "cēn",
+            "cī",
+            "lián",
+            "qū",
+            "mò"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "薄宦梗犹泛",
+      "expected": [
+        "bó",
+        "huàn",
+        "gěng",
+        "yóu",
+        "fàn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-227",
+          "title": "蝉",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 4
+          },
+          "context": "树碧无情薄宦梗犹泛故园芜已",
+          "actual": [
+            "bó",
+            "huàn",
+            "gěng",
+            "yóu",
+            "fàn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "五更疏欲断",
+      "expected": [
+        "wǔ",
+        "gēng",
+        "shū",
+        "yù",
+        "duàn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-227",
+          "title": "蝉",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "劳恨费声五更疏欲断一树碧无",
+          "actual": [
+            "wǔ",
+            "gēng",
+            "shū",
+            "yù",
+            "duàn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "关山魂梦长",
+      "expected": [
+        "guān",
+        "shān",
+        "hún",
+        "mèng",
+        "cháng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-230",
+          "title": "生查子·关山魂梦长",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 4
+          },
+          "context": "关山魂梦长鱼雁音尘",
+          "actual": [
+            "guān",
+            "shān",
+            "hún",
+            "mèng",
+            "cháng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "高处不胜寒",
+      "expected": [
+        "gāo",
+        "chù",
+        "bù",
+        "shèng",
+        "hán"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-231",
+          "title": "水调歌头·明月几时有",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 12
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 16
+          },
+          "context": "琼楼玉宇高处不胜寒起舞弄清",
+          "actual": [
+            "gāo",
+            "chù",
+            "bù",
+            "shèng",
+            "hán"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "不应有恨",
+      "expected": [
+        "bù",
+        "yīng",
+        "yǒu",
+        "hèn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-231",
+          "title": "水调歌头·明月几时有",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 3
+          },
+          "context": "户照无眠不应有恨何事长向",
+          "actual": [
+            "bù",
+            "yīng",
+            "yǒu",
+            "hèn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "何事长向别时圆",
+      "expected": [
+        "hé",
+        "shì",
+        "cháng",
+        "xiàng",
+        "bié",
+        "shí",
+        "yuán"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-231",
+          "title": "水调歌头·明月几时有",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 4
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 10
+          },
+          "context": "不应有恨何事长向别时圆人有悲欢",
+          "actual": [
+            "hé",
+            "shì",
+            "cháng",
+            "xiàng",
+            "bié",
+            "shí",
+            "yuán"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "卷尽愁云",
+      "expected": [
+        "juǎn",
+        "jìn",
+        "chóu",
+        "yún"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-232",
+          "title": "点绛唇·卷尽愁云",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 3
+          },
+          "context": "卷尽愁云素娥临夜",
+          "actual": [
+            "juǎn",
+            "jìn",
+            "chóu",
+            "yún"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "辇路重来",
+      "expected": [
+        "niǎn",
+        "lù",
+        "chóng",
+        "lái"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-232",
+          "title": "点绛唇·卷尽愁云",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 3
+          },
+          "context": "润凌波地辇路重来仿佛灯前",
+          "actual": [
+            "niǎn",
+            "lù",
+            "chóng",
+            "lái"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "玉人和月摘梅花",
+      "expected": [
+        "yù",
+        "rén",
+        "hé",
+        "yuè",
+        "zhāi",
+        "méi",
+        "huā"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-241",
+          "title": "减字浣溪沙·浣溪沙·楼角初销一缕霞",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "柳暗栖鸦玉人和月摘梅花笑拈粉香",
+          "actual": [
+            "yù",
+            "rén",
+            "hé",
+            "yuè",
+            "zhāi",
+            "méi",
+            "huā"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "惜春行乐莫辞频",
+      "expected": [
+        "xī",
+        "chūn",
+        "xíng",
+        "lè",
+        "mò",
+        "cí",
+        "pín"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-242",
+          "title": "醉中真·浣溪沙·不信芳春厌老人",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "度送春归惜春行乐莫辞频巧笑艳歌",
+          "actual": [
+            "xī",
+            "chūn",
+            "xíng",
+            "lè",
+            "mò",
+            "cí",
+            "pín"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "拼君嗔",
+      "expected": [
+        "pàn",
+        "jūn",
+        "chēn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-242",
+          "title": "醉中真·浣溪沙·不信芳春厌老人",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 11
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 13
+          },
+          "context": "恼花颠酒拼君嗔物情惟有",
+          "actual": [
+            "pàn",
+            "jūn",
+            "chēn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "更深人去寂静",
+      "expected": [
+        "gēng",
+        "shēn",
+        "rén",
+        "qù",
+        "jì",
+        "jìng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-243",
+          "title": "关河令·清商怨·秋阴时晴渐向暝",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 5
+          },
+          "context": "深无雁影更深人去寂静但照壁孤",
+          "actual": [
+            "gēng",
+            "shēn",
+            "rén",
+            "qù",
+            "jì",
+            "jìng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "一夜春威折",
+      "expected": [
+        "yí",
+        "yè",
+        "chūn",
+        "wēi",
+        "zhé"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-244",
+          "title": "霜天晓角·晚晴风歇",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "晚晴风歇一夜春威折脉脉花疏",
+          "actual": [
+            "yí",
+            "yè",
+            "chūn",
+            "wēi",
+            "zhé"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "脉脉花疏天淡",
+      "expected": [
+        "mò",
+        "mò",
+        "huā",
+        "shū",
+        "tiān",
+        "dàn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-244",
+          "title": "霜天晓角·晚晴风歇",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 5
+          },
+          "context": "夜春威折脉脉花疏天淡云来去数",
+          "actual": [
+            "mò",
+            "mò",
+            "huā",
+            "shū",
+            "tiān",
+            "dàn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "惟有两行低雁",
+      "expected": [
+        "wéi",
+        "yǒu",
+        "liǎng",
+        "háng",
+        "dī",
+        "yàn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-244",
+          "title": "霜天晓角·晚晴风歇",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 5
+          },
+          "context": "情谁共说惟有两行低雁知人倚画",
+          "actual": [
+            "wéi",
+            "yǒu",
+            "liǎng",
+            "háng",
+            "dī",
+            "yàn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "哀筝一弄湘江曲",
+      "expected": [
+        "āi",
+        "zhēng",
+        "yí",
+        "nòng",
+        "xiāng",
+        "jiāng",
+        "qǔ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-245",
+          "title": "菩萨蛮·哀筝一弄湘江曲",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "哀筝一弄湘江曲声声写尽",
+          "actual": [
+            "āi",
+            "zhēng",
+            "yí",
+            "nòng",
+            "xiāng",
+            "jiāng",
+            "qǔ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "声声写尽湘波绿",
+      "expected": [
+        "shēng",
+        "shēng",
+        "xiě",
+        "jìn",
+        "xiāng",
+        "bō",
+        "lǜ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-245",
+          "title": "菩萨蛮·哀筝一弄湘江曲",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "弄湘江曲声声写尽湘波绿纤指十三",
+          "actual": [
+            "shēng",
+            "shēng",
+            "xiě",
+            "jìn",
+            "xiāng",
+            "bō",
+            "lǜ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "弹到断肠时",
+      "expected": [
+        "tán",
+        "dào",
+        "duàn",
+        "cháng",
+        "shí"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-245",
+          "title": "菩萨蛮·哀筝一弄湘江曲",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 4
+          },
+          "context": "柱斜飞雁弹到断肠时春山眉黛",
+          "actual": [
+            "tán",
+            "dào",
+            "duàn",
+            "cháng",
+            "shí"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "笙歌散尽游人去",
+      "expected": [
+        "shēng",
+        "gē",
+        "sàn",
+        "jìn",
+        "yóu",
+        "rén",
+        "qù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-246",
+          "title": "采桑子·群芳过后西湖好",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "干尽日风笙歌散尽游人去始觉春空",
+          "actual": [
+            "shēng",
+            "gē",
+            "sàn",
+            "jìn",
+            "yóu",
+            "rén",
+            "qù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "有恨无人省",
+      "expected": [
+        "yǒu",
+        "hèn",
+        "wú",
+        "rén",
+        "xǐng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-247",
+          "title": "卜算子·缺月挂疏桐",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 5
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 9
+          },
+          "context": "起却回头有恨无人省拣尽寒枝",
+          "actual": [
+            "yǒu",
+            "hèn",
+            "wú",
+            "rén",
+            "xǐng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "拣尽寒枝不肯栖",
+      "expected": [
+        "jiǎn",
+        "jìn",
+        "hán",
+        "zhī",
+        "bù",
+        "kěn",
+        "qī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-247",
+          "title": "卜算子·缺月挂疏桐",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "恨无人省拣尽寒枝不肯栖枫落吴江",
+          "actual": [
+            "jiǎn",
+            "jìn",
+            "hán",
+            "zhī",
+            "bù",
+            "kěn",
+            "qī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "赤阑桥尽香街直",
+      "expected": [
+        "chì",
+        "lán",
+        "qiáo",
+        "jìn",
+        "xiāng",
+        "jiē",
+        "zhí"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-250",
+          "title": "菩萨蛮·赤阑桥尽香街直",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "赤阑桥尽香街直笼街细柳",
+          "actual": [
+            "chì",
+            "lán",
+            "qiáo",
+            "jìn",
+            "xiāng",
+            "jiē",
+            "zhí"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "故画作远山长",
+      "expected": [
+        "gù",
+        "huà",
+        "zuò",
+        "yuǎn",
+        "shān",
+        "cháng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-252",
+          "title": "诉衷情·清晨帘幕卷轻霜",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 11
+          },
+          "context": "自有离恨故画作远山长思往事惜",
+          "actual": [
+            "gù",
+            "huà",
+            "zuò",
+            "yuǎn",
+            "shān",
+            "cháng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "历历数西州更点",
+      "expected": [
+        "lì",
+        "lì",
+        "shǔ",
+        "xī",
+        "zhōu",
+        "gēng",
+        "diǎn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-253",
+          "title": "天门谣·牛渚天门险",
+          "start": {
+            "lineIndex": 7,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 7,
+            "characterIndex": 6
+          },
+          "context": "滥风满槛历历数西州更点",
+          "actual": [
+            "lì",
+            "lì",
+            "shǔ",
+            "xī",
+            "zhōu",
+            "gēng",
+            "diǎn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "总不堪华发",
+      "expected": [
+        "zǒng",
+        "bù",
+        "kān",
+        "huá",
+        "fà"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-254",
+          "title": "好事近·凝碧旧池头",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 10
+          },
+          "context": "梨园声在总不堪华发杏花无处",
+          "actual": [
+            "zǒng",
+            "bù",
+            "kān",
+            "huá",
+            "fà"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "杏花无处避春愁",
+      "expected": [
+        "xìng",
+        "huā",
+        "wú",
+        "chù",
+        "bì",
+        "chūn",
+        "chóu"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-254",
+          "title": "好事近·凝碧旧池头",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "不堪华发杏花无处避春愁也傍野烟",
+          "actual": [
+            "xìng",
+            "huā",
+            "wú",
+            "chù",
+            "bì",
+            "chūn",
+            "chóu"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "算重来尽成陈迹",
+      "expected": [
+        "suàn",
+        "chóng",
+        "lái",
+        "jìn",
+        "chéng",
+        "chén",
+        "jì"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-255",
+          "title": "忆少年·无穷官柳",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "林溪绀碧算重来尽成陈迹刘郎鬓如",
+          "actual": [
+            "suàn",
+            "chóng",
+            "lái",
+            "jìn",
+            "chéng",
+            "chén",
+            "jì"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "过尽晓莺啼处",
+      "expected": [
+        "guò",
+        "jìn",
+        "xiǎo",
+        "yīng",
+        "tí",
+        "chù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-256",
+          "title": "清平乐·留人不住",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 5
+          },
+          "context": "涛春水路过尽晓莺啼处渡头杨柳",
+          "actual": [
+            "guò",
+            "jìn",
+            "xiǎo",
+            "yīng",
+            "tí",
+            "chù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "说尽平生意",
+      "expected": [
+        "shuō",
+        "jìn",
+        "píng",
+        "shēng",
+        "yì"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-257",
+          "title": "清平乐·红笺小字",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "红笺小字说尽平生意鸿雁在云",
+          "actual": [
+            "shuō",
+            "jìn",
+            "píng",
+            "shēng",
+            "yì"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "费尽莺儿语",
+      "expected": [
+        "fèi",
+        "jìn",
+        "yīng",
+        "ér",
+        "yǔ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-259",
+          "title": "清平乐·留春不住",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "留春不住费尽莺儿语满地残红",
+          "actual": [
+            "fèi",
+            "jìn",
+            "yīng",
+            "ér",
+            "yǔ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "隔烟催漏金虬咽",
+      "expected": [
+        "gé",
+        "yān",
+        "cuī",
+        "lòu",
+        "jīn",
+        "qiú",
+        "yè"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-260",
+          "title": "秦楼月·忆秦娥·楼阴缺",
+          "start": {
+            "lineIndex": 4,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 4,
+            "characterIndex": 6
+          },
+          "context": "杏花如雪隔烟催漏金虬咽罗帏暗淡",
+          "actual": [
+            "gé",
+            "yān",
+            "cuī",
+            "lòu",
+            "jīn",
+            "qiú",
+            "yè"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "云随雁字长",
+      "expected": [
+        "yún",
+        "suí",
+        "yàn",
+        "zì",
+        "cháng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-261",
+          "title": "阮郎归·天边金掌露成霜",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "掌露成霜云随雁字长绿杯红袖",
+          "actual": [
+            "yún",
+            "suí",
+            "yàn",
+            "zì",
+            "cháng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "绿杯红袖称重阳",
+      "expected": [
+        "lǜ",
+        "bēi",
+        "hóng",
+        "xiù",
+        "chèn",
+        "chóng",
+        "yáng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-261",
+          "title": "阮郎归·天边金掌露成霜",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "随雁字长绿杯红袖称重阳人情似故",
+          "actual": [
+            "lǜ",
+            "bēi",
+            "hóng",
+            "xiù",
+            "chèn",
+            "chóng",
+            "yáng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "欲将沈醉换悲凉",
+      "expected": [
+        "yù",
+        "jiāng",
+        "chén",
+        "zuì",
+        "huàn",
+        "bēi",
+        "liáng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-261",
+          "title": "阮郎归·天边金掌露成霜",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 6
+          },
+          "context": "勤理旧狂欲将沈醉换悲凉清歌莫断",
+          "actual": [
+            "yù",
+            "jiāng",
+            "chén",
+            "zuì",
+            "huàn",
+            "bēi",
+            "liáng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "一春犹有数行书",
+      "expected": [
+        "yì",
+        "chūn",
+        "yóu",
+        "yǒu",
+        "shù",
+        "háng",
+        "shū"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-262",
+          "title": "阮郎归·旧香残粉似当初",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "情恨不如一春犹有数行书秋来书更",
+          "actual": [
+            "yì",
+            "chūn",
+            "yóu",
+            "yǒu",
+            "shù",
+            "háng",
+            "shū"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "深沈庭院虚",
+      "expected": [
+        "shēn",
+        "chén",
+        "tíng",
+        "yuàn",
+        "xū"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-263",
+          "title": "阮郎归·湘天风雨破寒初",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 4
+          },
+          "context": "雨破寒初深沈庭院虚丽谯吹罢",
+          "actual": [
+            "shēn",
+            "chén",
+            "tíng",
+            "yuàn",
+            "xū"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "丽谯吹罢小单于",
+      "expected": [
+        "lì",
+        "qiáo",
+        "chuī",
+        "bà",
+        "xiǎo",
+        "chán",
+        "yú"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-263",
+          "title": "阮郎归·湘天风雨破寒初",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "沈庭院虚丽谯吹罢小单于迢迢清夜",
+          "actual": [
+            "lì",
+            "qiáo",
+            "chuī",
+            "bà",
+            "xiǎo",
+            "chán",
+            "yú"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "数声𫛸鴂",
+      "expected": [
+        "shù",
+        "shēng",
+        "tí",
+        "jué"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-265",
+          "title": "柳梢青·数声𫛸鴂",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 3
+          },
+          "context": "数声𫛸鴂可怜又是",
+          "actual": [
+            "shù",
+            "shēng",
+            "tí",
+            "jué"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "花著露",
+      "expected": [
+        "huā",
+        "zhuó",
+        "lù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-268",
+          "title": "惜分飞·泪湿阑干花著露",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 4
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "泪湿阑干花著露愁到眉峰",
+          "actual": [
+            "huā",
+            "zhuó",
+            "lù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "朝朝暮暮",
+      "expected": [
+        "zhāo",
+        "zhāo",
+        "mù",
+        "mù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-268",
+          "title": "惜分飞·泪湿阑干花著露",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 2
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 5
+          },
+          "context": "意绪寂寞朝朝暮暮今夜山深",
+          "actual": [
+            "zhāo",
+            "zhāo",
+            "mù",
+            "mù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "泪弹不尽临窗滴",
+      "expected": [
+        "lèi",
+        "tán",
+        "bù",
+        "jìn",
+        "lín",
+        "chuāng",
+        "dī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-269",
+          "title": "思远人·红叶黄花秋意晚",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "处寄书得泪弹不尽临窗滴就砚旋研",
+          "actual": [
+            "lèi",
+            "tán",
+            "bù",
+            "jìn",
+            "lín",
+            "chuāng",
+            "dī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "就砚旋研墨",
+      "expected": [
+        "jiù",
+        "yàn",
+        "xuán",
+        "yán",
+        "mò"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-269",
+          "title": "思远人·红叶黄花秋意晚",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 4
+          },
+          "context": "尽临窗滴就砚旋研墨渐写到别",
+          "actual": [
+            "jiù",
+            "yàn",
+            "xuán",
+            "yán",
+            "mò"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "红笺为无色",
+      "expected": [
+        "hóng",
+        "jiān",
+        "wéi",
+        "wú",
+        "sè"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-269",
+          "title": "思远人·红叶黄花秋意晚",
+          "start": {
+            "lineIndex": 4,
+            "characterIndex": 9
+          },
+          "end": {
+            "lineIndex": 4,
+            "characterIndex": 13
+          },
+          "context": "此情深处红笺为无色",
+          "actual": [
+            "hóng",
+            "jiān",
+            "wéi",
+            "wú",
+            "sè"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "入夜重门静",
+      "expected": [
+        "rù",
+        "yè",
+        "chóng",
+        "mén",
+        "jìng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-270",
+          "title": "青门引·青门饮·乍暖还轻冷",
+          "start": {
+            "lineIndex": 4,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 4,
+            "characterIndex": 4
+          },
+          "context": "角风吹醒入夜重门静那堪更被",
+          "actual": [
+            "rù",
+            "yè",
+            "chóng",
+            "mén",
+            "jìng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "残花中酒",
+      "expected": [
+        "cán",
+        "huā",
+        "zhòng",
+        "jiǔ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-270",
+          "title": "青门引·青门饮·乍暖还轻冷",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 10
+          },
+          "context": "寞近清明残花中酒又是去年",
+          "actual": [
+            "cán",
+            "huā",
+            "zhòng",
+            "jiǔ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "栖鸦常带夕阳还",
+      "expected": [
+        "qī",
+        "yā",
+        "cháng",
+        "dài",
+        "xī",
+        "yáng",
+        "huán"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-274",
+          "title": "鹧鸪天·池上红衣伴倚阑",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "衣伴倚阑栖鸦常带夕阳还殷云度雨",
+          "actual": [
+            "qī",
+            "yā",
+            "cháng",
+            "dài",
+            "xī",
+            "yáng",
+            "huán"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "殷云度雨疏桐落",
+      "expected": [
+        "yīn",
+        "yún",
+        "dù",
+        "yǔ",
+        "shū",
+        "tóng",
+        "luò"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-274",
+          "title": "鹧鸪天·池上红衣伴倚阑",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "带夕阳还殷云度雨疏桐落明月生凉",
+          "actual": [
+            "yīn",
+            "yún",
+            "dù",
+            "yǔ",
+            "shū",
+            "tóng",
+            "luò"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "一点残红欲尽时",
+      "expected": [
+        "yì",
+        "diǎn",
+        "cán",
+        "hóng",
+        "yù",
+        "jìn",
+        "shí"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-275",
+          "title": "鹧鸪天·一点残红欲尽时",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "一点残红欲尽时乍凉秋气",
+          "actual": [
+            "yì",
+            "diǎn",
+            "cán",
+            "hóng",
+            "yù",
+            "jìn",
+            "shí"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "调宝瑟",
+      "expected": [
+        "tiáo",
+        "bǎo",
+        "sè"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-275",
+          "title": "鹧鸪天·一点残红欲尽时",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 2
+          },
+          "context": "声是别离调宝瑟拨金猊那",
+          "actual": [
+            "tiáo",
+            "bǎo",
+            "sè"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "当初不合种相思",
+      "expected": [
+        "dāng",
+        "chū",
+        "bù",
+        "hé",
+        "zhòng",
+        "xiāng",
+        "sī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-276",
+          "title": "鹧鸪天·肥水东流无尽期",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "流无尽期当初不合种相思梦中未比",
+          "actual": [
+            "dāng",
+            "chū",
+            "bù",
+            "hé",
+            "zhòng",
+            "xiāng",
+            "sī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "两处沈吟各自知",
+      "expected": [
+        "liǎng",
+        "chù",
+        "chén",
+        "yín",
+        "gè",
+        "zì",
+        "zhī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-276",
+          "title": "鹧鸪天·肥水东流无尽期",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 13
+          },
+          "context": "岁红莲夜两处沈吟各自知",
+          "actual": [
+            "liǎng",
+            "chù",
+            "chén",
+            "yín",
+            "gè",
+            "zì",
+            "zhī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "縠皱波纹迎客棹",
+      "expected": [
+        "hú",
+        "zhòu",
+        "bō",
+        "wén",
+        "yíng",
+        "kè",
+        "zhào"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-277",
+          "title": "玉楼春·东城渐觉风光好",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "觉风光好縠皱波纹迎客棹绿杨烟外",
+          "actual": [
+            "hú",
+            "zhòu",
+            "bō",
+            "wén",
+            "yíng",
+            "kè",
+            "zhào"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "浮生长恨欢娱少",
+      "expected": [
+        "fú",
+        "shēng",
+        "cháng",
+        "hèn",
+        "huān",
+        "yú",
+        "shǎo"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-277",
+          "title": "玉楼春·东城渐觉风光好",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "头春意闹浮生长恨欢娱少肯爱千金",
+          "actual": [
+            "fú",
+            "shēng",
+            "cháng",
+            "hèn",
+            "huān",
+            "yú",
+            "shǎo"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "当年拼却醉颜红",
+      "expected": [
+        "dāng",
+        "nián",
+        "pàn",
+        "què",
+        "zuì",
+        "yán",
+        "hóng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-278",
+          "title": "鹧鸪天·彩袖殷勤捧玉锺",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "勤捧玉锺当年拼却醉颜红舞低杨柳",
+          "actual": [
+            "dāng",
+            "nián",
+            "pàn",
+            "què",
+            "zuì",
+            "yán",
+            "hóng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "歌尽桃花扇影风",
+      "expected": [
+        "gē",
+        "jìn",
+        "táo",
+        "huā",
+        "shàn",
+        "yǐng",
+        "fēng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-278",
+          "title": "鹧鸪天·彩袖殷勤捧玉锺",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 13
+          },
+          "context": "柳楼心月歌尽桃花扇影风从别后忆",
+          "actual": [
+            "gē",
+            "jìn",
+            "táo",
+            "huā",
+            "shàn",
+            "yǐng",
+            "fēng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "乍暖还寒时候",
+      "expected": [
+        "zhà",
+        "nuǎn",
+        "hái",
+        "hán",
+        "shí",
+        "hòu"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-280",
+          "title": "声声慢·寻寻觅觅",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 5
+          },
+          "context": "惨惨戚戚乍暖还寒时候最难将息",
+          "actual": [
+            "zhà",
+            "nuǎn",
+            "hái",
+            "hán",
+            "shí",
+            "hòu"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "守着窗儿",
+      "expected": [
+        "shǒu",
+        "zhe",
+        "chuāng",
+        "ér"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-280",
+          "title": "声声慢·寻寻觅觅",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 3
+          },
+          "context": "今有谁摘守着窗儿独自怎生",
+          "actual": [
+            "shǒu",
+            "zhe",
+            "chuāng",
+            "ér"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "意长翻恨游丝短",
+      "expected": [
+        "yì",
+        "cháng",
+        "fān",
+        "hèn",
+        "yóu",
+        "sī",
+        "duǎn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-282",
+          "title": "玉楼春·春风只在园西畔",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "红吹已断意长翻恨游丝短尽日相思",
+          "actual": [
+            "yì",
+            "cháng",
+            "fān",
+            "hèn",
+            "yóu",
+            "sī",
+            "duǎn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "客舍似家家似寄",
+      "expected": [
+        "kè",
+        "shè",
+        "sì",
+        "jiā",
+        "jiā",
+        "sì",
+        "jì"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-283",
+          "title": "玉楼春·年年跃马长安市",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "马长安市客舍似家家似寄青钱换酒",
+          "actual": [
+            "kè",
+            "shè",
+            "sì",
+            "jiā",
+            "jiā",
+            "sì",
+            "jì"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "秋千院落重帘暮",
+      "expected": [
+        "qiū",
+        "qiān",
+        "yuàn",
+        "luò",
+        "chóng",
+        "lián",
+        "mù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-284",
+          "title": "木兰花·玉楼春·秋千院落重帘暮",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "秋千院落重帘暮彩笔闲来",
+          "actual": [
+            "qiū",
+            "qiān",
+            "yuàn",
+            "luò",
+            "chóng",
+            "lián",
+            "mù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "朝云信断知何处",
+      "expected": [
+        "zhāo",
+        "yún",
+        "xìn",
+        "duàn",
+        "zhī",
+        "hé",
+        "chù"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-284",
+          "title": "木兰花·玉楼春·秋千院落重帘暮",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "context": "杨风后絮朝云信断知何处应作襄王",
+          "actual": [
+            "zhāo",
+            "yún",
+            "xìn",
+            "duàn",
+            "zhī",
+            "hé",
+            "chù"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "看尽落花能几醉",
+      "expected": [
+        "kàn",
+        "jìn",
+        "luò",
+        "huā",
+        "néng",
+        "jǐ",
+        "zuì"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-285",
+          "title": "玉楼春·东风又作无情计",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 13
+          },
+          "context": "盏直须深看尽落花能几醉",
+          "actual": [
+            "kàn",
+            "jìn",
+            "luò",
+            "huā",
+            "néng",
+            "jǐ",
+            "zuì"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "长向月圆时候望人归",
+      "expected": [
+        "cháng",
+        "xiàng",
+        "yuè",
+        "yuán",
+        "shí",
+        "hòu",
+        "wàng",
+        "rén",
+        "guī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-286",
+          "title": "虞美人·曲阑干外天如水",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 8
+          },
+          "context": "月比佳期长向月圆时候望人归罗衣著破",
+          "actual": [
+            "cháng",
+            "xiàng",
+            "yuè",
+            "yuán",
+            "shí",
+            "hòu",
+            "wàng",
+            "rén",
+            "guī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "罗衣著破前香在",
+      "expected": [
+        "luó",
+        "yī",
+        "zhuó",
+        "pò",
+        "qián",
+        "xiāng",
+        "zài"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-286",
+          "title": "虞美人·曲阑干外天如水",
+          "start": {
+            "lineIndex": 4,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 4,
+            "characterIndex": 6
+          },
+          "context": "候望人归罗衣著破前香在旧意谁教",
+          "actual": [
+            "luó",
+            "yī",
+            "zhuó",
+            "pò",
+            "qián",
+            "xiāng",
+            "zài"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "一春离恨懒调弦",
+      "expected": [
+        "yì",
+        "chūn",
+        "lí",
+        "hèn",
+        "lǎn",
+        "tiáo",
+        "xián"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-286",
+          "title": "虞美人·曲阑干外天如水",
+          "start": {
+            "lineIndex": 6,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 6,
+            "characterIndex": 6
+          },
+          "context": "意谁教改一春离恨懒调弦犹有两行",
+          "actual": [
+            "yì",
+            "chūn",
+            "lí",
+            "hèn",
+            "lǎn",
+            "tiáo",
+            "xián"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "犹有两行闲泪",
+      "expected": [
+        "yóu",
+        "yǒu",
+        "liǎng",
+        "háng",
+        "xián",
+        "lèi"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-286",
+          "title": "虞美人·曲阑干外天如水",
+          "start": {
+            "lineIndex": 7,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 7,
+            "characterIndex": 5
+          },
+          "context": "恨懒调弦犹有两行闲泪宝筝前",
+          "actual": [
+            "yóu",
+            "yǒu",
+            "liǎng",
+            "háng",
+            "xián",
+            "lèi"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "重头歌韵响铮琮",
+      "expected": [
+        "chóng",
+        "tóu",
+        "gē",
+        "yùn",
+        "xiǎng",
+        "zhēng",
+        "cóng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-287",
+          "title": "木兰花·玉楼春·池塘水绿风微暖",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "真初见面重头歌韵响铮琮入破舞腰",
+          "actual": [
+            "chóng",
+            "tóu",
+            "gē",
+            "yùn",
+            "xiǎng",
+            "zhēng",
+            "cóng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "水阔鱼沈何处问",
+      "expected": [
+        "shuǐ",
+        "kuò",
+        "yú",
+        "chén",
+        "hé",
+        "chù",
+        "wèn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-291",
+          "title": "玉楼春·别后不知君远近",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 13
+          },
+          "context": "远渐无书水阔鱼沈何处问夜深风竹",
+          "actual": [
+            "shuǐ",
+            "kuò",
+            "yú",
+            "chén",
+            "hé",
+            "chù",
+            "wèn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "梦又不成灯又尽",
+      "expected": [
+        "mèng",
+        "yòu",
+        "bù",
+        "chéng",
+        "dēng",
+        "yòu",
+        "jìn"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-291",
+          "title": "玉楼春·别后不知君远近",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 7
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 13
+          },
+          "context": "枕梦中寻梦又不成灯又尽",
+          "actual": [
+            "mèng",
+            "yòu",
+            "bù",
+            "chéng",
+            "dēng",
+            "yòu",
+            "jìn"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "芙蓉落尽天涵水",
+      "expected": [
+        "fú",
+        "róng",
+        "luò",
+        "jìn",
+        "tiān",
+        "hán",
+        "shuǐ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-292",
+          "title": "虞美人·芙蓉落尽天涵水",
+          "start": {
+            "lineIndex": 0,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 0,
+            "characterIndex": 6
+          },
+          "context": "芙蓉落尽天涵水日暮沧波",
+          "actual": [
+            "fú",
+            "róng",
+            "luò",
+            "jìn",
+            "tiān",
+            "hán",
+            "shuǐ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "背飞双燕帖云寒",
+      "expected": [
+        "bèi",
+        "fēi",
+        "shuāng",
+        "yàn",
+        "tiē",
+        "yún",
+        "hán"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-292",
+          "title": "虞美人·芙蓉落尽天涵水",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "暮沧波起背飞双燕帖云寒独向小楼",
+          "actual": [
+            "bèi",
+            "fēi",
+            "shuāng",
+            "yàn",
+            "tiē",
+            "yún",
+            "hán"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "卷轻浪沈沈千里",
+      "expected": [
+        "juǎn",
+        "qīng",
+        "làng",
+        "chén",
+        "chén",
+        "qiān",
+        "lǐ"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-295",
+          "title": "夜游宫·叶下斜阳照水",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "斜阳照水卷轻浪沈沈千里桥上酸风",
+          "actual": [
+            "juǎn",
+            "qīng",
+            "làng",
+            "chén",
+            "chén",
+            "qiān",
+            "lǐ"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "扬州一觉",
+      "expected": [
+        "yáng",
+        "zhōu",
+        "yí",
+        "jiào"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-294",
+          "title": "夜游宫·人去西楼雁杳",
+          "start": {
+            "lineIndex": 1,
+            "characterIndex": 3
+          },
+          "end": {
+            "lineIndex": 1,
+            "characterIndex": 6
+          },
+          "context": "杳叙别梦扬州一觉云澹星疏",
+          "actual": [
+            "yáng",
+            "zhōu",
+            "yí",
+            "jiào"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "明朝且做莫思量",
+      "expected": [
+        "míng",
+        "zhāo",
+        "qiě",
+        "zuò",
+        "mò",
+        "sī",
+        "liáng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-297",
+          "title": "踏莎行·情似游丝",
+          "start": {
+            "lineIndex": 5,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 5,
+            "characterIndex": 6
+          },
+          "context": "是愁无数明朝且做莫思量如何过得",
+          "actual": [
+            "míng",
+            "zhāo",
+            "qiě",
+            "zuò",
+            "mò",
+            "sī",
+            "liáng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "夜长争得薄情知",
+      "expected": [
+        "yè",
+        "cháng",
+        "zhēng",
+        "dé",
+        "bó",
+        "qíng",
+        "zhī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-299",
+          "title": "踏莎行·燕燕轻盈",
+          "start": {
+            "lineIndex": 2,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 2,
+            "characterIndex": 6
+          },
+          "context": "向华胥见夜长争得薄情知春初早被",
+          "actual": [
+            "yè",
+            "cháng",
+            "zhēng",
+            "dé",
+            "bó",
+            "qíng",
+            "zhī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "两重心字罗衣",
+      "expected": [
+        "liǎng",
+        "chóng",
+        "xīn",
+        "zì",
+        "luó",
+        "yī"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-300",
+          "title": "临江仙·梦后楼台高锁",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 6
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 11
+          },
+          "context": "小苹初见两重心字罗衣琵琶弦上",
+          "actual": [
+            "liǎng",
+            "chóng",
+            "xīn",
+            "zì",
+            "luó",
+            "yī"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    },
+    {
+      "phrase": "惟有游丝千丈罥晴空",
+      "expected": [
+        "wéi",
+        "yǒu",
+        "yóu",
+        "sī",
+        "qiān",
+        "zhàng",
+        "juàn",
+        "qíng",
+        "kōng"
+      ],
+      "status": "present_and_matching",
+      "occurrences": [
+        {
+          "poemId": "poem-273",
+          "title": "虞美人·落花已作风前舞",
+          "start": {
+            "lineIndex": 3,
+            "characterIndex": 0
+          },
+          "end": {
+            "lineIndex": 3,
+            "characterIndex": 8
+          },
+          "context": "院半残红惟有游丝千丈罥晴空殷勤花下",
+          "actual": [
+            "wéi",
+            "yǒu",
+            "yóu",
+            "sī",
+            "qiān",
+            "zhàng",
+            "juàn",
+            "qíng",
+            "kōng"
+          ],
+          "matchesExpected": true
+        }
+      ]
+    }
+  ]
+}

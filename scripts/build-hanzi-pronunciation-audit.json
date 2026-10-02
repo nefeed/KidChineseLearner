@@ -1,0 +1,388 @@
+{
+  "tool": "pinyin-pro",
+  "toolVersion": "3.29.4",
+  "scope": "Every target-character occurrence in all example words and full sentence of authored records",
+  "authoredRecords": 1000,
+  "uncheckedDraftRecords": 0,
+  "targetOccurrencesChecked": 3085,
+  "agreedWithTool": 3050,
+  "acceptedContextVariants": [
+    {
+      "id": "hz-031",
+      "char": "爸",
+      "field": "word1",
+      "text": "爸爸",
+      "characterIndex": 1,
+      "selected": "bà",
+      "toolReading": "ba",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-031",
+      "char": "爸",
+      "field": "sentence",
+      "text": "爸爸陪我搭积木。",
+      "characterIndex": 1,
+      "selected": "bà",
+      "toolReading": "ba",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-032",
+      "char": "妈",
+      "field": "word1",
+      "text": "妈妈",
+      "characterIndex": 1,
+      "selected": "mā",
+      "toolReading": "ma",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-032",
+      "char": "妈",
+      "field": "sentence",
+      "text": "妈妈和我一起看图画书。",
+      "characterIndex": 1,
+      "selected": "mā",
+      "toolReading": "ma",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-033",
+      "char": "爷",
+      "field": "word1",
+      "text": "爷爷",
+      "characterIndex": 1,
+      "selected": "yé",
+      "toolReading": "ye",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-033",
+      "char": "爷",
+      "field": "sentence",
+      "text": "爷爷牵着我的手去散步。",
+      "characterIndex": 1,
+      "selected": "yé",
+      "toolReading": "ye",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-034",
+      "char": "奶",
+      "field": "word1",
+      "text": "奶奶",
+      "characterIndex": 1,
+      "selected": "nǎi",
+      "toolReading": "nai",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-034",
+      "char": "奶",
+      "field": "sentence",
+      "text": "奶奶给我讲有趣的故事。",
+      "characterIndex": 1,
+      "selected": "nǎi",
+      "toolReading": "nai",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-035",
+      "char": "姐",
+      "field": "word1",
+      "text": "姐姐",
+      "characterIndex": 1,
+      "selected": "jiě",
+      "toolReading": "jie",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-035",
+      "char": "姐",
+      "field": "sentence",
+      "text": "姐姐教我折一只纸船。",
+      "characterIndex": 1,
+      "selected": "jiě",
+      "toolReading": "jie",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-036",
+      "char": "哥",
+      "field": "word1",
+      "text": "哥哥",
+      "characterIndex": 1,
+      "selected": "gē",
+      "toolReading": "ge",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-036",
+      "char": "哥",
+      "field": "sentence",
+      "text": "哥哥和我一起踢球。",
+      "characterIndex": 1,
+      "selected": "gē",
+      "toolReading": "ge",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-037",
+      "char": "弟",
+      "field": "word1",
+      "text": "弟弟",
+      "characterIndex": 1,
+      "selected": "dì",
+      "toolReading": "di",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-037",
+      "char": "弟",
+      "field": "sentence",
+      "text": "弟弟抱着毛绒玩具。",
+      "characterIndex": 1,
+      "selected": "dì",
+      "toolReading": "di",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-038",
+      "char": "妹",
+      "field": "word1",
+      "text": "妹妹",
+      "characterIndex": 1,
+      "selected": "mèi",
+      "toolReading": "mei",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-038",
+      "char": "妹",
+      "field": "sentence",
+      "text": "妹妹把积木递给我。",
+      "characterIndex": 1,
+      "selected": "mèi",
+      "toolReading": "mei",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    },
+    {
+      "id": "hz-041",
+      "char": "一",
+      "field": "word1",
+      "text": "一个",
+      "characterIndex": 0,
+      "selected": "yī",
+      "toolReading": "yí",
+      "reason": "一的单字本调 yī 与语境变调 yí/yì"
+    },
+    {
+      "id": "hz-041",
+      "char": "一",
+      "field": "word2",
+      "text": "一起",
+      "characterIndex": 0,
+      "selected": "yī",
+      "toolReading": "yì",
+      "reason": "一的单字本调 yī 与语境变调 yí/yì"
+    },
+    {
+      "id": "hz-041",
+      "char": "一",
+      "field": "sentence",
+      "text": "树上有一只小鸟。",
+      "characterIndex": 3,
+      "selected": "yī",
+      "toolReading": "yì",
+      "reason": "一的单字本调 yī 与语境变调 yí/yì"
+    },
+    {
+      "id": "hz-103",
+      "char": "不",
+      "field": "word2",
+      "text": "不要",
+      "characterIndex": 0,
+      "selected": "bù",
+      "toolReading": "bú",
+      "reason": "不在第四声前变调 bú，字卡保留本调 bù"
+    },
+    {
+      "id": "hz-858",
+      "char": "伯",
+      "field": "word2",
+      "text": "伯伯",
+      "characterIndex": 1,
+      "selected": "bó",
+      "toolReading": "bo",
+      "reason": "亲属叠词第二个音节轻声，字卡保留本调"
+    }
+  ],
+  "dictionaryVerifiedToolDifferences": [
+    {
+      "id": "hz-268",
+      "char": "教",
+      "field": "word1",
+      "text": "教书",
+      "characterIndex": 0,
+      "selected": "jiāo",
+      "toolReading": "jiào",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22351&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22352&la=0&powerMode=0",
+      "reason": "传授具体本领用 jiāo；拼音工具在这两个语境中错读 jiào。"
+    },
+    {
+      "id": "hz-268",
+      "char": "教",
+      "field": "word2",
+      "text": "教给",
+      "characterIndex": 0,
+      "selected": "jiāo",
+      "toolReading": "jiào",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22351&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22352&la=0&powerMode=0",
+      "reason": "传授具体本领用 jiāo；拼音工具在这两个语境中错读 jiào。"
+    },
+    {
+      "id": "hz-268",
+      "char": "教",
+      "field": "sentence",
+      "text": "妈妈教我认识小花。",
+      "characterIndex": 2,
+      "selected": "jiāo",
+      "toolReading": "jiào",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22351&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22352&la=0&powerMode=0",
+      "reason": "传授具体本领用 jiāo；拼音工具在这两个语境中错读 jiào。"
+    },
+    {
+      "id": "hz-402",
+      "char": "切",
+      "field": "word1",
+      "text": "切开",
+      "characterIndex": 0,
+      "selected": "qiē",
+      "toolReading": "qiè",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=24798&la=0&powerMode=0",
+      "reason": "用刀把物体分开用 qiē；拼音工具在这两个语境中错读 qiè。"
+    },
+    {
+      "id": "hz-402",
+      "char": "切",
+      "field": "sentence",
+      "text": "妈妈把西瓜切成小块。",
+      "characterIndex": 5,
+      "selected": "qiē",
+      "toolReading": "qiè",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=24798&la=0&powerMode=0",
+      "reason": "用刀把物体分开用 qiē；拼音工具在这两个语境中错读 qiè。"
+    },
+    {
+      "id": "hz-629",
+      "char": "斗",
+      "field": "word1",
+      "text": "北斗",
+      "characterIndex": 1,
+      "selected": "dǒu",
+      "toolReading": "dòu",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=538&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=539&la=0&powerMode=0",
+      "reason": "北斗及北斗七星用 dǒu；拼音工具在这两个语境中错读 dòu。"
+    },
+    {
+      "id": "hz-629",
+      "char": "斗",
+      "field": "word2",
+      "text": "斗柄",
+      "characterIndex": 0,
+      "selected": "dǒu",
+      "toolReading": "dòu",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=538&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=539&la=0&powerMode=0",
+      "reason": "北斗及北斗七星用 dǒu；拼音工具在这两个语境中错读 dòu。"
+    },
+    {
+      "id": "hz-629",
+      "char": "斗",
+      "field": "sentence",
+      "text": "我和爸爸在星图上寻找北斗七星。",
+      "characterIndex": 11,
+      "selected": "dǒu",
+      "toolReading": "dòu",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=538&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=539&la=0&powerMode=0",
+      "reason": "北斗及北斗七星用 dǒu；拼音工具在这两个语境中错读 dòu。"
+    },
+    {
+      "id": "hz-673",
+      "char": "率",
+      "field": "word2",
+      "text": "率先",
+      "characterIndex": 0,
+      "selected": "shuài",
+      "toolReading": "lǜ",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=35584&la=0&powerMode=0",
+      "reason": "率先意为首先或领先，用 shuài；拼音工具将该词错读成 lǜ。"
+    },
+    {
+      "id": "hz-827",
+      "char": "背",
+      "field": "word2",
+      "text": "背着",
+      "characterIndex": 0,
+      "selected": "bēi",
+      "toolReading": "bèi",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=488&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=489&la=0&powerMode=0",
+      "reason": "把书包负在背上用 bēi；拼音工具在这个动词语境中错读 bèi。"
+    },
+    {
+      "id": "hz-827",
+      "char": "背",
+      "field": "sentence",
+      "text": "我背着小书包走进幼儿园。",
+      "characterIndex": 1,
+      "selected": "bēi",
+      "toolReading": "bèi",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=488&la=0&powerMode=0",
+      "termSource": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=489&la=0&powerMode=0",
+      "reason": "把书包负在背上用 bēi；拼音工具在这个动词语境中错读 bèi。"
+    },
+    {
+      "id": "hz-994",
+      "char": "勒",
+      "field": "word1",
+      "text": "勒紧",
+      "characterIndex": 0,
+      "selected": "lēi",
+      "toolReading": "lè",
+      "source": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201010/W020220124393643101738.pdf",
+      "reason": "用带子等套住并收紧用 lēi；拼音工具在这两个语境中错读 lè。"
+    },
+    {
+      "id": "hz-994",
+      "char": "勒",
+      "field": "word2",
+      "text": "勒脚",
+      "characterIndex": 0,
+      "selected": "lēi",
+      "toolReading": "lè",
+      "source": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201010/W020220124393643101738.pdf",
+      "reason": "用带子等套住并收紧用 lēi；拼音工具在这两个语境中错读 lè。"
+    },
+    {
+      "id": "hz-994",
+      "char": "勒",
+      "field": "sentence",
+      "text": "背包带勒得太紧，我请妈妈帮我松一松。",
+      "characterIndex": 3,
+      "selected": "lēi",
+      "toolReading": "lè",
+      "source": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/201010/W020220124393643101738.pdf",
+      "reason": "用带子等套住并收紧用 lēi；拼音工具在这两个语境中错读 lè。"
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "note": "Automated agreement is a cross-check. Documented dictionary checks overrule known tool mistakes, and base-tone/neutral-tone variations are recorded explicitly. Human proofreading and educational review remain required."
+}

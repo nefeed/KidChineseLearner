@@ -1,0 +1,18 @@
+{
+  "structuralPassed": true,
+  "validationPassed": true,
+  "characters": 1000,
+  "uniqueCharacters": 1000,
+  "localStrokeFiles": 1000,
+  "strokePaths": 7912,
+  "medians": 7912,
+  "bytes": 2367983,
+  "upstreamByteComparisons": 1000,
+  "authoredCharacters": 1000,
+  "dictionaryDraftCharacters": 0,
+  "authorshipComplete": true,
+  "humanReviewComplete": false,
+  "humanReviewPendingCharacters": 1000,
+  "editorialComplete": false,
+  "errors": []
+}

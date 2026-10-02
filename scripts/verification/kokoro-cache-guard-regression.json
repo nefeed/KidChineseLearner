@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-02T09:18:32.445993+00:00",
+  "scope": "real temporary-directory files and actual cache guard; no waveform synthesis",
+  "testsRun": 10,
+  "passed": true,
+  "cases": [
+    "test_A_B_A_ignores_historical_A_certificate",
+    "test_bootstrap_6ddb_preserves_prepublication_clips",
+    "test_bootstrap_does_not_trust_an_older_certificate_after_another_configuration",
+    "test_complete_current_manifest_can_initialize_marker_after_upgrade",
+    "test_deleting_override_invalidates_old_recording",
+    "test_first_baseline_cache_still_uses_exact_phoneme_difference",
+    "test_legacy_matching_ledger_cannot_override_different_public_configuration",
+    "test_same_config_resume_can_restore_missing_ledger_from_active_marker",
+    "test_same_config_resume_keeps_partial_new_audio_with_old_public_manifest",
+    "test_switch_removes_old_plan_clip_that_is_no_longer_required"
+  ],
+  "failures": [],
+  "errors": [],
+  "source": "scripts/build-kokoro-audio.py: ensure_corrected_cache and read_reading_cache_record",
+  "bootstrapSHA256": "6ddb444e007bb8ba58addbbda604f3531c9188257a40f69f9e8dc9c62989e878",
+  "productionCacheAccessed": false,
+  "audioSynthesized": false,
+  "markerInitialization": "A complete public manifest with the current renderer and override configuration initializes the active marker without deleting clips.",
+  "command": "python3 -B tests/test_kokoro_cache_guard.py",
+  "testFile": "tests/test_kokoro_cache_guard.py",
+  "bootstrapFixture": "Immutable 6ddb first-publication configuration, independent of future production override edits.",
+  "independentReview": "A separate agent read the guard and reported no major issue; it did not call the production guard."
+}

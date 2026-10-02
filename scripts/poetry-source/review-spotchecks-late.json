@@ -1,0 +1,312 @@
+{
+  "scope": [
+    "poem-236",
+    "poem-247",
+    "poem-258",
+    "poem-265",
+    "poem-271",
+    "poem-279",
+    "poem-280",
+    "poem-284",
+    "poem-287",
+    "poem-288"
+  ],
+  "reviewedAt": "2026-10-02",
+  "method": [
+    "独立于后80篇补丁编写者，读取生成后的完整原文、全部解释、背景、题解与活动。",
+    "联网读取所列古词、古籍词评正文，并分别核对前后半篇转折、文学比喻与未知史实边界。",
+    "这是自动化助手的内容复查，不是人类语文教师或学者审核；未试听所有音频。"
+  ],
+  "summary": {
+    "poemsReviewed": 10,
+    "fullTextCoveragePassed": 10,
+    "harmfulValueBoundaryPassed": 10,
+    "fixedIssues": 5
+  },
+  "reviews": [
+    {
+      "id": "poem-236",
+      "title": "浣溪沙·波面铜花冷不收",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "e60ccaea7edd276016437f1b3565f903b8b365c21e41368c7810fcf3019c931c",
+      "risk": "铜镜、弯月与玉人不是现实钓鱼；不可只解释水边美景。",
+      "fullTextCoverage": "三段覆盖冷水月影、晓别、花减与西风梧叶愁；题目让孩子分清月影想象。",
+      "ageAndValueReview": "盆水倒影活动由家长陪伴，观察与想象分开。",
+      "evidence": [
+        {
+          "work": "陈洵《海绡翁说词》浣溪沙·波面铜花",
+          "url": "https://zh.wikisource.org/zh-hant/海綃翁說詞",
+          "locator": "浣溪沙·波面铜花段，网页正文L418–422",
+          "support": "直接说明玉人垂钓是下句月影的倒影想象，不是真有女子钓鱼。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "poem-247",
+      "title": "卜算子·缺月挂疏桐",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass_after_fixes",
+      "snapshotSha256": "ec9ab2d5e334e0b11266addd0747c8e01a107acb0d1b328cfb6ff486d3ff289c",
+      "risk": "孤鸿拒栖的寄托、无人省的读音与两个末句异文。",
+      "fullTextCoverage": "三段覆盖漏断幽人、惊起回望无人理解、不肯栖的孤高；不是普通动物科普。",
+      "ageAndValueReview": "关心独处者并练习说心事，没有把拒绝所有帮助当成美德。",
+      "evidence": [
+        {
+          "work": "赵与时《耆旧续闻》卷二",
+          "url": "https://zh.wikisource.org/zh-hans/耆舊續聞/卷二",
+          "locator": "黄鲁直跋卜算子及顾禧补注东坡段，网页正文L115–117",
+          "support": "古籍把择木视作取兴，并记录寂寞沙洲冷与枫落吴江冷二句差异；不支持旧背景未经核实的王世贞说法。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "background/backgroundSource",
+          "problem": "旧背景指明王世贞，给不可直接读到的识典入口。",
+          "fix": "改为可直接读到的宋人耆旧续闻版本说明，保留底本文字。",
+          "status": "fixed_in_generator"
+        }
+      ]
+    },
+    {
+      "id": "poem-258",
+      "title": "清平乐·金风细细",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "e6e163266550b685b46e89b4f643b694a8bdc8abd60af926bc0297173cf82c78",
+      "risk": "紫微为花名写法，不能作星官；结尾凉意必须解释。",
+      "fullTextCoverage": "三段覆盖梧叶与成人小酌午睡、花残夕阳、燕归夜凉；题目由多处细节判断秋意。",
+      "ageAndValueReview": "只观察秋日变化、按真实气温添衣。",
+      "evidence": [
+        {
+          "work": "宋词三百首·晏殊清平乐",
+          "url": "https://zh.wikisource.org/wiki/宋詞三百首",
+          "locator": "晏殊·清平乐，首句金风细细",
+          "support": "完整原词支持夏秋变化的景物链；具体年月、个人经历没有在诗词正文交代。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "poem-265",
+      "title": "柳梢青·数声𫛸鴂",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass_after_fixes",
+      "snapshotSha256": "3dea22efd0aff78c7222d716dad14695b331d032f529e561d29e20873a30c5b4",
+      "risk": "𫛸字对齐、丁香愁结与不干风月的否定意义。",
+      "fullTextCoverage": "三段覆盖鸟声春归、花瓣像锦雪、丁香露泣与人的愁、休文自况；尾意归因于多情，未把风月解释成需责怪的月亮。",
+      "ageAndValueReview": "纸花拼图及不同感受表达，不采摘或摄取不明植物。",
+      "evidence": [
+        {
+          "work": "宋词三百首·蔡伸柳梢青",
+          "url": "https://zh.wikisource.org/wiki/宋詞三百首",
+          "locator": "蔡伸·柳梢青，首句数声鶗鴂",
+          "support": "原词末三句明确多情多感与不干风月的关系；释义用原句逻辑，不增编创作故事。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "pinyin/interpretation/question",
+          "problem": "初稿漏扩展字𫛸，并把风月按单字月亮提问。",
+          "fix": "扩展Han识别、𫛸读tí；外部逐篇释义和题目改为内部多情与景物的关系。",
+          "status": "fixed_in_generator_and_external_patch"
+        }
+      ]
+    },
+    {
+      "id": "poem-271",
+      "title": "醉花阴·薄雾浓云愁永昼",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass_after_fixes",
+      "snapshotSha256": "de1b3ec4dc9cd02b88c7df2745a3be5d42c0acd0ef505b6de649b832dadefe5d",
+      "risk": "重阳与黄花借喻、把洒讹字、不应编造丈夫竞词故事。",
+      "fullTextCoverage": "三段覆盖愁永昼、香炉与夜凉、东篱香菊、卷帘与人的憔悴；美景不能消愁的关系清楚。",
+      "ageAndValueReview": "观察菊花与亲人问候，未安排儿童饮酒或用香料试验。",
+      "evidence": [
+        {
+          "work": "李清照《醉花阴》",
+          "url": "https://zh.wikisource.org/wiki/醉花陰_(李清照)",
+          "locator": "原词及底本异文标注，网页正文L124–125",
+          "support": "正文是东篱把酒；人似/比黄花瘦为不同底本字句，不另算作品。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "lines",
+          "problem": "原始快照把酒写作把洒。",
+          "fix": "外部补丁据原典校为把酒，原始快照保持不变。",
+          "status": "fixed_in_external_patch"
+        }
+      ]
+    },
+    {
+      "id": "poem-279",
+      "title": "青玉案·元夕",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass_after_fixes",
+      "snapshotSha256": "889776bca107efc45625c1f51fa659f53557c96694202130e4f307e07f863b32",
+      "risk": "元夕头饰与鱼龙灯舞，不可把后半寻人省掉。",
+      "fullTextCoverage": "三段先灯火车马箫声，再头饰笑语，最后众里寻人、回首阑珊；题解用疏落灯火与开头热闹对照。",
+      "ageAndValueReview": "纸灯和纸人摆放呈现热闹/清静，不放真烟火。",
+      "evidence": [
+        {
+          "work": "宋词三百首·辛弃疾青玉案元夕",
+          "url": "https://zh.wikisource.org/wiki/宋詞三百首",
+          "locator": "辛弃疾·青玉案，题元夕",
+          "support": "全文有灯市与寻人转折，原词并未交代被寻之人姓名；象征解释保留为可能。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "work identity",
+          "problem": "旧279与287是欧阳修/晏殊异署同一首。",
+          "fix": "按root批准开发阶段替换279为原快照已有、尚未选入的独立青玉案元夕，其他ID不动。",
+          "status": "fixed_in_generator"
+        }
+      ]
+    },
+    {
+      "id": "poem-280",
+      "title": "声声慢·寻寻觅觅",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass_after_fixes",
+      "snapshotSha256": "d6e0b11ee0ba62b77be0ab78d9a1c396ad80774f351a8f6a5cf0e7a50930cc79",
+      "risk": "叠字层层情绪、菊花与人的憔悴、结尾深愁，不可只写秋日雨声。",
+      "fullTextCoverage": "四段覆盖全部九行：难调养、酒不能御风与旧识雁、独守窗时间难熬、细雨添愁与一字说不尽。",
+      "ageAndValueReview": "情绪卡、拥抱/说话/休息提供真实照顾，无饮酒模仿。",
+      "evidence": [
+        {
+          "work": "李清照《声声慢》",
+          "url": "https://zh.wikisource.org/wiki/聲聲慢_(李清照)",
+          "locator": "寻寻觅觅篇及守著等异文",
+          "support": "原词逐层增加愁绪。南渡后理解只称常见联系，具体成词日期未作确定。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "work identity/lines/pinyin",
+          "problem": "旧280与288异署重复；守著的现代发音应zhe。",
+          "fix": "替换为原始快照已有未选入的声声慢，守着的现代文本与zhe逐字对齐。",
+          "status": "fixed_in_generator_and_external_patch"
+        }
+      ]
+    },
+    {
+      "id": "poem-284",
+      "title": "木兰花·玉楼春·秋千院落重帘暮",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "418b4286b7801c5bbfc40149200641ec71e65b331cece768dc16683c968bf041",
+      "risk": "朝云、襄王是神女典故；马认旧路必须反衬人事变化。",
+      "fullTextCoverage": "三段覆盖暮院旧游、杏花柳絮、消息断与春梦、马认路嘶桥；题目考查旧路与旧人不在的对照。",
+      "ageAndValueReview": "纸马沿旧路图与家长回忆，梦与文学典故不用来确定现实去向。",
+      "evidence": [
+        {
+          "work": "宋词三百首·晏几道木兰花",
+          "url": "https://zh.wikisource.org/wiki/宋詞三百首",
+          "locator": "晏几道·木兰花，首句秋千院落重帘暮",
+          "support": "全词把消息断、神女梦与旧游踪连在一起；具体女子去向不在正文。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "poem-287",
+      "title": "木兰花·玉楼春·池塘水绿风微暖",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "c0507cdd90f5c849b9dac2f46305cbd43b34f5667b2feb375d62f195b93c8006",
+      "risk": "晏殊/欧阳修异署，歌舞后段旧友零落不能遗漏。",
+      "fullTextCoverage": "三段覆盖初见的春日、歌舞不知日暮，最后细数旧友少一半；题解指人不是池水。",
+      "ageAndValueReview": "联系能联系的朋友，不把所有旧人都断言为死亡。",
+      "evidence": [
+        {
+          "work": "晏殊名下《玉楼春》池塘篇",
+          "url": "https://zh.wikisource.org/zh-hant/玉樓春_(晏殊)",
+          "locator": "池塘水绿风微暖篇，网页正文L150–161",
+          "support": "可直接读全文与晏殊署名。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        },
+        {
+          "work": "欧阳修《六一词》",
+          "url": "https://www.gutenberg.org/cache/epub/25218/pg25218-images.html",
+          "locator": "池塘水绿春微暖篇，网页正文L554–558",
+          "support": "古集有欧阳修异署与首句等异文；支持明确版本问题，不支持把两版当独立两首。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": []
+    },
+    {
+      "id": "poem-288",
+      "title": "木兰花·玉楼春·燕鸿过后莺归去",
+      "reviewer": "independent automated assistant review by poetry_curriculum of zoo_game batch, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "c88b81ab5333d64b28dbddeea0f175077f326dc241827a51431861796e1801c7",
+      "risk": "欧阳修/晏殊异署与闻琴解佩佳侣的短暂，末尾醉语不是健康方案。",
+      "fullTextCoverage": "三段覆盖浮生聚散、像春梦秋云、佳侣难留与劝醉的无奈；题考短暂难寻，不按梦云字面科普。",
+      "ageAndValueReview": "纸云拆合与珍惜相聚，未安排儿童饮酒。",
+      "evidence": [
+        {
+          "work": "玉楼春·燕鸿过后春归去",
+          "url": "https://zh.wikisource.org/wiki/玉樓春_(燕鴻過後春歸去)",
+          "locator": "近体乐府、乐府雅词、御选历代诗余底本与现代校注",
+          "support": "原集署欧阳修，宋词三百首署晏殊；页内直接说明異署与字句版本。本库保留上游，背景明示争议。",
+          "limits": "语义结论结合完整原词推得；古籍/底本能支持所列文字与文献事实，不证明未交代的具体年月和人物身份。"
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "additionalFindings": [
+    {
+      "id": "poem-269",
+      "field": "interpretation[1]",
+      "problem": "先前只说走到砚边研墨，遗漏以泪研墨的核心奇想。",
+      "fix": "明确泪滴砚里、仿佛以泪研墨；不作现实制墨方法。",
+      "source": "https://www.gushiwen.cn/mingju/juv_51572f718d03.aspx",
+      "status": "fixed_in_generator"
+    },
+    {
+      "id": "poem-274",
+      "field": "question.explanation",
+      "problem": "题解提到正文没有的水花。",
+      "fix": "回到乌鸦、落梧与秋凉的原词线索。",
+      "status": "fixed_in_external_patch"
+    },
+    {
+      "id": "poem-299",
+      "field": "background/pinyin",
+      "problem": "原序可知元日到金陵，原背景却未给此线索；郎行不应按行走词组机器读xíng。",
+      "fix": "背景据自序说明丁未元日金陵，未知所思女子身份；行作人称后处所词读háng。",
+      "sources": [
+        "https://zh.wikisource.org/zh-hans/踏莎行_(姜夔)",
+        "https://dict.revised.moe.edu.tw/dictView.jsp?ID=4915"
+      ],
+      "status": "fixed_in_generator"
+    }
+  ],
+  "readingPolicyLimits": [
+    {
+      "id": "poem-269",
+      "phrase": "旋研墨",
+      "chosen": "xuán yán mò",
+      "reason": "按随即研墨解释保留现代常见平声；旋在现做义和旧音可有去声，未把仅列两个音的字典页面当作此句唯一读法证据。"
+    },
+    {
+      "id": "poem-274",
+      "phrase": "殷云",
+      "chosen": "yīn yún",
+      "reason": "释为厚重浓云，未按殷红赤黑义强行改yān；字典区分yīn盛大深厚与yān赤黑，具体旧读可再经教师复核。"
+    }
+  ]
+}

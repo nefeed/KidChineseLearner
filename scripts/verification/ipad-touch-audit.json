@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T10:11:11.935Z",
+  "buildMode": "production-bundle",
+  "scope": "Desktop browser iPad-layout simulation with isolated synthetic test profiles; no physical iPad Safari acceptance.",
+  "result": {
+    "status": "passed",
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "chromiumPassed": 11,
+    "webkitPassed": 8,
+    "productionApplicationCases": 17,
+    "inlineComponentFixtureCases": 2
+  },
+  "executedCommand": "IPAD_TEST_URL=http://127.0.0.1:60828 npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch-production",
+  "testFile": {
+    "file": "tests/ipad-touch.spec.ts",
+    "bytes": 18538,
+    "sha256": "d24f1a5f0f60f4ec9eb5f1b6dd7c17df6c7026881d7fcb248b16f12df4d0454f",
+    "modifiedAt": "2026-10-02T09:57:25.191Z"
+  },
+  "executionEvidence": {
+    "reporter": "line",
+    "summary": "19 passed (1.2m)",
+    "processExitCode": 0,
+    "codexExecSessionId": 71563,
+    "finalOutputChunkId": "1f5392",
+    "lastRun": {
+      "file": "test-results/ipad-touch-production/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "modifiedAt": "2026-10-02T09:59:45.626Z",
+      "content": {
+        "status": "passed",
+        "failedTests": []
+      }
+    },
+    "completedAtBasis": "mtime of the recorded Playwright .last-run.json, not a separately captured reporter timestamp",
+    "recordedCompletedAt": "2026-10-02T09:59:45.626Z",
+    "perCaseDurationRecorded": false,
+    "caseStatusBasis": "The executed line reporter listed all 19 cases and ended with 19 passed and exit code 0; the persisted last-run file confirms passed with no failed tests."
+  },
+  "engines": [
+    {
+      "engine": "chromium",
+      "launcher": "Playwright chromium.launch",
+      "channel": "chrome",
+      "hostPlatform": "darwin",
+      "playwrightVersion": "1.63.0",
+      "browserVersionRecorded": false,
+      "inputMechanisms": [
+        "Playwright native touchscreen .tap for navigation and single-point actions",
+        "CDP Input.dispatchTouchEvent touchStart/touchMove/touchEnd/touchCancel for continuous touch, scrolling and multiple fingers; browser Touch → Pointer delivery"
+      ],
+      "physicalDevice": false
+    },
+    {
+      "engine": "webkit",
+      "launcher": "Playwright webkit.launch",
+      "channel": null,
+      "hostPlatform": "darwin",
+      "playwrightVersion": "1.63.0",
+      "browserVersionRecorded": false,
+      "inputMechanisms": [
+        "Playwright native touchscreen .tap for navigation and single-point actions",
+        "Playwright page.mouse for continuous dragging and press/release, producing mouse Pointer events",
+        "Synthetic mouse pointercancel for the stroke-cancellation case"
+      ],
+      "physicalDevice": false
+    }
+  ],
+  "context": {
+    "initialViewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "rotatedViewportInWritingCase": {
+      "width": 1180,
+      "height": 820
+    },
+    "deviceScaleFactor": 2,
+    "isMobile": true,
+    "hasTouch": true,
+    "freshBrowserAndContextPerCase": true,
+    "soundEnabled": false,
+    "musicEnabled": false,
+    "userBrowserOrCDPConnectionUsed": false
+  },
+  "server": {
+    "implementation": "createLanServer(dist)",
+    "host": "127.0.0.1",
+    "port": 60828,
+    "temporaryPort": true,
+    "stoppedAfterVerification": true,
+    "actualLANDeviceAccessTested": false
+  },
+  "productionBundle": {
+    "directory": "dist",
+    "algorithm": "SHA-256",
+    "digestCapturedAfterRun": true,
+    "files": [
+      {
+        "file": "dist/index.html",
+        "bytes": 1190,
+        "sha256": "a585f7abd34e0077f52df9898adee6252fcc423ae75d7d42b813e07d94705404",
+        "modifiedAt": "2026-10-02T09:53:59.530Z"
+      },
+      {
+        "file": "dist/assets/index-BLFrwouG.js",
+        "bytes": 1503127,
+        "sha256": "61cac21d36e93d6187ed13b20eec9621ab1652369f672e010fb199f4638b3585",
+        "modifiedAt": "2026-10-02T09:53:59.533Z"
+      },
+      {
+        "file": "dist/assets/index-l6acPU0k.css",
+        "bytes": 109418,
+        "sha256": "ca69a7f65a22188d922f0f4e09d9e3f908285d4f3dd23a404e1d57ea79cc8c01",
+        "modifiedAt": "2026-10-02T09:53:59.528Z"
+      }
+    ],
+    "audioScope": "Muted interaction fixtures only; voice/audio release completeness was not validated by this run.",
+    "filesHaveModificationTimesBeforeRecordedCompletion": true,
+    "matchesConcurrentPwaAuditDigests": true
+  },
+  "cases": [
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "dragging an umbrella uses capture while the surrounding lesson stays scrollable",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "target": "inline Snow component fixture"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "iPad layout and pointer regression (chromium)",
+      "title": "animal drag and bathing persist; an empty moving grassland permits scrolling",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "dragging an umbrella uses capture while the surrounding lesson stays scrollable",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "target": "inline Snow component fixture"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "webkit",
+      "suite": "iPad layout and pointer regression (webkit)",
+      "title": "animal drag and bathing persist; an empty moving grassland permits scrolling",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
+      "title": "swiping empty grass scrolls without moving the selected animal",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
+      "title": "a secondary finger cannot finish or interrupt the primary writing stroke",
+      "status": "passed",
+      "target": "production dist application"
+    },
+    {
+      "engine": "chromium",
+      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
+      "title": "secondary scrub touches are ignored and cancellation stops the brush",
+      "status": "passed",
+      "target": "production dist application"
+    }
+  ],
+  "snowFixture": {
+    "cases": 2,
+    "courseIncludesSnow": false,
+    "implementation": "Ephemeral browser route with an esbuild-bundled WordPlay Snow component from repository source and inline source CSS; no production route or resource is written.",
+    "productionApplicationRouteUsed": false,
+    "purpose": "Verify the retained component hold timer stops after release/cancel without adding a character to the 1,000-character course."
+  },
+  "linuxCI": {
+    "browserInstall": "npx playwright install --with-deps chromium webkit",
+    "server": "Build first, then start node scripts/serve-lan.mjs --port 5173.",
+    "command": "IPAD_TEST_URL=http://127.0.0.1:5173 PLAYWRIGHT_CHANNEL=chromium npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch",
+    "startsServerAutomatically": false
+  },
+  "limitations": [
+    "No physical iPad, Safari on iPadOS, finger or Apple Pencil was operated; these are desktop-engine simulations.",
+    "WebKit continuous gestures are mouse Pointer events, not a continuous iPad touch stream; multi-finger and browser-native touch-scroll coverage is Chromium CDP only.",
+    "The writing test uses the character 一 and explicit SVG CSS scaling; this does not certify every stroke dataset or handwritten character.",
+    "Synthetic profiles and saved checkpoints are testing fixtures, not evidence of a child learning or mastery.",
+    "Native Home Screen installation, real safe-area insets, standalone launch and audio quality are outside this touch audit."
+  ]
+}

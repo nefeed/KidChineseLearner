@@ -1,0 +1,39 @@
+name: Verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: python3 -B tests/test_kokoro_cache_guard.py
+      - run: npm run audit:content
+      - run: npm run audio:audit
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium webkit
+      - name: iPad touch and application-window checks
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+          IPAD_TEST_URL: http://127.0.0.1:5173
+          PWA_TEST_URL: http://127.0.0.1:5173
+        run: |
+          node scripts/serve-lan.mjs > /tmp/kidchinese-lan.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:5173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:5173/ > /dev/null
+          npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch
+          PWA_TEST_ENGINE=chromium npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-chromium
+          PWA_TEST_ENGINE=webkit npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-webkit

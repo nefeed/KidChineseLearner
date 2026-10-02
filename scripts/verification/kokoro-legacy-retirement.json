@@ -1,0 +1,13 @@
+{
+  "retiredAt": "2026-10-02T10:20:04.036907+00:00",
+  "legacyArchivedFiles": 28359,
+  "legacyArchivedBytes": 675195412,
+  "legacyFilesRemainingInPublic": 0,
+  "requiredNewAACFiles": 22453,
+  "requiredMappings": 23505,
+  "planSHA256": "d72fb5ada746815606828718a180c56a7ee9169448af8750b34f1620ab439027",
+  "pronunciationOverridesSHA256": "5c2d67f5798bef5a15771be1e84a39e1d2a7cff0ec02ed6ccff26e1ac8940da5",
+  "newManifestSHA256": "2b6d3096681f9195a8a62f6a648b0189f32b628a5d416229a6db84e3f782b68a",
+  "legacyManifestSHA256": "bb66abe701c5072c38db6c8a56d15ace27ae3642cd25c9a976d301b64a527bdb",
+  "policy": "Old system recordings and their manifest are preserved in the ignored private cache; only the local Kokoro renderer remains in the release audio directory."
+}

@@ -1,0 +1,40 @@
+{
+  "name": "ziyou-island",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "tsx --test tests/*.test.ts",
+    "audit:content": "tsx scripts/audit-content.ts",
+    "prebuild": "node scripts/prepare-static.mjs",
+    "audio:build": "python3 scripts/build-kokoro-audio.py",
+    "audio:audit": "tsx scripts/audit-audio.mjs --complete",
+    "audio:legacy-personal": "tsx scripts/build-audio.mjs",
+    "serve:lan": "node scripts/serve-lan.mjs",
+    "serve:lan:install": "node scripts/install-lan-service.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "pinyin-pro": "^3.27.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tsx": "^4.19.2",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.5"
+  },
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nefeed/KidChineseLearner.git"
+  }
+}

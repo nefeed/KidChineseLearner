@@ -1,0 +1,5020 @@
+{
+  "editorial": {
+    "authorshipComplete": true,
+    "humanReviewComplete": false,
+    "humanReviewPendingCharacters": 1000,
+    "authoredCharacters": 1000,
+    "dictionaryDraftCharacters": 0,
+    "entries": {
+      "hz-001": {
+        "char": "日",
+        "status": "authored-pending-review"
+      },
+      "hz-002": {
+        "char": "月",
+        "status": "authored-pending-review"
+      },
+      "hz-003": {
+        "char": "山",
+        "status": "authored-pending-review"
+      },
+      "hz-004": {
+        "char": "水",
+        "status": "authored-pending-review"
+      },
+      "hz-005": {
+        "char": "火",
+        "status": "authored-pending-review"
+      },
+      "hz-006": {
+        "char": "木",
+        "status": "authored-pending-review"
+      },
+      "hz-007": {
+        "char": "土",
+        "status": "authored-pending-review"
+      },
+      "hz-008": {
+        "char": "云",
+        "status": "authored-pending-review"
+      },
+      "hz-009": {
+        "char": "雨",
+        "status": "authored-pending-review"
+      },
+      "hz-010": {
+        "char": "风",
+        "status": "authored-pending-review"
+      },
+      "hz-011": {
+        "char": "猫",
+        "status": "authored-pending-review"
+      },
+      "hz-012": {
+        "char": "狗",
+        "status": "authored-pending-review"
+      },
+      "hz-013": {
+        "char": "鸟",
+        "status": "authored-pending-review"
+      },
+      "hz-014": {
+        "char": "鱼",
+        "status": "authored-pending-review"
+      },
+      "hz-015": {
+        "char": "牛",
+        "status": "authored-pending-review"
+      },
+      "hz-016": {
+        "char": "羊",
+        "status": "authored-pending-review"
+      },
+      "hz-017": {
+        "char": "马",
+        "status": "authored-pending-review"
+      },
+      "hz-018": {
+        "char": "兔",
+        "status": "authored-pending-review"
+      },
+      "hz-019": {
+        "char": "虫",
+        "status": "authored-pending-review"
+      },
+      "hz-020": {
+        "char": "龙",
+        "status": "authored-pending-review"
+      },
+      "hz-021": {
+        "char": "人",
+        "status": "authored-pending-review"
+      },
+      "hz-022": {
+        "char": "口",
+        "status": "authored-pending-review"
+      },
+      "hz-023": {
+        "char": "手",
+        "status": "authored-pending-review"
+      },
+      "hz-024": {
+        "char": "足",
+        "status": "authored-pending-review"
+      },
+      "hz-025": {
+        "char": "目",
+        "status": "authored-pending-review"
+      },
+      "hz-026": {
+        "char": "耳",
+        "status": "authored-pending-review"
+      },
+      "hz-027": {
+        "char": "头",
+        "status": "authored-pending-review"
+      },
+      "hz-028": {
+        "char": "心",
+        "status": "authored-pending-review"
+      },
+      "hz-029": {
+        "char": "牙",
+        "status": "authored-pending-review"
+      },
+      "hz-030": {
+        "char": "身",
+        "status": "authored-pending-review"
+      },
+      "hz-031": {
+        "char": "爸",
+        "status": "authored-pending-review"
+      },
+      "hz-032": {
+        "char": "妈",
+        "status": "authored-pending-review"
+      },
+      "hz-033": {
+        "char": "爷",
+        "status": "authored-pending-review"
+      },
+      "hz-034": {
+        "char": "奶",
+        "status": "authored-pending-review"
+      },
+      "hz-035": {
+        "char": "姐",
+        "status": "authored-pending-review"
+      },
+      "hz-036": {
+        "char": "哥",
+        "status": "authored-pending-review"
+      },
+      "hz-037": {
+        "char": "弟",
+        "status": "authored-pending-review"
+      },
+      "hz-038": {
+        "char": "妹",
+        "status": "authored-pending-review"
+      },
+      "hz-039": {
+        "char": "家",
+        "status": "authored-pending-review"
+      },
+      "hz-040": {
+        "char": "友",
+        "status": "authored-pending-review"
+      },
+      "hz-041": {
+        "char": "一",
+        "status": "authored-pending-review"
+      },
+      "hz-042": {
+        "char": "二",
+        "status": "authored-pending-review"
+      },
+      "hz-043": {
+        "char": "三",
+        "status": "authored-pending-review"
+      },
+      "hz-044": {
+        "char": "四",
+        "status": "authored-pending-review"
+      },
+      "hz-045": {
+        "char": "五",
+        "status": "authored-pending-review"
+      },
+      "hz-046": {
+        "char": "六",
+        "status": "authored-pending-review"
+      },
+      "hz-047": {
+        "char": "七",
+        "status": "authored-pending-review"
+      },
+      "hz-048": {
+        "char": "八",
+        "status": "authored-pending-review"
+      },
+      "hz-049": {
+        "char": "九",
+        "status": "authored-pending-review"
+      },
+      "hz-050": {
+        "char": "十",
+        "status": "authored-pending-review"
+      },
+      "hz-051": {
+        "char": "米",
+        "status": "authored-pending-review"
+      },
+      "hz-052": {
+        "char": "面",
+        "status": "authored-pending-review"
+      },
+      "hz-053": {
+        "char": "瓜",
+        "status": "authored-pending-review"
+      },
+      "hz-054": {
+        "char": "果",
+        "status": "authored-pending-review"
+      },
+      "hz-055": {
+        "char": "豆",
+        "status": "authored-pending-review"
+      },
+      "hz-056": {
+        "char": "菜",
+        "status": "authored-pending-review"
+      },
+      "hz-057": {
+        "char": "肉",
+        "status": "authored-pending-review"
+      },
+      "hz-058": {
+        "char": "蛋",
+        "status": "authored-pending-review"
+      },
+      "hz-059": {
+        "char": "饭",
+        "status": "authored-pending-review"
+      },
+      "hz-060": {
+        "char": "糖",
+        "status": "authored-pending-review"
+      },
+      "hz-061": {
+        "char": "门",
+        "status": "authored-pending-review"
+      },
+      "hz-062": {
+        "char": "窗",
+        "status": "authored-pending-review"
+      },
+      "hz-063": {
+        "char": "床",
+        "status": "authored-pending-review"
+      },
+      "hz-064": {
+        "char": "桌",
+        "status": "authored-pending-review"
+      },
+      "hz-065": {
+        "char": "椅",
+        "status": "authored-pending-review"
+      },
+      "hz-066": {
+        "char": "书",
+        "status": "authored-pending-review"
+      },
+      "hz-067": {
+        "char": "笔",
+        "status": "authored-pending-review"
+      },
+      "hz-068": {
+        "char": "包",
+        "status": "authored-pending-review"
+      },
+      "hz-069": {
+        "char": "杯",
+        "status": "authored-pending-review"
+      },
+      "hz-070": {
+        "char": "衣",
+        "status": "authored-pending-review"
+      },
+      "hz-071": {
+        "char": "走",
+        "status": "authored-pending-review"
+      },
+      "hz-072": {
+        "char": "跑",
+        "status": "authored-pending-review"
+      },
+      "hz-073": {
+        "char": "跳",
+        "status": "authored-pending-review"
+      },
+      "hz-074": {
+        "char": "看",
+        "status": "authored-pending-review"
+      },
+      "hz-075": {
+        "char": "听",
+        "status": "authored-pending-review"
+      },
+      "hz-076": {
+        "char": "说",
+        "status": "authored-pending-review"
+      },
+      "hz-077": {
+        "char": "吃",
+        "status": "authored-pending-review"
+      },
+      "hz-078": {
+        "char": "喝",
+        "status": "authored-pending-review"
+      },
+      "hz-079": {
+        "char": "笑",
+        "status": "authored-pending-review"
+      },
+      "hz-080": {
+        "char": "哭",
+        "status": "authored-pending-review"
+      },
+      "hz-081": {
+        "char": "大",
+        "status": "authored-pending-review"
+      },
+      "hz-082": {
+        "char": "小",
+        "status": "authored-pending-review"
+      },
+      "hz-083": {
+        "char": "多",
+        "status": "authored-pending-review"
+      },
+      "hz-084": {
+        "char": "少",
+        "status": "authored-pending-review"
+      },
+      "hz-085": {
+        "char": "上",
+        "status": "authored-pending-review"
+      },
+      "hz-086": {
+        "char": "下",
+        "status": "authored-pending-review"
+      },
+      "hz-087": {
+        "char": "左",
+        "status": "authored-pending-review"
+      },
+      "hz-088": {
+        "char": "右",
+        "status": "authored-pending-review"
+      },
+      "hz-089": {
+        "char": "长",
+        "status": "authored-pending-review"
+      },
+      "hz-090": {
+        "char": "短",
+        "status": "authored-pending-review"
+      },
+      "hz-091": {
+        "char": "红",
+        "status": "authored-pending-review"
+      },
+      "hz-092": {
+        "char": "黄",
+        "status": "authored-pending-review"
+      },
+      "hz-093": {
+        "char": "蓝",
+        "status": "authored-pending-review"
+      },
+      "hz-094": {
+        "char": "绿",
+        "status": "authored-pending-review"
+      },
+      "hz-095": {
+        "char": "白",
+        "status": "authored-pending-review"
+      },
+      "hz-096": {
+        "char": "黑",
+        "status": "authored-pending-review"
+      },
+      "hz-097": {
+        "char": "花",
+        "status": "authored-pending-review"
+      },
+      "hz-098": {
+        "char": "草",
+        "status": "authored-pending-review"
+      },
+      "hz-099": {
+        "char": "叶",
+        "status": "authored-pending-review"
+      },
+      "hz-100": {
+        "char": "树",
+        "status": "authored-pending-review"
+      },
+      "hz-101": {
+        "char": "的",
+        "status": "authored-pending-review"
+      },
+      "hz-102": {
+        "char": "是",
+        "status": "authored-pending-review"
+      },
+      "hz-103": {
+        "char": "不",
+        "status": "authored-pending-review"
+      },
+      "hz-104": {
+        "char": "了",
+        "status": "authored-pending-review"
+      },
+      "hz-105": {
+        "char": "在",
+        "status": "authored-pending-review"
+      },
+      "hz-106": {
+        "char": "有",
+        "status": "authored-pending-review"
+      },
+      "hz-107": {
+        "char": "我",
+        "status": "authored-pending-review"
+      },
+      "hz-108": {
+        "char": "他",
+        "status": "authored-pending-review"
+      },
+      "hz-109": {
+        "char": "这",
+        "status": "authored-pending-review"
+      },
+      "hz-110": {
+        "char": "个",
+        "status": "authored-pending-review"
+      },
+      "hz-111": {
+        "char": "们",
+        "status": "authored-pending-review"
+      },
+      "hz-112": {
+        "char": "中",
+        "status": "authored-pending-review"
+      },
+      "hz-113": {
+        "char": "来",
+        "status": "authored-pending-review"
+      },
+      "hz-114": {
+        "char": "为",
+        "status": "authored-pending-review"
+      },
+      "hz-115": {
+        "char": "和",
+        "status": "authored-pending-review"
+      },
+      "hz-116": {
+        "char": "国",
+        "status": "authored-pending-review"
+      },
+      "hz-117": {
+        "char": "地",
+        "status": "authored-pending-review"
+      },
+      "hz-118": {
+        "char": "到",
+        "status": "authored-pending-review"
+      },
+      "hz-119": {
+        "char": "以",
+        "status": "authored-pending-review"
+      },
+      "hz-120": {
+        "char": "时",
+        "status": "authored-pending-review"
+      },
+      "hz-121": {
+        "char": "要",
+        "status": "authored-pending-review"
+      },
+      "hz-122": {
+        "char": "就",
+        "status": "authored-pending-review"
+      },
+      "hz-123": {
+        "char": "出",
+        "status": "authored-pending-review"
+      },
+      "hz-124": {
+        "char": "会",
+        "status": "authored-pending-review"
+      },
+      "hz-125": {
+        "char": "可",
+        "status": "authored-pending-review"
+      },
+      "hz-126": {
+        "char": "也",
+        "status": "authored-pending-review"
+      },
+      "hz-127": {
+        "char": "你",
+        "status": "authored-pending-review"
+      },
+      "hz-128": {
+        "char": "对",
+        "status": "authored-pending-review"
+      },
+      "hz-129": {
+        "char": "生",
+        "status": "authored-pending-review"
+      },
+      "hz-130": {
+        "char": "能",
+        "status": "authored-pending-review"
+      },
+      "hz-131": {
+        "char": "而",
+        "status": "authored-pending-review"
+      },
+      "hz-132": {
+        "char": "子",
+        "status": "authored-pending-review"
+      },
+      "hz-133": {
+        "char": "那",
+        "status": "authored-pending-review"
+      },
+      "hz-134": {
+        "char": "得",
+        "status": "authored-pending-review"
+      },
+      "hz-135": {
+        "char": "于",
+        "status": "authored-pending-review"
+      },
+      "hz-136": {
+        "char": "着",
+        "status": "authored-pending-review"
+      },
+      "hz-137": {
+        "char": "自",
+        "status": "authored-pending-review"
+      },
+      "hz-138": {
+        "char": "之",
+        "status": "authored-pending-review"
+      },
+      "hz-139": {
+        "char": "年",
+        "status": "authored-pending-review"
+      },
+      "hz-140": {
+        "char": "过",
+        "status": "authored-pending-review"
+      },
+      "hz-141": {
+        "char": "发",
+        "status": "authored-pending-review"
+      },
+      "hz-142": {
+        "char": "后",
+        "status": "authored-pending-review"
+      },
+      "hz-143": {
+        "char": "作",
+        "status": "authored-pending-review"
+      },
+      "hz-144": {
+        "char": "里",
+        "status": "authored-pending-review"
+      },
+      "hz-145": {
+        "char": "用",
+        "status": "authored-pending-review"
+      },
+      "hz-146": {
+        "char": "道",
+        "status": "authored-pending-review"
+      },
+      "hz-147": {
+        "char": "行",
+        "status": "authored-pending-review"
+      },
+      "hz-148": {
+        "char": "所",
+        "status": "authored-pending-review"
+      },
+      "hz-149": {
+        "char": "然",
+        "status": "authored-pending-review"
+      },
+      "hz-150": {
+        "char": "种",
+        "status": "authored-pending-review"
+      },
+      "hz-151": {
+        "char": "事",
+        "status": "authored-pending-review"
+      },
+      "hz-152": {
+        "char": "成",
+        "status": "authored-pending-review"
+      },
+      "hz-153": {
+        "char": "方",
+        "status": "authored-pending-review"
+      },
+      "hz-154": {
+        "char": "经",
+        "status": "authored-pending-review"
+      },
+      "hz-155": {
+        "char": "么",
+        "status": "authored-pending-review"
+      },
+      "hz-156": {
+        "char": "去",
+        "status": "authored-pending-review"
+      },
+      "hz-157": {
+        "char": "法",
+        "status": "authored-pending-review"
+      },
+      "hz-158": {
+        "char": "学",
+        "status": "authored-pending-review"
+      },
+      "hz-159": {
+        "char": "如",
+        "status": "authored-pending-review"
+      },
+      "hz-160": {
+        "char": "都",
+        "status": "authored-pending-review"
+      },
+      "hz-161": {
+        "char": "同",
+        "status": "authored-pending-review"
+      },
+      "hz-162": {
+        "char": "现",
+        "status": "authored-pending-review"
+      },
+      "hz-163": {
+        "char": "当",
+        "status": "authored-pending-review"
+      },
+      "hz-164": {
+        "char": "没",
+        "status": "authored-pending-review"
+      },
+      "hz-165": {
+        "char": "动",
+        "status": "authored-pending-review"
+      },
+      "hz-166": {
+        "char": "起",
+        "status": "authored-pending-review"
+      },
+      "hz-167": {
+        "char": "定",
+        "status": "authored-pending-review"
+      },
+      "hz-168": {
+        "char": "天",
+        "status": "authored-pending-review"
+      },
+      "hz-169": {
+        "char": "分",
+        "status": "authored-pending-review"
+      },
+      "hz-170": {
+        "char": "还",
+        "status": "authored-pending-review"
+      },
+      "hz-171": {
+        "char": "进",
+        "status": "authored-pending-review"
+      },
+      "hz-172": {
+        "char": "好",
+        "status": "authored-pending-review"
+      },
+      "hz-173": {
+        "char": "部",
+        "status": "authored-pending-review"
+      },
+      "hz-174": {
+        "char": "其",
+        "status": "authored-pending-review"
+      },
+      "hz-175": {
+        "char": "些",
+        "status": "authored-pending-review"
+      },
+      "hz-176": {
+        "char": "主",
+        "status": "authored-pending-review"
+      },
+      "hz-177": {
+        "char": "样",
+        "status": "authored-pending-review"
+      },
+      "hz-178": {
+        "char": "理",
+        "status": "authored-pending-review"
+      },
+      "hz-179": {
+        "char": "她",
+        "status": "authored-pending-review"
+      },
+      "hz-180": {
+        "char": "本",
+        "status": "authored-pending-review"
+      },
+      "hz-181": {
+        "char": "前",
+        "status": "authored-pending-review"
+      },
+      "hz-182": {
+        "char": "开",
+        "status": "authored-pending-review"
+      },
+      "hz-183": {
+        "char": "但",
+        "status": "authored-pending-review"
+      },
+      "hz-184": {
+        "char": "因",
+        "status": "authored-pending-review"
+      },
+      "hz-185": {
+        "char": "只",
+        "status": "authored-pending-review"
+      },
+      "hz-186": {
+        "char": "从",
+        "status": "authored-pending-review"
+      },
+      "hz-187": {
+        "char": "想",
+        "status": "authored-pending-review"
+      },
+      "hz-188": {
+        "char": "实",
+        "status": "authored-pending-review"
+      },
+      "hz-189": {
+        "char": "军",
+        "status": "authored-pending-review"
+      },
+      "hz-190": {
+        "char": "者",
+        "status": "authored-pending-review"
+      },
+      "hz-191": {
+        "char": "意",
+        "status": "authored-pending-review"
+      },
+      "hz-192": {
+        "char": "无",
+        "status": "authored-pending-review"
+      },
+      "hz-193": {
+        "char": "力",
+        "status": "authored-pending-review"
+      },
+      "hz-194": {
+        "char": "它",
+        "status": "authored-pending-review"
+      },
+      "hz-195": {
+        "char": "与",
+        "status": "authored-pending-review"
+      },
+      "hz-196": {
+        "char": "把",
+        "status": "authored-pending-review"
+      },
+      "hz-197": {
+        "char": "机",
+        "status": "authored-pending-review"
+      },
+      "hz-198": {
+        "char": "民",
+        "status": "authored-pending-review"
+      },
+      "hz-199": {
+        "char": "第",
+        "status": "authored-pending-review"
+      },
+      "hz-200": {
+        "char": "公",
+        "status": "authored-pending-review"
+      },
+      "hz-201": {
+        "char": "此",
+        "status": "authored-pending-review"
+      },
+      "hz-202": {
+        "char": "已",
+        "status": "authored-pending-review"
+      },
+      "hz-203": {
+        "char": "工",
+        "status": "authored-pending-review"
+      },
+      "hz-204": {
+        "char": "使",
+        "status": "authored-pending-review"
+      },
+      "hz-205": {
+        "char": "情",
+        "status": "authored-pending-review"
+      },
+      "hz-206": {
+        "char": "明",
+        "status": "authored-pending-review"
+      },
+      "hz-207": {
+        "char": "性",
+        "status": "authored-pending-review"
+      },
+      "hz-208": {
+        "char": "知",
+        "status": "authored-pending-review"
+      },
+      "hz-209": {
+        "char": "全",
+        "status": "authored-pending-review"
+      },
+      "hz-210": {
+        "char": "又",
+        "status": "authored-pending-review"
+      },
+      "hz-211": {
+        "char": "关",
+        "status": "authored-pending-review"
+      },
+      "hz-212": {
+        "char": "点",
+        "status": "authored-pending-review"
+      },
+      "hz-213": {
+        "char": "正",
+        "status": "authored-pending-review"
+      },
+      "hz-214": {
+        "char": "业",
+        "status": "authored-pending-review"
+      },
+      "hz-215": {
+        "char": "外",
+        "status": "authored-pending-review"
+      },
+      "hz-216": {
+        "char": "将",
+        "status": "authored-pending-review"
+      },
+      "hz-217": {
+        "char": "两",
+        "status": "authored-pending-review"
+      },
+      "hz-218": {
+        "char": "高",
+        "status": "authored-pending-review"
+      },
+      "hz-219": {
+        "char": "间",
+        "status": "authored-pending-review"
+      },
+      "hz-220": {
+        "char": "由",
+        "status": "authored-pending-review"
+      },
+      "hz-221": {
+        "char": "问",
+        "status": "authored-pending-review"
+      },
+      "hz-222": {
+        "char": "很",
+        "status": "authored-pending-review"
+      },
+      "hz-223": {
+        "char": "最",
+        "status": "authored-pending-review"
+      },
+      "hz-224": {
+        "char": "重",
+        "status": "authored-pending-review"
+      },
+      "hz-225": {
+        "char": "并",
+        "status": "authored-pending-review"
+      },
+      "hz-226": {
+        "char": "物",
+        "status": "authored-pending-review"
+      },
+      "hz-227": {
+        "char": "应",
+        "status": "authored-pending-review"
+      },
+      "hz-228": {
+        "char": "战",
+        "status": "authored-pending-review"
+      },
+      "hz-229": {
+        "char": "向",
+        "status": "authored-pending-review"
+      },
+      "hz-230": {
+        "char": "文",
+        "status": "authored-pending-review"
+      },
+      "hz-231": {
+        "char": "体",
+        "status": "authored-pending-review"
+      },
+      "hz-232": {
+        "char": "政",
+        "status": "authored-pending-review"
+      },
+      "hz-233": {
+        "char": "美",
+        "status": "authored-pending-review"
+      },
+      "hz-234": {
+        "char": "相",
+        "status": "authored-pending-review"
+      },
+      "hz-235": {
+        "char": "见",
+        "status": "authored-pending-review"
+      },
+      "hz-236": {
+        "char": "被",
+        "status": "authored-pending-review"
+      },
+      "hz-237": {
+        "char": "利",
+        "status": "authored-pending-review"
+      },
+      "hz-238": {
+        "char": "什",
+        "status": "authored-pending-review"
+      },
+      "hz-239": {
+        "char": "等",
+        "status": "authored-pending-review"
+      },
+      "hz-240": {
+        "char": "产",
+        "status": "authored-pending-review"
+      },
+      "hz-241": {
+        "char": "或",
+        "status": "authored-pending-review"
+      },
+      "hz-242": {
+        "char": "新",
+        "status": "authored-pending-review"
+      },
+      "hz-243": {
+        "char": "己",
+        "status": "authored-pending-review"
+      },
+      "hz-244": {
+        "char": "制",
+        "status": "authored-pending-review"
+      },
+      "hz-245": {
+        "char": "加",
+        "status": "authored-pending-review"
+      },
+      "hz-246": {
+        "char": "西",
+        "status": "authored-pending-review"
+      },
+      "hz-247": {
+        "char": "斯",
+        "status": "authored-pending-review"
+      },
+      "hz-248": {
+        "char": "话",
+        "status": "authored-pending-review"
+      },
+      "hz-249": {
+        "char": "合",
+        "status": "authored-pending-review"
+      },
+      "hz-250": {
+        "char": "回",
+        "status": "authored-pending-review"
+      },
+      "hz-251": {
+        "char": "特",
+        "status": "authored-pending-review"
+      },
+      "hz-252": {
+        "char": "代",
+        "status": "authored-pending-review"
+      },
+      "hz-253": {
+        "char": "内",
+        "status": "authored-pending-review"
+      },
+      "hz-254": {
+        "char": "信",
+        "status": "authored-pending-review"
+      },
+      "hz-255": {
+        "char": "表",
+        "status": "authored-pending-review"
+      },
+      "hz-256": {
+        "char": "化",
+        "status": "authored-pending-review"
+      },
+      "hz-257": {
+        "char": "老",
+        "status": "authored-pending-review"
+      },
+      "hz-258": {
+        "char": "给",
+        "status": "authored-pending-review"
+      },
+      "hz-259": {
+        "char": "世",
+        "status": "authored-pending-review"
+      },
+      "hz-260": {
+        "char": "位",
+        "status": "authored-pending-review"
+      },
+      "hz-261": {
+        "char": "次",
+        "status": "authored-pending-review"
+      },
+      "hz-262": {
+        "char": "度",
+        "status": "authored-pending-review"
+      },
+      "hz-263": {
+        "char": "任",
+        "status": "authored-pending-review"
+      },
+      "hz-264": {
+        "char": "常",
+        "status": "authored-pending-review"
+      },
+      "hz-265": {
+        "char": "先",
+        "status": "authored-pending-review"
+      },
+      "hz-266": {
+        "char": "海",
+        "status": "authored-pending-review"
+      },
+      "hz-267": {
+        "char": "通",
+        "status": "authored-pending-review"
+      },
+      "hz-268": {
+        "char": "教",
+        "status": "authored-pending-review"
+      },
+      "hz-269": {
+        "char": "儿",
+        "status": "authored-pending-review"
+      },
+      "hz-270": {
+        "char": "原",
+        "status": "authored-pending-review"
+      },
+      "hz-271": {
+        "char": "东",
+        "status": "authored-pending-review"
+      },
+      "hz-272": {
+        "char": "声",
+        "status": "authored-pending-review"
+      },
+      "hz-273": {
+        "char": "提",
+        "status": "authored-pending-review"
+      },
+      "hz-274": {
+        "char": "立",
+        "status": "authored-pending-review"
+      },
+      "hz-275": {
+        "char": "及",
+        "status": "authored-pending-review"
+      },
+      "hz-276": {
+        "char": "比",
+        "status": "authored-pending-review"
+      },
+      "hz-277": {
+        "char": "员",
+        "status": "authored-pending-review"
+      },
+      "hz-278": {
+        "char": "解",
+        "status": "authored-pending-review"
+      },
+      "hz-279": {
+        "char": "名",
+        "status": "authored-pending-review"
+      },
+      "hz-280": {
+        "char": "真",
+        "status": "authored-pending-review"
+      },
+      "hz-281": {
+        "char": "论",
+        "status": "authored-pending-review"
+      },
+      "hz-282": {
+        "char": "处",
+        "status": "authored-pending-review"
+      },
+      "hz-283": {
+        "char": "义",
+        "status": "authored-pending-review"
+      },
+      "hz-284": {
+        "char": "各",
+        "status": "authored-pending-review"
+      },
+      "hz-285": {
+        "char": "入",
+        "status": "authored-pending-review"
+      },
+      "hz-286": {
+        "char": "几",
+        "status": "authored-pending-review"
+      },
+      "hz-287": {
+        "char": "认",
+        "status": "authored-pending-review"
+      },
+      "hz-288": {
+        "char": "条",
+        "status": "authored-pending-review"
+      },
+      "hz-289": {
+        "char": "平",
+        "status": "authored-pending-review"
+      },
+      "hz-290": {
+        "char": "系",
+        "status": "authored-pending-review"
+      },
+      "hz-291": {
+        "char": "气",
+        "status": "authored-pending-review"
+      },
+      "hz-292": {
+        "char": "题",
+        "status": "authored-pending-review"
+      },
+      "hz-293": {
+        "char": "活",
+        "status": "authored-pending-review"
+      },
+      "hz-294": {
+        "char": "尔",
+        "status": "authored-pending-review"
+      },
+      "hz-295": {
+        "char": "更",
+        "status": "authored-pending-review"
+      },
+      "hz-296": {
+        "char": "别",
+        "status": "authored-pending-review"
+      },
+      "hz-297": {
+        "char": "打",
+        "status": "authored-pending-review"
+      },
+      "hz-298": {
+        "char": "女",
+        "status": "authored-pending-review"
+      },
+      "hz-299": {
+        "char": "变",
+        "status": "authored-pending-review"
+      },
+      "hz-300": {
+        "char": "神",
+        "status": "authored-pending-review"
+      },
+      "hz-301": {
+        "char": "总",
+        "status": "authored-pending-review"
+      },
+      "hz-302": {
+        "char": "何",
+        "status": "authored-pending-review"
+      },
+      "hz-303": {
+        "char": "电",
+        "status": "authored-pending-review"
+      },
+      "hz-304": {
+        "char": "数",
+        "status": "authored-pending-review"
+      },
+      "hz-305": {
+        "char": "安",
+        "status": "authored-pending-review"
+      },
+      "hz-306": {
+        "char": "报",
+        "status": "authored-pending-review"
+      },
+      "hz-307": {
+        "char": "才",
+        "status": "authored-pending-review"
+      },
+      "hz-308": {
+        "char": "结",
+        "status": "authored-pending-review"
+      },
+      "hz-309": {
+        "char": "反",
+        "status": "authored-pending-review"
+      },
+      "hz-310": {
+        "char": "受",
+        "status": "authored-pending-review"
+      },
+      "hz-311": {
+        "char": "太",
+        "status": "authored-pending-review"
+      },
+      "hz-312": {
+        "char": "量",
+        "status": "authored-pending-review"
+      },
+      "hz-313": {
+        "char": "再",
+        "status": "authored-pending-review"
+      },
+      "hz-314": {
+        "char": "感",
+        "status": "authored-pending-review"
+      },
+      "hz-315": {
+        "char": "建",
+        "status": "authored-pending-review"
+      },
+      "hz-316": {
+        "char": "务",
+        "status": "authored-pending-review"
+      },
+      "hz-317": {
+        "char": "做",
+        "status": "authored-pending-review"
+      },
+      "hz-318": {
+        "char": "接",
+        "status": "authored-pending-review"
+      },
+      "hz-319": {
+        "char": "必",
+        "status": "authored-pending-review"
+      },
+      "hz-320": {
+        "char": "场",
+        "status": "authored-pending-review"
+      },
+      "hz-321": {
+        "char": "件",
+        "status": "authored-pending-review"
+      },
+      "hz-322": {
+        "char": "计",
+        "status": "authored-pending-review"
+      },
+      "hz-323": {
+        "char": "管",
+        "status": "authored-pending-review"
+      },
+      "hz-324": {
+        "char": "期",
+        "status": "authored-pending-review"
+      },
+      "hz-325": {
+        "char": "市",
+        "status": "authored-pending-review"
+      },
+      "hz-326": {
+        "char": "直",
+        "status": "authored-pending-review"
+      },
+      "hz-327": {
+        "char": "德",
+        "status": "authored-pending-review"
+      },
+      "hz-328": {
+        "char": "资",
+        "status": "authored-pending-review"
+      },
+      "hz-329": {
+        "char": "命",
+        "status": "authored-pending-review"
+      },
+      "hz-330": {
+        "char": "金",
+        "status": "authored-pending-review"
+      },
+      "hz-331": {
+        "char": "指",
+        "status": "authored-pending-review"
+      },
+      "hz-332": {
+        "char": "克",
+        "status": "authored-pending-review"
+      },
+      "hz-333": {
+        "char": "许",
+        "status": "authored-pending-review"
+      },
+      "hz-334": {
+        "char": "统",
+        "status": "authored-pending-review"
+      },
+      "hz-335": {
+        "char": "区",
+        "status": "authored-pending-review"
+      },
+      "hz-336": {
+        "char": "保",
+        "status": "authored-pending-review"
+      },
+      "hz-337": {
+        "char": "至",
+        "status": "authored-pending-review"
+      },
+      "hz-338": {
+        "char": "队",
+        "status": "authored-pending-review"
+      },
+      "hz-339": {
+        "char": "形",
+        "status": "authored-pending-review"
+      },
+      "hz-340": {
+        "char": "社",
+        "status": "authored-pending-review"
+      },
+      "hz-341": {
+        "char": "便",
+        "status": "authored-pending-review"
+      },
+      "hz-342": {
+        "char": "空",
+        "status": "authored-pending-review"
+      },
+      "hz-343": {
+        "char": "决",
+        "status": "authored-pending-review"
+      },
+      "hz-344": {
+        "char": "治",
+        "status": "authored-pending-review"
+      },
+      "hz-345": {
+        "char": "展",
+        "status": "authored-pending-review"
+      },
+      "hz-346": {
+        "char": "科",
+        "status": "authored-pending-review"
+      },
+      "hz-347": {
+        "char": "司",
+        "status": "authored-pending-review"
+      },
+      "hz-348": {
+        "char": "基",
+        "status": "authored-pending-review"
+      },
+      "hz-349": {
+        "char": "眼",
+        "status": "authored-pending-review"
+      },
+      "hz-350": {
+        "char": "非",
+        "status": "authored-pending-review"
+      },
+      "hz-351": {
+        "char": "则",
+        "status": "authored-pending-review"
+      },
+      "hz-352": {
+        "char": "却",
+        "status": "authored-pending-review"
+      },
+      "hz-353": {
+        "char": "界",
+        "status": "authored-pending-review"
+      },
+      "hz-354": {
+        "char": "达",
+        "status": "authored-pending-review"
+      },
+      "hz-355": {
+        "char": "光",
+        "status": "authored-pending-review"
+      },
+      "hz-356": {
+        "char": "放",
+        "status": "authored-pending-review"
+      },
+      "hz-357": {
+        "char": "强",
+        "status": "authored-pending-review"
+      },
+      "hz-358": {
+        "char": "即",
+        "status": "authored-pending-review"
+      },
+      "hz-359": {
+        "char": "像",
+        "status": "authored-pending-review"
+      },
+      "hz-360": {
+        "char": "难",
+        "status": "authored-pending-review"
+      },
+      "hz-361": {
+        "char": "且",
+        "status": "authored-pending-review"
+      },
+      "hz-362": {
+        "char": "权",
+        "status": "authored-pending-review"
+      },
+      "hz-363": {
+        "char": "思",
+        "status": "authored-pending-review"
+      },
+      "hz-364": {
+        "char": "王",
+        "status": "authored-pending-review"
+      },
+      "hz-365": {
+        "char": "象",
+        "status": "authored-pending-review"
+      },
+      "hz-366": {
+        "char": "完",
+        "status": "authored-pending-review"
+      },
+      "hz-367": {
+        "char": "设",
+        "status": "authored-pending-review"
+      },
+      "hz-368": {
+        "char": "式",
+        "status": "authored-pending-review"
+      },
+      "hz-369": {
+        "char": "色",
+        "status": "authored-pending-review"
+      },
+      "hz-370": {
+        "char": "路",
+        "status": "authored-pending-review"
+      },
+      "hz-371": {
+        "char": "记",
+        "status": "authored-pending-review"
+      },
+      "hz-372": {
+        "char": "南",
+        "status": "authored-pending-review"
+      },
+      "hz-373": {
+        "char": "品",
+        "status": "authored-pending-review"
+      },
+      "hz-374": {
+        "char": "住",
+        "status": "authored-pending-review"
+      },
+      "hz-375": {
+        "char": "告",
+        "status": "authored-pending-review"
+      },
+      "hz-376": {
+        "char": "类",
+        "status": "authored-pending-review"
+      },
+      "hz-377": {
+        "char": "求",
+        "status": "authored-pending-review"
+      },
+      "hz-378": {
+        "char": "据",
+        "status": "authored-pending-review"
+      },
+      "hz-379": {
+        "char": "程",
+        "status": "authored-pending-review"
+      },
+      "hz-380": {
+        "char": "北",
+        "status": "authored-pending-review"
+      },
+      "hz-381": {
+        "char": "边",
+        "status": "authored-pending-review"
+      },
+      "hz-382": {
+        "char": "死",
+        "status": "authored-pending-review"
+      },
+      "hz-383": {
+        "char": "张",
+        "status": "authored-pending-review"
+      },
+      "hz-384": {
+        "char": "该",
+        "status": "authored-pending-review"
+      },
+      "hz-385": {
+        "char": "交",
+        "status": "authored-pending-review"
+      },
+      "hz-386": {
+        "char": "规",
+        "status": "authored-pending-review"
+      },
+      "hz-387": {
+        "char": "万",
+        "status": "authored-pending-review"
+      },
+      "hz-388": {
+        "char": "取",
+        "status": "authored-pending-review"
+      },
+      "hz-389": {
+        "char": "拉",
+        "status": "authored-pending-review"
+      },
+      "hz-390": {
+        "char": "格",
+        "status": "authored-pending-review"
+      },
+      "hz-391": {
+        "char": "望",
+        "status": "authored-pending-review"
+      },
+      "hz-392": {
+        "char": "觉",
+        "status": "authored-pending-review"
+      },
+      "hz-393": {
+        "char": "术",
+        "status": "authored-pending-review"
+      },
+      "hz-394": {
+        "char": "领",
+        "status": "authored-pending-review"
+      },
+      "hz-395": {
+        "char": "共",
+        "status": "authored-pending-review"
+      },
+      "hz-396": {
+        "char": "确",
+        "status": "authored-pending-review"
+      },
+      "hz-397": {
+        "char": "传",
+        "status": "authored-pending-review"
+      },
+      "hz-398": {
+        "char": "师",
+        "status": "authored-pending-review"
+      },
+      "hz-399": {
+        "char": "观",
+        "status": "authored-pending-review"
+      },
+      "hz-400": {
+        "char": "清",
+        "status": "authored-pending-review"
+      },
+      "hz-401": {
+        "char": "今",
+        "status": "authored-pending-review"
+      },
+      "hz-402": {
+        "char": "切",
+        "status": "authored-pending-review"
+      },
+      "hz-403": {
+        "char": "院",
+        "status": "authored-pending-review"
+      },
+      "hz-404": {
+        "char": "让",
+        "status": "authored-pending-review"
+      },
+      "hz-405": {
+        "char": "识",
+        "status": "authored-pending-review"
+      },
+      "hz-406": {
+        "char": "候",
+        "status": "authored-pending-review"
+      },
+      "hz-407": {
+        "char": "带",
+        "status": "authored-pending-review"
+      },
+      "hz-408": {
+        "char": "导",
+        "status": "authored-pending-review"
+      },
+      "hz-409": {
+        "char": "争",
+        "status": "authored-pending-review"
+      },
+      "hz-410": {
+        "char": "运",
+        "status": "authored-pending-review"
+      },
+      "hz-411": {
+        "char": "飞",
+        "status": "authored-pending-review"
+      },
+      "hz-412": {
+        "char": "步",
+        "status": "authored-pending-review"
+      },
+      "hz-413": {
+        "char": "改",
+        "status": "authored-pending-review"
+      },
+      "hz-414": {
+        "char": "收",
+        "status": "authored-pending-review"
+      },
+      "hz-415": {
+        "char": "根",
+        "status": "authored-pending-review"
+      },
+      "hz-416": {
+        "char": "干",
+        "status": "authored-pending-review"
+      },
+      "hz-417": {
+        "char": "造",
+        "status": "authored-pending-review"
+      },
+      "hz-418": {
+        "char": "言",
+        "status": "authored-pending-review"
+      },
+      "hz-419": {
+        "char": "联",
+        "status": "authored-pending-review"
+      },
+      "hz-420": {
+        "char": "持",
+        "status": "authored-pending-review"
+      },
+      "hz-421": {
+        "char": "组",
+        "status": "authored-pending-review"
+      },
+      "hz-422": {
+        "char": "每",
+        "status": "authored-pending-review"
+      },
+      "hz-423": {
+        "char": "济",
+        "status": "authored-pending-review"
+      },
+      "hz-424": {
+        "char": "车",
+        "status": "authored-pending-review"
+      },
+      "hz-425": {
+        "char": "亲",
+        "status": "authored-pending-review"
+      },
+      "hz-426": {
+        "char": "极",
+        "status": "authored-pending-review"
+      },
+      "hz-427": {
+        "char": "林",
+        "status": "authored-pending-review"
+      },
+      "hz-428": {
+        "char": "服",
+        "status": "authored-pending-review"
+      },
+      "hz-429": {
+        "char": "快",
+        "status": "authored-pending-review"
+      },
+      "hz-430": {
+        "char": "办",
+        "status": "authored-pending-review"
+      },
+      "hz-431": {
+        "char": "议",
+        "status": "authored-pending-review"
+      },
+      "hz-432": {
+        "char": "往",
+        "status": "authored-pending-review"
+      },
+      "hz-433": {
+        "char": "元",
+        "status": "authored-pending-review"
+      },
+      "hz-434": {
+        "char": "英",
+        "status": "authored-pending-review"
+      },
+      "hz-435": {
+        "char": "士",
+        "status": "authored-pending-review"
+      },
+      "hz-436": {
+        "char": "证",
+        "status": "authored-pending-review"
+      },
+      "hz-437": {
+        "char": "近",
+        "status": "authored-pending-review"
+      },
+      "hz-438": {
+        "char": "失",
+        "status": "authored-pending-review"
+      },
+      "hz-439": {
+        "char": "转",
+        "status": "authored-pending-review"
+      },
+      "hz-440": {
+        "char": "夫",
+        "status": "authored-pending-review"
+      },
+      "hz-441": {
+        "char": "令",
+        "status": "authored-pending-review"
+      },
+      "hz-442": {
+        "char": "准",
+        "status": "authored-pending-review"
+      },
+      "hz-443": {
+        "char": "布",
+        "status": "authored-pending-review"
+      },
+      "hz-444": {
+        "char": "始",
+        "status": "authored-pending-review"
+      },
+      "hz-445": {
+        "char": "怎",
+        "status": "authored-pending-review"
+      },
+      "hz-446": {
+        "char": "呢",
+        "status": "authored-pending-review"
+      },
+      "hz-447": {
+        "char": "存",
+        "status": "authored-pending-review"
+      },
+      "hz-448": {
+        "char": "未",
+        "status": "authored-pending-review"
+      },
+      "hz-449": {
+        "char": "远",
+        "status": "authored-pending-review"
+      },
+      "hz-450": {
+        "char": "叫",
+        "status": "authored-pending-review"
+      },
+      "hz-451": {
+        "char": "台",
+        "status": "authored-pending-review"
+      },
+      "hz-452": {
+        "char": "单",
+        "status": "authored-pending-review"
+      },
+      "hz-453": {
+        "char": "影",
+        "status": "authored-pending-review"
+      },
+      "hz-454": {
+        "char": "具",
+        "status": "authored-pending-review"
+      },
+      "hz-455": {
+        "char": "罗",
+        "status": "authored-pending-review"
+      },
+      "hz-456": {
+        "char": "字",
+        "status": "authored-pending-review"
+      },
+      "hz-457": {
+        "char": "爱",
+        "status": "authored-pending-review"
+      },
+      "hz-458": {
+        "char": "击",
+        "status": "authored-pending-review"
+      },
+      "hz-459": {
+        "char": "流",
+        "status": "authored-pending-review"
+      },
+      "hz-460": {
+        "char": "备",
+        "status": "authored-pending-review"
+      },
+      "hz-461": {
+        "char": "兵",
+        "status": "authored-pending-review"
+      },
+      "hz-462": {
+        "char": "连",
+        "status": "authored-pending-review"
+      },
+      "hz-463": {
+        "char": "调",
+        "status": "authored-pending-review"
+      },
+      "hz-464": {
+        "char": "深",
+        "status": "authored-pending-review"
+      },
+      "hz-465": {
+        "char": "商",
+        "status": "authored-pending-review"
+      },
+      "hz-466": {
+        "char": "算",
+        "status": "authored-pending-review"
+      },
+      "hz-467": {
+        "char": "质",
+        "status": "authored-pending-review"
+      },
+      "hz-468": {
+        "char": "团",
+        "status": "authored-pending-review"
+      },
+      "hz-469": {
+        "char": "集",
+        "status": "authored-pending-review"
+      },
+      "hz-470": {
+        "char": "百",
+        "status": "authored-pending-review"
+      },
+      "hz-471": {
+        "char": "需",
+        "status": "authored-pending-review"
+      },
+      "hz-472": {
+        "char": "价",
+        "status": "authored-pending-review"
+      },
+      "hz-473": {
+        "char": "党",
+        "status": "authored-pending-review"
+      },
+      "hz-474": {
+        "char": "华",
+        "status": "authored-pending-review"
+      },
+      "hz-475": {
+        "char": "城",
+        "status": "authored-pending-review"
+      },
+      "hz-476": {
+        "char": "石",
+        "status": "authored-pending-review"
+      },
+      "hz-477": {
+        "char": "级",
+        "status": "authored-pending-review"
+      },
+      "hz-478": {
+        "char": "整",
+        "status": "authored-pending-review"
+      },
+      "hz-479": {
+        "char": "府",
+        "status": "authored-pending-review"
+      },
+      "hz-480": {
+        "char": "离",
+        "status": "authored-pending-review"
+      },
+      "hz-481": {
+        "char": "况",
+        "status": "authored-pending-review"
+      },
+      "hz-482": {
+        "char": "亚",
+        "status": "authored-pending-review"
+      },
+      "hz-483": {
+        "char": "请",
+        "status": "authored-pending-review"
+      },
+      "hz-484": {
+        "char": "技",
+        "status": "authored-pending-review"
+      },
+      "hz-485": {
+        "char": "际",
+        "status": "authored-pending-review"
+      },
+      "hz-486": {
+        "char": "约",
+        "status": "authored-pending-review"
+      },
+      "hz-487": {
+        "char": "示",
+        "status": "authored-pending-review"
+      },
+      "hz-488": {
+        "char": "复",
+        "status": "authored-pending-review"
+      },
+      "hz-489": {
+        "char": "病",
+        "status": "authored-pending-review"
+      },
+      "hz-490": {
+        "char": "息",
+        "status": "authored-pending-review"
+      },
+      "hz-491": {
+        "char": "究",
+        "status": "authored-pending-review"
+      },
+      "hz-492": {
+        "char": "线",
+        "status": "authored-pending-review"
+      },
+      "hz-493": {
+        "char": "似",
+        "status": "authored-pending-review"
+      },
+      "hz-494": {
+        "char": "官",
+        "status": "authored-pending-review"
+      },
+      "hz-495": {
+        "char": "断",
+        "status": "authored-pending-review"
+      },
+      "hz-496": {
+        "char": "精",
+        "status": "authored-pending-review"
+      },
+      "hz-497": {
+        "char": "满",
+        "status": "authored-pending-review"
+      },
+      "hz-498": {
+        "char": "支",
+        "status": "authored-pending-review"
+      },
+      "hz-499": {
+        "char": "视",
+        "status": "authored-pending-review"
+      },
+      "hz-500": {
+        "char": "消",
+        "status": "authored-pending-review"
+      },
+      "hz-501": {
+        "char": "越",
+        "status": "authored-pending-review"
+      },
+      "hz-502": {
+        "char": "器",
+        "status": "authored-pending-review"
+      },
+      "hz-503": {
+        "char": "容",
+        "status": "authored-pending-review"
+      },
+      "hz-504": {
+        "char": "照",
+        "status": "authored-pending-review"
+      },
+      "hz-505": {
+        "char": "须",
+        "status": "authored-pending-review"
+      },
+      "hz-506": {
+        "char": "增",
+        "status": "authored-pending-review"
+      },
+      "hz-507": {
+        "char": "研",
+        "status": "authored-pending-review"
+      },
+      "hz-508": {
+        "char": "写",
+        "status": "authored-pending-review"
+      },
+      "hz-509": {
+        "char": "称",
+        "status": "authored-pending-review"
+      },
+      "hz-510": {
+        "char": "企",
+        "status": "authored-pending-review"
+      },
+      "hz-511": {
+        "char": "功",
+        "status": "authored-pending-review"
+      },
+      "hz-512": {
+        "char": "吗",
+        "status": "authored-pending-review"
+      },
+      "hz-513": {
+        "char": "片",
+        "status": "authored-pending-review"
+      },
+      "hz-514": {
+        "char": "史",
+        "status": "authored-pending-review"
+      },
+      "hz-515": {
+        "char": "委",
+        "status": "authored-pending-review"
+      },
+      "hz-516": {
+        "char": "乎",
+        "status": "authored-pending-review"
+      },
+      "hz-517": {
+        "char": "查",
+        "status": "authored-pending-review"
+      },
+      "hz-518": {
+        "char": "轻",
+        "status": "authored-pending-review"
+      },
+      "hz-519": {
+        "char": "易",
+        "status": "authored-pending-review"
+      },
+      "hz-520": {
+        "char": "早",
+        "status": "authored-pending-review"
+      },
+      "hz-521": {
+        "char": "曾",
+        "status": "authored-pending-review"
+      },
+      "hz-522": {
+        "char": "除",
+        "status": "authored-pending-review"
+      },
+      "hz-523": {
+        "char": "农",
+        "status": "authored-pending-review"
+      },
+      "hz-524": {
+        "char": "找",
+        "status": "authored-pending-review"
+      },
+      "hz-525": {
+        "char": "装",
+        "status": "authored-pending-review"
+      },
+      "hz-526": {
+        "char": "广",
+        "status": "authored-pending-review"
+      },
+      "hz-527": {
+        "char": "显",
+        "status": "authored-pending-review"
+      },
+      "hz-528": {
+        "char": "吧",
+        "status": "authored-pending-review"
+      },
+      "hz-529": {
+        "char": "阿",
+        "status": "authored-pending-review"
+      },
+      "hz-530": {
+        "char": "李",
+        "status": "authored-pending-review"
+      },
+      "hz-531": {
+        "char": "标",
+        "status": "authored-pending-review"
+      },
+      "hz-532": {
+        "char": "谈",
+        "status": "authored-pending-review"
+      },
+      "hz-533": {
+        "char": "图",
+        "status": "authored-pending-review"
+      },
+      "hz-534": {
+        "char": "念",
+        "status": "authored-pending-review"
+      },
+      "hz-535": {
+        "char": "引",
+        "status": "authored-pending-review"
+      },
+      "hz-536": {
+        "char": "历",
+        "status": "authored-pending-review"
+      },
+      "hz-537": {
+        "char": "首",
+        "status": "authored-pending-review"
+      },
+      "hz-538": {
+        "char": "医",
+        "status": "authored-pending-review"
+      },
+      "hz-539": {
+        "char": "局",
+        "status": "authored-pending-review"
+      },
+      "hz-540": {
+        "char": "突",
+        "status": "authored-pending-review"
+      },
+      "hz-541": {
+        "char": "专",
+        "status": "authored-pending-review"
+      },
+      "hz-542": {
+        "char": "费",
+        "status": "authored-pending-review"
+      },
+      "hz-543": {
+        "char": "号",
+        "status": "authored-pending-review"
+      },
+      "hz-544": {
+        "char": "尽",
+        "status": "authored-pending-review"
+      },
+      "hz-545": {
+        "char": "另",
+        "status": "authored-pending-review"
+      },
+      "hz-546": {
+        "char": "周",
+        "status": "authored-pending-review"
+      },
+      "hz-547": {
+        "char": "较",
+        "status": "authored-pending-review"
+      },
+      "hz-548": {
+        "char": "注",
+        "status": "authored-pending-review"
+      },
+      "hz-549": {
+        "char": "语",
+        "status": "authored-pending-review"
+      },
+      "hz-550": {
+        "char": "仅",
+        "status": "authored-pending-review"
+      },
+      "hz-551": {
+        "char": "考",
+        "status": "authored-pending-review"
+      },
+      "hz-552": {
+        "char": "落",
+        "status": "authored-pending-review"
+      },
+      "hz-553": {
+        "char": "青",
+        "status": "authored-pending-review"
+      },
+      "hz-554": {
+        "char": "随",
+        "status": "authored-pending-review"
+      },
+      "hz-555": {
+        "char": "选",
+        "status": "authored-pending-review"
+      },
+      "hz-556": {
+        "char": "列",
+        "status": "authored-pending-review"
+      },
+      "hz-557": {
+        "char": "武",
+        "status": "authored-pending-review"
+      },
+      "hz-558": {
+        "char": "响",
+        "status": "authored-pending-review"
+      },
+      "hz-559": {
+        "char": "虽",
+        "status": "authored-pending-review"
+      },
+      "hz-560": {
+        "char": "推",
+        "status": "authored-pending-review"
+      },
+      "hz-561": {
+        "char": "势",
+        "status": "authored-pending-review"
+      },
+      "hz-562": {
+        "char": "参",
+        "status": "authored-pending-review"
+      },
+      "hz-563": {
+        "char": "希",
+        "status": "authored-pending-review"
+      },
+      "hz-564": {
+        "char": "古",
+        "status": "authored-pending-review"
+      },
+      "hz-565": {
+        "char": "众",
+        "status": "authored-pending-review"
+      },
+      "hz-566": {
+        "char": "构",
+        "status": "authored-pending-review"
+      },
+      "hz-567": {
+        "char": "房",
+        "status": "authored-pending-review"
+      },
+      "hz-568": {
+        "char": "半",
+        "status": "authored-pending-review"
+      },
+      "hz-569": {
+        "char": "节",
+        "status": "authored-pending-review"
+      },
+      "hz-570": {
+        "char": "投",
+        "status": "authored-pending-review"
+      },
+      "hz-571": {
+        "char": "某",
+        "status": "authored-pending-review"
+      },
+      "hz-572": {
+        "char": "案",
+        "status": "authored-pending-review"
+      },
+      "hz-573": {
+        "char": "维",
+        "status": "authored-pending-review"
+      },
+      "hz-574": {
+        "char": "革",
+        "status": "authored-pending-review"
+      },
+      "hz-575": {
+        "char": "划",
+        "status": "authored-pending-review"
+      },
+      "hz-576": {
+        "char": "敌",
+        "status": "authored-pending-review"
+      },
+      "hz-577": {
+        "char": "致",
+        "status": "authored-pending-review"
+      },
+      "hz-578": {
+        "char": "陈",
+        "status": "authored-pending-review"
+      },
+      "hz-579": {
+        "char": "律",
+        "status": "authored-pending-review"
+      },
+      "hz-580": {
+        "char": "态",
+        "status": "authored-pending-review"
+      },
+      "hz-581": {
+        "char": "护",
+        "status": "authored-pending-review"
+      },
+      "hz-582": {
+        "char": "兴",
+        "status": "authored-pending-review"
+      },
+      "hz-583": {
+        "char": "派",
+        "status": "authored-pending-review"
+      },
+      "hz-584": {
+        "char": "孩",
+        "status": "authored-pending-review"
+      },
+      "hz-585": {
+        "char": "验",
+        "status": "authored-pending-review"
+      },
+      "hz-586": {
+        "char": "责",
+        "status": "authored-pending-review"
+      },
+      "hz-587": {
+        "char": "营",
+        "status": "authored-pending-review"
+      },
+      "hz-588": {
+        "char": "星",
+        "status": "authored-pending-review"
+      },
+      "hz-589": {
+        "char": "够",
+        "status": "authored-pending-review"
+      },
+      "hz-590": {
+        "char": "章",
+        "status": "authored-pending-review"
+      },
+      "hz-591": {
+        "char": "音",
+        "status": "authored-pending-review"
+      },
+      "hz-592": {
+        "char": "跟",
+        "status": "authored-pending-review"
+      },
+      "hz-593": {
+        "char": "志",
+        "status": "authored-pending-review"
+      },
+      "hz-594": {
+        "char": "底",
+        "status": "authored-pending-review"
+      },
+      "hz-595": {
+        "char": "站",
+        "status": "authored-pending-review"
+      },
+      "hz-596": {
+        "char": "严",
+        "status": "authored-pending-review"
+      },
+      "hz-597": {
+        "char": "巴",
+        "status": "authored-pending-review"
+      },
+      "hz-598": {
+        "char": "例",
+        "status": "authored-pending-review"
+      },
+      "hz-599": {
+        "char": "防",
+        "status": "authored-pending-review"
+      },
+      "hz-600": {
+        "char": "族",
+        "status": "authored-pending-review"
+      },
+      "hz-601": {
+        "char": "供",
+        "status": "authored-pending-review"
+      },
+      "hz-602": {
+        "char": "效",
+        "status": "authored-pending-review"
+      },
+      "hz-603": {
+        "char": "续",
+        "status": "authored-pending-review"
+      },
+      "hz-604": {
+        "char": "施",
+        "status": "authored-pending-review"
+      },
+      "hz-605": {
+        "char": "留",
+        "status": "authored-pending-review"
+      },
+      "hz-606": {
+        "char": "讲",
+        "status": "authored-pending-review"
+      },
+      "hz-607": {
+        "char": "型",
+        "status": "authored-pending-review"
+      },
+      "hz-608": {
+        "char": "料",
+        "status": "authored-pending-review"
+      },
+      "hz-609": {
+        "char": "终",
+        "status": "authored-pending-review"
+      },
+      "hz-610": {
+        "char": "答",
+        "status": "authored-pending-review"
+      },
+      "hz-611": {
+        "char": "紧",
+        "status": "authored-pending-review"
+      },
+      "hz-612": {
+        "char": "绝",
+        "status": "authored-pending-review"
+      },
+      "hz-613": {
+        "char": "奇",
+        "status": "authored-pending-review"
+      },
+      "hz-614": {
+        "char": "察",
+        "status": "authored-pending-review"
+      },
+      "hz-615": {
+        "char": "母",
+        "status": "authored-pending-review"
+      },
+      "hz-616": {
+        "char": "京",
+        "status": "authored-pending-review"
+      },
+      "hz-617": {
+        "char": "段",
+        "status": "authored-pending-review"
+      },
+      "hz-618": {
+        "char": "依",
+        "status": "authored-pending-review"
+      },
+      "hz-619": {
+        "char": "批",
+        "status": "authored-pending-review"
+      },
+      "hz-620": {
+        "char": "群",
+        "status": "authored-pending-review"
+      },
+      "hz-621": {
+        "char": "项",
+        "status": "authored-pending-review"
+      },
+      "hz-622": {
+        "char": "故",
+        "status": "authored-pending-review"
+      },
+      "hz-623": {
+        "char": "按",
+        "status": "authored-pending-review"
+      },
+      "hz-624": {
+        "char": "河",
+        "status": "authored-pending-review"
+      },
+      "hz-625": {
+        "char": "围",
+        "status": "authored-pending-review"
+      },
+      "hz-626": {
+        "char": "江",
+        "status": "authored-pending-review"
+      },
+      "hz-627": {
+        "char": "织",
+        "status": "authored-pending-review"
+      },
+      "hz-628": {
+        "char": "害",
+        "status": "authored-pending-review"
+      },
+      "hz-629": {
+        "char": "斗",
+        "status": "authored-pending-review"
+      },
+      "hz-630": {
+        "char": "双",
+        "status": "authored-pending-review"
+      },
+      "hz-631": {
+        "char": "境",
+        "status": "authored-pending-review"
+      },
+      "hz-632": {
+        "char": "客",
+        "status": "authored-pending-review"
+      },
+      "hz-633": {
+        "char": "纪",
+        "status": "authored-pending-review"
+      },
+      "hz-634": {
+        "char": "采",
+        "status": "authored-pending-review"
+      },
+      "hz-635": {
+        "char": "举",
+        "status": "authored-pending-review"
+      },
+      "hz-636": {
+        "char": "杀",
+        "status": "authored-pending-review"
+      },
+      "hz-637": {
+        "char": "攻",
+        "status": "authored-pending-review"
+      },
+      "hz-638": {
+        "char": "父",
+        "status": "authored-pending-review"
+      },
+      "hz-639": {
+        "char": "苏",
+        "status": "authored-pending-review"
+      },
+      "hz-640": {
+        "char": "密",
+        "status": "authored-pending-review"
+      },
+      "hz-641": {
+        "char": "低",
+        "status": "authored-pending-review"
+      },
+      "hz-642": {
+        "char": "朝",
+        "status": "authored-pending-review"
+      },
+      "hz-643": {
+        "char": "诉",
+        "status": "authored-pending-review"
+      },
+      "hz-644": {
+        "char": "止",
+        "status": "authored-pending-review"
+      },
+      "hz-645": {
+        "char": "细",
+        "status": "authored-pending-review"
+      },
+      "hz-646": {
+        "char": "愿",
+        "status": "authored-pending-review"
+      },
+      "hz-647": {
+        "char": "千",
+        "status": "authored-pending-review"
+      },
+      "hz-648": {
+        "char": "值",
+        "status": "authored-pending-review"
+      },
+      "hz-649": {
+        "char": "仍",
+        "status": "authored-pending-review"
+      },
+      "hz-650": {
+        "char": "男",
+        "status": "authored-pending-review"
+      },
+      "hz-651": {
+        "char": "钱",
+        "status": "authored-pending-review"
+      },
+      "hz-652": {
+        "char": "破",
+        "status": "authored-pending-review"
+      },
+      "hz-653": {
+        "char": "网",
+        "status": "authored-pending-review"
+      },
+      "hz-654": {
+        "char": "热",
+        "status": "authored-pending-review"
+      },
+      "hz-655": {
+        "char": "助",
+        "status": "authored-pending-review"
+      },
+      "hz-656": {
+        "char": "倒",
+        "status": "authored-pending-review"
+      },
+      "hz-657": {
+        "char": "育",
+        "status": "authored-pending-review"
+      },
+      "hz-658": {
+        "char": "属",
+        "status": "authored-pending-review"
+      },
+      "hz-659": {
+        "char": "坐",
+        "status": "authored-pending-review"
+      },
+      "hz-660": {
+        "char": "帝",
+        "status": "authored-pending-review"
+      },
+      "hz-661": {
+        "char": "限",
+        "status": "authored-pending-review"
+      },
+      "hz-662": {
+        "char": "船",
+        "status": "authored-pending-review"
+      },
+      "hz-663": {
+        "char": "脸",
+        "status": "authored-pending-review"
+      },
+      "hz-664": {
+        "char": "职",
+        "status": "authored-pending-review"
+      },
+      "hz-665": {
+        "char": "速",
+        "status": "authored-pending-review"
+      },
+      "hz-666": {
+        "char": "刻",
+        "status": "authored-pending-review"
+      },
+      "hz-667": {
+        "char": "乐",
+        "status": "authored-pending-review"
+      },
+      "hz-668": {
+        "char": "否",
+        "status": "authored-pending-review"
+      },
+      "hz-669": {
+        "char": "刚",
+        "status": "authored-pending-review"
+      },
+      "hz-670": {
+        "char": "威",
+        "status": "authored-pending-review"
+      },
+      "hz-671": {
+        "char": "毛",
+        "status": "authored-pending-review"
+      },
+      "hz-672": {
+        "char": "状",
+        "status": "authored-pending-review"
+      },
+      "hz-673": {
+        "char": "率",
+        "status": "authored-pending-review"
+      },
+      "hz-674": {
+        "char": "甚",
+        "status": "authored-pending-review"
+      },
+      "hz-675": {
+        "char": "独",
+        "status": "authored-pending-review"
+      },
+      "hz-676": {
+        "char": "球",
+        "status": "authored-pending-review"
+      },
+      "hz-677": {
+        "char": "般",
+        "status": "authored-pending-review"
+      },
+      "hz-678": {
+        "char": "普",
+        "status": "authored-pending-review"
+      },
+      "hz-679": {
+        "char": "怕",
+        "status": "authored-pending-review"
+      },
+      "hz-680": {
+        "char": "弹",
+        "status": "authored-pending-review"
+      },
+      "hz-681": {
+        "char": "校",
+        "status": "authored-pending-review"
+      },
+      "hz-682": {
+        "char": "苦",
+        "status": "authored-pending-review"
+      },
+      "hz-683": {
+        "char": "创",
+        "status": "authored-pending-review"
+      },
+      "hz-684": {
+        "char": "假",
+        "status": "authored-pending-review"
+      },
+      "hz-685": {
+        "char": "久",
+        "status": "authored-pending-review"
+      },
+      "hz-686": {
+        "char": "错",
+        "status": "authored-pending-review"
+      },
+      "hz-687": {
+        "char": "承",
+        "status": "authored-pending-review"
+      },
+      "hz-688": {
+        "char": "印",
+        "status": "authored-pending-review"
+      },
+      "hz-689": {
+        "char": "晚",
+        "status": "authored-pending-review"
+      },
+      "hz-690": {
+        "char": "兰",
+        "status": "authored-pending-review"
+      },
+      "hz-691": {
+        "char": "试",
+        "status": "authored-pending-review"
+      },
+      "hz-692": {
+        "char": "股",
+        "status": "authored-pending-review"
+      },
+      "hz-693": {
+        "char": "拿",
+        "status": "authored-pending-review"
+      },
+      "hz-694": {
+        "char": "脑",
+        "status": "authored-pending-review"
+      },
+      "hz-695": {
+        "char": "预",
+        "status": "authored-pending-review"
+      },
+      "hz-696": {
+        "char": "谁",
+        "status": "authored-pending-review"
+      },
+      "hz-697": {
+        "char": "益",
+        "status": "authored-pending-review"
+      },
+      "hz-698": {
+        "char": "阳",
+        "status": "authored-pending-review"
+      },
+      "hz-699": {
+        "char": "若",
+        "status": "authored-pending-review"
+      },
+      "hz-700": {
+        "char": "哪",
+        "status": "authored-pending-review"
+      },
+      "hz-701": {
+        "char": "微",
+        "status": "authored-pending-review"
+      },
+      "hz-702": {
+        "char": "尼",
+        "status": "authored-pending-review"
+      },
+      "hz-703": {
+        "char": "继",
+        "status": "authored-pending-review"
+      },
+      "hz-704": {
+        "char": "送",
+        "status": "authored-pending-review"
+      },
+      "hz-705": {
+        "char": "急",
+        "status": "authored-pending-review"
+      },
+      "hz-706": {
+        "char": "血",
+        "status": "authored-pending-review"
+      },
+      "hz-707": {
+        "char": "惊",
+        "status": "authored-pending-review"
+      },
+      "hz-708": {
+        "char": "伤",
+        "status": "authored-pending-review"
+      },
+      "hz-709": {
+        "char": "素",
+        "status": "authored-pending-review"
+      },
+      "hz-710": {
+        "char": "药",
+        "status": "authored-pending-review"
+      },
+      "hz-711": {
+        "char": "适",
+        "status": "authored-pending-review"
+      },
+      "hz-712": {
+        "char": "波",
+        "status": "authored-pending-review"
+      },
+      "hz-713": {
+        "char": "夜",
+        "status": "authored-pending-review"
+      },
+      "hz-714": {
+        "char": "省",
+        "status": "authored-pending-review"
+      },
+      "hz-715": {
+        "char": "初",
+        "status": "authored-pending-review"
+      },
+      "hz-716": {
+        "char": "喜",
+        "status": "authored-pending-review"
+      },
+      "hz-717": {
+        "char": "卫",
+        "status": "authored-pending-review"
+      },
+      "hz-718": {
+        "char": "源",
+        "status": "authored-pending-review"
+      },
+      "hz-719": {
+        "char": "食",
+        "status": "authored-pending-review"
+      },
+      "hz-720": {
+        "char": "险",
+        "status": "authored-pending-review"
+      },
+      "hz-721": {
+        "char": "待",
+        "status": "authored-pending-review"
+      },
+      "hz-722": {
+        "char": "述",
+        "status": "authored-pending-review"
+      },
+      "hz-723": {
+        "char": "陆",
+        "status": "authored-pending-review"
+      },
+      "hz-724": {
+        "char": "习",
+        "status": "authored-pending-review"
+      },
+      "hz-725": {
+        "char": "置",
+        "status": "authored-pending-review"
+      },
+      "hz-726": {
+        "char": "居",
+        "status": "authored-pending-review"
+      },
+      "hz-727": {
+        "char": "劳",
+        "status": "authored-pending-review"
+      },
+      "hz-728": {
+        "char": "财",
+        "status": "authored-pending-review"
+      },
+      "hz-729": {
+        "char": "环",
+        "status": "authored-pending-review"
+      },
+      "hz-730": {
+        "char": "排",
+        "status": "authored-pending-review"
+      },
+      "hz-731": {
+        "char": "福",
+        "status": "authored-pending-review"
+      },
+      "hz-732": {
+        "char": "纳",
+        "status": "authored-pending-review"
+      },
+      "hz-733": {
+        "char": "欢",
+        "status": "authored-pending-review"
+      },
+      "hz-734": {
+        "char": "雷",
+        "status": "authored-pending-review"
+      },
+      "hz-735": {
+        "char": "警",
+        "status": "authored-pending-review"
+      },
+      "hz-736": {
+        "char": "获",
+        "status": "authored-pending-review"
+      },
+      "hz-737": {
+        "char": "模",
+        "status": "authored-pending-review"
+      },
+      "hz-738": {
+        "char": "充",
+        "status": "authored-pending-review"
+      },
+      "hz-739": {
+        "char": "负",
+        "status": "authored-pending-review"
+      },
+      "hz-740": {
+        "char": "停",
+        "status": "authored-pending-review"
+      },
+      "hz-741": {
+        "char": "游",
+        "status": "authored-pending-review"
+      },
+      "hz-742": {
+        "char": "疑",
+        "status": "authored-pending-review"
+      },
+      "hz-743": {
+        "char": "层",
+        "status": "authored-pending-review"
+      },
+      "hz-744": {
+        "char": "冷",
+        "status": "authored-pending-review"
+      },
+      "hz-745": {
+        "char": "洲",
+        "status": "authored-pending-review"
+      },
+      "hz-746": {
+        "char": "冲",
+        "status": "authored-pending-review"
+      },
+      "hz-747": {
+        "char": "射",
+        "status": "authored-pending-review"
+      },
+      "hz-748": {
+        "char": "略",
+        "status": "authored-pending-review"
+      },
+      "hz-749": {
+        "char": "范",
+        "status": "authored-pending-review"
+      },
+      "hz-750": {
+        "char": "竟",
+        "status": "authored-pending-review"
+      },
+      "hz-751": {
+        "char": "句",
+        "status": "authored-pending-review"
+      },
+      "hz-752": {
+        "char": "室",
+        "status": "authored-pending-review"
+      },
+      "hz-753": {
+        "char": "异",
+        "status": "authored-pending-review"
+      },
+      "hz-754": {
+        "char": "激",
+        "status": "authored-pending-review"
+      },
+      "hz-755": {
+        "char": "汉",
+        "status": "authored-pending-review"
+      },
+      "hz-756": {
+        "char": "村",
+        "status": "authored-pending-review"
+      },
+      "hz-757": {
+        "char": "哈",
+        "status": "authored-pending-review"
+      },
+      "hz-758": {
+        "char": "策",
+        "status": "authored-pending-review"
+      },
+      "hz-759": {
+        "char": "演",
+        "status": "authored-pending-review"
+      },
+      "hz-760": {
+        "char": "简",
+        "status": "authored-pending-review"
+      },
+      "hz-761": {
+        "char": "卡",
+        "status": "authored-pending-review"
+      },
+      "hz-762": {
+        "char": "罪",
+        "status": "authored-pending-review"
+      },
+      "hz-763": {
+        "char": "判",
+        "status": "authored-pending-review"
+      },
+      "hz-764": {
+        "char": "担",
+        "status": "authored-pending-review"
+      },
+      "hz-765": {
+        "char": "州",
+        "status": "authored-pending-review"
+      },
+      "hz-766": {
+        "char": "静",
+        "status": "authored-pending-review"
+      },
+      "hz-767": {
+        "char": "退",
+        "status": "authored-pending-review"
+      },
+      "hz-768": {
+        "char": "既",
+        "status": "authored-pending-review"
+      },
+      "hz-769": {
+        "char": "您",
+        "status": "authored-pending-review"
+      },
+      "hz-770": {
+        "char": "宗",
+        "status": "authored-pending-review"
+      },
+      "hz-771": {
+        "char": "积",
+        "status": "authored-pending-review"
+      },
+      "hz-772": {
+        "char": "余",
+        "status": "authored-pending-review"
+      },
+      "hz-773": {
+        "char": "痛",
+        "status": "authored-pending-review"
+      },
+      "hz-774": {
+        "char": "检",
+        "status": "authored-pending-review"
+      },
+      "hz-775": {
+        "char": "差",
+        "status": "authored-pending-review"
+      },
+      "hz-776": {
+        "char": "富",
+        "status": "authored-pending-review"
+      },
+      "hz-777": {
+        "char": "灵",
+        "status": "authored-pending-review"
+      },
+      "hz-778": {
+        "char": "协",
+        "status": "authored-pending-review"
+      },
+      "hz-779": {
+        "char": "角",
+        "status": "authored-pending-review"
+      },
+      "hz-780": {
+        "char": "占",
+        "status": "authored-pending-review"
+      },
+      "hz-781": {
+        "char": "配",
+        "status": "authored-pending-review"
+      },
+      "hz-782": {
+        "char": "征",
+        "status": "authored-pending-review"
+      },
+      "hz-783": {
+        "char": "修",
+        "status": "authored-pending-review"
+      },
+      "hz-784": {
+        "char": "皮",
+        "status": "authored-pending-review"
+      },
+      "hz-785": {
+        "char": "挥",
+        "status": "authored-pending-review"
+      },
+      "hz-786": {
+        "char": "胜",
+        "status": "authored-pending-review"
+      },
+      "hz-787": {
+        "char": "降",
+        "status": "authored-pending-review"
+      },
+      "hz-788": {
+        "char": "阶",
+        "status": "authored-pending-review"
+      },
+      "hz-789": {
+        "char": "审",
+        "status": "authored-pending-review"
+      },
+      "hz-790": {
+        "char": "沉",
+        "status": "authored-pending-review"
+      },
+      "hz-791": {
+        "char": "坚",
+        "status": "authored-pending-review"
+      },
+      "hz-792": {
+        "char": "善",
+        "status": "authored-pending-review"
+      },
+      "hz-793": {
+        "char": "刘",
+        "status": "authored-pending-review"
+      },
+      "hz-794": {
+        "char": "读",
+        "status": "authored-pending-review"
+      },
+      "hz-795": {
+        "char": "啊",
+        "status": "authored-pending-review"
+      },
+      "hz-796": {
+        "char": "超",
+        "status": "authored-pending-review"
+      },
+      "hz-797": {
+        "char": "免",
+        "status": "authored-pending-review"
+      },
+      "hz-798": {
+        "char": "压",
+        "status": "authored-pending-review"
+      },
+      "hz-799": {
+        "char": "银",
+        "status": "authored-pending-review"
+      },
+      "hz-800": {
+        "char": "买",
+        "status": "authored-pending-review"
+      },
+      "hz-801": {
+        "char": "皇",
+        "status": "authored-pending-review"
+      },
+      "hz-802": {
+        "char": "养",
+        "status": "authored-pending-review"
+      },
+      "hz-803": {
+        "char": "伊",
+        "status": "authored-pending-review"
+      },
+      "hz-804": {
+        "char": "怀",
+        "status": "authored-pending-review"
+      },
+      "hz-805": {
+        "char": "执",
+        "status": "authored-pending-review"
+      },
+      "hz-806": {
+        "char": "副",
+        "status": "authored-pending-review"
+      },
+      "hz-807": {
+        "char": "乱",
+        "status": "authored-pending-review"
+      },
+      "hz-808": {
+        "char": "抗",
+        "status": "authored-pending-review"
+      },
+      "hz-809": {
+        "char": "犯",
+        "status": "authored-pending-review"
+      },
+      "hz-810": {
+        "char": "追",
+        "status": "authored-pending-review"
+      },
+      "hz-811": {
+        "char": "帮",
+        "status": "authored-pending-review"
+      },
+      "hz-812": {
+        "char": "宣",
+        "status": "authored-pending-review"
+      },
+      "hz-813": {
+        "char": "佛",
+        "status": "authored-pending-review"
+      },
+      "hz-814": {
+        "char": "岁",
+        "status": "authored-pending-review"
+      },
+      "hz-815": {
+        "char": "航",
+        "status": "authored-pending-review"
+      },
+      "hz-816": {
+        "char": "优",
+        "status": "authored-pending-review"
+      },
+      "hz-817": {
+        "char": "怪",
+        "status": "authored-pending-review"
+      },
+      "hz-818": {
+        "char": "香",
+        "status": "authored-pending-review"
+      },
+      "hz-819": {
+        "char": "著",
+        "status": "authored-pending-review"
+      },
+      "hz-820": {
+        "char": "田",
+        "status": "authored-pending-review"
+      },
+      "hz-821": {
+        "char": "铁",
+        "status": "authored-pending-review"
+      },
+      "hz-822": {
+        "char": "控",
+        "status": "authored-pending-review"
+      },
+      "hz-823": {
+        "char": "税",
+        "status": "authored-pending-review"
+      },
+      "hz-824": {
+        "char": "份",
+        "status": "authored-pending-review"
+      },
+      "hz-825": {
+        "char": "穿",
+        "status": "authored-pending-review"
+      },
+      "hz-826": {
+        "char": "艺",
+        "status": "authored-pending-review"
+      },
+      "hz-827": {
+        "char": "背",
+        "status": "authored-pending-review"
+      },
+      "hz-828": {
+        "char": "阵",
+        "status": "authored-pending-review"
+      },
+      "hz-829": {
+        "char": "脚",
+        "status": "authored-pending-review"
+      },
+      "hz-830": {
+        "char": "概",
+        "status": "authored-pending-review"
+      },
+      "hz-831": {
+        "char": "恶",
+        "status": "authored-pending-review"
+      },
+      "hz-832": {
+        "char": "块",
+        "status": "authored-pending-review"
+      },
+      "hz-833": {
+        "char": "顿",
+        "status": "authored-pending-review"
+      },
+      "hz-834": {
+        "char": "敢",
+        "status": "authored-pending-review"
+      },
+      "hz-835": {
+        "char": "守",
+        "status": "authored-pending-review"
+      },
+      "hz-836": {
+        "char": "酒",
+        "status": "authored-pending-review"
+      },
+      "hz-837": {
+        "char": "岛",
+        "status": "authored-pending-review"
+      },
+      "hz-838": {
+        "char": "托",
+        "status": "authored-pending-review"
+      },
+      "hz-839": {
+        "char": "央",
+        "status": "authored-pending-review"
+      },
+      "hz-840": {
+        "char": "户",
+        "status": "authored-pending-review"
+      },
+      "hz-841": {
+        "char": "烈",
+        "status": "authored-pending-review"
+      },
+      "hz-842": {
+        "char": "洋",
+        "status": "authored-pending-review"
+      },
+      "hz-843": {
+        "char": "索",
+        "status": "authored-pending-review"
+      },
+      "hz-844": {
+        "char": "胡",
+        "status": "authored-pending-review"
+      },
+      "hz-845": {
+        "char": "款",
+        "status": "authored-pending-review"
+      },
+      "hz-846": {
+        "char": "靠",
+        "status": "authored-pending-review"
+      },
+      "hz-847": {
+        "char": "评",
+        "status": "authored-pending-review"
+      },
+      "hz-848": {
+        "char": "版",
+        "status": "authored-pending-review"
+      },
+      "hz-849": {
+        "char": "宝",
+        "status": "authored-pending-review"
+      },
+      "hz-850": {
+        "char": "座",
+        "status": "authored-pending-review"
+      },
+      "hz-851": {
+        "char": "释",
+        "status": "authored-pending-review"
+      },
+      "hz-852": {
+        "char": "景",
+        "status": "authored-pending-review"
+      },
+      "hz-853": {
+        "char": "顾",
+        "status": "authored-pending-review"
+      },
+      "hz-854": {
+        "char": "登",
+        "status": "authored-pending-review"
+      },
+      "hz-855": {
+        "char": "货",
+        "status": "authored-pending-review"
+      },
+      "hz-856": {
+        "char": "互",
+        "status": "authored-pending-review"
+      },
+      "hz-857": {
+        "char": "付",
+        "status": "authored-pending-review"
+      },
+      "hz-858": {
+        "char": "伯",
+        "status": "authored-pending-review"
+      },
+      "hz-859": {
+        "char": "慢",
+        "status": "authored-pending-review"
+      },
+      "hz-860": {
+        "char": "欧",
+        "status": "authored-pending-review"
+      },
+      "hz-861": {
+        "char": "换",
+        "status": "authored-pending-review"
+      },
+      "hz-862": {
+        "char": "闻",
+        "status": "authored-pending-review"
+      },
+      "hz-863": {
+        "char": "危",
+        "status": "authored-pending-review"
+      },
+      "hz-864": {
+        "char": "忙",
+        "status": "authored-pending-review"
+      },
+      "hz-865": {
+        "char": "核",
+        "status": "authored-pending-review"
+      },
+      "hz-866": {
+        "char": "暗",
+        "status": "authored-pending-review"
+      },
+      "hz-867": {
+        "char": "介",
+        "status": "authored-pending-review"
+      },
+      "hz-868": {
+        "char": "坏",
+        "status": "authored-pending-review"
+      },
+      "hz-869": {
+        "char": "讨",
+        "status": "authored-pending-review"
+      },
+      "hz-870": {
+        "char": "丽",
+        "status": "authored-pending-review"
+      },
+      "hz-871": {
+        "char": "良",
+        "status": "authored-pending-review"
+      },
+      "hz-872": {
+        "char": "序",
+        "status": "authored-pending-review"
+      },
+      "hz-873": {
+        "char": "升",
+        "status": "authored-pending-review"
+      },
+      "hz-874": {
+        "char": "监",
+        "status": "authored-pending-review"
+      },
+      "hz-875": {
+        "char": "临",
+        "status": "authored-pending-review"
+      },
+      "hz-876": {
+        "char": "亮",
+        "status": "authored-pending-review"
+      },
+      "hz-877": {
+        "char": "露",
+        "status": "authored-pending-review"
+      },
+      "hz-878": {
+        "char": "永",
+        "status": "authored-pending-review"
+      },
+      "hz-879": {
+        "char": "呼",
+        "status": "authored-pending-review"
+      },
+      "hz-880": {
+        "char": "味",
+        "status": "authored-pending-review"
+      },
+      "hz-881": {
+        "char": "野",
+        "status": "authored-pending-review"
+      },
+      "hz-882": {
+        "char": "架",
+        "status": "authored-pending-review"
+      },
+      "hz-883": {
+        "char": "域",
+        "status": "authored-pending-review"
+      },
+      "hz-884": {
+        "char": "沙",
+        "status": "authored-pending-review"
+      },
+      "hz-885": {
+        "char": "掉",
+        "status": "authored-pending-review"
+      },
+      "hz-886": {
+        "char": "括",
+        "status": "authored-pending-review"
+      },
+      "hz-887": {
+        "char": "舰",
+        "status": "authored-pending-review"
+      },
+      "hz-888": {
+        "char": "杂",
+        "status": "authored-pending-review"
+      },
+      "hz-889": {
+        "char": "误",
+        "status": "authored-pending-review"
+      },
+      "hz-890": {
+        "char": "湾",
+        "status": "authored-pending-review"
+      },
+      "hz-891": {
+        "char": "吉",
+        "status": "authored-pending-review"
+      },
+      "hz-892": {
+        "char": "减",
+        "status": "authored-pending-review"
+      },
+      "hz-893": {
+        "char": "编",
+        "status": "authored-pending-review"
+      },
+      "hz-894": {
+        "char": "楚",
+        "status": "authored-pending-review"
+      },
+      "hz-895": {
+        "char": "肯",
+        "status": "authored-pending-review"
+      },
+      "hz-896": {
+        "char": "测",
+        "status": "authored-pending-review"
+      },
+      "hz-897": {
+        "char": "败",
+        "status": "authored-pending-review"
+      },
+      "hz-898": {
+        "char": "屋",
+        "status": "authored-pending-review"
+      },
+      "hz-899": {
+        "char": "梦",
+        "status": "authored-pending-review"
+      },
+      "hz-900": {
+        "char": "散",
+        "status": "authored-pending-review"
+      },
+      "hz-901": {
+        "char": "温",
+        "status": "authored-pending-review"
+      },
+      "hz-902": {
+        "char": "困",
+        "status": "authored-pending-review"
+      },
+      "hz-903": {
+        "char": "剑",
+        "status": "authored-pending-review"
+      },
+      "hz-904": {
+        "char": "渐",
+        "status": "authored-pending-review"
+      },
+      "hz-905": {
+        "char": "封",
+        "status": "authored-pending-review"
+      },
+      "hz-906": {
+        "char": "救",
+        "status": "authored-pending-review"
+      },
+      "hz-907": {
+        "char": "贵",
+        "status": "authored-pending-review"
+      },
+      "hz-908": {
+        "char": "枪",
+        "status": "authored-pending-review"
+      },
+      "hz-909": {
+        "char": "缺",
+        "status": "authored-pending-review"
+      },
+      "hz-910": {
+        "char": "楼",
+        "status": "authored-pending-review"
+      },
+      "hz-911": {
+        "char": "县",
+        "status": "authored-pending-review"
+      },
+      "hz-912": {
+        "char": "尚",
+        "status": "authored-pending-review"
+      },
+      "hz-913": {
+        "char": "毫",
+        "status": "authored-pending-review"
+      },
+      "hz-914": {
+        "char": "移",
+        "status": "authored-pending-review"
+      },
+      "hz-915": {
+        "char": "娘",
+        "status": "authored-pending-review"
+      },
+      "hz-916": {
+        "char": "朋",
+        "status": "authored-pending-review"
+      },
+      "hz-917": {
+        "char": "画",
+        "status": "authored-pending-review"
+      },
+      "hz-918": {
+        "char": "班",
+        "status": "authored-pending-review"
+      },
+      "hz-919": {
+        "char": "智",
+        "status": "authored-pending-review"
+      },
+      "hz-920": {
+        "char": "亦",
+        "status": "authored-pending-review"
+      },
+      "hz-921": {
+        "char": "恩",
+        "status": "authored-pending-review"
+      },
+      "hz-922": {
+        "char": "掌",
+        "status": "authored-pending-review"
+      },
+      "hz-923": {
+        "char": "恐",
+        "status": "authored-pending-review"
+      },
+      "hz-924": {
+        "char": "遗",
+        "status": "authored-pending-review"
+      },
+      "hz-925": {
+        "char": "固",
+        "status": "authored-pending-review"
+      },
+      "hz-926": {
+        "char": "席",
+        "status": "authored-pending-review"
+      },
+      "hz-927": {
+        "char": "松",
+        "status": "authored-pending-review"
+      },
+      "hz-928": {
+        "char": "秘",
+        "status": "authored-pending-review"
+      },
+      "hz-929": {
+        "char": "谢",
+        "status": "authored-pending-review"
+      },
+      "hz-930": {
+        "char": "鲁",
+        "status": "authored-pending-review"
+      },
+      "hz-931": {
+        "char": "遇",
+        "status": "authored-pending-review"
+      },
+      "hz-932": {
+        "char": "康",
+        "status": "authored-pending-review"
+      },
+      "hz-933": {
+        "char": "虑",
+        "status": "authored-pending-review"
+      },
+      "hz-934": {
+        "char": "幸",
+        "status": "authored-pending-review"
+      },
+      "hz-935": {
+        "char": "均",
+        "status": "authored-pending-review"
+      },
+      "hz-936": {
+        "char": "销",
+        "status": "authored-pending-review"
+      },
+      "hz-937": {
+        "char": "钟",
+        "status": "authored-pending-review"
+      },
+      "hz-938": {
+        "char": "诗",
+        "status": "authored-pending-review"
+      },
+      "hz-939": {
+        "char": "藏",
+        "status": "authored-pending-review"
+      },
+      "hz-940": {
+        "char": "赶",
+        "status": "authored-pending-review"
+      },
+      "hz-941": {
+        "char": "剧",
+        "status": "authored-pending-review"
+      },
+      "hz-942": {
+        "char": "票",
+        "status": "authored-pending-review"
+      },
+      "hz-943": {
+        "char": "损",
+        "status": "authored-pending-review"
+      },
+      "hz-944": {
+        "char": "忽",
+        "status": "authored-pending-review"
+      },
+      "hz-945": {
+        "char": "巨",
+        "status": "authored-pending-review"
+      },
+      "hz-946": {
+        "char": "炮",
+        "status": "authored-pending-review"
+      },
+      "hz-947": {
+        "char": "旧",
+        "status": "authored-pending-review"
+      },
+      "hz-948": {
+        "char": "端",
+        "status": "authored-pending-review"
+      },
+      "hz-949": {
+        "char": "探",
+        "status": "authored-pending-review"
+      },
+      "hz-950": {
+        "char": "湖",
+        "status": "authored-pending-review"
+      },
+      "hz-951": {
+        "char": "录",
+        "status": "authored-pending-review"
+      },
+      "hz-952": {
+        "char": "春",
+        "status": "authored-pending-review"
+      },
+      "hz-953": {
+        "char": "乡",
+        "status": "authored-pending-review"
+      },
+      "hz-954": {
+        "char": "附",
+        "status": "authored-pending-review"
+      },
+      "hz-955": {
+        "char": "吸",
+        "status": "authored-pending-review"
+      },
+      "hz-956": {
+        "char": "予",
+        "status": "authored-pending-review"
+      },
+      "hz-957": {
+        "char": "礼",
+        "status": "authored-pending-review"
+      },
+      "hz-958": {
+        "char": "港",
+        "status": "authored-pending-review"
+      },
+      "hz-959": {
+        "char": "呀",
+        "status": "authored-pending-review"
+      },
+      "hz-960": {
+        "char": "板",
+        "status": "authored-pending-review"
+      },
+      "hz-961": {
+        "char": "庭",
+        "status": "authored-pending-review"
+      },
+      "hz-962": {
+        "char": "妇",
+        "status": "authored-pending-review"
+      },
+      "hz-963": {
+        "char": "归",
+        "status": "authored-pending-review"
+      },
+      "hz-964": {
+        "char": "睛",
+        "status": "authored-pending-review"
+      },
+      "hz-965": {
+        "char": "额",
+        "status": "authored-pending-review"
+      },
+      "hz-966": {
+        "char": "含",
+        "status": "authored-pending-review"
+      },
+      "hz-967": {
+        "char": "顺",
+        "status": "authored-pending-review"
+      },
+      "hz-968": {
+        "char": "输",
+        "status": "authored-pending-review"
+      },
+      "hz-969": {
+        "char": "摇",
+        "status": "authored-pending-review"
+      },
+      "hz-970": {
+        "char": "招",
+        "status": "authored-pending-review"
+      },
+      "hz-971": {
+        "char": "婚",
+        "status": "authored-pending-review"
+      },
+      "hz-972": {
+        "char": "脱",
+        "status": "authored-pending-review"
+      },
+      "hz-973": {
+        "char": "补",
+        "status": "authored-pending-review"
+      },
+      "hz-974": {
+        "char": "谓",
+        "status": "authored-pending-review"
+      },
+      "hz-975": {
+        "char": "督",
+        "status": "authored-pending-review"
+      },
+      "hz-976": {
+        "char": "毒",
+        "status": "authored-pending-review"
+      },
+      "hz-977": {
+        "char": "油",
+        "status": "authored-pending-review"
+      },
+      "hz-978": {
+        "char": "疗",
+        "status": "authored-pending-review"
+      },
+      "hz-979": {
+        "char": "旅",
+        "status": "authored-pending-review"
+      },
+      "hz-980": {
+        "char": "泽",
+        "status": "authored-pending-review"
+      },
+      "hz-981": {
+        "char": "材",
+        "status": "authored-pending-review"
+      },
+      "hz-982": {
+        "char": "灭",
+        "status": "authored-pending-review"
+      },
+      "hz-983": {
+        "char": "逐",
+        "status": "authored-pending-review"
+      },
+      "hz-984": {
+        "char": "莫",
+        "status": "authored-pending-review"
+      },
+      "hz-985": {
+        "char": "亡",
+        "status": "authored-pending-review"
+      },
+      "hz-986": {
+        "char": "鲜",
+        "status": "authored-pending-review"
+      },
+      "hz-987": {
+        "char": "词",
+        "status": "authored-pending-review"
+      },
+      "hz-988": {
+        "char": "圣",
+        "status": "authored-pending-review"
+      },
+      "hz-989": {
+        "char": "择",
+        "status": "authored-pending-review"
+      },
+      "hz-990": {
+        "char": "寻",
+        "status": "authored-pending-review"
+      },
+      "hz-991": {
+        "char": "厂",
+        "status": "authored-pending-review"
+      },
+      "hz-992": {
+        "char": "睡",
+        "status": "authored-pending-review"
+      },
+      "hz-993": {
+        "char": "博",
+        "status": "authored-pending-review"
+      },
+      "hz-994": {
+        "char": "勒",
+        "status": "authored-pending-review"
+      },
+      "hz-995": {
+        "char": "烟",
+        "status": "authored-pending-review"
+      },
+      "hz-996": {
+        "char": "授",
+        "status": "authored-pending-review"
+      },
+      "hz-997": {
+        "char": "诺",
+        "status": "authored-pending-review"
+      },
+      "hz-998": {
+        "char": "伦",
+        "status": "authored-pending-review"
+      },
+      "hz-999": {
+        "char": "岸",
+        "status": "authored-pending-review"
+      },
+      "hz-1000": {
+        "char": "奥",
+        "status": "authored-pending-review"
+      }
+    }
+  },
+  "source": "hanzi-writer-data",
+  "version": "2.0.1",
+  "url": "https://www.npmjs.com/package/hanzi-writer-data/v/2.0.1",
+  "upstream": "https://github.com/skishore/makemeahanzi",
+  "license": "Arphic Public License",
+  "copiedWithoutModification": true,
+  "characterCount": 1000,
+  "sha256": {
+    "日": "5c6bad210149abac8bd645cb12b1394edea5681f224154c27f422134299520fb",
+    "月": "441949321eb706def6e8d0c1eeca6b461141703dcc07619939a32d681e08fc46",
+    "山": "c1e58c4b20cba28ae9778dfb280a93dc18fdccd3ecbec00bece20ce739c9f459",
+    "水": "46e262a80f2b7da72ea04788d1c19c40339e18beaba16987cc84d55fc257c9e3",
+    "火": "09fc0a54adb11753319f5750dcdc127698dfb8a453f1a57b5f11b6a1ee3c64e0",
+    "木": "2b5bb221b4403a303a567756304545a104d915117cc0f1b3fdea71e7928dfc50",
+    "土": "f1f7bfa95a5821fa27573560d3c88552a9e70a3fd3816724cbd441b5c07d17ee",
+    "云": "0282daa7428445909b110092a75d4e2fe44c5268403f67eac8080d0e8a8f6918",
+    "雨": "0e249bab348c40874b194b2ba75aa185961bd190ca2e09c9a4c303aa34f62e2c",
+    "风": "64177681c0214a2908853526000dc3bb8fd8d9489da7fe373a0330c38d0aee0d",
+    "猫": "f4ec6d5464a2fc431779ec654c25efd4c0816180253d048daa2897075a4ad6fd",
+    "狗": "ce363f0ad41d9ccaec3d87204894a834c9f332a8e9af78d6db33281a07c3bcca",
+    "鸟": "2d62bee9f3dce68cead54e04298b7ca9be109f8ebe9c59d356d2f89c38184a33",
+    "鱼": "1f1d05821b3338075b2bb7e29687b51a70945786556799e8700a200073ba18eb",
+    "牛": "cb0c578ebb919ca2ad759cc8a79159f1eff623ae7f57dacca26a1bbbc523ab98",
+    "羊": "9f9f43158c9af7617b092a0f9946e3191fb206dced2aa5a3b19c180244362422",
+    "马": "451304b0187c080bcf62115dbd75f19f6306f44e955df59236484e13e031bfc5",
+    "兔": "5d69cb0401a0d4fbbecd149ffac935058294e88c3751fd14ada6b81c29d2a503",
+    "虫": "7fe903f045c6a90e401b81b859f6aa78a833a62e862110331bfc6d8c0f9a7e2e",
+    "龙": "a4885011d03b3980605502ba36c53a6e2945651756fbd0db1f705f066120bb4b",
+    "人": "18ffb9fb727576b0c3e7dc44914be7ffd43164de9ba121710824b83f27bd3bb1",
+    "口": "ac208865e3166fc35214cec326f00a4b6788a8cac9b4c5a6a37745077e32ddab",
+    "手": "7964eac3bced473343f5741f98fea3eb2dd842eecd57ec20b4369912570964a7",
+    "足": "5261cef041c9bcca1db60469259e7f033ae7fc5a86b6a929ba5ddb15010e0742",
+    "目": "f5392f6be0cba05d57c6b9cdb111ad402415e57e886e491a18fbeda6d0206a6b",
+    "耳": "87d23fce6860c1b5600982e241b3ed486e7bededf8d78a674c55ccd8479e4c10",
+    "头": "3be11ae6a2e035f7a949c948279ad3f4d456a87e2ee0469d583e22648759901d",
+    "心": "24b00ca173bbf7403181af1a4f9414f3b9175ed04b17108055c7d9e3fe6d6215",
+    "牙": "9e6edbc8741cfc6d0e36e7e354091f02052b77f7a40bf218c74e241812e342b3",
+    "身": "a7ca66f13f6d4885442641f1eb3bd4b07c603f7dbb238791f62eb842cfe18baf",
+    "爸": "fa40233458f9a517bcfedea1595d348831af8f73be08fe45a9554b28c59de25c",
+    "妈": "0b288b695765e1294ca2cbc2b463227b637047932ebdab2ff9cddba6c1d576b2",
+    "爷": "4b14dfbd26ec432f4bfa4d2ea6e9f666430d7b29b3cae31b07e4392c5e8536ce",
+    "奶": "151460436d8c0f29b05af02b03e456d0232f4dc9f1bfae3b2b551aa8a99d3aa9",
+    "姐": "e4fcebaec74b9a53077e2d6e067fdfdca4470aa36f23246c7a03f96e5ab000c6",
+    "哥": "0a0ccb90dba97ea99d1850523f46a7731bc0754e24b2fde3b880f00816e4edfa",
+    "弟": "9a89eaf0eef53c73f69bd3cd9f53fd0e628c4c663b13f6c0a4c3773b3071a735",
+    "妹": "10b03e84339e4b9033d1bd9a4b1fba91ab872f810af3f6633c667872e606a7c3",
+    "家": "390ad42ee60491df2ae9ddfd59358d4d6ff69208ccdac902aae0431b7e5f9aef",
+    "友": "71a33320fedcb2d37b92c5bcc4b7d6aa9bd94dbd022719561711b5eb2338547b",
+    "一": "ed728673d86fb9aa559c5b150e59ffbee666b085d4a55597c524079a91ebc8ce",
+    "二": "24d4225b8514e5b169f44230ba38169f63e9d9875f31b478457841114dbe1faa",
+    "三": "917763e15ac14a5ece5067913da4156f3060f33ae0e172d3533275a494cec99c",
+    "四": "8aa7b3e16a0c3f67fc4ed3b08c7f24e80b2e90d8f6ade512d20109a625bea3b9",
+    "五": "c2d064e88c2acde1faecc4ff45f0d4ec7cd5889a3e4b7e8145019150ad6db7bd",
+    "六": "54216db5e4bcd45583584fbff169a25d10c3a34e0fa64f3c7a2267bc94398f86",
+    "七": "03b69a950dffb72be4dafb6226641d9182858d439af9c945f2b0d52b5bc55510",
+    "八": "650e961eefa88d95cc119146ff6606275ecad54c3f8ad1442c08889f928ec5af",
+    "九": "ec8fa16237207544c76a014c552c5f7c227813e300875a287f07a0b8b86dbe54",
+    "十": "257a0939af5742ca31a980adfa1421d0302d5e90491ab3215c1934bea9a59bef",
+    "米": "105847e8be1741677145b1e7b7168ba883e9ca3ae1abb7b60a476d430117e88e",
+    "面": "720049f194a8d51d6cc01669f1319bed7510650a584d7185f0fa289d9f487ca2",
+    "瓜": "cebc4c9aba61f4fa5f9cac84c83617cdcd738fb1b91446f9396a32b245423903",
+    "果": "9862414e1eab8e4ff3849cf29145d83bad8c74754c0faff35de284875ece9559",
+    "豆": "cbe442dcce7675f367fdc0c193e610bd5a8a6c55e9c7e015b4589bb8f7a4301a",
+    "菜": "5e869b26710889875f8947a12fc55cd429352b6e4e3a1bc8792cc6ed496b1634",
+    "肉": "05c46b453d470ad79c4e38743b0f9e7afa746eacd3793d518b97f18ba0d43c3c",
+    "蛋": "7a3b56ab5a1d959471f34409f674662a2fb85aec7baf6fd035f522ea215bde0d",
+    "饭": "cc1fa66270ac4250e36825e9c45d7af0b43a5ae271483fc15dfc14fd95a60026",
+    "糖": "9bd8446b22980508a82858bdcce25e1e255978c6605bc2f59aa3c57722e05adb",
+    "门": "d37eeb35aa87a9862da22248e0818b203af85258f05c67f9023dfc0d7498ca3c",
+    "窗": "f658987c615db106497d90c21936eea8799a3351e04a46dac8f3833fc51127ff",
+    "床": "61e32987825856552772bfaf429cc5ef9a9f4b7a7a61b415b749670c07cb1954",
+    "桌": "ecc0365660b9cc5f03cfb1b6a3b4a8a54979ff90b84cd91a9dffa5d2b05667d6",
+    "椅": "5c5bf9d1e0b58d2d1d33134f57b8fdfeca191fd86e89a48940661d427beac0a8",
+    "书": "d913959d55b2bc53bec49bf50e44d6cf6df84d664cad9940c3983f061e4a6704",
+    "笔": "89f1e201c5c67fcdd714db847c68eaee2a874de3a9f6340be4171c53b98cffa8",
+    "包": "06c5b55a0acfd21621f9eef34bfb18c9de54320913d6b5f0aea44b36c6117d78",
+    "杯": "6bb07f43f8043a1b36e7e292651e6348092e0777d44815831e01a9d5694da491",
+    "衣": "bb83d26ab543feaf262f3da5622aa5d7d35591f36286ad0ef5072ee96d73b7ad",
+    "走": "2d73ebc4b90cdf561408b3deb5948509048f2c7a49fb005c80c6bdc001ff24a7",
+    "跑": "42826e86df28e7b66c93fa17987c0af1287dee65f4122310a60a1674dbb94959",
+    "跳": "0193ce30c1fd12dd30042bf9cdc3d357e41e7ea5279fb373c7d4737a0741789f",
+    "看": "bff5e00542da2f3cd5b343172777fa10c888e336224b42b8cb62c71978a7cbd4",
+    "听": "f4be99b28792eb4915420affcc4ce6e73f1c7e0f8dd458b75095b24ca841bd51",
+    "说": "56144a5cda3da7385c3f7e640985bb69bfa8eda5b22876d08bb05126ff116d2d",
+    "吃": "7030e0da002dbc77d79821e9b78ab848777a8b9c0dabd1340b41b5fc1dd63a36",
+    "喝": "bf7840cc0811e59e4db4a35f476af88054625cac10e87b0338c2c267b37dca9a",
+    "笑": "e886c958ac2e7065eda06a6b67dc9bd128613b63b9fc44ac590d530d5af5c513",
+    "哭": "bfae2d927ab6a4b6cab7db79fe6a91b3a6fef4cd195db748fc26b12cf26d8b5c",
+    "大": "83c82950e903c915aa50d0d62b084a2d31c85fe68dce21e0acf39e2f9607e611",
+    "小": "72bf769c8c3426bffa578502eb8b1532fb1e622ddb6f40ded04e484290c0fe8c",
+    "多": "d7bc212fe60eaa766209b36e5e9642940892cf43b472accedaf55f517d8313dc",
+    "少": "de5cd9d5b1bbd468411f82f7d57881b11b3a9b9c7bb812ff891ac66c06b31ef7",
+    "上": "9eed5643ff92171f9bf1ae5d4b70d717f2a3fd6961f72e81c0245ce13523d865",
+    "下": "34984a2541baae9132f32e3dfe758ca29df64829558dc5a1c553c3d3011da880",
+    "左": "a5741d50aea9247117aee3a150b7707ddaf9193b94032e3616cff9415f9dc1ed",
+    "右": "d2483a266cd756c8deb1e4523e54fee29270ad4eb87a3b2bf1d40f9eb68de0cf",
+    "长": "c99fe3d6a862b82befc528e49164b6bf80d461aa6a4b9c9258f4d3debbc49b81",
+    "短": "72dba1c53031556c2b06624c3df2f75ffd92190245a75727ad7d82de9bea8542",
+    "红": "fd2143da03c1098beeb4d5c7d8789a1b7a345d18b1b73fd451d6a0da7177c301",
+    "黄": "44aadf91995fab44d399eb60408faa5431244ee46d1fc26a3f7c31a7ea83de72",
+    "蓝": "04cb4fc26bd2c343d4955aa95fdd7139f3a8279993f1f9be7b4b1dcf5d4aa1d3",
+    "绿": "027aad4507c4ed3f5e89dc9aba32c25c584169f8b098f27128432d01d39ae8ce",
+    "白": "a3858cdfb3a8d08b8046aa4e8c9161dac017119c8f7986e52c9e6752d1721f2e",
+    "黑": "5bd1451a45e6781326726ce7d2d30352f8495993e4aeef2f7af32afaf45f3cda",
+    "花": "62f0b92426131b634b393c90e1de91d8f5b321fcd6fc1d7e77a0bf8be5b90e18",
+    "草": "f9e8c120c5db52608a3a4c03b564c577f54230659c0dae5de4e8d7ad7de82f57",
+    "叶": "184545665446cb80b42acdf21e0f07094e215e17d9f9ff4b6b02df87f908b73b",
+    "树": "69dacc89706e48d59fa6e70fb4eca197123fa776ff49448af5c6be015539ed19",
+    "的": "d9a067e65c8c3770d5559d42bd2bc564b8e133d8fa3dc237d9c4a317adfbb32f",
+    "是": "73249157dc9e08c1eb3fb029ca12288b15c597f85eb4a6c72f5bdc6893ded27b",
+    "不": "2b4d1cabdf4af0788cba2d2e4645b87b4a56cdcc33907d2f61205bfd607572b6",
+    "了": "63e33d9aece5d5a55d890793025d4964342f80ae92dee94232687deee76538be",
+    "在": "ec45f668f3181cd2c612797ff557f5b53f8823f120eca5d9a68e0fd8b1b0f21c",
+    "有": "cee2fb732f41de30a7b0c84880d2d47af0a9fda6fda795d99c77a57f2ee4c8e4",
+    "我": "08616462fc64b4c18c76a3f68a992305e98946f468bf42ec76ca9be1cd6c5ac8",
+    "他": "93c72a3fb00f00e9d7c3da8e2bf25e913bd3eba3c71eaafacc69f55891dc5625",
+    "这": "6e1b5fc05d9c852cf1f19e48fa67366b2bee3e462be22dfe37ad3ceb08c46eb6",
+    "个": "d8c4bbbbd3fe835eeb07441afb37e19045797ce664aa0078204571c6597b6101",
+    "们": "0a25764ae60803a9958ae3cade375c57d8743d7db0e0bf2031e73b0d0449609e",
+    "中": "6982c8c16e7e7f769011edef0608289443711dbb34046dd9ca763e79ec29192f",
+    "来": "ebf3a9165522693077a8f14d25e003565409d8751ff0a4724423315d57d9a57d",
+    "为": "8e468f755fa6bf508a105d36e5c7709bed1a24060622bb9682e60fcc2fc98cfb",
+    "和": "bf6e21b489970be6af9bb0e8337920632072b1dbbe0e9d216c314623cbd1c0e8",
+    "国": "40b46b7cbe5c292abcf79507dc544c5424c9cfa4df0376aa3b8fa42e535c2f7f",
+    "地": "ec1d89cb0ee0f4c93d546d561ea28b00f0378769c061ec5bf5f67381074765a3",
+    "到": "6aa5dd0897e0717edeae53ac983a92b81d22845423b59c5d7afe579f8096764d",
+    "以": "90bcd05b200e7335bcbc6677f715dfe67b7d15ebb4ea083256a4bfdd377ca030",
+    "时": "c5f769e6b0df9b9ca252c43220cc339b2e8cd88dce12933f2f204f33db4b78b0",
+    "要": "29596cde9e081fafc88b28b84c25d5b0751a272a3db9e8d665c4f6b1015c4e7f",
+    "就": "0da5fb2a2605c10ab629390366d9e5e27d778d907c11c17e1143650a55e4fe30",
+    "出": "1b7e7176d1c5ca47f340e9ce28937f33929b6768ee20ea79f9129118b87f00a2",
+    "会": "0eb3173ca95ffa3b8dfcf2f5ea11b312b3af7290dbf674c2dab04338351d09e4",
+    "可": "70e04def3d8d3048392138b4c38132f9307eee194cfa2779b446baebf8163f12",
+    "也": "b382d98d228813ea32074caf8fee764b136593b5094579f4c00b2dd407c38dd3",
+    "你": "21057a26cb5c1753ea710d503b759cc17948263501ffd76ef1737cb2b5d5f966",
+    "对": "34cb1a64ee2a7794faec417b950b8a026efe6fc3779d09e363d6b383461f569a",
+    "生": "dbe556919f5c0a95448c40997dfce35ad56ebf26d874218e7076d8c12374cfd8",
+    "能": "d0344bfcb6ba9278ffa795e084ce4a5249c9b8953c3affa731079e3cd2aacce4",
+    "而": "a957f94a3ab8c0609edce0b27cec24a6d321eb9e332d342bee09c7d6379c0b5c",
+    "子": "f5b7ff9aa3de64ec676e3f06e7c22795aa834eb11eec43b9423f355db5f46474",
+    "那": "a2c276669b5820897a8e20bd10fcede3062f99460bc9a733c65f7875d3197ea5",
+    "得": "46fe32f6570275a05e5a8de5b78e847e8d8c2c6b1d20e45c9f9e77a183c73f68",
+    "于": "d4c764f485ab9c98f43e6e57e2939b390332c284f75f8c9a67f6d1446e2cc334",
+    "着": "ce3118cbf857ad7a167d807ef22b206c7e27c95e6ff1ecf2f823a152f777b117",
+    "自": "440fa4d045ea9dad8643485ae45df8c446e03d91296923ece78e07695739ba90",
+    "之": "f64f7268ff0d81d5e9c5f9301e628a7e427a9e0e44e3d6291fc0f15874f2be98",
+    "年": "2da9f7d7526442de1cad442cce66970ac1b41f72c2a388dc851d503ebab554c0",
+    "过": "b9e2c31965165d4c2a39de98e5730ed7f386da69b72c1073214c36c26905e8d9",
+    "发": "2277fbd8beb585441eff987bb10b812881b0f96989e06efa257c12fa79b01134",
+    "后": "1db954c5aa12b7c8efab666a716899c98e27c2b20312ae75df405bcf68cc5c91",
+    "作": "546808c69ae8980719427a33a6b10a785dc4e51ff5900c3b3a4558ac4c2a2113",
+    "里": "5f0d84aa3b6f871759148b105314fd01c4a9019d3234afac345cbbf1ca263d5d",
+    "用": "a6e1dbddb1d80001248a0f332d0be070fd7d42353771bd90e10fa01872812bf9",
+    "道": "373d2c5a9818d0918ab38b100a75ffc9ef9b17c85948b6bd917acdb921e62c78",
+    "行": "85961bf6902e4e34fa1ddb5c55033904b34fb6439f93ee5efdafbe0def014422",
+    "所": "3e0a685cceef0d6189c8dd493472997669cceccf0e145837b5829fff5adebc5a",
+    "然": "a8ab3f81bba891155a49af3fa4c37fb5e759c8d6ddf28577b461ab008e3e982d",
+    "种": "87fa64f90f4861535af905d2c61248965c4484ba78a0772e54d5a5f71adc4830",
+    "事": "98b2e3488270e7bfa6b2d2ac9cc0254786ffef5d2fd75af7ab25b356aabaa752",
+    "成": "2f809672d37d80b691d5fb9787ef94dd7e4b0be2685c051e776fd1888f44640e",
+    "方": "d643e7b430d9ecf2a81676aa4fae8b06981a4cd811d3b035f0278a72362e3a6a",
+    "经": "6681127b0e930891c0a4b5e2ffc36b7d54f504023a950e469f737ec2c273c3d8",
+    "么": "9bdbdeb1694fa92721c6f1d210a688a1db74b78a8888c99bbeeae5e0b45e5178",
+    "去": "96e01168e8c76add5a05de734f18ef282451ca9107757977e5d83d8eea2bc281",
+    "法": "0150a3f02c12340a72a1d73457c2d7ad43c6dfbe064083e73b53df7d13de557d",
+    "学": "9f2bdcab70ecf93632b6cf1ce9b5339cc8018d742eed7839037d146f8c294193",
+    "如": "94d439143d94d44b6b415cc2fa2068f062a22e0fede9ca1d155d8fc4f6af9f30",
+    "都": "5fa17c32858a0d8183096756b3789d96e5dcfcf612e4bc60e14b403d772748e1",
+    "同": "ebac44738a64a0f7cb202363be8abfafe4aed2fc20965dd66f9b1f7555766967",
+    "现": "488ceab2c1045a151d9caa83b3095e26533bc7df22294d167c2bcdcbec17effa",
+    "当": "2d5386e1041495019d6427aa351d4c4e236c2f42bdd6e62fc993da222c6a4429",
+    "没": "74ed15d6773e229478cdc30bfa283dab5b2ccbaa1c7f6cfd338b0ae20216dbb6",
+    "动": "7d71cb3a5c9cf6f7bbdcef57379268087939ddfd9aa1a1e4b25cf9d2687e3fce",
+    "起": "a5301507b7db54210b4c2ff8ddd07489329117e7dd2e9b527cb595dc6f709c8c",
+    "定": "772aa9348a011408f427acd98fdfbf815a276b772b5c0beb4eec0fb07b7cc83d",
+    "天": "8cacde3b91b815c7c667e80e6d4838e3b7dc30ab457763e32d29c1586b0d2446",
+    "分": "9bcdcf1103921fb4ab942c08d05ca9b4cf363cea0cb92f91a6c8da8c40344587",
+    "还": "77864aaf3e6d0d31f184a55083b9be223f0bb8c1a9fee89b5f59ff7314a94890",
+    "进": "286b549e1cbf2ff794325e561da3df20cc29ebab683ab3921a7d099547433cc6",
+    "好": "c9f085fe6519e2b2c9653c7edf51bdbc78339fcc0b10f94c1f33c7f4f4d4a3a5",
+    "部": "26d0048f385de0c7691bd0f7c6b7fecc9033e30512a6d902e632b0a6cd9c4258",
+    "其": "9fe0ddcc04cc0cd0c37939807e3e1c5791a023c38540b4441ebb2117fc5c8595",
+    "些": "67e9de28e8ea417c45c94b7cac97aaaa2e18eb4ceadffab109a46ea00fe2253d",
+    "主": "e734d5d4b6a88bb49529dae70d36aebfdbd7417e6ed12cc0ec2d39a43e95dc38",
+    "样": "df344ad329f2d7461c9ea5d2c64820f8b43d0957ecb9c23b703c5cf4266c0b09",
+    "理": "7787773d34fa42fae14fe1f6dc9a0cdf60d510bd7dbd72570ec9316a14b53f48",
+    "她": "4e69fc6340529cfbdf572a98f3bd6f934233186943b931b59e1a3c65464518c2",
+    "本": "1507bfab8ff404936abc31790252d16b5eddf769b85791d89bc9c61c668fa838",
+    "前": "8126272afc54ca3a5bd512086901f4b3b40fcc43bcdf391fb60de3cb0dcd5c62",
+    "开": "0b4efab7fc994927f4244f1c6d79a7012668a9c7cbdbc40a45d0bcf9b4cbbd49",
+    "但": "0cc72a3b25a96ffcb9d5241e7116285b3168fdf3b96f2a65f6902e80016fca32",
+    "因": "ad7a3b6c044327ed5254585594c0cd7dadb1ad0c47555f5564d3e404ee42429b",
+    "只": "ec97976657b097708528825c2b48ee6e5436f38982f279c9c79bcf77281cf274",
+    "从": "1d459120eb9aa6f2c6df9e629aacf7ebb65d2e5dbc13628b5615b2778b20b447",
+    "想": "9e3bf868a8170c4deb5c1fc39ffd42ef1a119bb55d742028777fb7ebfb23e885",
+    "实": "046a23a889d52a4c96cd78cf4a2537f821612e017bdae76bfcb68e14b3609b10",
+    "军": "98ffef3033ddc62cafb62622c51ad33473822fa540cc22e7f85877dc001142a1",
+    "者": "1068107806747775a7d1899a2b31df5e188b9b5b941cd0cd93dc2fd3fe6c4da8",
+    "意": "1ad1de6363ce02684d2fbdf1a7087944e80d13e3bbe8263150ac01739d4bee1e",
+    "无": "d9f4dce9455d8747047d9633761ccb89bbaa600ccf04288d59710070f3caf281",
+    "力": "c51740470368f15b32d3f8ee1d7b0c93b6aa92c015f286c27137adfb2d7844a3",
+    "它": "a0928b9f0c278b71354633c9b3f3b57279c6bc2bf055beefc9589fde6951f524",
+    "与": "d9924d9084e2f0bd9f2da421e37a9ce511c57b6972037762b7279d06ed7358bd",
+    "把": "0fc972bab80ed2f5336535665906cae41e4bec94cc0b2b7496e3f453e4acd48f",
+    "机": "42a5a786f303e3e08b268ecd35c872ae3668e170261b4109fbffc4a0a55c6bbc",
+    "民": "2ed17ad5dcde22f23cd16e8a2f7a00e8f7af3ce2df6d44cd6bb6703809dfc258",
+    "第": "b723744c52fde30f4c812c98ae7a4f85a60999dfea854bbaab1a5d05ce303b93",
+    "公": "f486cccfeb549f77756de2d5086c83c1ebfcb7ce4cfafa2ba332b9700d1c8738",
+    "此": "3b2cda9c360d21fc01efb6db3e06cea6ada19f289d7445d578de63327afa6f08",
+    "已": "2e90e05b472bb13b936a2245cbe20dda8f10d0fa5b4e5580d6f701e598c1114d",
+    "工": "a1d8521d2b9c64ed6818fc9314dea0b59499b2652dad15a4cf361d37893c4bcb",
+    "使": "8b87b1b355e3c2e4ce5d4b5065b126c28e7b28246ab8d266fd5a0be6536c3f7a",
+    "情": "71bbafa12da32b6a58759e23b8e557710dcd502fc2172791a873a518ba82c589",
+    "明": "15468d4fcd2c430aa5b57e8765ce043f6965d421e24cabdf66d2c899b16c6943",
+    "性": "b69883df825c0862b025e7bfeed7d64667b6aa4436586664ebcfa58eaf1eee2e",
+    "知": "cbc62a072dbcb013232ccd2b5610a7667fdf9919a19adaef8381aab46835baa5",
+    "全": "6630c21ff661e22e381122968fb39ced8527d470913cc939a5a1d29c34b40051",
+    "又": "f69d714f3a4822dbc02c31969dafdf034307e3747f496e5b48b6004ee3e4ad49",
+    "关": "28d1c30ed1cda1ac8e0618bfe53010b6dc5bb5537670905a760a51d4d5a81399",
+    "点": "1b5b5cd89627b1800adddb7448516283d5cb178ad1df187b3764c12aaa2d87cf",
+    "正": "bd849e7afea904faa4f630cc2f1ca5d05db8cf9023fa7aa73a8d437c53c95a86",
+    "业": "5af383964161810b3b08f1b4a287a7d385046eb0a857834fec00907e74031edb",
+    "外": "bab290c36ee093d6c2df1b9d95d3dbbcdf492dc108f3a7e81f0ac13cd8726d5c",
+    "将": "1a5dbcbf5a68e1480b22a776e0f609cd6712b4fb1e6beb9abcac8222e8f3e39f",
+    "两": "d0a75c5e35abf6e97f381e02092d46f4c64ad53eb507b925cfb09f42094c79a7",
+    "高": "99d078f0a742511e3225a994169678c2b35ed42d4a39e4f5c41946c1e4c04567",
+    "间": "0f53cb30db3bb6104e432ae87831d7c0fe24ec7324fb0affefc70eb2759bb615",
+    "由": "9dbd3cbc7e8de5d6b27e7d9bfabb6c6077d0dafc9b9b5f5941ffeb25753319ad",
+    "问": "ccdfc03927529be7cfdd6ac29895d53040cff0648b6d087217a8572fa593e4bd",
+    "很": "b34ddabdd9034dfa73a413d9f83aec96451f97d75e8a553505a7fbe442c57356",
+    "最": "1fbb552cdc5f6df59a08f9e45b19599c2bf3c6e4de8771a5947f4f188ba538b1",
+    "重": "d97075d41122c10e0984164d61b04170df89342adfa615fe28b0234375b4e12f",
+    "并": "f7a571ddf6c22f97883f684b849467c8353cf87fd9fc5838df764e91bd909fdb",
+    "物": "1546208b431d6d5e2a263678e988d4cf70214ad2e3da5da9825f5a23eab1de2c",
+    "应": "1eb521ad4f40300c0e6023624ad620a4ce73394beb459aa399d8dca745f84bab",
+    "战": "3a82ceda6be3f4507dcf7d6ef099d14c65565fe76cfee267157f87373dfe172c",
+    "向": "30e2acdb4695f379600f835070c984aceb78e07ec625fbda0a7c9e1f7f708c60",
+    "文": "da58df874e176b10cbda075bb800aaa486fc716476a563fcc83f8f06b2169dbe",
+    "体": "70351417139d5501d31f98930f3d19aff1e847a67efde0e020673e195d319a57",
+    "政": "9e3bfe073ffed0ca146177be1cd9a4aa13e95c9120f4e4f9ebe2192b9c05f276",
+    "美": "a910061c43478edf5a7c01dddc7783d6fe900c3af1324fb5c07d2c67b290c82d",
+    "相": "15130e10074ad9adb9f45a04fb5f13e7aa7df297f88adcc4c4504193a3b3888f",
+    "见": "38f248a32907c2061fe800b7217847f07181ec6ecfa421e194e020426b79ec3d",
+    "被": "b316b26dd747608175d7c1faa753c8f666351a4877f403e77ca2693a1576c6f7",
+    "利": "330067c5912ee9da7dbbe603660049997085632bc7f26a1781ac55aeaecd500d",
+    "什": "9bc6bb09b416264a378bd94f848b6a295b081d641f51ea6ced53927a66350e4a",
+    "等": "508c1eee32e5e89b5e6aec665d819007e80b4a6b2ac7c72ba5eb22b0f77730dd",
+    "产": "85e8086410039ce2a7798cc38b5cd6f380e099ee1bb14e12992bae7cb6b92aae",
+    "或": "5d8e79f50e5937fcfb3675086b45e6946ba01a486ce21d9a532869637bfd730c",
+    "新": "8f631d5c3b6bce07807edcbd80f38c6966c0e982f8d051b56b3fe73642e3503c",
+    "己": "318727d2358115b813a9ac45b8b26033df9cdc5faa6e6042f641d3e92fbf8caf",
+    "制": "b7c9daf6f636e1cffcc8002cf607f82a991783e4bcb9afdaa4e41899fd54f0f2",
+    "加": "6f50a7599c23a95de51f8db97710089f6fcd6c8e034e50275f870e8445df9f09",
+    "西": "f7599c5caa9c04e450f9c5b3e3cdd09523fd675d94f18c85997af05f023171d3",
+    "斯": "27deb781ae588266cbb00352761515e1bb3448a26a5c10757fe84a121aa7e7f0",
+    "话": "8a3f1e388abfa63dd47acb0d4fc86d5e1c6cf30a82caddb2ca51061a93ea4fcc",
+    "合": "f2afe414f5f21f4aad46fbefae9ae4a2235fd0ec9ac466c25f565bc9788ceadd",
+    "回": "2987e137d9a4bdbb061bd78dd315fe0d520eaa6d65dc5e48e3d6f8c907a06e8b",
+    "特": "c3fe92f816cf64fc3a8e48a861bb160898f610c570d2eba646a958d2141c4f95",
+    "代": "212146135812af28863e58e1ca2a878436ca480d118bc4eb027fe7f6b35adee9",
+    "内": "6783a1b26a7290fb5385965fd14ff4e5ac8fa1237041adc7272afff0b9a95471",
+    "信": "229b6eac8edb53ff82d042fe54fac3c7132bae55d39899410739db9c7207f048",
+    "表": "f462b53e7549c74927c4f3a802882609d7576fae6d4f9caa3a586ee18c169c0e",
+    "化": "a3cfd826e62d43d51fdf0321d7aaf1d66592e552dce198acd11a29b03d4ebf27",
+    "老": "f3130d50e757c65792633c581be89788d963819ed0df23380b6c94d5e31bf9d1",
+    "给": "98226e1d98c751b961851e053a3f341ad090b0489c4b31c1f884bc52843e3257",
+    "世": "877a6936c8e119f56a6a0675768df9ffc6b3665c5d712345cb27a46f04447512",
+    "位": "4a9c7905b86b243e6cbd0cc4866b1d163f6da5089c63c0e52d2577507f515097",
+    "次": "39c0a60de508be33e0ad7ffffcdce42d3d4c7f1c6e088c959436bf643b3da879",
+    "度": "3cb5c1507a68227dbcdf7424e9b6797e7c3a1616142c21bccdc5b501583578ef",
+    "任": "e753118121d36279f3f611d4eb44e36249001959455227d34738e9bfd7c620b7",
+    "常": "e2adfad55f16edc7de6c7dff6cf78cd79b874f7387aa63d61971900fc3d09db0",
+    "先": "20b7475d7a76d3e2233ef9bd28c1239392630fb1407565c325d3efbdc0445c19",
+    "海": "bcebc11480cb837dd2b2a8fd64dd742c46959d43a828a76c7a04464395274562",
+    "通": "f5424e17242afc4b85f3f28210e16b8ed4453e88dd09c3fd782d1b1dcd99a7a0",
+    "教": "b400b698723a9f94f0e3c2d1e649ba20dace1b0582d36fd42674fab2f6fe94bc",
+    "儿": "9f1e8515ba0fbf39f3b03e0fdd2342771f0c7197fff7c2ceee64674b95bf2c68",
+    "原": "67b69a0c119fe4adba151ee33daccc381e05ad9ea83045afc5e1160659e3510b",
+    "东": "80c3dfd836941d9507af3bfbc2257564483e134954f11d412d165f445e4f5a20",
+    "声": "0817145c8ef06b484b39a5eec099f177536e2558437579bf5d5036b40d208780",
+    "提": "d9ac302ab06771390ceadf6fcb1621e37215738fe4c80a6800bb81ebe61f9009",
+    "立": "be3a3135457203801eccfc357d620b742aa025938766395a3944c4f18ebbd295",
+    "及": "cd3aab09052c235d7bce32b32498f919d7ac9d9656264287a91ab1ae9838548a",
+    "比": "4dc980796f5251417cd1a2ebf706e94bfcabb05d1b275cff28721aeb190fd12e",
+    "员": "294e72824a0ffe88ef088fd4d620e99ac3beff96478e518b4a4cade4c895dfd4",
+    "解": "f6781991dead5dd747fcd733fbaf10a75b707af143158c190a81f4e74a6b17ea",
+    "名": "3dc8c37774349653b6e4732d505bcdd84585f092ab461221ef77984cffb7e98d",
+    "真": "7aaa2b9020233fe11e0e661e5e6a0d4088d6969d493ade3b5d6e096972e51e9f",
+    "论": "dd1e33ccb5af58ad6d4536e8acb5cd1cc24bdac5e14e427261ddb885a490cdc2",
+    "处": "39cf6bcd028d7280e210096c8b4dfb9bf4b2f386ae0430a7582502f477dcde4a",
+    "义": "9cf14f2311cdf7d3f1cc7f45ea73771677379a438eb6388ac75003effd542cf5",
+    "各": "f60bda3e73007e9438363d84ee0fa8ed012bf65e49af433382d6d9d5879abeaa",
+    "入": "28e84eb75ecc641c2819d0377f2111a90d0cb998534bb295b75fb6f3003f6909",
+    "几": "b730f3432a2e0697863f512fe5fbf8bef705a296fe657be4c7433102e1961a37",
+    "认": "f65b039435d480571159c393baee6e5a879cc7906b1d651a6c6954f22d943af7",
+    "条": "2c7f74285fda0de35698d5dc3339aa0704fea4759862cb4ae2b03942803d6686",
+    "平": "75145604f90fa0dc3fd4f3766fa8cc495542a4bf849f6489408f4dc049f8ff36",
+    "系": "430cdc60c60c49283f62bc2cf242b9f2e99e3b05a901cfa9f19e4f4640a0ea03",
+    "气": "32ebb998c7bd7165e10e781ff52db83e5a3413f01cb70438e2271e99773abf56",
+    "题": "0935d29ab0ec76a69aea203187a9247fddb89712b3d370c2862549edb8529057",
+    "活": "2811661ce4181912ae1aee51420e1c0778bd54509af9a886f632ceb1b84365b1",
+    "尔": "9df9b1a24bda3811b709013817b99f739c17f14dd4ef36a659bec9f9264283eb",
+    "更": "5e95e399c46393270c0dc5258389862f35ee9650895d4472f1afea9668bcd5f9",
+    "别": "aa51bd9156c02a18394ec134796c5c0a41f472db8858e2303835a99ac3f7b1dd",
+    "打": "d87d2a216a25000dd03a25c69365ab4780a432f81edba42c1671d60f9872afe9",
+    "女": "8a17d3644493617f0090476873c0e01c25d83271e586c097e40ef0256ced5ac8",
+    "变": "33ee8fff141ba8fac72e7fb44f4c763b96e182adafdce3299a3af6f1ee91f421",
+    "神": "04d6995d14020b055ece60d9e33f0b658ddf26f0d50da0c3b3a6cce03f520e02",
+    "总": "c7c5c6d16d770228b859c6bb9bc1828de5958a3f7d2b4014262b57979fd5dc57",
+    "何": "c161e5cf5518901617fcffa77921e1848e402bf85c91ec110624c6f97800d7ed",
+    "电": "bbf199bee650b38f1d1b1da68a0c8f0eed59bdfce2302cd2abe0c5a115896850",
+    "数": "f54ea133a40fbb6b7575a9f3332721e65e49230058f5cd944dab3dfa0106a430",
+    "安": "654830c5bfda6086c1ee48536ef8fe89f0c56112152dba149801f023c9627295",
+    "报": "cd76834773d55064dc46f895ec7a431256705b4b00c4d74eac3b775dbd914f40",
+    "才": "17ca6312ba633c38c3379e6674983f31a310d6641d611fdb654b1233694e56df",
+    "结": "895644130264652793b3d00a10b76e0df486721c8da443fa49c4af44429b2d97",
+    "反": "0c235f2258a870910097d2125f7bd6fd4275cde273409370a4c273995aa82d5f",
+    "受": "37ffbeb6085951afa51492d6b12ba1eb87d41df371f00de88aea0f96d907f2dc",
+    "太": "b71a20e1c0c68563b8a58a75749f48ac4a095c7d05136c5dbd858a318fbe234e",
+    "量": "b33905c102d81ae70622efedcd771c5063131b238b806ffeeb0619f467e262ea",
+    "再": "63c13624816b79b2edb3f6d04c494a1bc8fe89175e06c4f1e7452e2016e5224c",
+    "感": "0569e7a0e167b4a67f9d6d5ef3c552969504c72f2c98c25df99d1df25abf7018",
+    "建": "abc852466c69f409efb12c660d43d3f765bcd87e1227e713b4609c2e71739217",
+    "务": "efd12c183bd095e5d64f0a309395173db087c70de8836cc6c0bcb92c00e19b68",
+    "做": "d1beaea85e2d7fe88662573226ffc5ceb6700c24c4d364d0628c6088dae6cc5c",
+    "接": "e464b464d8139cf6c9332e3d0f91ed4755ad49f8a64fa902c0499c2847de0991",
+    "必": "f49fe562d7bd6ab1f2b876555d6ddcafefd0f47eaae5eeeb005bb958dfc77fd9",
+    "场": "d8a75696c0f8f53dc8cf3cac63416e0c9ddf93b61307bc574bfd7f429337b6bc",
+    "件": "f3c7a57d23ec650db9147ea34732ef3d57c1eddb8ded94125172921f46442e6a",
+    "计": "55783aaa2a2e388e0e5476ec8edec429ff3026f7242cf925c45a68157f0dd50a",
+    "管": "4c86a7b5ea6b5741772f1835a45ebe61bd578a09e169412a9cf7f6b720569fce",
+    "期": "806ca46deb664ece4372b7201d1eca656d34c38848537fb8adbae719170e227a",
+    "市": "ef79fe1efa67b4592ca7feaa156474a2bf3bf4588774ae9ba8a60bda396b6b51",
+    "直": "b8411fd6e610814d65a7ad51ce103c143d916fcdaa78370dd3bf03a14a5e48d2",
+    "德": "22ce2b2d4f6b230404c7c975186f4c9f0c71e8444003b86103973818519e01db",
+    "资": "69e79784c92b624eb6bd3afc90ffebb29ded78ea2f040dd151eee8b34f3f71f9",
+    "命": "ecbf011fdd60c49e1aff3c80a6fdaf2bd006f0dba69af60dae322db25c7c4f98",
+    "金": "4a193b0afb63f9c79a939cb2304362569e9de18d67fb2ecf2cade484e09bb7c7",
+    "指": "225bd344dd8ff878011398a09ff7e66d84248dc4f1134e5cfa4a0c8e1816d646",
+    "克": "343df82ba73c73de2fdf398a71e424f74ebf3bde54687e4f7432cde5ca0697bb",
+    "许": "e9913b9ec894f05d14d7bb8b7fb592d003ea32ce5e414e4113f4cb65f1d6e53b",
+    "统": "817f3e8d1a2e32a8ab8c7c2eebff4110e802d713c37c37c4ce80402f5d5f53bf",
+    "区": "d7c3f283870ace9e8cd726a08086cb50704eb002d1e0d9c2a502a67c6d85b9ba",
+    "保": "cec683d010aa130ce21a250ba5d96c971b6ea207ba53a625eaee727a91955fc2",
+    "至": "f923aa97bdf2ab2a7dea03a380a0c37b70758d9a89ced9ee87acc48b87dd0a79",
+    "队": "e670fa0ff971c098d3054f87820d9a4f3c0032fe26a7dd5929202654e877e22d",
+    "形": "85e3c037f29e02853852c75d8ba0402a170e1be6ad88f42b70a65aa931a426a5",
+    "社": "7ddab0a3f727fad0772ddc0a5ee1d5f0873bdc0fd98381800a80238072f7189b",
+    "便": "ce0a14a78ac9c2d2fcc2562d0b38c49bd6fe563ab3a8ee6db5b58083da567cc0",
+    "空": "08efb40345e017a38d985d6928877bc99459a83ff96e1f89484c1c5a4259e9e3",
+    "决": "9c3e30ffc8c7d1b738bf4641e81265fb5d19c4129b7e888332545f0b5e999026",
+    "治": "e67227d272bc54f9a5a02a8bf574302a9855be57214f26f6f5a31a920f35d44a",
+    "展": "ee7f1ac1e8f555ae292e72437ae6883e2bc02c5a1163ed04e24a84fc3039ea18",
+    "科": "d37c1ec76e656cf97b48799cbbe725920c095692ae0dc2e9ac3c3fdd2186c363",
+    "司": "17963d4ce5fb97b6588d832e3ba1345498894ddab9895756a62491972be70ba8",
+    "基": "7adaf1474ef39a49b2a315346305364d51d0d9fba1b878762b160049430f8a36",
+    "眼": "9abb21d5ba61a27f7850a223bdce134cf23d8a8a82b42b17967a70b84f0ee9f8",
+    "非": "cb6dd22e1c2410f3d7edf71987173f4bc9b2737308a1433975c1993aa6f2b69f",
+    "则": "23b95166d74292a44e37ad793bed6cea7e728d89e373a738c417b062643450c5",
+    "却": "bca12e8401d414e32e46cc77a2461a33ad14ccd3aae1e3c3794a83acf3eef693",
+    "界": "52ee6d673a4419cb823920d511c28f817544aa48c7bec00bd224b82b4a7fa487",
+    "达": "f0b31e02d900f492e5ab1ee36692853d9a9b49bf1a1d493a6ca66151163a46ae",
+    "光": "8f993892d1e521df7b62ad9ea3fc0e8aa567c2bb9bc5597ddc8c0ad16ab7d89f",
+    "放": "10a9dffde3373a55bb6b741e08ec12246815409bf8570967c0cff659f767a32d",
+    "强": "808ef33175dea4f1de9e4549260bbc26853d620e5d0f1acdcf54bfba2e7dd1e8",
+    "即": "db01dd0321c9b710631028b492b947833daf224c0e97646cf16ec4cb0178e49c",
+    "像": "64c091c1d160a77b61e2743c69da80a9db3267a4cc1d8c989dda41987bccd27f",
+    "难": "98a342035ee23a80f1f84b98d09e7aec690093f9f24c8cf865a08c08d87008c7",
+    "且": "8ccb928a0249490749e6d5f981106848ee36fdf87c15fa927d4783c428ecb268",
+    "权": "47139fce50c3a5a2fb4e4d8734f6d3455da7d2fc0d9b066a4e7f401ccdcb5655",
+    "思": "129a99d4cba4ff072f2f68276d8a634552e5189b94cf4a819190e037aa623b58",
+    "王": "0cae737cee78a605967be1c36bd978fa68bd54c75799992f3f230d941e2327a4",
+    "象": "88a690170ebe667dda58f7cc10493055cb8701da41ef8dba2b57eff56918fccc",
+    "完": "2073070ab43a5ec748388273e3e52b4eeca7efd6486a326cc472160cc22be944",
+    "设": "bc8a3a0d62ffa0401034f90b498e377b99f0d5c43a9dc70046ca271d780d6f09",
+    "式": "b354aa33d79c1d509842f48032afa0a917bdab9ab2b213fbef6f093d102bce24",
+    "色": "42da4bb8eb6b22d796e73b226c71c1ceb5486d1cd31df3d1963c31e712f80ab3",
+    "路": "4fc1e8fa3e00667f3c229258597ab745e9354e2a1cb17add330bcd1718a0e7f2",
+    "记": "9cd802d6220670eb4d59a384417a67b2da2ab91f2e13ffe00f57d610043b516d",
+    "南": "94fbb129882ed5cf6b7cd19bed1bdb52b4d1eadb3e0bda8ba56acf425576d69f",
+    "品": "208039abff856a7ec404066278a5c79f615b3e8f52d6c68ce3b3d07dbaf8f424",
+    "住": "dfb9531477f68c78f709729d9fc1a0700621fe649322113e99cf2e64ae1e81db",
+    "告": "781247f9ef8894701ef938188569eb422b3017f226e2ced5610595961d9bb347",
+    "类": "f1ae91cb9c9c82b5fc47d6af0f2e57aba160b972fd2af0d91f0984dae8f7dda4",
+    "求": "caa0dbf549ba76d852010c1bb7949629b29b1756fbd05fc1a4d0077b902d5182",
+    "据": "555a33984a29c8879bf4bf975a015250baffec69d93be964ef8aa33fa7c6738d",
+    "程": "51b969154d8606562550c446d37ecd003e03f3c6f979856e4966a42e6b016a7b",
+    "北": "580cb19cf0714405c78f9bc1076622281c3a9de23f1e6608dfa4e9d69e913eea",
+    "边": "438159da28398664d643d5d2d980aa8445544174558dc1c59dd8a920df3a657a",
+    "死": "595cec06f13a9f3e9ecad211f7d4197e795d1bd4e13c441d8cd6507077b0d881",
+    "张": "2b7abf0be39617ac5b3f68917dac2e6520c926aa2f7b0f2af6c2b50c19cb682d",
+    "该": "ccd329cb1aa5b60e0e3b8600773b5a5d6fd083c36ecacbd08ae2bab6b8e3b748",
+    "交": "c6198f34b48450728d7c50a5fd7bec9033cb4c0cec6e45553f963d01c8a64d38",
+    "规": "74b02a17246fbca517820efe81fb3f79598601fc29ad8216cca72045b834e166",
+    "万": "8b7dd1ad6c952991cbab52e7a95552e991f9fef4bbb9b473b225ebbeae04af5d",
+    "取": "4a959eb1b74c36e07b2a97415ff70605c3bffcd4ee370f95435617a8cde34439",
+    "拉": "6c4bebfc6430cd10748cdfb61ba9706cdfdb7705fe5039946ce427e3eebe27f1",
+    "格": "94ebaf21f30041c38085ef103aafb4b9671f337365e3b34016e07b8e4665e44a",
+    "望": "499c4a051a258924d51809b7f152a93dc8b1896a2e9f0ade8d75c58871b19d3b",
+    "觉": "30a421a57239f8b7d296c3588b6459120afd1a584294b2cde788442234e471d1",
+    "术": "0f8f8bda52c62c9fc00ebbebcfb99812d90656068ac591c4a0328e49e0eb49cc",
+    "领": "74cee3d7200017d72e53b4c84852e5cdae2659065b59a568e5a8d1f2a0bb1767",
+    "共": "d49fe1a69b933a1c2dc13c00efda743f28a8cff0e51bd65ec8ad55b786a5a096",
+    "确": "4b9ab359eb3d52f3d92e5ccdb2e39a86b108d653db321a30618884077a323b42",
+    "传": "8ee760b6dc9cf87f9184b3bdb96598d8fadddaac0ba9935bdc07bb92cbd23436",
+    "师": "80d528921fbb75b21ed1737f622adbb8e9da7b71b143a64382568f22ff812093",
+    "观": "db8282ef8e2ea7042095c194c9344ba23d7854e20f20148c450954bb21c7cc46",
+    "清": "71fb2fe6a794a3bd0871a01d1f9a3087247d43d2e620b3cf5436752eb17137b5",
+    "今": "09dc680091ec729b8a214c59099cb1dcbc0eabe51d5b4c4b5465ca2ff8fc9b6d",
+    "切": "8db3a82815e773e9dc575f8e26a2c3c48720f006c5eaef8fef21a2b1edd240b3",
+    "院": "8d4d9e70989cf9514d386b6eb51591e336699087eb8f852908d0300249d351d2",
+    "让": "d17ad33a6ecdda31c53c04cf80cfb178fb2bb55fddff9b81e4040dcc250b6de7",
+    "识": "7f1226cf490e1b9d254317ee0dd82f5a970ef12064fb6edc59cb6f9d8b33dbe1",
+    "候": "9b69049cabf23133ffac7e20245f70bd5200ee5901b76303d7e2a36652ba52c3",
+    "带": "8d62f5e48a73aaede44ee6dc91d2995de9b018b9bb828bc40dae68909e0d5dad",
+    "导": "af41d1464dd754caf65affb43f8f440252938d7b0b16f1ff1ad7d6ee19fd439c",
+    "争": "a693137b3d598ff5fb92b2f3155e8757e6a2475b0ed454cd0f4fa06525f079ae",
+    "运": "65255bb0bf2d7ed378dea6c2a15ec9ec406c7c7c1710831a487afa4040c79a81",
+    "飞": "dbc770bc5fa91957ce1b1b171a493dcff730f430c1df765c1ce59cf7d3496ba4",
+    "步": "a3c79da4718987eadbc5e969cb20b6fd595dbf524962caf337b4ae80d027b900",
+    "改": "9bddc35734a7ef8a706049177035ab8673340e777236fd7d7001ff686938e329",
+    "收": "59087fffd944b641057377c1754f5f4e5ef10c203a354d2617fce768d6b8f7a5",
+    "根": "bb498aa6ce5cb6020a30a9405cd6482a2fefca8b697f1718f1da977836ff0dfc",
+    "干": "5e3b240f9a912cd4c0f5bc6c9b9f8e15d93a0dd2e33055ac2d3cc08f2ef61822",
+    "造": "d763ae09114a11da45783eb5c21627f0a5c923092479e3a8f0e54305cd6e93a4",
+    "言": "f816e180e084d7108648203ba5fdab37bbf1b9684524b4ab1fa90dcfebafd58c",
+    "联": "6b22f14d3b90e348799eb0b9529010a5cfe7eceb3e1ae4ab0f721c502532c483",
+    "持": "f536ccc81621a7b08324270ac5d0885cd3c2f8211492687456de68e703c0dccb",
+    "组": "0544fc5e32f429970abf5ad5677ccd2c40d6d86791f4063c5c160853648f9c7c",
+    "每": "bcbbd765c9a10e92cd61fb2067c038146c25e3cc7f129e727368fa82ed69e22a",
+    "济": "e6ad9d8b918d04eb39bfcf8a2a9d0e7ab9757bd407672d060e8e15665928cbe0",
+    "车": "7f863fb9a5d558ea337928cdd50c65be932c4a35fbde2cf28bfda48f8a438ac8",
+    "亲": "d6f1f2cf132a5fb6e10a9f2b38a63c58559aa262ee0911facfdb950a3a48af10",
+    "极": "8cf172f73076f48b13c50554372d63e361d2367d1337d9c5dd35b7cf8743f6a5",
+    "林": "dc5643ade9f4bdebed056743076e447c24cbb5767237bd71973c28ad17544162",
+    "服": "b6b4c141c9abab48aa7b7e9d00d159cf922cf8627783921d81288df95bfe7115",
+    "快": "6fc5f91ce08bf4fd5cb968ff7153a140a28e8b6e8656018505fd8b3c6bade87c",
+    "办": "86519e575e2beda61d6ae623cb2987bef47be6a2665b2ac66df4bc14fa731787",
+    "议": "8181cc4d6924db939049ce66fea7401e274840b7b74a8e7a9d8110256c917ebf",
+    "往": "d41def44d3b2c296676d25c46ea7676d843ae45265a59c8179524eb5d400a86c",
+    "元": "3853b0c44be20d7e40e467d0ee7636bc20e2408620230ec0ddba2c6695a67581",
+    "英": "ac951d23d9c0e0e7d50098c6de99673df4a808f730b25a50908b52c056fcabf0",
+    "士": "9ef5774bf258ffa9d75d25b5598cbeccdc0bc36634e536b4b54f0fe3ef028006",
+    "证": "2002e5d7d0f6905da6181ed92da468435a133161936a503966bf4b1ce294d342",
+    "近": "5548b4cabaeeb00b23b3c0b5134cdc9190b825c50c6eac1937ad3ee7df61d886",
+    "失": "c04b2dac3fbce793ae7c14942a01b236e7a651691fbc5872d51db0fbf66dedb9",
+    "转": "3009015a133825bc2a990697ecc6f387fc251ddbc4e098c44406b923a2d740ba",
+    "夫": "60672dcc8894a3ae9ed62665c547727c3b0c6e7e56b61291d58d1c5318ca5ebb",
+    "令": "93e15a8610708604025a03261f3918650f03a11b839b08aa177cdb748b824144",
+    "准": "c54cf428f16237c1305bf8b6c313515e085ebeb607a01328c3ae02ff408be39f",
+    "布": "9ba0f2615a01b419074bdf50ce829853598cd422be9be6fc0d272c7afb95362f",
+    "始": "a28490b144e735b1436ccd89a7645a6d3c04ed6f3f3197a1ab3c8b672d468537",
+    "怎": "a3f5b3be91848f0396185458d9810ab0c037e6d99bb4a2f3cb38b3475e79ee2d",
+    "呢": "258288d04eca768919eaa16a095a3ea2407139fefeda74772efcf408d3f92fa6",
+    "存": "0517a08e277f9d3a8c05f7493c5dc8fc7416f3e2c9b1cc2e5fca8c4138679630",
+    "未": "42b8321516cc21dfc161158f96f886ed19cd6c1083caac3dfad621467a8b58eb",
+    "远": "7ba6e7dd8cebb59b816e8fc253df3dc6c8f58a6d4541ddadbe32ec5433b15f66",
+    "叫": "a5cc36373dc1a8ee08e4d3f1eb05ce1048c9a6d7dfc1936ce5ae17833c927278",
+    "台": "966836873504e05df5ebcfe57718ca875e7d74cd43a2ab5e1c2e7d6551594bc2",
+    "单": "1417d9c2770dc64ef0b6ec9c498fba456a677cc589096c1a99f138c0a7753adb",
+    "影": "41b27a6aa001477b3a27aaabae5306c86e6d50f28cef825cea2869acc85cd1d1",
+    "具": "dd9d86e20bb18484b0fb74e2921d261519bccc4427e4371a48ea0a4c7e3e9010",
+    "罗": "bd2dd356dd79a2892c2bf8f88d6e5035f0e87cab34b968b4dd692506fb722e63",
+    "字": "d4e20f90c64acc1427d41e693c7151f3ea389eb10d8ce7f2c98613b01c6d1baf",
+    "爱": "26312d0cf150b55c961e890c2a205f5143a185bd2c7337c9c3622040d61489c4",
+    "击": "79621cf50dbaf5a35576e5ab64fb878e692fb218327cb58ad340d00d59c1ff35",
+    "流": "48f32ef388553605e80f2528bbfa8d8ef5a06ef0b3df0510056e29bf5b503271",
+    "备": "34ba506b261754f924693a07a2ea6cc8b3e7fde8fba6384f19439fe665da9484",
+    "兵": "c5cba9900afb72d357b77a42413921f2d2b250340bb9cb91ae9e43f7a0d20c20",
+    "连": "25f33ce07eded310dd8b47870332003eb6df4f352b6bd1971698d20f5f590d17",
+    "调": "31ad20d10e6655f961dee9042252de88658c13b4691aa4ff6f49291978b22712",
+    "深": "b37430eb6e467cff08bce11c190529cc3546b5e6f67ab8e5b7d40f4144c24ef5",
+    "商": "75bd5dc4f2d847527a0dd0f8674a4fa0b3cce132af72ca1d3234240b383850c1",
+    "算": "138186144e6ee9e32968f8fe1a3230a0a398d86acb9ecbf160e3c2dba3c10d0b",
+    "质": "8fd2488a42aa8f27c59f2c08901464915715d677aba45f7e41e0cc4a621dff98",
+    "团": "f3b0686a1e90638a46bc5bf49aca745cd0503ea79e1cde95f21d506448baed01",
+    "集": "e2fb67965264456e0800750036d30db30773ecb98bd956ffd5fa1b798f8bf18e",
+    "百": "3cc71b969c7cb35878645077365f029ad249eef5c5f80b61683df4bbbf7849b2",
+    "需": "6bf567ecbb67b6cb2fccb5e60a109bafb1d0f49ee66c6d1475caf78784076665",
+    "价": "3747d59218dd9050edd7d0b0299bc82c90b9277ec17b58e1088783c1112277f2",
+    "党": "a42374eb6316d9d6c3444c23dcb6f153d0ea130274a8c0dc76f1ed8e7bf10158",
+    "华": "e32b9051c9c6d724587b1ee0ad26b9ccc79a1c988350c21f4d0e52e830879499",
+    "城": "c5bdea3b8d7b6e87e0c347f118d0af472b7afc67771d4ae6960cbb98724461f8",
+    "石": "ee18a323fc63c0f4dd0f00477102c547a670c75ae2e3f38c9cb5b1985609b2b3",
+    "级": "c5a1bf8c69945d3714077b446c7f95f732c4f8375dc6a8ef5683db479e36d402",
+    "整": "964ee05933112aa0189060ef473d963788d87b706ad1df46b7f25bbdae61b06a",
+    "府": "f08c447ce3476c91dcea497305a425a198e254ecf4f212faa22bff547f1bdf6b",
+    "离": "5a0d58325438253f47a4d2782adebf61d87bb0b75cda2ad116237c7fb8b421b7",
+    "况": "01e8a0dca57c5e0215e424e48d0fe956f9d5cc24be036652973874b68b7429d4",
+    "亚": "4b4e8bbb012ce5355f2cb9050dfaa1248bdff89db39250203e78b9ce50ef7b0d",
+    "请": "6d48bdaeed17674221109997ed3187d71a6c8d7d3549dd277845a18828e2c82c",
+    "技": "44b0dd3310fc2f749698a20153739b1f825e5d7363c71a780166b8372757f23f",
+    "际": "2aca2238bdedd0007956fe9afbc593367c18445bc8ce7df3ee35a64cd133d16f",
+    "约": "0b43aa74e3ce8c7d6a850bc09f361c2e6ddcba40567e406ac340cf0a7a33a98b",
+    "示": "a3fe0df5914370d9251b503ce088e7adde89c60a64b72bdbb3de82300b05c5e5",
+    "复": "acd67d36fb2f68a73abad10b288d715ce842e0a17144b90b8c3bff93f313b74e",
+    "病": "7e1961f5a3d3120e7900df9da41dfee35b262fddba178433255ba5787549747b",
+    "息": "429a66a7e77a9e35885f4a27c526c5f9199351068840ced9bbedb5ace41d05ac",
+    "究": "28971b7672d5c243a0050d03b6c8f6bfafe9bc9b19bcb1cd4b380a81eae7cf3e",
+    "线": "05bcafba61d438effb7a9726f73f9f28d13099a7ee9b16b624996e376d0a31e5",
+    "似": "951bdc90a1c032a5915ce23dc21f5dc3e1d014bb5dcb53fb13775571587109bd",
+    "官": "cd195995d6c913917c48114d7b24ab483d686ed06d841ee38dd4b9453f7d1038",
+    "断": "90a83d779d07deaca20419f09ddfd8d60bf41f218c7ff5db1132b0612fc4557a",
+    "精": "980f7c8e1dcf66b8925a73e58e1e931fd0d76897b855a820932d3b1c7f446d17",
+    "满": "c0259c1486af1e5f0ac48c2bb9d8ea18e9008143f7cc1a863f062a7890e6e79c",
+    "支": "eedb382470dfe005c782caea7475a49bf07830d101467e2e7070b5a8b34cdfa8",
+    "视": "316185032960d9ce1de24772a58e579760f218f369f8dfdb5efbbea14ecfab24",
+    "消": "c4727e592e2178c1ed7210a80cd6894b1209986dcc94eada4c8f097afc71b739",
+    "越": "4a19bc5544bf1280b2f761d8274f11c2ed850d4e0e480da80a4e2e1bd62c3528",
+    "器": "3c81dbac3ee1a36c539aa7d3139b0d2c1431829cfd303457931f9bbf9cd1b4a2",
+    "容": "cc6ec7c49f074d661b7e8309401634bfe62c8a34c61feee30c552179bae55b1a",
+    "照": "33b3c09a953dc2e0a593e40a8f783a3fca85be3372c61f59bb56296aee336084",
+    "须": "775171a8f40d9bfcd893037bfeb17fc6767a7ea49c7df952e9304789711058f9",
+    "增": "2facc7e673b54dc5f5a79a4c719316a1241669884b1d2520bfca811f9aca8344",
+    "研": "8bbe7d8c6f4b6861b934eaa9727f904b20d6d0c3675b929c63bb7a61fdef0f25",
+    "写": "803022b32271801f05bd0931a18608b3319f7a9ffe0ea88093b19d539cf1941f",
+    "称": "d8338fc1b6132fbfd9c722d2f03b8c0a9f88425bd67a77005ec514836271b89a",
+    "企": "9b842180453c03f870fb085abb7d6738fc3d522c2e6f7f00f762e8c16ba0cec5",
+    "功": "3ddbfd95b19f2adbfdd1cb172f86b17b341f3e2662f4a26254fea3a45862fe5e",
+    "吗": "fd15dc345d5413ebf4bb3517b7b616890b0a948f62a70a21a2a8eed4eed78583",
+    "片": "6952beb0745e6dc5a1d56ea31a80c271986d2af59e0cda16c7e478ea6c2de640",
+    "史": "c41cd6fcd8970aa8b88c308265f85052ecd3788569877040a80b6e973d874f70",
+    "委": "5f9866cc889f2d15b8453b8ff03b361a612e0ec22aa55358b02789714dadac1c",
+    "乎": "e8fe3e283e8123d054e924379b5b80ce5024ffe649c306a50e8cf38d0072493b",
+    "查": "46a78aef536bbf93b38e9c1c8a8c3f857a8d4d40006917d6da6e136a52669642",
+    "轻": "15f19111a796183c98cc4b32079258c67f0d1f27f121586c22e6521c2cf7b02e",
+    "易": "17df0c760cb3b7c7f2db20b7c97cb044d141628b7e0bc0935d7721c1d79e3173",
+    "早": "4d6b2979bd1167355372cf73800a2ce13032febb989b8bf5901e6a7dbe773454",
+    "曾": "b6b3baf947967b17a28d9e2fa74059a5ff48606bbc4a624fdd166fc5f180677a",
+    "除": "f88f79319aa80ba4d7a7db19fadbf4f899282f50995dcaaa0f8b6670fc5d8f37",
+    "农": "8429c90232ec248d4751a2523ca56cc0670c59365d69ef5f164fda94b76f91d8",
+    "找": "b7c89c6071338aa348a62a1051dbbb0a1ef2b97477ae531db4825ea1b764d098",
+    "装": "5d018b09130d593a57780b9d0c9db0f92975c7a02a86062fd9433e907de9b99c",
+    "广": "0c11f22d3152ff319f3cabeb80c4045034e558e76b58509f8487dc7c5872b5c9",
+    "显": "a1432ecf878f6ff6359c20625e0038473ba43c377aede54a505128236471cb37",
+    "吧": "1fbe8a6edb50ccf565fc6bac3e9ba17f6402631f46708fb87591a564e6e83dca",
+    "阿": "d3a9c1ab3c03054bdbbe08045edf169c75529bc2354ad383944ac51e86ebb2d7",
+    "李": "b913eaea916e3ad17424aab243e88df8a8ee2201a21c243c4cff672996b63766",
+    "标": "27d903f234402fd12baea116e4ee771b8cb3da9a6ddf4bbd6b152f07b568142e",
+    "谈": "953705defd76c70e72f524d717a2b10fa0636676ee3b5aa4eefd9e96f4a2d1b5",
+    "图": "20bb2b91174fcfc9cce70f9ae6afa35dec765250e210544e4ffe28edaeaf0a84",
+    "念": "e45186e978d30d9c132e10315fb2326943e18d1128207743a64e0069dce37507",
+    "引": "b20ff56dfecdc440c8fe5b54683da5b5a80c2a0a38c268920e00ddd8f2ff841e",
+    "历": "e2faa7a31abf038d563cfa0db4bc5d67b01c02c02d24fabb4a548a9ed0801b04",
+    "首": "197fefd85084b496c38c447e80652d2a290534319ff6c46e02baee52ee1e720a",
+    "医": "a46207024347cd188a40d7056edf6e4d8b8e870b1d69464aa36444244381ea7e",
+    "局": "227c270e73a79b4c9db17866d6798dfd61576e3f02442491441d24c197de1cb1",
+    "突": "f170f0d36ab2423977e0cce3f1c859b23e8cf2eb0ab979b489a231a34058a711",
+    "专": "ba845bf88c60daa15516ce4279a0c83df00a4e76bd067ecc15b76a4dbc1a1325",
+    "费": "22f512f0ff141bb033ced4b07abcdc1cb7681251a655651241196b8a2cc0172e",
+    "号": "b70263ecc4e57909087d83873337cecb8b642220761be8083636c4a9e6e212be",
+    "尽": "1f3497a4c5f1c018ffd63d1c43167c537bace51b7605d64c44dc98c2c6e59c1c",
+    "另": "5dab4113c19889813b569b3d0bdbb5cf8dfd05b04345a88d3f1ede09019c91e8",
+    "周": "3a97a8543afd77a082812101deab1e0d81aa75bb453e9553207d72a7d3aea73e",
+    "较": "942c15f2d662b66b66a8ae9b53320fceeef81de4d21d9a595b93f1a219799d9d",
+    "注": "ca17695251a7645d65e07b455705f21b3e5600599251052c82d7e5f96fc48211",
+    "语": "0999b4c39dd2763ec6c3386123c8686cb58fcb562f3b8fe681c26fdb348080d6",
+    "仅": "9e1e8e7faf497b4615f190ee7872717f65596007b07da22a162b626ad4ac17e9",
+    "考": "878445e80a4416e8940694fdaebccd08be644a051d9e081d68dc26b4de3f81af",
+    "落": "c93bc437ce73e27706aa245a7431e5e0df3747922180a7cb0c1b4e9132904bfa",
+    "青": "cea73597fcae7b6896e4902c574cf2dbfd1b30db6e1d60f17188cb72afd21089",
+    "随": "d84b560a6991e59901a9c271048fcbb6cf3490c30fac3bf7c4a1c69a51ba9fb5",
+    "选": "a834500e63154149d9eb4e2ede44aeaa4a3600ecb74067dad3d44a477764d426",
+    "列": "5baa3038f5474c8aee82995dee229fc4c147f6041261525d7262ec66cf1b69d6",
+    "武": "a374d6c3c7fa3d8892d85f81d7d03adcaf57519aac56a48b1656e191c4f22843",
+    "响": "09f9b294e2ec0c9cd78afd6184f0cdbd4c39e876e83ed10f859e8265c77e5b5f",
+    "虽": "63e02c025f9332041330cb25f0d9eb98d34d3ecbce9f4035d5519aa3d1b47e11",
+    "推": "c90570d34c28fe6e5abeca85762453d3c9c63ff7846ffa8921547a80b08a7a4b",
+    "势": "30e4cd7a7a9623628b385c6df3c32b1f18b075b6bbd6d30cee5dc18284f82190",
+    "参": "124213edbb0396b5927f3f54da9759831d4a43c4a116ee16cc8a629e28fb3946",
+    "希": "759689deac5911aabb9c4693ff3c2522122e3035998b25510d2357bb73f0353d",
+    "古": "6650f3ca1588d6704ca24dff33929a30a99f577924582471d8860745882caf89",
+    "众": "b6304ddc51345ef328d143efe6e0f8e95ab4746d7b567744e1e21c2e2c3f077c",
+    "构": "f0f44e4b2a29a420d2a89c11342c290ce0d447367390e3412b6e8bffd3a1c965",
+    "房": "8f595e59111f1bd1044fb117f7d26485885367982c49ed044c9536bc42633718",
+    "半": "7f3a9c1766ccd8a44224babb7e106ad95e831b9a6f850fc89c6fd6f41e7b7099",
+    "节": "5eee7dda2180a3fab348d178c7cac9bd153e3d5ac6ae51e1f66753b90a797935",
+    "投": "a61ad2cb08ea42df1c26a7d08e0b5d046264a0381680c88eb21f8ebac35e28ef",
+    "某": "cbec1dac940f426a6c4b83c06deea63c913a3101b95fee8f790d860b548a67b7",
+    "案": "48a2cebf94271ecee0d1db069377c530fc75ac1791fe350ae49d59342950a7c3",
+    "维": "2d97cc2c690849d12992d47d098889558bfdfdff98e842b9206c81686444f045",
+    "革": "664cd7aef0dd8df7eea5087bdd78df9ee65ac4a08c5c6c036f113145c2f86755",
+    "划": "398e2f033559b0a1df2a128f3b425ef39ef16ff8745c94ca18c2b71a42d57c6b",
+    "敌": "fdaf7bfb3e6d1b7ebedc5f6a6ddf081b8861b14e7b25c39cd64f5578722b137b",
+    "致": "db92184bb3cbbe2fbda4f8c54874b7ecb347f5a705dc623b35b8bba84224a4f1",
+    "陈": "8cbb7e1895c936ffc0e7adcce8179b49bdb9acb2c6ae5dff451ed7aaa11ec305",
+    "律": "5d098067da35645a5fe51530dd8e416e735c8d5bc71937fd0365d9f3a658abe1",
+    "态": "0737bb854f21e94d4b35d6a90fd816c56394e130d933d981193ef851c4d93574",
+    "护": "ba475070d826682444a836e11517e9068cf3f75402e2c60c0e3b5305b3da3e2b",
+    "兴": "4138d58275de5a75c66be925ce5f789a1e90cad3bf897deaa454c5054f660713",
+    "派": "2ce96c8b6b2bf876d6b6b083f5e98a88947b83dfccb95f356ab4186b29afe6ea",
+    "孩": "6fa9400ce8f719a6a6fb46784fb92faacd0244e2096adacaab36412cae755950",
+    "验": "7f008c630585ebf74ed5f2b445177a2aa02c46d0276aaff970f956a8d142b801",
+    "责": "a58f7b7651949655fa40af5869319aab66c9ea7fe67b1111fedb63258441c8bf",
+    "营": "4f9247552e3889afbe5a908a5762b88453c39d014282b870b87277ce98ecbf5e",
+    "星": "21780a0d4c52c4e5f236bd18d3aacb4101d5ce17375442cdc64564a000330945",
+    "够": "b58d8f9fbf5f1a9e85bed4c10f23bc40a8eb820154f47f759fe5431f72d7697c",
+    "章": "882f3245b3b95eafa304318c8d1afc58e3d453b5111aa5bfdc536659b69f4e0e",
+    "音": "146e65609cb73e155c02fed48cb2eefe20a6f559af3fcbd4f7ecb20c52f0bc93",
+    "跟": "6add8d1e562a3951c22184da49ddddac4ac8c42f5bfcc1c832fa057d7f749061",
+    "志": "24256b3b1ab8685567343f492853d4058e664743d5f4d40af4efa2c27c0f0d52",
+    "底": "a0688578b26bd8f3c4693463293e83a6d6a0560bf42a230e662fe7c82b8d63fc",
+    "站": "f9197f8e5679e005e768ac10df064072b3fd0a15f5a5ab66ee4b8749b3edebed",
+    "严": "93d6598a8fec73953e30a56fa49b7a3cf380710fe4322e22de625a6423def54f",
+    "巴": "9abda8052e5fe8c415fbdfd57fc6947dd5016b3536e397da46580404a14022ee",
+    "例": "76c13ed5d03792b033d7d2ec497a43edb8a8ed8e34007346ae525c41567e1245",
+    "防": "d87f630027ec43bd2adc2b271a7c50c8d4c32be8cd6607a3302db3d01efe6ec4",
+    "族": "ec020910437c574890be3ee8daabf817255537774f9d4b5e3d48bcd2035f8d25",
+    "供": "1103c3afd2639d6527e1466249d5896fc41dc76f38f82f51ebf1fa45fb6a3803",
+    "效": "368634f00c4fee559521ef3ed3d457afe09c533357548274d835b4dc8b9d853c",
+    "续": "ffa6e83b98fb95f7fb0023cab79b8f94bffe5d4ddf4d6167690e019ad6bab0e3",
+    "施": "e448300bfe1d43d853639e6e9e2e0994694ff01345d22552399d50b5f212f6a3",
+    "留": "8820b30f9a2b1c63c686b85a00810ec0378f05604e30760be7ba1c01e0bd2671",
+    "讲": "fa6ea1787256f795df93096d5700dfc85072d61f94f2c65ac80616e35f2d5d01",
+    "型": "6aa74177dc65f0921acbd17ab5f9d70e137f5fd22d529c9d8f7f8c9a179eb97a",
+    "料": "64bd4e57b5105985bf1fbfdf012e368978ed461f38b30456adce882c75aa6299",
+    "终": "90c4aa29be9aead07a19fbd303139946fd7b7b5c6783de4b8349ddefc1f90e24",
+    "答": "f8d1bdfa46d7903ba9c437cd590e1849a7dfd892afe34521812d35c6ead1b323",
+    "紧": "7cbaa19f7f2f2a64fb6d40cd86d98e7a20b2370fb084594c0942d43c035ee052",
+    "绝": "e5dcfc7765a36bb737bfd93c0ab5e6184a2079cc4ea4915751688c364c9ff2e6",
+    "奇": "3465f75f8d0bd36acaddbf37f659490c7984c8408068c4b05afbadd63cd92936",
+    "察": "4cd61764cc4de5538c96d82a558ff4f421ee6e5ac55f4640ebebf885176e4487",
+    "母": "6933626e85e8a84335dbd2e3de8381d472499b9addf6804e8f49714a134aa4e5",
+    "京": "7fac775eabc920afb1e4e99fea7557e60559cd14a3dc07505349d0f81f79b205",
+    "段": "359bf07068d4298cb7a8ae04be487557358f46f067e33cf745b74ad59b097c37",
+    "依": "2434c2c279878678b503249cda1cfacf2cae89660e52a4eb7d2d413def0435a7",
+    "批": "e88556e7c3869591ed9b3dc34fa177a5d58f2a21bd21cbfcb2c4d8bc6e4537e1",
+    "群": "792739c58efabcda962eada078bd71021a1899e45c03cee3cfb73bce2dd7fe31",
+    "项": "913512da1dcac880aa2ad9f2010863699fd2b6d83a5ba5d910aa3c1bd8b62ca3",
+    "故": "1c11ef32ccb59fa0bdf8c9ebea4af17bb8bb5b68c302f38163ca81880020cb74",
+    "按": "a70fb4e6674a7b40f84c8a8fe5fe8f0c6a7e98f3f211ea8b2073a59eeac56524",
+    "河": "3359ae1e8008f21472d997ddb66d6dd743a1896e7dceed3f31c9dd5565a473c5",
+    "围": "bb639953f8fc9d533cd1046fb54786c69dcfe1b267dd5d58d40109e2ac5cb5fe",
+    "江": "4e90c7ee0a882a7c5a5ed2cf2402091a701030a76714da522b451a840ddb70a2",
+    "织": "6d3ef48fe372597787d509505013562bb93ff427e00d984d17e791eb47a5654c",
+    "害": "d5b1d1596161dbdfa50a3bdfd59fc9b0c2fe50ef038acb4b98bf039bea8d872d",
+    "斗": "28dbf765b6db0ae55b14c43c247bed9430c5e4993dc64108c2096c7ab11df8e5",
+    "双": "085f47fbdfce748cb3cf9ef6f4f7f8cbd6cde794e3c882c08e48acfd1749675e",
+    "境": "ddfdcfc8743bda9214ff674e33b409f9176bf7919d973b14503b7e8732d68e70",
+    "客": "372961044841f9f6829d9152419b7081c9378621dfd55215c3cd067ad76368e5",
+    "纪": "26af907b6ddb2b55771221181bcfebec5918dbe1797f5acb823e973665789f59",
+    "采": "559e4047f4e76aaead188b7182c3cd348337ecb0b1e99d60afb2d3a8de38f708",
+    "举": "1345a9ce2b94bc0038a50b8fbf835dd6358e21a17fcbf2d9c82ada720294caf8",
+    "杀": "88a02e0bd63d8fc9db9b1048818f338f69b26290effd1958d36e3c32d3b99bf0",
+    "攻": "1ff3b8cc162c991b2046453ffa8737dca27822a590bf03ba4fdf9cfb7e84a872",
+    "父": "7a5ff74de6fcb7dcbd8c8673bebe17b239eab65534abc235e68944b1500f7fd5",
+    "苏": "2e24d95a01ee78519bd083e83ec2757575fe5494214c72f7b45aa47f9802bc65",
+    "密": "f834720e3268bfce61939cdc2749950ee1199702c766cf2803dcb0853c37e5ac",
+    "低": "f42ef54f6d74b982a63e85fbec1a46f7d67c4841b7b21a633c6e65abc650930d",
+    "朝": "1921fdcd6f8ad820b0e05886c7645958ee48d1fdae43efb5609af7d132d9c102",
+    "诉": "b973117f796e21b113ff186a87d53fb0d14ef5e2734fa25ea257a9bc74c70571",
+    "止": "a44ceb736f7010d23d72e1290f766c8af69a139a451bba1f74dcdd0b5b722278",
+    "细": "9466b503b3bd1266dd6f7f682fcf9c6226ee24ab1bc8e6705c6a3cd989bc23c5",
+    "愿": "e5c77e4074062d55fe5cd2e57cba8632bea27124f0cff405403bb187543257a4",
+    "千": "f18da1869ef65a45deb8dca2eb558febc6b573abd420498d408ea3ae6455f06f",
+    "值": "07006c57a18266c9d661b507ff2af8814a40992871f5599a72aaf46921c5f4b6",
+    "仍": "b07f557b445088041a70ab281eefbf3bafa1ecadc9ef0dbcc17f67b6ce1bb29d",
+    "男": "e380887b51e1d07f5ab62b3b366bf9a2bb28968bd2e8217f20c34ef3e2b087b2",
+    "钱": "4b008f391bb5c26ad3952de2da8bb83836bfae1615699450ba885cb77250159d",
+    "破": "df97e8c7a3af1a763d8b68991da1d07a44d1c8e4c517b73eea0cc45e23ffece5",
+    "网": "2b9a4ffbc811a9c265fb5d52019c2b1b626aef1190b7be47aecc15d2527fd356",
+    "热": "25f30e825e12e831de16c70bb0056ee22e3947b68ef46ea5f0eae3b6114ad20f",
+    "助": "6dab1ace944ff9e31de50be51eff1c0c1bab50d142938f6202841a8f26c04f08",
+    "倒": "8984ef5610d3f4beb6356df4d964649f082a75d94e96664ab95981a74f57e956",
+    "育": "b53c8bb619bd9568d01fc73b414bc7514b74702249c3f444d88a512944f18eb7",
+    "属": "819bcea93dae6313c235cc3e21892f1c6cf9a0cb846c7fb68e1c4eae852bb513",
+    "坐": "b01ef6333805198f5b9d9443b6a157ae94d3233a30fa9d090a72e586b116d255",
+    "帝": "3783607529b4c77c369571ed65e630d833efeb94f8e35f7a186d1ebe074003d2",
+    "限": "2569fd34ecc3e86f5904b4f1ff15d911743a6ab0e1e0df5cb0a746355bd20d76",
+    "船": "f0ccaae82abc0b0b480262c4fc1d443826e2823ae0ee8bea51bc6fdb0d42fbe6",
+    "脸": "df6df3801927d50ec8db943b4f66e3dc396a23f5ce2fb784be802b2b4a1bde29",
+    "职": "4a553c78ea0168996fc85f834a8bf8562e4e7c4a7011bfe52ee07d673733dc78",
+    "速": "60c51f7e909df500464f3704835c4643f72048c095cd8cd4c8e94faf509fd13a",
+    "刻": "9481bb33031c19df7c174d89cca90c33a4c52af6809ab386bfc5e9e5338eb39f",
+    "乐": "e5b3d2904512d9b0ac920fabe82e7c5cf1be5bc8b1931f0fee5d59398284cd75",
+    "否": "e8d791e00d09d265c8c6fc79eebd488226ad1b2fdd34a1473f9ce0b038fe57a9",
+    "刚": "3117e27951989bb08cc9e9cc9d7dfc6fa3fbccd1a955f23971aaf2d61d20d389",
+    "威": "2ef3ce450df8379b6623fd5e157507eccb98bffd856f401c4f78d17df3abc57f",
+    "毛": "3c8090a06192de74be5f07b8fe2cf9d1da5f4e76baa21af64cc6f9e67db6f000",
+    "状": "5d3ecdeb6033a371353dbfd6d63f07ac8ecc2d9a4da92d8715008c7e5482eca6",
+    "率": "46f8c211610ac580f9862898f3d27337585559928bf7b9da729973f5aea4ce26",
+    "甚": "4f9f1c5fb9845ef3529ad9488ea65b32a6fccb320ea7c6023fc0aef2912bbc0e",
+    "独": "78acb606d723e8c1cddc44f9474dadf1f4e864b04b5e45bda95d2fa5d6673698",
+    "球": "ed45c7a2a161f4ee3cb9173044d0d366ae08419048c096e6619af2c9c289095b",
+    "般": "0d8aec2ca0f9b1d4e0f755f9dc6155db1026d13774bfcdedcd3b5350ab4255e4",
+    "普": "7f8dbb170be4c76876995cfc736ac385271cf43162f8ffd9b01986597712c617",
+    "怕": "bd29a8885ebb7f4e2954df20e6d9d56528eb51d96692140dd254cd31bf9e4a0d",
+    "弹": "3224f5f8d671d7db25b647c889316429c7b8ab38caf54107d9404dfaec10349f",
+    "校": "bd810a1cf7fa8216207502a388f4593cce34b71018e8419ecff0b5364147e0bb",
+    "苦": "555cabfb3048e897d25428b899da6a7da4a2c426b2ad5c231985da31732a61e9",
+    "创": "4a3b941102a15c7b29d3df209752d4fbc4c463f1de00a8784bccd46a5f66ed6e",
+    "假": "ec50aff622cea4416bdd0b01a0b9194dc4e983ed73a2f6945f703e51617e78ed",
+    "久": "3d70117ad9284420c83b3d620526acbe7ce23569ae91a85b509994e893229fce",
+    "错": "e53cfe7890fde1b2fd55153948c630a4e1f92097d401f4adb489e65528d7dd92",
+    "承": "ddcd07141a0a8dd5c6ae798fb97efc1af9383699c1dd0186a7e68768438c143d",
+    "印": "703778b9cc7d472e3eae284906b56c4d29f1feb576be62468f91d3cbc52be100",
+    "晚": "b545c3866d2705e569fe1784f74f505ae6f10eaa7a7fdb4068bc539569485085",
+    "兰": "8bbc7966ecab12e68ce815345208495edd87addf3e909a38c6e503f21a46a4d8",
+    "试": "224a81db79a740fb842d8b6dfe431cfa2908860a7cc9a51e7de04927d5bc87ee",
+    "股": "08efcde354f72c0db241ed797a333eb094b7e9f4b966a3c8309f829c6f08971d",
+    "拿": "65642c4daed022077bd4867703a1cde25211e6de0b98e9168866ac384f060571",
+    "脑": "87758169856c685490d07115e3cb87dc78fc2dd4d7fa6c363cf04f6e59eebdf4",
+    "预": "38ef2cf7801e74222b836efde684332183bc66a597ffb9683b204d317bd76594",
+    "谁": "e2f893a3be9cb9d77ccb33115dbe7588453ea51b2fbc9ef81a5bcec9b2627058",
+    "益": "4599bc79947f60c4464943b9238b2889b4ae11fa4abf5a26776bcabd08da7d9d",
+    "阳": "ca20600912885d6c19c13d1462dd1bb23c6c62bd30b174d9f71abcc5516adcb2",
+    "若": "23aa8b079e22d98ace0002e25ce5c9e8cbff55cd44161e9861b88b946c701d1e",
+    "哪": "726b6fc78897b2164f79a564d54ada987cf8cdb960ed1ce9f848e8e787bae509",
+    "微": "39f2aca34101b2caa471f948cdd5e9504a2ca613eb64170f9a120606fe48b9d3",
+    "尼": "69fea4bef51684c72087ed5fb58f8638f570cc98139dc0826ce2e3d7128d361c",
+    "继": "7dce96070719b23bba5783960778e8b1447d33adcb87ada31629818e47221c62",
+    "送": "585655112de1aab9819bd0e612fe8f765248c6473f6524d707f30fceaf73d146",
+    "急": "13516a12670c33a2dc453365314debc6de1e35da0ebd3aa17e6f37b13a0fcfa7",
+    "血": "a0cce905555ccf8f135f4f8037d2abb2e00707debec33eb47a27deae3426db06",
+    "惊": "b11e199f54b53d13084dfeddda2eeff7409d0ce87c7f9825f37eca3c390c76b8",
+    "伤": "f77e0bad7f75c292ebe5705dd1fdb6ffae7ce50705cd6f0d0ee675400cb00705",
+    "素": "54c41d1d18a3d61d9645b1d830b455e5c5a01d1fed3c6c6e694e99bf84fcb663",
+    "药": "478a96b1af264d78e9258ea32db5d9c556e07d9901ee7ecbaefd0eb859a1f432",
+    "适": "8e4fc1616effb8997f93ad2ae415212d690357b5d98651ffe3b674109a462656",
+    "波": "2359e789be65bb9a558f27c53873f38042b8529d0bcc33b58e926d405dcb9dfe",
+    "夜": "7f31c7256f40ac7a61aee770c99676b67270322be858b2dc0f3c7f4fe39ca6da",
+    "省": "d2e5e215f3d0322647c9be44ebb3df93adfc871e5f739a6977db0fd358636df9",
+    "初": "0721b430da35f1e10dcd0dce9b3bdbe8e1ac810cf477ecf8b5008ac41d1070b8",
+    "喜": "779326b147f56c81159f2d732347e50549a994e0b0b190845dc6355a74215a43",
+    "卫": "a30b7e70fea746eceb2c88f007785867b5fcf1aee27ca1e0b876343f0fa58e43",
+    "源": "041718e2b9690e4247224b7ae3039c3d23aa8c4dd58b1cc23c99ca9417e98c1c",
+    "食": "7089ce03df07185a663771e71e4d615a22455d59af670b1810accb6b925ea73e",
+    "险": "46a7745d5a59946e4269ab40dfd11da8f587c7827e4f2f076fb3b5fd99378ca0",
+    "待": "8d6c7761a68f92521a35f9ca471289d24d1243a9307f6f5f59fdfaeee3c26d83",
+    "述": "ffb38e6e8edad093b7d04ed3a0ab64eec3feaf6af6286575cf191c8d969322ee",
+    "陆": "c570a2bcbdec45595022db5c7323b35f8b2ff5e3856ac45f4d86ccf08758932a",
+    "习": "c990f81baacb5b6ebd333f0a8c95eaf2e52847765622001f1c71c058105f021c",
+    "置": "e5dd3ea682a1b1c47a5f9c8c199b0eabe773d5f0d0b5279681e799e423df8db4",
+    "居": "852cea845caf63fab72355a5e81d075209ee656a2ab5a33856667a9ee769a108",
+    "劳": "cadcc456ca6875e3fc4455c45d27bbe7a1509c25268122db29cea863981911e5",
+    "财": "f2368c784740762ee7c27abd518a39f7a6b4bcd9c8be76ad4ae6044eb6075ae4",
+    "环": "ffed20e3832fd39cad790a2bcb3ac2ba35accfa43488f5059a4bd2c3e0499270",
+    "排": "bf43de8c2bfc0c507dd0c4ef0568cf16ad1cf011a4ac783625ffc11dcfdaec9e",
+    "福": "9a9e493fd53758afd5919ca0a037d87e078bfa912066c4e3dc090f94b2dc6992",
+    "纳": "b0bfd0d954c4d7383e2558a45b52978449b42695fb9972f91a0cf7526b1e8f06",
+    "欢": "83016170e79bb66ee07caa185befb9df8ba2a49caa3d167a04149d0120a55e23",
+    "雷": "a8a23498daa78b0e608750c119ece9c85ba6c207fa18f0f75668b9a0d6a5e915",
+    "警": "e3c8ecc8c4e4b7b9e77465ef7bc6d4204058859d4e2153de8c23c7c0331d4ab3",
+    "获": "523a44b04b3597da0709fe1fc331077710e2f73825d09ac494406d0c32849d2f",
+    "模": "590634a941718bb6476999515ab69fec4ec880e1b6bf3f7da1bf7071c2db021e",
+    "充": "8e1764510bf20f6282930296d862f26a2fccd288b038b9a67f5254c60b461d97",
+    "负": "69ee0d70ce7e17acd4db403305215c3879d8e3b5044e74a892132ace3f0123a8",
+    "停": "22aff632a19ec833088e4631ec876d211aca0fc33e53000e24e336bbd7112f41",
+    "游": "72069ad8d41327e5e7bf5a5323c7d998d7a2217a675ab72ce9c7a38de4024dad",
+    "疑": "c8fc60fb6772392c3a8e3f44de59bd5912399eefc08e49b3b67c6297c2f831af",
+    "层": "1e24986abe0222acbddf945c8f7dfa3d1eee2e75010aa3a642b832af3194a5d4",
+    "冷": "21d62c3489dcf2cd434ba6d5e10d62fa46f15fa2d196b2f465f8c6342db23283",
+    "洲": "6f9971cb366146250c8ed34dd98915ccd0cd2e71b2bb30b2ccfc0d6d3b4f873c",
+    "冲": "fcae8456fce8d933e35057a412e569db5ab4a96fe6f467c0bc39e73d609cc49c",
+    "射": "866cb3542d7d2fa6f3da9c28f82ca46f9c3b7560c7e7868115d42fc1c927ce56",
+    "略": "ef87ef1539b90ed6f0b1bd169ea5ac6e3d0582c456eedd15716e84e5b405cd56",
+    "范": "f8d367676b3cf9f227e1c8d3657c3cefba69d65b8566594dd699470187216b71",
+    "竟": "9f0951bd036f8ae20486d61b6f5158f0dddf165b6ca8ac9faf3d47180c5fb56c",
+    "句": "5f40875128cc785ddd0ce77c550513da374906e03a5c94fecd3578121bdb7bdd",
+    "室": "e2b3399e15648522565b3f4dbe529fb07928f541eeee23119c7def8389a0b072",
+    "异": "c35177ff8e141ca9f07a0c8cc2ca61907a85d408f704aa6842dcf4ade5251d7a",
+    "激": "98ef314590b142767f09f2b126949cd4a7cc20b2feaffe8387bbd91d0b85c384",
+    "汉": "24bae414f2def0d58cab2a7ae066004c62bded29331127925f4a4521264bd8e7",
+    "村": "aef976cf4d84e3dba24edbd243189b48e695709ec568950a36b310765ad00368",
+    "哈": "40c72526b97e151c1fe93f5fedb4620417611e5f6b69f1ca79718a9028a3f65f",
+    "策": "2c1f0d94d6ff5e7e6da4b1dd962ac30583fae7bf77ec2952fa952deba020d3f6",
+    "演": "bab00b442747b7830f0c05cb79566a28886c59d4c0195ca51e5fb3d82288a4fe",
+    "简": "ec0efbe696362630fc24bef4a30a60ea442c6a123ac65348d4099831f5d27054",
+    "卡": "6033c71de755b80571b844a9aafe9663e9c73720abd912304aeb96a50aae3a99",
+    "罪": "7486d47468c493a6f98ba890b4ef0ecacc0e0f9e87d03115e9984ea129251289",
+    "判": "dfe97cac732ed1aee0b87b751b88629bb571178f47bf643de3c59acc156ac346",
+    "担": "241767814fc0a20b3a4f197a781679162e3abaf8b5be3a71e0f1d2ca311ddcde",
+    "州": "008171a553c3f91cbc15c9d681582fe8c6108dcfb944a65c4f7409e6197d2fd8",
+    "静": "a4e4c645009b8d1d415cec634fef9e81b69a7847dff8bd3d638aa4af98998015",
+    "退": "57e59e58ecbf3a4dd7cc3c8c12f34911becd9c6796f74d9a92f9ea1387aab21b",
+    "既": "ed5380850268ccf32cd24ccad10b9d99b516f91a4e55d6feb4eb6d4e48eb161d",
+    "您": "a60e0990ebe31bdad5defa50c9e94af61a3aa8982d8e7460f935aa798e51db39",
+    "宗": "3a7b83ce0eb62af0b7bad200792388215436143dc9d16766cd8bbe70cfb8880d",
+    "积": "76a35925c09a4f88f5e97c3b38f282715b7bcd604737403c2cd444076594299a",
+    "余": "a14772a6136a8b3981245b9d96a6181deef644ed41aa5a10a631657e4a50564f",
+    "痛": "b3afb28e0d4c130a25cc85c577c4dd55ad382b9ba57c67b7aa08299b63cf5ef6",
+    "检": "00bbdfe6c31e05d497ce4b7442c1461224fbf7815e8441c62dc8c101f7aebc86",
+    "差": "3a6015173a7ab562b6e343b846c2a9db0cae7ac356de13b40692f189196b818b",
+    "富": "1483556214106ad023038374ab957fac71116a7431e92247507aa2673ef20dff",
+    "灵": "51d28b8fb7a3681be9ef226d7002e656e648930735c05d9c8e93eae44014294e",
+    "协": "a6b2a7ff6e7741f66027adcd58a5a391f9b1f85796a06d66b57303207b44adb3",
+    "角": "96fb28d9a0587f6961a6ee1ef964e30b9dbdc206b7e4374b6067a949cffd07ba",
+    "占": "09268d4ee71df0d6e64053f6dbbcbdbd342f2e82afba6846dbba973e1c27225a",
+    "配": "083721c633a31e106b9cd0fc3852aff987cbfcb749fe628e53818da0e3ef7ab3",
+    "征": "c6683154b8800743a06069d0b6f5cc123a53442545be3559faa265a2225795c7",
+    "修": "c60e119fa5ef81d86f5aa30fd6edc191a0fb61e79afffd6fab01f7a5ea2cd5dd",
+    "皮": "0a18effe9f6f9fa7facd4e1abac5dc1f2b05a88dfd882532cfd5e717e660e46d",
+    "挥": "6bc9c8ebaac0a64e32ce9d53221e3397909f70df3a0f52c5078b107d0a813e0b",
+    "胜": "249e4866f0876fed334d01081da2b7f4fa63931bfeedcb14f47970ba740e2cd6",
+    "降": "497bdb42f0805223da12d9f1d3f47c399f5c6ead84f6b3da2d881f05d4222dbe",
+    "阶": "9e3f0364cd4e200e9dc91d8ccea8ad3d0ad7d6434869c378ea530821723a347b",
+    "审": "b1ecbb340b795d3cb120163951b6610d7392a7c3621d984e8222b6c73d050775",
+    "沉": "855c106d8ec08065832ffeb40842fd08d922cfa4230bd9ed3ede017d92b47e11",
+    "坚": "152faa46cb7f974e9e70498c2826eed783d42688ca893e50ade02e507dd1251b",
+    "善": "f91aaaba5f274cf249dbe08a541642b32b3040bfc537362c489c1480e8f5590e",
+    "刘": "26c3cadb36961da9099db14c838bf9037f497619ff46281faf68045e94184a61",
+    "读": "dd8de3cdf06a29c7268ed3cc51304c8be2a57881f4ccf4444f6d980c2abed09c",
+    "啊": "cb3a1732ccec5b6dcf939ebe269e1cb749925df9e3dc1ae7f5b3469a740e5624",
+    "超": "0b4c79350e48446c39add42a6c4b1d225fedc5e90361892bda3f991249239df1",
+    "免": "19a4c10d37e14dee99080e71e891568467da5f804a36167dbb6c30bdab9b06a2",
+    "压": "62d743dbbc1674a7f47a976b989e445414b26ce3e2b0487d6b9b713a1c49e09a",
+    "银": "7f2a604acd1e4270201a74336d57f0c53a3b3b7c5d63f5df48b2db401dde6ba1",
+    "买": "bc317b3af63af2e775ba0f0dd1086a5eed65abb98f726f86acbfe35740572174",
+    "皇": "0698859d20492e7aafa4268d6ea2e509cc5a3596414d940eb873ff6a640bef88",
+    "养": "a1a41e40f394ab0c31dd1fac2993428bcbaf4cd33edc8d8a7c0532a11517412f",
+    "伊": "a4e1cfd387ffd5d1e939caf278aa9748eb3e33ba8194686c73aed30443abb5d9",
+    "怀": "72abfe3137050d0122433974a102dbfdfe9605146883e916436be767253367bc",
+    "执": "27e9e2c5a50e6340d49612c8f619d17f03c5c25812b50db98fcd67b1484ac995",
+    "副": "0c3e5a8cdfdd3378f57430cc7d12625339e0168fc873b0cdc70bed8d628e54e9",
+    "乱": "3f2abb28e72a86128d63241390002788f755966d44be0de500e5249a671d834b",
+    "抗": "664b39d3f5ee96999703a73fa4dbb9b8160b3450270b15d6cb60b9c765f816ec",
+    "犯": "89f5a6b9834639fa0fdafdefe952308dc72ae5c782e59a7dd9844355ec8a4083",
+    "追": "6bed75a59240cc324564defd2c5fe534af0858af8733b565481310b1874fea5d",
+    "帮": "bedc44702b264ee23d6d6cd0d2d6967a8d32b3c98918f16b643c8e5277430262",
+    "宣": "5520f42d7c4cb799c4600cfabde4505256fece8978b9b216a61578b489ea171b",
+    "佛": "256affc3f8cd8735186cd11200dac01c3ace70768fc8734d92e459825fcd4bee",
+    "岁": "b35bac3e29ec6b1b7d1525232bd8f820900fcb857cf10a70154f218db49cbb2c",
+    "航": "ab8e10e58f2465ea4ce10206c3f6e373f44252bd1e0c99e849da5aeed072bc8b",
+    "优": "219e22f563763abaf61b12eadd74f8e722d9fd20e2cde4b2a5127591e0863760",
+    "怪": "a292b0fe0c26e3c6fe9b74c02430bbdabe845643e5edcdd83a2a51b66f4c8a09",
+    "香": "dcde03c089100ff6bfb6ef4b2ee8b234c2b2fc54cbc511a449fc61ebd50db24b",
+    "著": "822447776c0782dc3f3de7f17cb50473148a3ccec5a5a1008f46a9b5f4e34772",
+    "田": "d2441470ac4a6c9ea680389bc770cb60f9c29b6819863ebcc39df2b89cea7f04",
+    "铁": "46426154ac8b4eec2f2bc5cad29228bb663051ac114cab192f081bffe7ef97b7",
+    "控": "599707b1b9c5a9dc4670a53d01b68f5e4cdf137be3ffff2a73dc32eebadac6a1",
+    "税": "5f9bd61dc7ab992fc4caf31cef4a35c4ab94b93c2f3fded8d3b74816118e4af4",
+    "份": "feed7ab69594c058b43ca7d62629ceb6f45321ebc8fe645f0cd35509cbfb16b7",
+    "穿": "af4df201e54d82c75e9f2b7557d2a42d3c10d0553b9de1392a9e2e3f6112e259",
+    "艺": "669a648785d0b51a89effb913a52b3aa8c26801076c219bb83200f09e6c711db",
+    "背": "0012b081884e00a9fb2c39ff2e5e6d84261a0085ae625111e178af629b4ef948",
+    "阵": "31c2288d1d8e64026f660d13d6a72d9d84d3b6a981fd166c4f0a217d9144b253",
+    "脚": "084cb47cd3f47ef77661505b52539d0ac73143e0acd35006f767e8ad85c49916",
+    "概": "7aa9d2eff63facbd38370768510f2db7207501d67fc845d894bcf00b29ff0fca",
+    "恶": "ea5d45ee3024427a1b20545123ee35cde4a73435086c8fce58376980dd4acbcc",
+    "块": "8617e40d636a86f106819470b0bb3d1a17500ee2ea4427935c2a880596b352f8",
+    "顿": "05024b7b395084180fbc0711fdd4f2ccf27cd6cb1588e10bffb0e9e46ba6659b",
+    "敢": "9ee7b7e7132b089d8230bbd8762fc15130a396b9e2a5c82a5af50f81e7ed107b",
+    "守": "8e0804455a6d33311a40423df2fb6d219f5c83157e703f308155bb32682312f8",
+    "酒": "6c51a1b1f33a7198881ea038b953304754f847771d767ffaed94e819726cd461",
+    "岛": "8db22f84f7f92f5d3a910d3704f2e1279cda61c648c56c29f73eda57429d46f0",
+    "托": "5d1bd574aa3d09fae28fdd9a6bb736b9e3402610b5f88f5a570291c49549a655",
+    "央": "79797896419f556f803a0b77dfb3806c5e5ab1a38dec2317d163a64eaab735ea",
+    "户": "7eb536b593113e847ba72052c0414958cbb2dcfafefb22b07a420343b5c41e89",
+    "烈": "ecb9f4a87d61133a61615142bc40de3c47882fb89b11048cc873298f332f6cf3",
+    "洋": "fb40346731b50fcc525f1fa77da86d4f92f7018cca6f1cd3fa507fd959032da7",
+    "索": "4bed02e8110ed821e2851c77f156965296a0b1f8d10d98d4300847c83e5e51fa",
+    "胡": "b9200eb6565be1cff5b86defb57c8446cea89537aae6f4fbb312242a4dc188cb",
+    "款": "2e7e5f4583165b1154587e1ab576e259d764510ba399f582a42178fc9b2c516a",
+    "靠": "8dcabc63727d000ca2da36677745e6c9698ff782f0f2d0ea3d8c2d67dde60d76",
+    "评": "47c1091f8af7a6a5bcfb97381075117d92c2d68558652e9064fae463d08c42ec",
+    "版": "b0491ebb8ad32ac4f3f06762051f9b48c7a1e8383531b16b2416cd4189751734",
+    "宝": "ae1c9ff799993d8d5e7e9a9212b4f02f07f3a05a9b8c92ad128903e00f5d1c70",
+    "座": "273c4541b210a13d9a5ea8be7e9408c850b24a8be7ffaf926418993d743b0ca3",
+    "释": "aeb4c0b5da03c37dc8b1b4385025f8c8b37ded28b01f367bba85a05ce834fa85",
+    "景": "7cc33e34f4d018dc46c645644b8071cad2ed1e85f53872a6e33c110e9497893d",
+    "顾": "61261e8c6a5e086819138498bcc8cee452744d937172729ef1abf13802232ec1",
+    "登": "2f436ba1a8b4cd24268252f48139eac157cb8ac68184884555105633d2b629e1",
+    "货": "663fe8a0d49435bbfaace463721d8dfd8b1280cd8f322c5dcac0df98b8bc2619",
+    "互": "1dded08e5efce8604327f579ae4358fc4c924d5299c2c45081e07d058361b536",
+    "付": "4290e5521daf5b6cc0738a0a7cd5bcbf12a24d821619f271fb6b7ef3e9a9f7d1",
+    "伯": "20fcb00793058112fd86c8e077c20a57d4c4a79e70418c7f735f34c48a25ac66",
+    "慢": "b9515cfdc195efe50525012aacf44a6f071e46d618881d9607e53b0905479d34",
+    "欧": "4a9551981cd06dfd74c1d901c7b97c53f47a4bac631a8bbf3c6b5e1435f693ef",
+    "换": "50fdcf7b2475d330ea022d0fcc9f6d072efa82e0f200c3f18875cd0c830852b0",
+    "闻": "406174ec71dcaa569d46e73eb8bfb8a6cb12a2f552c262a606a9671738f84ec0",
+    "危": "8a72e42cc3a28554c22f75eadd2f959b3b72c9c91fc30035a8c07b29b1195b66",
+    "忙": "18bea80c64cb21470e90361694ba1dc3ca3edfa1c44365e44429c691776cc3aa",
+    "核": "092249ed8be5b09a7d2103f59d3de7aabde6eda62d559f525b00845866ff5612",
+    "暗": "fd022607cfb7bf3a09443f83e95a7ff2f09d052ff6be892cba15cff5ebd344ad",
+    "介": "8b8ebc43e645bcd345897de0a2678c6edccdd6debd67099ee8502c4c30daca69",
+    "坏": "2c362f39d47cf5786932f90ffddb65193ab2937d8c354c9a9f4bbfabc9d3af64",
+    "讨": "9a41cc119f3a5d46a1c2222643a95b792177990b12be18e7fa461a5cbccb5250",
+    "丽": "7dfa267f486f7483de49a53d6a64db23a5930a3bace8a8b4634c20699ef1702e",
+    "良": "e3717c2c6bc1ec7b593e9ba087c0a94e08a8a5251e9494805b6337a363595e93",
+    "序": "057c1a47b1915c328be0cac06d924fc974593ea1a1d856a71f72e08b3a8828e3",
+    "升": "7d8495522cb3e2987725ea05a813f0d8f7e34a632ac2ba4b886058fdcb5febde",
+    "监": "d66bb7f5a61d220455be27cd83cd339b55a28a327e4f82c6b64dba1ba0e702fb",
+    "临": "06cbbabfcd279bfe38f514df1a954eca686942e8c2ab48004a125a996d2b6884",
+    "亮": "5bd3e9921530588754ba63b062674b26482fd240e95d67d2943f3fde1449edda",
+    "露": "e342573ae04f99e3849e4c1d2c8a0d81f43f35643239ff1f13e295a5e927a3e5",
+    "永": "009b7fd5b2fc186a0cdaa314fb4f88fe768c3c3ee4e98681ff8ff109c8c160cd",
+    "呼": "49c2cb4f6a808cd20c3dce5e8ce091e3258070435f03260194de9e0d11ff3972",
+    "味": "f59a9ec9cd2bcfa8cb06efe9294b9b9ac956816515655f5940beee9f8c2548bb",
+    "野": "fdd6563a2bcf6a5a976f73b1fbb10b6f29eb6812fa247f93217006e3b26c8095",
+    "架": "673142be0d59c78676aef00574e558e16090cc94ffddec7f2ce927fa7e49dfca",
+    "域": "3c3c97acdcd6c096bb98638f7e12391242820de6677e82ca0cf10095a8c6ad8d",
+    "沙": "1cb90100bc8a3acb0bffbabe8ea1606a533a6c2ec79a99a3b003c307c647533e",
+    "掉": "df792445998ccd496bea27d7b5282d0e5f28b53518f27ea2a086274a9d732966",
+    "括": "67dba933e83771cc9da80a698b3e7bf6992960a8ca8bb72428bae7359cfe31a6",
+    "舰": "187b525c8ceb40b1e1673c1f639f8de045285130bb8037c15803fa644f5789c5",
+    "杂": "ebcf810513e0cabaa6342924583fc336fb3c686ea8f764a58100c2fe2a6506a0",
+    "误": "cb370fc33bad7dc2834e6336b1c6e35d0096e57054afe41619aa2da1366f288d",
+    "湾": "ffc3ee208b013aa117851e54efb2abb355c91466be09d97a0cbfc1bba0e4d63d",
+    "吉": "4a87cc62d4838074f6d862860989655d1ad7f32af5101523887028a58beb735d",
+    "减": "c3fc07e4f3c798d854a84f3ea7ea861ce9c6e9eabbf0727c3cb82dadee633842",
+    "编": "587462f80048547260c0a3535263799a439fc8baba08647f826ecfe2426a3560",
+    "楚": "5d669949cc2bf23411fb561b7f882d992734ec762c78db2037e943307ecebc41",
+    "肯": "b8971621d3d78485122f20251dde9eb99244177b1834ad90c0a0695f6d30004f",
+    "测": "6c7ec9e4aeeae85dcea15b539d1fa088484b0ebe63ba63ba24e440e42c4e5911",
+    "败": "6e761aa29e65b4f70eb7bc527d8393d54cff378fdd24e0ede87fc8d222677fab",
+    "屋": "833d0033c5e6a6f32a1046132de5d7aa281981a4bcc5b2716b76dedd2bf0bde0",
+    "梦": "9722b36104291ed8e3eb2f2355a099e6ffd48b8b9505bdd61f9ebbe2b8110fe1",
+    "散": "77f6377dd42497862969591992788eeb1c41da5005a4a1f0f31cb176c270802a",
+    "温": "cfe8605b52bf8460fae9567faa43c09f1b70e6958001d239498da2be8a154327",
+    "困": "5702e78d3fa1b337ddf15adc4ba65e3740989f0813d1bdd5d3cc95157b4b5d73",
+    "剑": "0dcb93616cbf433e2d0a81f8c980121be2ba8e27d51fd85917424ce0db95685b",
+    "渐": "de41f21b5388f063bbf5a9d15b34717068f028137e069805ac3e175137893851",
+    "封": "4853850ce8e4af1417712d518f84b64b3c1309701b92cd8f243ee755653ef437",
+    "救": "25c92d2e15eaecea93ccf2139b20974a309d02a2795e4599b49a3ac67c66e7a3",
+    "贵": "34177b106cbdd621795ec13e24bdeb00e43c4e874ef9d8ef50e2bac703efd1c2",
+    "枪": "e78dc115cbe590adaa389e4f2bd4d2412b0a9dc09ecab837432d7006aec76abf",
+    "缺": "0a308ef5840081f6e39dab5ab9c597e1e04ec70c39ff9a9aedaf1c6716acda1c",
+    "楼": "3e651ffaf365367a8299f8c3235228d272133d3fd78c1e2b01cdf2d9f108321d",
+    "县": "47a8c78cf4181fdb179e609f4aaa0b72a916fbd29f53ba5fd803ae2407a3592b",
+    "尚": "899359b7e413a78c92ee5da72ff6e5585f599728ca9ef31c522c578b4fbcbfcd",
+    "毫": "386a8061b3a49e3a3d6c2505b37d619df413cbc6e093cb18c8e9b932e1d011fb",
+    "移": "847ba73ea0b5265c798002396f945d820107a80df803c9a447c5fb202ad5bd2a",
+    "娘": "3e935fd9ef70f3f6039116d466b33a343a20cb937fffddfa2eb8b82d8163894e",
+    "朋": "f67483634bf14bcd59db35d94c7e1f560ee78be33c14754c43ad201cf98d7622",
+    "画": "db1e775413384d5c3258a4cb5017bd923e1ce78c07ca857fcd6542ba6601db57",
+    "班": "4ade745bbdd9f871e5aa1a3f44bdb83c1fdcad7806482a5f83fad8faf3085539",
+    "智": "7c59946de007142a2329207ec4fb26cc1da976e0dcdeadfe65c45cc8e66f64a7",
+    "亦": "a88f940a19263a12dfdbb1d71588b80b75c2d6be6f53127790d00f35d3be37e8",
+    "恩": "f4f1aa0b8f9c1c6a29d3b3e740deb7ec22a6ec8215f56cee8006702e808980c6",
+    "掌": "0a2ba798d1d93fc55410383fed398d70fa0afb876c91a94f1eed80a9f0d2063d",
+    "恐": "c50e508aa77d3011aa214e1a2034fdc581fe4e0b2266955ef104424b0cc016b2",
+    "遗": "7662ef4395efb3959a146d790b274e374b934f67ea842c7aaa74f7966c5ec694",
+    "固": "1ac529136dd3dfdf7901cf4a9f653d8fb19055639966dc379eef740abcd0a346",
+    "席": "988cbb2d4c0054cba8f195e3eda8ccda842a37a06ee8cf0b0938311ea0a84536",
+    "松": "c7cd69a84c2a5d2f453628926c790d5fa504c2de29b37b53b65dc0974d3ff21e",
+    "秘": "38961d887d51ee7a90af3a309b90f43e97cfe9821331647d6f26dcc81bc20f90",
+    "谢": "9f68c6a28d3632f77ac32ea4d31945ed760b8d98a133e7516a11854991de1f39",
+    "鲁": "286e15c5df9536e80699446f22236d97edd8ae310461aa17edda2ccb30ab3541",
+    "遇": "6cf71232e61fa58c33ca974d586242784d491e69031ff4a1802adbe844ab8485",
+    "康": "1dea627d79324e2da366c832bf809569cc3a8ce1a102aa345505741a3ef88209",
+    "虑": "81a937b3f50d4feca90bf118ab958bcd0f766939997cc7b896335b352c72fb50",
+    "幸": "3d739b34e17bacfc76613d6df85f141fcad5e5fb37eb39420de377ad9948e5d2",
+    "均": "f0f2f0016d52ac24c33ccdeb1b67a648dfaf895be529e152d96a64e82ab21912",
+    "销": "b3dc7d1d72ba579c52e947e2a4a5984b9e0122107b5fb41b852ca62faed0a415",
+    "钟": "1fabcc4a9fd6f6a72549fa7b2bc4e7e8d3bda80832bd648cf0a86c61b15f803b",
+    "诗": "befb3f5484fe9f89f0e7933ab829ef6858356aeddedd8f44e60ee53eb8885e75",
+    "藏": "46b0d6807916f0151338416afa80f24ddff44c11135b8ce7a162cb4805e0c2fd",
+    "赶": "d2c13b8b0db5b41566bbc935261611cc6b36ad1485ead960cc1f49dca726815b",
+    "剧": "19b4fb413ca756cf1a239c0f6604cfb4862fb46bfbe0d59a4a728267bfef10a9",
+    "票": "1a5148515c501dae354047e18ed65b8e2241ae79e057de3d6459fd37d090b73c",
+    "损": "d63a967192534f86a7ef18be538278a47b65dc0752e2be2c8ed2949d03ef3f93",
+    "忽": "8acc15fff210ce5695d4817a1409b9d0c09d448c4422c0ccb34fafe53c3e62fe",
+    "巨": "d958a9dc9f2028b324bca7a52723cbbe76b07fd7b479f893c5b05be91ab4b23e",
+    "炮": "e1e786beee70923ad9764b8d5c4b4a555f3ab383349695e6b9b654a75dbcbd9f",
+    "旧": "5af1ed6852220f4bb0641e26d68f6469b6cc62d221dbc57b139021acb40e230a",
+    "端": "b85787420a286f56475fdd3fa74fff9fcd913ff2d30bbc6d6b66da1f55cae36b",
+    "探": "7eadf993430892cb3e760a1bc24b8463584dd0e748f4b5cf56609ba9507d8e85",
+    "湖": "e9a728409522ebd7ced427cff5618001a6ea011aad8f11b51ad9e19a3edfe5ec",
+    "录": "83bffef739bb579f5fbb7961994b688f0e4ac2425cd1fc8790d240a5ce50dda8",
+    "春": "7361a998c0e3ff79799c803caa9a3c11173d063ab0206338d8c1b06116c118d8",
+    "乡": "54de21591a048ce760457d1d35716cfe7db71a56532f346df96d25e7231ea37b",
+    "附": "786d9dde60b066d65935613eca39414a1254a4daeb5941b444473f32d76976d8",
+    "吸": "468f805d4d0220618727fc6d9eca85cf58efb8fd3534bc7890434c04299074b3",
+    "予": "dbcd7777407d086234b2959f4ee8c1527073cd9ecfc97c7eaab9f487ce20ee1f",
+    "礼": "b64a8b349e5dcf21063460449470b3ad6cf81f0ed93d5fbf30f9d5081b824d60",
+    "港": "27ca9f2c0864c62f088e21770bb000f200dbf258a2ea5442285c0e65b006764c",
+    "呀": "de3b4032ea8b4ca9001d537dccca998d86d7b1772e742325fe15cb7701d06f46",
+    "板": "4f751963b04997b13821c7a76685bc56f9e01b1e76c9ae480e432635b1edd324",
+    "庭": "db3b18e6d03a08fba10f6c896512440e8f064c911b865241a128d6ae9600c14e",
+    "妇": "0375fd9f2b85cd3d5b9ef89af733f3fc1c6174d1ece1b42c84bcb1ae81565112",
+    "归": "80b7413489e7ba74b1ccb43e1b1053da57cd50a278ddbfcd178624269cbebe4b",
+    "睛": "ed500e630453e126a0283937b80c432c112a78ef9fb2f62c6a11d2a8eb148cbe",
+    "额": "eeb5f906cd27a059341414b00ee27823e08a92a5493cde182ae0d9a718cec365",
+    "含": "85bf186ba1a3aabcf52bd9618d62603034168507933647681a9fdf48004cfdc3",
+    "顺": "441d86ce4872794a65152354c86a6d5e1ef422a91711de7f2710cffa4ba6fe68",
+    "输": "59f4f0bedc1e23cf027abf17a5f39b968705f6f0edd658cdabb50adfcf295a68",
+    "摇": "c7541712cd46c1705af6fe13ae3d5c9d461f40c8c647519cce3afbef3fb808f8",
+    "招": "3b6b08eeafd0b3dbf61b9e2f4402bfa5ee183e9f839f647566c447fbbd401355",
+    "婚": "a3be7dc4d4d540ec916e568bc8896ee73004d7d5d4cc17bbb3c0c3f187f85740",
+    "脱": "d6418052ba874eec7cfa9f5b47c7547d9399c39f1afc9ea9833526c34bdecb18",
+    "补": "42122253ffdf5518f5951aa78cd06f12a070fae8df827afef660f7f5761fed5c",
+    "谓": "1252a9d3a2256d0d0ec5240031fa04040389f0b4cfe7f967ab03cb24e2e07b64",
+    "督": "71901f63263911ff36fb688691a5e7fd62b9c6dec701d4d149bdbd9258f8b959",
+    "毒": "2eeef7b98f8b729b80d811d467eaf2ca4592143f6edaf1132941c426ec22f3f4",
+    "油": "bf5faa92c1f13261c2d1fe68fd41b74f2702e8db6f1794d5e6817419ef5b1c33",
+    "疗": "34ab06305ce98a63a8f7cec112f3616dfad329554a570d6e269d98a9224ba4a3",
+    "旅": "e7dac418b4784a719fa2902b50f5f6e6a4ef998362ea1a0e9e4edfa3a2e06177",
+    "泽": "8841e5e2d3b896d7bf16e586613793c046452e3bb102a110c6967339f0677782",
+    "材": "1d27454321b2af9f437fbe2515a41bd1752fbc3816f020687e6cefac868afb88",
+    "灭": "8babbb6cdb6b6fa3bdaf2f193bdf5218c521aeba6253e7dcc610f1d23d58476b",
+    "逐": "8785953296127fbee7a933fbf6d5afdb726e0d7f62768dee49a9e0520b924cba",
+    "莫": "a0415a3eb18db1175db32e1532b9eda4521367fcb4416631609c208abcaa174e",
+    "亡": "5ae0026be397258b4f7aca46f7320af4767c7c216115ed678f8c81eccadd9e2f",
+    "鲜": "a8204f212fd28e7135f1c49ca1dc19c4903b4b4271e3d74220d6cbba929a0edc",
+    "词": "803756873dd3f51ed6ef6c9833c4eaa14a3463038ab1a49bc5c5e4ef315464d7",
+    "圣": "eb0e86465e6782b1c9bfa2231aab0233e2c3783435cf7538d18616c764f74218",
+    "择": "b51e607df3ae39b06ba8930c943756de80fdff00d1b3911a82d4b1d08c58d473",
+    "寻": "b4a97442c3e3e54ae71bf3778c07e0b0486b464f72a2e36228d4dcba5b0c5124",
+    "厂": "2313e9675adefdeacccef76ac9df3dc895eee2759b65a1e711cf8e39f2b3dd45",
+    "睡": "710a112d0619bac3b72adb23fd7e0067da7a126fc4db8f40ac82d9626588fd2b",
+    "博": "1a33af6067ac908a214432193b901b27f11be6d4180bacf658b4fd4a446c4c34",
+    "勒": "7c6baa2cf0eeef88aefb13c6945ed85a62e54daabe1431774b355ab0f444415c",
+    "烟": "3455407f8264b0619aef173584ed64333053bd12833cf3a3572a756e95c2273d",
+    "授": "451dbc5429bce1b71c2e647f179c5c493089782f5253b11820b4495c448aec6f",
+    "诺": "7b38e4e56b4d9459e03714d349f4eeceb19b2eb9bb2e035b614788439bcbfe5d",
+    "伦": "a52134dbbf7ac0f49ebaf4013f9596d5d26f5f441b17625f7b4614facad1c58f",
+    "岸": "9373e5132a46bf80d9e5b2d8fed4fb6a960132eed75fc7687a7fee8091bdb47d",
+    "奥": "b1631facd0f41ce248bea50b72ef9c9376ac0a777abaeccbfc9f11f84ea7a686"
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "scope": [
+    "poem-111",
+    "poem-112",
+    "poem-127",
+    "poem-133",
+    "poem-137",
+    "poem-141",
+    "poem-152",
+    "poem-163",
+    "poem-174",
+    "poem-208"
+  ],
+  "reviewedAt": "2026-10-02",
+  "method": [
+    "独立于前220篇内容编写者，逐篇读取当前生成的完整原文、背景、全部解释、活动与题解。",
+    "联网读取所列古籍正文；以原诗语义核对后半段覆盖，并将史事、修辞、反事实与现代价值说明分开。",
+    "来源定位为本轮工具正文行或古籍章段，可能随页面排版改变，应以章段及作品名称复核。",
+    "仅记录审查结果与建议，没有直接修改生成器或 poems.json；没有声称真人审稿或已听完整音频。"
+  ],
+  "summary": {
+    "poemsReviewed": 10,
+    "fullTextCoveragePassed": 10,
+    "harmfulValueBoundaryPassed": 10,
+    "requiredTextFixes": 1,
+    "sourceStrengtheningRecommendations": 5,
+    "optionalClarifications": 1
+  },
+  "reviews": [
+    {
+      "id": "poem-111",
+      "title": "集灵台·其一",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "4a5c626b6bbe7e867b92da34255c57059bc9d0d0bcfc694dabd3ed34cea4183e",
+      "fullTextCoverage": "两段分别覆盖晨光红花晓露与上皇授箓、太真入帘；题目解释授箓，未跳过后两句。",
+      "ageAndValueReview": "保留宫廷宠幸的讽刺读法，活动先辨景物且注明历史由成人陪读，没有鼓励以受宠决定价值。",
+      "evidence": [
+        {
+          "work": "旧唐书·后妃上·杨贵妃",
+          "url": "https://zh.wikisource.org/wiki/舊唐書/卷51",
+          "locator": "杨贵妃传首段，网页正文 L257",
+          "support": "记太真之号、杨氏身份及宫廷礼遇；授箓为道教术语，诗中确有宫廷仪式。",
+          "limits": "史传能支持身份与礼遇，不能证明诗写某次仪式的日期；讽意属于诗的解释。"
+        }
+      ],
+      "issues": [],
+      "suggestedPatch": {}
+    },
+    {
+      "id": "poem-112",
+      "title": "集灵台·其二",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "88ba11f8f98f638f2d4839efb210e83b0210724237193cc81c601eef63fc97ec",
+      "fullTextCoverage": "从受宠、早晨骑马入宫，到淡扫蛾眉朝至尊均有解释。",
+      "ageAndValueReview": "解释蛾眉不是昆虫；活动明确人的价值不由妆容或受宠决定，讽刺对象是特权。",
+      "evidence": [
+        {
+          "work": "旧唐书·后妃上·杨贵妃",
+          "url": "https://zh.wikisource.org/wiki/舊唐書/卷51",
+          "locator": "杨贵妃传首段，网页正文 L257–258",
+          "support": "记贵妃姊封虢国、承恩泽出入宫掖；与诗中的承主恩和入宫相互印证。",
+          "limits": "来源支持所列事实；本报告的语义判断由原文逐句核对得出，不把诗歌修辞当作史事档案。"
+        }
+      ],
+      "issues": [],
+      "suggestedPatch": {}
+    },
+    {
+      "id": "poem-127",
+      "title": "与史郎中饮听黄鹤楼上吹笛",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "needs_text_fix",
+      "snapshotSha256": "be0e60ba35d6eaea425f2d0cc734286001827a4261820ff53371c657443f27a3",
+      "fullTextCoverage": "释义覆盖被贬远行、望长安、黄鹤楼笛声与梅花落曲名；不是把五月写成真实落梅时令。",
+      "ageAndValueReview": "活动听笛声产生想象，并说清画面是想象，问答拒绝把曲名当气象记录。",
+      "evidence": [
+        {
+          "work": "李太白全集·卷二十三",
+          "url": "https://zh.wikisource.org/wiki/李太白全集/卷二十三",
+          "locator": "与史郎中欽（缪本作饮）听黄鹤楼上吹笛，网页正文 L532–538",
+          "support": "列此诗全文，题名是郎中，并以乐府诗集说明梅花落为笛曲。",
+          "limits": "现有 ctext chapter=585535 入口本轮返回错误，未据该入口认定已核实；采用可直接读到的古籍注本。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "background",
+          "severity": "medium",
+          "problem": "当前标题已是郎中，背景仍说朗中保留来源字形，形成已经修复后遗留的矛盾说明。",
+          "recommendation": "删除该句；保留曲名解释与未确定日期。"
+        },
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "原 ctext 入口本轮不可读。",
+          "recommendation": "改为已直接核实的李太白全集卷二十三。"
+        }
+      ],
+      "suggestedPatch": {
+        "background": "《李太白全集》卷二十三列此诗，并引《乐府诗集》说明《梅花落》是笛中曲。诗由迁客望乡写到笛声引出的落花想象，不是断言五月城中遍地梅花；具体创作日期本课未确证。",
+        "backgroundSource": "https://zh.wikisource.org/wiki/李太白全集/卷二十三"
+      }
+    },
+    {
+      "id": "poem-133",
+      "title": "阳关曲·中秋月",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass",
+      "snapshotSha256": "2448dd407834e609951133e8a6e965352e94967aedf117e1384900c0394b7401",
+      "fullTextCoverage": "两段覆盖云散银河圆月与此生此夜、明年何处看的聚散感；没有只讲前半段。",
+      "ageAndValueReview": "珍惜当前团聚，允许未来相聚不确定，活动不要求儿童作悲伤或离别的定论。",
+      "evidence": [
+        {
+          "work": "苏轼·书彭城观月诗",
+          "url": "https://zh.wikisource.org/wiki/書彭城觀月詩",
+          "locator": "全文，网页正文 L109–113",
+          "support": "作者自引四句并说与子由中秋观月于彭城，以阳关歌之，支持苏轼、宋代与阳关曲归属。",
+          "limits": "更正上游误署有作者自述支持；未添加没有核实的公历日期。"
+        }
+      ],
+      "issues": [],
+      "suggestedPatch": {}
+    },
+    {
+      "id": "poem-137",
+      "title": "泊秦淮",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_source_recommendation",
+      "snapshotSha256": "b1ab7ef0dd1e1b6c741a9b5d5f2535a831928549c77e277c299b9007b7f1300c",
+      "fullTextCoverage": "前段解释烟水月沙与夜泊，后段解释对岸旧曲引起亡国忧思，四句均覆盖。",
+      "ageAndValueReview": "没有把亡国归罪于唱歌女性，注意君王与听歌享乐者的责任；孩子以景物、亲子讨论进入。",
+      "evidence": [
+        {
+          "work": "唐诗三百首上游原文快照",
+          "url": "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/蒙学/tangshisanbaishou.json",
+          "locator": "泊秦淮条目",
+          "support": "支持诗的正文与作者。",
+          "limits": "该 JSON 是古诗原文的数据载体，本身没有为陈后主曲名提供独立历史注释。"
+        },
+        {
+          "work": "陈书·卷七·魏征补注",
+          "url": "https://zh.wikisource.org/wiki/陳書/卷7",
+          "locator": "魏征补注，网页正文 L186",
+          "support": "记陈后主命人赋诗制曲，并列玉树后庭花曲名。",
+          "limits": "来源支持所列事实；本报告的语义判断由原文逐句核对得出，不把诗歌修辞当作史事档案。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "当前只链原诗 JSON，陈后主曲名这一额外历史断言可给更直接的文献。",
+          "recommendation": "建议使用陈书卷七，或在来源证据文件中并列陈书与原文。"
+        }
+      ],
+      "suggestedPatch": {
+        "backgroundSource": "https://zh.wikisource.org/wiki/陳書/卷7"
+      }
+    },
+    {
+      "id": "poem-141",
+      "title": "赤壁",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_source_recommendation",
+      "snapshotSha256": "f75fdb5f322e1daa5226b1bfa839c44e478f6a01894656cd329a2a7df3747119",
+      "fullTextCoverage": "断戟磨洗辨前朝与东风条件、二乔假想均解释，正确把后二句看作反事实。",
+      "ageAndValueReview": "题目与活动用如果、可能区分假想与发生；没有把女性囚禁当作真实已发生结局。",
+      "evidence": [
+        {
+          "work": "唐诗三百首上游原文快照",
+          "url": "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/蒙学/tangshisanbaishou.json",
+          "locator": "赤壁条目",
+          "support": "支持杜牧诗全文和东风不与的条件表达。",
+          "limits": "该快照并不单独考证人物关系。"
+        },
+        {
+          "work": "三国志·卷五十四·周瑜",
+          "url": "https://zh.wikisource.org/wiki/三國志/卷54",
+          "locator": "周瑜传，网页正文 L132、L137",
+          "support": "记周郎称呼、桥公二女与孙策周瑜的关系；记赤壁火攻及裴注江表传的东南风。",
+          "limits": "这里只用正史支持人物与战事背景，不将三国演义借东风或锁二乔情节当作史实。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "当前只链原诗 JSON，周瑜与二乔历史人物背景可给正史依据。",
+          "recommendation": "建议换三国志卷五十四，并保留诗的反事实边界。"
+        }
+      ],
+      "suggestedPatch": {
+        "backgroundSource": "https://zh.wikisource.org/wiki/三國志/卷54"
+      }
+    },
+    {
+      "id": "poem-152",
+      "title": "出塞二首·其一",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_source_recommendation",
+      "snapshotSha256": "de547c8ff23205a2a8cfd7c39b6508201a97365c731c97b601c3643d134bbec5",
+      "fullTextCoverage": "解释秦汉古今边关、人未还、盼善战将领止侵扰，涵盖前后两联。",
+      "ageAndValueReview": "没有把胡马对应今天任何民族；重点在征战代价、平安与和平，未煽动对现实群体敌意。",
+      "evidence": [
+        {
+          "work": "唐诗三百首上游原文快照",
+          "url": "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/蒙学/tangshisanbaishou.json",
+          "locator": "出塞条目",
+          "support": "支持秦汉关月、人未还及龙城飞将原句。",
+          "limits": "秦汉互文、守护与减少征战的愿望是结合全文的解释。"
+        },
+        {
+          "work": "阎若璩·潜邱札记·卷三",
+          "url": "https://zh.wikisource.org/wiki/潛邱劄記_(四庫全書本)/卷3",
+          "locator": "王少伯出塞诗校勘段，网页正文 L139",
+          "support": "讨论龙城、卢城版本，并联系李广、龙城地理解释，证明古人已对字形与典故作不同解说。",
+          "limits": "不据此把李广、卫青或龙城地望确定为唯一答案；维持课程中明确有争议的边界。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "背景提到典故有分歧，但所链 JSON 未列出争议证据。",
+          "recommendation": "建议加入潜邱札记的具体校勘段，避免只有原文链接。"
+        }
+      ],
+      "suggestedPatch": {
+        "backgroundSource": "https://zh.wikisource.org/wiki/潛邱劄記_(四庫全書本)/卷3"
+      }
+    },
+    {
+      "id": "poem-163",
+      "title": "马嵬坡",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_source_recommendation",
+      "snapshotSha256": "8a1b5813b837050773773d5abbca200ffe9246ac5e8fdddab616af5288e5b179",
+      "fullTextCoverage": "两段覆盖玄宗回马、杨妃已死、云雨日月及景阳井的历史对照，末句未漏。",
+      "ageAndValueReview": "明确圣明赞讽有异解，古代君王评判不等于今天生命价值；成人辨析女性悲剧，活动强调尊重生命。",
+      "evidence": [
+        {
+          "work": "旧唐书·后妃上·杨贵妃",
+          "url": "https://zh.wikisource.org/wiki/舊唐書/卷51",
+          "locator": "杨贵妃传末段，网页正文 L259–261",
+          "support": "记马嵬杨妃死亡与上皇自蜀归来后祭奠，支持对照的一端。",
+          "limits": "来源支持所列事实；本报告的语义判断由原文逐句核对得出，不把诗歌修辞当作史事档案。"
+        },
+        {
+          "work": "陈书·卷七·张丽华",
+          "url": "https://zh.wikisource.org/wiki/陳書/卷7",
+          "locator": "张贵妃传，网页正文 L182",
+          "support": "记隋军入台城后陈后主与妃俱入井，支持景阳井典故的历史线索。",
+          "limits": "称该井景阳井还见李太白集注卷七所引陈书、六朝事迹；对圣明语气保留不同解读。"
+        },
+        {
+          "work": "李太白集注·卷七",
+          "url": "https://zh.wikisource.org/wiki/李太白集注_(四庫全書本)/卷07",
+          "locator": "金陵歌送别范宣注，天子龙沉景阳井处",
+          "support": "引陈书后主闻兵至出景阳殿投井，并引六朝事迹称景阳宫井。",
+          "limits": "来源支持所列事实；本报告的语义判断由原文逐句核对得出，不把诗歌修辞当作史事档案。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "当前只链原诗 JSON，没有直接连到马嵬、景阳井典故材料。",
+          "recommendation": "在来源证据中并列旧唐书51、陈书7与李太白集注7；可用李太白集注7作当前主链接。"
+        }
+      ],
+      "suggestedPatch": {
+        "backgroundSource": "https://zh.wikisource.org/wiki/李太白集注_(四庫全書本)/卷07"
+      }
+    },
+    {
+      "id": "poem-174",
+      "title": "烈女操",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_optional_clarification",
+      "snapshotSha256": "c1c18b7338c7e430a7731e6b4f7c64aa18b06b905dec85cc05ddc4a1c12971df",
+      "fullTextCoverage": "首联梧桐鸳鸯比喻、中联殉夫舍生观念、末联古井心志都在两段解释中出现，未美化或略过殉夫。",
+      "ageAndValueReview": "明确生命和自主受尊重，伤害生命不能证明感情；问答理解旧观念不等于认同，成人陪读安排合适。",
+      "evidence": [
+        {
+          "work": "唐诗三百首上游原文快照",
+          "url": "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/蒙学/tangshisanbaishou.json",
+          "locator": "烈女操条目",
+          "support": "支持梧桐鸳鸯、贞女殉夫舍生、古井水全文。",
+          "limits": "生命和自主的现代价值说明是课程判断，未冒充古作者价值，也没有声称特定成诗年月。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "interpretation[0]",
+          "severity": "optional",
+          "problem": "已经说是比喻，可再明确鸳鸯会双死不是动物行为科普，避免儿童与动物园知识混淆。",
+          "recommendation": "可补一句这是诗人的伴侣比喻，并不是说真实鸳鸯一定同时死亡。"
+        }
+      ],
+      "suggestedPatch": {}
+    },
+    {
+      "id": "poem-208",
+      "title": "寄左省杜拾遗",
+      "reviewer": "independent automated assistant review by zoo_game, not a human editor",
+      "result": "pass_with_source_recommendation",
+      "snapshotSha256": "f26f33cf55ee7d1e3fc03e4567267fcbd477a7e5eb81d3d4b59bac38f83ce2f3",
+      "fullTextCoverage": "首两联同趋宫阶分曹、早入晚归，与末两联白发花落羡鸟、谏书稀均覆盖。",
+      "ageAndValueReview": "未把圣朝无阙事当历史毫无缺点，保留颂辞/反讽边界；合作分工活动允许提出改善建议。",
+      "evidence": [
+        {
+          "work": "唐诗三百首上游原文快照",
+          "url": "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/蒙学/tangshisanbaishou.json",
+          "locator": "寄左省杜拾遗条目",
+          "support": "支持标题、作者与四联原文。",
+          "limits": "反讽语气属于结合花落羡鸟、谏官职责的解释，不说已经史证朝廷毫无缺点。"
+        },
+        {
+          "work": "胡仔·苕溪渔隐丛话·后集五",
+          "url": "https://zh.wikisource.org/zh-hant/苕溪漁隱叢話/後集05",
+          "locator": "苕溪渔隐引职林及杜诗答岑补阙段",
+          "support": "说明补阙拾遗掌供奉讽谏，左属门下右属中书，并将岑诗与杜甫答诗相参，支持杜拾遗身份与分曹背景。",
+          "limits": "来源支持所列事实；本报告的语义判断由原文逐句核对得出，不把诗歌修辞当作史事档案。"
+        }
+      ],
+      "issues": [
+        {
+          "field": "backgroundSource",
+          "severity": "low",
+          "problem": "当前只链原诗 JSON，左右省与杜拾遗身份可有更具体的古文献依据。",
+          "recommendation": "建议换苕溪渔隐丛话后集五，保留颂辞/反讽解释的不确定边界。"
+        }
+      ],
+      "suggestedPatch": {
+        "backgroundSource": "https://zh.wikisource.org/zh-hant/苕溪漁隱叢話/後集05"
+      }
+    }
+  ]
+}

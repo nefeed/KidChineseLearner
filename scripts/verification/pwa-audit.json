@@ -1,0 +1,1575 @@
+{
+  "generatedAt": "2026-10-02T10:10:48.978Z",
+  "origin": "http://192.168.31.48:61365",
+  "scope": "Home Screen installation metadata and browser UI; physical iPad installation was not automated",
+  "implementation": {
+    "manifestDisplay": "standalone",
+    "orientation": "any",
+    "appleMobileWebAppCapable": true,
+    "viewportFit": "cover",
+    "zoomDisabled": false,
+    "serviceWorker": false,
+    "applicationControlledAudioCache": false,
+    "offlinePromised": false,
+    "headerControls": 1,
+    "minimumHeaderTouchTargetPx": 44
+  },
+  "probes": [
+    {
+      "engine": "chromium",
+      "version": "154.0.8037.93",
+      "environment": {
+        "secureContext": false,
+        "serviceWorkerExposed": false,
+        "cacheStorageExposed": false,
+        "viewport": {
+          "width": 820,
+          "height": 1180
+        },
+        "safeAreaInsets": {
+          "top": "0px",
+          "right": "0px",
+          "bottom": "0px",
+          "left": "0px"
+        },
+        "headerControls": 1
+      },
+      "headerControlPixels": {
+        "width": 44,
+        "height": 44
+      },
+      "pageErrors": [],
+      "audioClipRequestsWhileMuted": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "environment": {
+        "secureContext": false,
+        "serviceWorkerExposed": false,
+        "cacheStorageExposed": false,
+        "viewport": {
+          "width": 820,
+          "height": 1180
+        },
+        "safeAreaInsets": {
+          "top": "0px",
+          "right": "0px",
+          "bottom": "0px",
+          "left": "0px"
+        },
+        "headerControls": 1
+      },
+      "headerControlPixels": {
+        "width": 44,
+        "height": 44
+      },
+      "pageErrors": [],
+      "audioClipRequestsWhileMuted": []
+    }
+  ],
+  "icons": [
+    {
+      "file": "public/icons/island.svg",
+      "bytes": 819
+    },
+    {
+      "file": "public/icons/island-192.png",
+      "bytes": 8955
+    },
+    {
+      "file": "public/icons/island-512.png",
+      "bytes": 23272
+    },
+    {
+      "file": "public/icons/island-maskable-512.png",
+      "bytes": 23272
+    },
+    {
+      "file": "public/icons/apple-touch-icon.png",
+      "bytes": 8443
+    },
+    {
+      "file": "public/icons/apple-touch-icon-167.png",
+      "bytes": 7795
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/",
+      "supports": "HTTP or HTTPS Home Screen additions and standalone manifest behavior; Apple touch icon precedence"
+    },
+    {
+      "url": "https://support.apple.com/en-mide/guide/ipad/ipad8f1f7a29/ipados",
+      "supports": "Safari Share > View More > Add to Home Screen, Open as Web App"
+    },
+    {
+      "url": "https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html",
+      "supports": "Apple standalone metadata and navigator.standalone"
+    },
+    {
+      "url": "https://w3c.github.io/ServiceWorker/",
+      "supports": "ServiceWorker and CacheStorage require SecureContext"
+    },
+    {
+      "url": "https://webkit.org/blog/7929/designing-websites-for-iphone-x/",
+      "supports": "viewport-fit=cover and environment safe area insets"
+    }
+  ],
+  "headerControlPixels": {
+    "width": 44,
+    "height": 44
+  },
+  "browserRegression": {
+    "testFile": "tests/pwa.spec.ts",
+    "chromium": {
+      "passedCases": 8,
+      "realFullscreenEnterAndExit": true
+    },
+    "webkit": {
+      "passedCases": 7,
+      "skippedCases": 1
+    },
+    "evidence": "Final full Chromium and WebKit suites passed against the production bundle served by createLanServer(dist) on a separate temporary port.",
+    "simulatedCases": [
+      "iPad desktop user agent and touch capability",
+      "navigator.standalone",
+      "display-mode standalone",
+      "beforeinstallprompt and userChoice",
+      "fullscreen rejection"
+    ],
+    "commands": [
+      "PWA_TEST_ENGINE=chromium PWA_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/pwa.spec.ts --workers=1",
+      "PWA_TEST_ENGINE=webkit PWA_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/pwa.spec.ts --workers=1"
+    ],
+    "linuxCI": {
+      "browserInstall": "npx playwright install --with-deps chromium webkit",
+      "environment": {
+        "PLAYWRIGHT_CHANNEL": "chromium"
+      },
+      "productionServer": "Build first, then start the repository LAN server on port 5173; browser commands target its localhost URL."
+    },
+    "productionRuns": [
+      {
+        "engine": "chromium",
+        "exitCode": 0,
+        "stats": {
+          "startTime": "2026-10-02T09:58:34.205Z",
+          "duration": 15390.5,
+          "expected": 8,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "manifest, Apple metadata and every PNG load as usable installation assets",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1036
+              }
+            ]
+          },
+          {
+            "title": "desktop user agent on a touch iPad gets Safari instructions and a compact control",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1399
+              }
+            ]
+          },
+          {
+            "title": "standalone windows hide the installation control and pageshow rechecks mode",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 998
+              }
+            ]
+          },
+          {
+            "title": "display-mode standalone also hides the control without Apple navigator fields",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1070
+              }
+            ]
+          },
+          {
+            "title": "installation guide traps keyboard focus, closes with Escape and restores focus",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1127
+              }
+            ]
+          },
+          {
+            "title": "a deferred native install prompt is invoked only by the install action",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 944
+              }
+            ]
+          },
+          {
+            "title": "fullscreen rejection keeps a useful installation fallback",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 872
+              }
+            ]
+          },
+          {
+            "title": "entering fullscreen retains one visible exit control and exits cleanly",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 792
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "engine": "webkit",
+        "exitCode": 0,
+        "stats": {
+          "startTime": "2026-10-02T09:58:50.707Z",
+          "duration": 11643.418,
+          "expected": 7,
+          "skipped": 1,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "manifest, Apple metadata and every PNG load as usable installation assets",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1534
+              }
+            ]
+          },
+          {
+            "title": "desktop user agent on a touch iPad gets Safari instructions and a compact control",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 1527
+              }
+            ]
+          },
+          {
+            "title": "standalone windows hide the installation control and pageshow rechecks mode",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 684
+              }
+            ]
+          },
+          {
+            "title": "display-mode standalone also hides the control without Apple navigator fields",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 576
+              }
+            ]
+          },
+          {
+            "title": "installation guide traps keyboard focus, closes with Escape and restores focus",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 881
+              }
+            ]
+          },
+          {
+            "title": "a deferred native install prompt is invoked only by the install action",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 827
+              }
+            ]
+          },
+          {
+            "title": "fullscreen rejection keeps a useful installation fallback",
+            "ok": true,
+            "results": [
+              {
+                "status": "passed",
+                "durationMs": 794
+              }
+            ]
+          },
+          {
+            "title": "entering fullscreen retains one visible exit control and exits cleanly",
+            "ok": true,
+            "results": [
+              {
+                "status": "skipped",
+                "durationMs": 301
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Physical iPad Share > Add to Home Screen, resulting OS icon and standalone launch were not directly operated.",
+    "Native OS installation was not executed; deferred install prompt control flow used a synthetic event.",
+    "Safe-area inset CSS is present but browser emulation reported zero insets; physical home indicator and status bar behavior still require an iPad.",
+    "WebKit real Fullscreen API entry was not asserted; unsupported and rejected API branches were verified.",
+    "Current local origin uses HTTP and requires the host server and LAN connection; there is no offline promise or audio precache."
+  ],
+  "buildMode": "production-bundle",
+  "server": {
+    "implementation": "createLanServer(dist)",
+    "temporaryPort": true,
+    "stoppedAfterVerification": true
+  },
+  "productionBundle": {
+    "directory": "dist",
+    "files": [
+      {
+        "file": "dist/index.html",
+        "bytes": 1190,
+        "sha256": "a585f7abd34e0077f52df9898adee6252fcc423ae75d7d42b813e07d94705404"
+      },
+      {
+        "file": "dist/manifest.webmanifest",
+        "bytes": 724,
+        "sha256": "1cffb93a34e2138f53dd31ab8b2fca72d5ba8606856fb419fa73ba3f029cea0a"
+      },
+      {
+        "file": "dist/assets/index-BLFrwouG.js",
+        "bytes": 1503127,
+        "sha256": "61cac21d36e93d6187ed13b20eec9621ab1652369f672e010fb199f4638b3585"
+      },
+      {
+        "file": "dist/assets/index-l6acPU0k.css",
+        "bytes": 109418,
+        "sha256": "ca69a7f65a22188d922f0f4e09d9e3f908285d4f3dd23a404e1d57ea79cc8c01"
+      }
+    ],
+    "audioScope": "Muted PWA fixtures only; unfinished voice release assets were not validated by this run."
+  },
+  "narrowScreenProductionProbe": {
+    "method": "Independent muted Playwright contexts against createLanServer(dist) on a temporary loopback port; no source changes or complete-suite rerun.",
+    "checkedAt": "2026-10-02T10:10:48.978Z",
+    "pass": true,
+    "widths": [
+      375,
+      600,
+      820,
+      1180
+    ],
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "results": [
+      {
+        "engine": "chromium",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "page": {
+            "scrollWidth": 375,
+            "clientWidth": 375,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 102,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 142,
+              "bottom": 56
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 146,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 186,
+              "bottom": 56
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 190,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 234,
+              "bottom": 56
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 238,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 363,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "page": {
+            "scrollWidth": 375,
+            "clientWidth": 375,
+            "overflow": false
+          },
+          "guide": {
+            "x": 20,
+            "y": 72.0625,
+            "width": 335,
+            "height": 667.875,
+            "right": 355,
+            "bottom": 739.9375,
+            "scrollWidth": 335,
+            "clientWidth": 335,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 102,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 142,
+              "bottom": 56
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 146,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 186,
+              "bottom": 56
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 190,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 234,
+              "bottom": 56
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 287,
+              "y": 84.0625,
+              "width": 56,
+              "height": 56,
+              "right": 343,
+              "bottom": 140.0625
+            },
+            {
+              "label": "全屏小岛",
+              "x": 42,
+              "y": 607.9375,
+              "width": 124,
+              "height": 44,
+              "right": 166,
+              "bottom": 651.9375
+            },
+            {
+              "label": "知道啦",
+              "x": 42,
+              "y": 666.9375,
+              "width": 90,
+              "height": 48,
+              "right": 132,
+              "bottom": 714.9375
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 238,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 363,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": {
+          "width": 600,
+          "height": 900
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 600,
+            "height": 900
+          },
+          "page": {
+            "scrollWidth": 600,
+            "clientWidth": 600,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 292,
+              "y": 14,
+              "width": 36,
+              "height": 40,
+              "right": 328,
+              "bottom": 54
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 337,
+              "y": 6,
+              "width": 56,
+              "height": 56,
+              "right": 393,
+              "bottom": 62
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 402,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 446,
+              "bottom": 56
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 455,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 580,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 600,
+            "height": 900
+          },
+          "page": {
+            "scrollWidth": 600,
+            "clientWidth": 600,
+            "overflow": false
+          },
+          "guide": {
+            "x": 45,
+            "y": 138.3125,
+            "width": 510,
+            "height": 623.375,
+            "right": 555,
+            "bottom": 761.6875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 292,
+              "y": 14,
+              "width": 36,
+              "height": 40,
+              "right": 328,
+              "bottom": 54
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 337,
+              "y": 6,
+              "width": 56,
+              "height": 56,
+              "right": 393,
+              "bottom": 62
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 402,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 446,
+              "bottom": 56
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 487,
+              "y": 150.3125,
+              "width": 56,
+              "height": 56,
+              "right": 543,
+              "bottom": 206.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 75,
+              "y": 624.6875,
+              "width": 124,
+              "height": 44,
+              "right": 199,
+              "bottom": 668.6875
+            },
+            {
+              "label": "知道啦",
+              "x": 75,
+              "y": 683.6875,
+              "width": 90,
+              "height": 48,
+              "right": 165,
+              "bottom": 731.6875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 455,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 580,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": {
+          "width": 820,
+          "height": 1180
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "page": {
+            "scrollWidth": 820,
+            "clientWidth": 820,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 468,
+              "y": 16,
+              "width": 43,
+              "height": 43,
+              "right": 511,
+              "bottom": 59
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 527,
+              "y": 9.5,
+              "width": 56,
+              "height": 56,
+              "right": 583,
+              "bottom": 65.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 599,
+              "y": 15.5,
+              "width": 44,
+              "height": 44,
+              "right": 643,
+              "bottom": 59.5
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 659,
+              "y": 11.5,
+              "width": 135,
+              "height": 52,
+              "right": 794,
+              "bottom": 63.5
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "page": {
+            "scrollWidth": 820,
+            "clientWidth": 820,
+            "overflow": false
+          },
+          "guide": {
+            "x": 155,
+            "y": 278.3125,
+            "width": 510,
+            "height": 623.375,
+            "right": 665,
+            "bottom": 901.6875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 468,
+              "y": 16,
+              "width": 43,
+              "height": 43,
+              "right": 511,
+              "bottom": 59
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 527,
+              "y": 9.5,
+              "width": 56,
+              "height": 56,
+              "right": 583,
+              "bottom": 65.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 599,
+              "y": 15.5,
+              "width": 44,
+              "height": 44,
+              "right": 643,
+              "bottom": 59.5
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 597,
+              "y": 290.3125,
+              "width": 56,
+              "height": 56,
+              "right": 653,
+              "bottom": 346.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 185,
+              "y": 764.6875,
+              "width": 124,
+              "height": 44,
+              "right": 309,
+              "bottom": 808.6875
+            },
+            {
+              "label": "知道啦",
+              "x": 185,
+              "y": 823.6875,
+              "width": 90,
+              "height": 48,
+              "right": 275,
+              "bottom": 871.6875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 659,
+              "y": 11.5,
+              "width": 135,
+              "height": 52,
+              "right": 794,
+              "bottom": 63.5
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": {
+          "width": 1180,
+          "height": 820
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "page": {
+            "scrollWidth": 1180,
+            "clientWidth": 1180,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 814,
+              "y": 23,
+              "width": 43,
+              "height": 43,
+              "right": 857,
+              "bottom": 66
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 873,
+              "y": 16.5,
+              "width": 56,
+              "height": 56,
+              "right": 929,
+              "bottom": 72.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 945,
+              "y": 22.5,
+              "width": 44,
+              "height": 44,
+              "right": 989,
+              "bottom": 66.5
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 1005,
+              "y": 18.5,
+              "width": 135,
+              "height": 52,
+              "right": 1140,
+              "bottom": 70.5
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "page": {
+            "scrollWidth": 1180,
+            "clientWidth": 1180,
+            "overflow": false
+          },
+          "guide": {
+            "x": 335,
+            "y": 98.3125,
+            "width": 510,
+            "height": 623.375,
+            "right": 845,
+            "bottom": 721.6875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 814,
+              "y": 23,
+              "width": 43,
+              "height": 43,
+              "right": 857,
+              "bottom": 66
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 873,
+              "y": 16.5,
+              "width": 56,
+              "height": 56,
+              "right": 929,
+              "bottom": 72.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 945,
+              "y": 22.5,
+              "width": 44,
+              "height": 44,
+              "right": 989,
+              "bottom": 66.5
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 777,
+              "y": 110.3125,
+              "width": 56,
+              "height": 56,
+              "right": 833,
+              "bottom": 166.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 365,
+              "y": 584.6875,
+              "width": 124,
+              "height": 44,
+              "right": 489,
+              "bottom": 628.6875
+            },
+            {
+              "label": "知道啦",
+              "x": 365,
+              "y": 643.6875,
+              "width": 90,
+              "height": 48,
+              "right": 455,
+              "bottom": 691.6875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 1005,
+              "y": 18.5,
+              "width": 135,
+              "height": 52,
+              "right": 1140,
+              "bottom": 70.5
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "page": {
+            "scrollWidth": 375,
+            "clientWidth": 375,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 102,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 142,
+              "bottom": 56
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 146,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 186,
+              "bottom": 56
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 190,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 234,
+              "bottom": 56
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 238,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 363,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "page": {
+            "scrollWidth": 375,
+            "clientWidth": 375,
+            "overflow": false
+          },
+          "guide": {
+            "x": 20,
+            "y": 72.09375,
+            "width": 335,
+            "height": 667.796875,
+            "right": 355,
+            "bottom": 739.890625,
+            "scrollWidth": 335,
+            "clientWidth": 335,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 102,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 142,
+              "bottom": 56
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 146,
+              "y": 12,
+              "width": 40,
+              "height": 44,
+              "right": 186,
+              "bottom": 56
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 190.0003662109375,
+              "y": 12.000372886657715,
+              "width": 43.999267578125,
+              "height": 43.99925231933594,
+              "right": 233.9996337890625,
+              "bottom": 55.99962520599365
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 287,
+              "y": 84.09375,
+              "width": 56,
+              "height": 56,
+              "right": 343,
+              "bottom": 140.09375
+            },
+            {
+              "label": "全屏小岛",
+              "x": 42,
+              "y": 607.890625,
+              "width": 124,
+              "height": 44,
+              "right": 166,
+              "bottom": 651.890625
+            },
+            {
+              "label": "知道啦",
+              "x": 42,
+              "y": 666.890625,
+              "width": 90,
+              "height": 48,
+              "right": 132,
+              "bottom": 714.890625
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 238,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 363,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": {
+          "width": 600,
+          "height": 900
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 600,
+            "height": 900
+          },
+          "page": {
+            "scrollWidth": 600,
+            "clientWidth": 600,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 292,
+              "y": 14,
+              "width": 36,
+              "height": 40,
+              "right": 328,
+              "bottom": 54
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 337,
+              "y": 6,
+              "width": 56,
+              "height": 56,
+              "right": 393,
+              "bottom": 62
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 402,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 446,
+              "bottom": 56
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 455,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 580,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 600,
+            "height": 900
+          },
+          "page": {
+            "scrollWidth": 600,
+            "clientWidth": 600,
+            "overflow": false
+          },
+          "guide": {
+            "x": 45,
+            "y": 138.3125,
+            "width": 510,
+            "height": 623.359375,
+            "right": 555,
+            "bottom": 761.671875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 292,
+              "y": 14,
+              "width": 36,
+              "height": 40,
+              "right": 328,
+              "bottom": 54
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 337,
+              "y": 6,
+              "width": 56,
+              "height": 56,
+              "right": 393,
+              "bottom": 62
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 402,
+              "y": 12,
+              "width": 44,
+              "height": 44,
+              "right": 446,
+              "bottom": 56
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 487,
+              "y": 150.3125,
+              "width": 56,
+              "height": 56,
+              "right": 543,
+              "bottom": 206.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 75,
+              "y": 624.671875,
+              "width": 124,
+              "height": 44,
+              "right": 199,
+              "bottom": 668.671875
+            },
+            {
+              "label": "知道啦",
+              "x": 75,
+              "y": 683.671875,
+              "width": 90,
+              "height": 48,
+              "right": 165,
+              "bottom": 731.671875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 455,
+              "y": 8,
+              "width": 125,
+              "height": 52,
+              "right": 580,
+              "bottom": 60
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": {
+          "width": 820,
+          "height": 1180
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "page": {
+            "scrollWidth": 820,
+            "clientWidth": 820,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 468,
+              "y": 16,
+              "width": 43,
+              "height": 43,
+              "right": 511,
+              "bottom": 59
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 527,
+              "y": 9.5,
+              "width": 56,
+              "height": 56,
+              "right": 583,
+              "bottom": 65.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 599,
+              "y": 15.5,
+              "width": 44,
+              "height": 44,
+              "right": 643,
+              "bottom": 59.5
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 659,
+              "y": 11.5,
+              "width": 135,
+              "height": 52,
+              "right": 794,
+              "bottom": 63.5
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "page": {
+            "scrollWidth": 820,
+            "clientWidth": 820,
+            "overflow": false
+          },
+          "guide": {
+            "x": 155,
+            "y": 278.3125,
+            "width": 510,
+            "height": 623.359375,
+            "right": 665,
+            "bottom": 901.671875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 468,
+              "y": 16,
+              "width": 43,
+              "height": 43,
+              "right": 511,
+              "bottom": 59
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 527,
+              "y": 9.5,
+              "width": 56,
+              "height": 56,
+              "right": 583,
+              "bottom": 65.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 599,
+              "y": 15.5,
+              "width": 44,
+              "height": 44,
+              "right": 643,
+              "bottom": 59.5
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 597,
+              "y": 290.3125,
+              "width": 56,
+              "height": 56,
+              "right": 653,
+              "bottom": 346.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 185,
+              "y": 764.671875,
+              "width": 124,
+              "height": 44,
+              "right": 309,
+              "bottom": 808.671875
+            },
+            {
+              "label": "知道啦",
+              "x": 185,
+              "y": 823.671875,
+              "width": 90,
+              "height": 48,
+              "right": 275,
+              "bottom": 871.671875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 659,
+              "y": 11.5,
+              "width": 135,
+              "height": 52,
+              "right": 794,
+              "bottom": 63.5
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": {
+          "width": 1180,
+          "height": 820
+        },
+        "pass": true,
+        "home": {
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "page": {
+            "scrollWidth": 1180,
+            "clientWidth": 1180,
+            "overflow": false
+          },
+          "guide": null,
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 814,
+              "y": 23,
+              "width": 43,
+              "height": 43,
+              "right": 857,
+              "bottom": 66
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 873,
+              "y": 16.5,
+              "width": 56,
+              "height": 56,
+              "right": 929,
+              "bottom": 72.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 945,
+              "y": 22.5,
+              "width": 44,
+              "height": 44,
+              "right": 989,
+              "bottom": 66.5
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 1005,
+              "y": 18.5,
+              "width": 135,
+              "height": 52,
+              "right": 1140,
+              "bottom": 70.5
+            }
+          ],
+          "toolbarOverflow": false
+        },
+        "guide": {
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "page": {
+            "scrollWidth": 1180,
+            "clientWidth": 1180,
+            "overflow": false
+          },
+          "guide": {
+            "x": 335,
+            "y": 98.3125,
+            "width": 510,
+            "height": 623.359375,
+            "right": 845,
+            "bottom": 721.671875,
+            "scrollWidth": 510,
+            "clientWidth": 510,
+            "overflow": false
+          },
+          "toolbarButtons": [
+            {
+              "label": "打开声音",
+              "x": 814,
+              "y": 23,
+              "width": 43,
+              "height": 43,
+              "right": 857,
+              "bottom": 66
+            },
+            {
+              "label": "打开小岛音乐",
+              "x": 873,
+              "y": 16.5,
+              "width": 56,
+              "height": 56,
+              "right": 929,
+              "bottom": 72.5
+            },
+            {
+              "label": "添加到主屏幕",
+              "x": 945,
+              "y": 22.5,
+              "width": 44,
+              "height": 44,
+              "right": 989,
+              "bottom": 66.5
+            },
+            {
+              "label": "关闭主屏幕指南",
+              "x": 777,
+              "y": 110.3125,
+              "width": 56,
+              "height": 56,
+              "right": 833,
+              "bottom": 166.3125
+            },
+            {
+              "label": "全屏小岛",
+              "x": 365,
+              "y": 584.671875,
+              "width": 124,
+              "height": 44,
+              "right": 489,
+              "bottom": 628.671875
+            },
+            {
+              "label": "知道啦",
+              "x": 365,
+              "y": 643.671875,
+              "width": 90,
+              "height": 48,
+              "right": 455,
+              "bottom": 691.671875
+            },
+            {
+              "label": "切换儿童档案",
+              "x": 1005,
+              "y": 18.5,
+              "width": 135,
+              "height": 52,
+              "right": 1140,
+              "bottom": 70.5
+            }
+          ],
+          "toolbarOverflow": false
+        }
+      }
+    ]
+  }
+}

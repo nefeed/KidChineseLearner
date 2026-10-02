@@ -1,0 +1,514 @@
+{
+  "checkedAt": "2026-10-02T09:51:36.911509+00:00",
+  "planSHA256": "d72fb5ada746815606828718a180c56a7ee9169448af8750b34f1620ab439027",
+  "modelRevision": "01e7505bd6a7a2ac4975463114c3a7650a9f7218",
+  "voice": "zf_001",
+  "checkedHanziTargets": 1000,
+  "matchingHanziTargets": 1000,
+  "targetMismatches": [],
+  "acceptedToneSandhi": [
+    {
+      "char": "只",
+      "target": "zhǐ",
+      "spoken": "只有",
+      "surfacePhonemes": "ㄓ十2又3",
+      "reason": "Third tone becomes second tone before another third tone."
+    },
+    {
+      "char": "处",
+      "target": "chǔ",
+      "spoken": "处理",
+      "surfacePhonemes": "ㄔㄨ2ㄌㄧ3",
+      "reason": "Third tone becomes second tone before another third tone."
+    }
+  ],
+  "checkedQuotedQuizTemplates": 2000,
+  "quotedQuizMismatches": [],
+  "unrecognizedHanziQuizTemplates": [],
+  "quotedQuizOverrideGlyphs": 21,
+  "overrideSHA256": "5c2d67f5798bef5a15771be1e84a39e1d2a7cff0ec02ed6ccff26e1ac8940da5",
+  "overrideConfig": {
+    "version": 1,
+    "scope": [
+      "standalone-course-glyph",
+      "glyph-before-full-stop",
+      "exact-read-as-feedback",
+      "exact-pinyin-teaching-template",
+      "exact-quoted-quiz-glyph"
+    ],
+    "primaryReadings": {
+      "长": {
+        "pinyin": "cháng",
+        "phonemes": "ㄔㄤ2"
+      },
+      "地": {
+        "pinyin": "dì",
+        "phonemes": "ㄉㄧ4"
+      },
+      "子": {
+        "pinyin": "zǐ",
+        "phonemes": "ㄗㄭ3"
+      },
+      "调": {
+        "pinyin": "tiáo",
+        "phonemes": "ㄊ要2"
+      },
+      "似": {
+        "pinyin": "sì",
+        "phonemes": "ㄙㄭ4"
+      },
+      "尽": {
+        "pinyin": "jìn",
+        "phonemes": "ㄐ阴4"
+      },
+      "倒": {
+        "pinyin": "dǎo",
+        "phonemes": "ㄉㄠ3"
+      },
+      "弹": {
+        "pinyin": "tán",
+        "phonemes": "ㄊㄢ2"
+      },
+      "佛": {
+        "pinyin": "fó",
+        "phonemes": "ㄈㄛ2"
+      },
+      "个": {
+        "pinyin": "gè",
+        "phonemes": "ㄍㄜ4"
+      },
+      "得": {
+        "pinyin": "dé",
+        "phonemes": "ㄉㄜ2"
+      },
+      "过": {
+        "pinyin": "guò",
+        "phonemes": "ㄍ我4"
+      }
+    },
+    "teachingTemplates": {
+      "声母佛，听起来像佛。": {
+        "before": "声母",
+        "glyph": "佛",
+        "middle": "，听起来像"
+      },
+      "声母得，听起来像得。": {
+        "before": "声母",
+        "glyph": "得",
+        "middle": "，听起来像"
+      },
+      "声母勒，听起来像勒。": {
+        "before": "声母",
+        "glyph": "勒",
+        "middle": "，听起来像",
+        "phonemes": "ㄌㄜ4"
+      },
+      "韵母儿，听起来像耳。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ3"
+      },
+      "韵母儿，听起来像二。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ4"
+      },
+      "韵母儿，听起来像而。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ2"
+      },
+      "韵母儿，听起来像儿。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ2"
+      },
+      "韵母儿，听起来像尔。": {
+        "before": "韵母",
+        "glyph": "儿",
+        "middle": "，听起来像",
+        "phonemes": "ㄦ2",
+        "secondPhonemes": "ㄦ3"
+      },
+      "这是舌尖韵母，跟着读子。": {
+        "before": "这是舌尖韵母，跟着读",
+        "glyph": "子"
+      },
+      "这是舌尖韵母，跟着读似。": {
+        "before": "这是舌尖韵母，跟着读",
+        "glyph": "似"
+      }
+    },
+    "quotedQuizReadings": {
+      "长": {
+        "pinyin": "cháng",
+        "phonemes": "ㄔㄤ2"
+      },
+      "地": {
+        "pinyin": "dì",
+        "phonemes": "ㄉㄧ4"
+      },
+      "子": {
+        "pinyin": "zǐ",
+        "phonemes": "ㄗㄭ3"
+      },
+      "调": {
+        "pinyin": "tiáo",
+        "phonemes": "ㄊ要2"
+      },
+      "似": {
+        "pinyin": "sì",
+        "phonemes": "ㄙㄭ4"
+      },
+      "尽": {
+        "pinyin": "jìn",
+        "phonemes": "ㄐ阴4"
+      },
+      "倒": {
+        "pinyin": "dǎo",
+        "phonemes": "ㄉㄠ3"
+      },
+      "弹": {
+        "pinyin": "tán",
+        "phonemes": "ㄊㄢ2"
+      },
+      "佛": {
+        "pinyin": "fó",
+        "phonemes": "ㄈㄛ2"
+      },
+      "个": {
+        "pinyin": "gè",
+        "phonemes": "ㄍㄜ4"
+      },
+      "得": {
+        "pinyin": "dé",
+        "phonemes": "ㄉㄜ2"
+      },
+      "过": {
+        "pinyin": "guò",
+        "phonemes": "ㄍ我4"
+      },
+      "为": {
+        "pinyin": "wéi",
+        "phonemes": "为2"
+      },
+      "教": {
+        "pinyin": "jiāo",
+        "phonemes": "ㄐ要1"
+      },
+      "处": {
+        "pinyin": "chǔ",
+        "phonemes": "ㄔㄨ3"
+      },
+      "切": {
+        "pinyin": "qiē",
+        "phonemes": "ㄑㄝ1"
+      },
+      "划": {
+        "pinyin": "huá",
+        "phonemes": "ㄏ穵2"
+      },
+      "兴": {
+        "pinyin": "xìng",
+        "phonemes": "ㄒ应4"
+      },
+      "斗": {
+        "pinyin": "dǒu",
+        "phonemes": "ㄉㄡ3"
+      },
+      "率": {
+        "pinyin": "shuài",
+        "phonemes": "ㄕ外4"
+      },
+      "背": {
+        "pinyin": "bēi",
+        "phonemes": "ㄅㄟ1"
+      }
+    },
+    "quotedQuizTemplates": [
+      "“{glyph}”是什么意思？",
+      "哪个词里有“{glyph}”？"
+    ],
+    "verifiedWordReading": {
+      "长绳": "cháng shéng"
+    },
+    "contextPolicy": "All other contexts use the unmodified Misaki phrase dictionary and tone sandhi."
+  },
+  "contextSpotChecks": [
+    {
+      "text": "长大",
+      "beforePhonemes": "ㄓㄤ3ㄉㄚ4",
+      "afterPhonemes": "ㄓㄤ3ㄉㄚ4",
+      "unchanged": true
+    },
+    {
+      "text": "长着羽毛",
+      "beforePhonemes": "ㄓㄤ3/ㄓㄜ5/ㄩ3ㄇㄠ2",
+      "afterPhonemes": "ㄓㄤ3/ㄓㄜ5/ㄩ3ㄇㄠ2",
+      "unchanged": true
+    },
+    {
+      "text": "长出新叶",
+      "beforePhonemes": "ㄓㄤ3/ㄔㄨ1/ㄒ阴1ㄝ4",
+      "afterPhonemes": "ㄓㄤ3/ㄔㄨ1/ㄒ阴1ㄝ4",
+      "unchanged": true
+    },
+    {
+      "text": "小种子",
+      "beforePhonemes": "ㄒ要2ㄓ中3ㄗㄭ5",
+      "afterPhonemes": "ㄒ要2ㄓ中3ㄗㄭ5",
+      "unchanged": true
+    },
+    {
+      "text": "种子",
+      "beforePhonemes": "ㄓ中3ㄗㄭ5",
+      "afterPhonemes": "ㄓ中3ㄗㄭ5",
+      "unchanged": true
+    },
+    {
+      "text": "孩子",
+      "beforePhonemes": "ㄏㄞ2ㄗㄭ5",
+      "afterPhonemes": "ㄏㄞ2ㄗㄭ5",
+      "unchanged": true
+    },
+    {
+      "text": "子女",
+      "beforePhonemes": "ㄗㄭ2ㄋㄩ3",
+      "afterPhonemes": "ㄗㄭ2ㄋㄩ3",
+      "unchanged": true
+    },
+    {
+      "text": "调整",
+      "beforePhonemes": "ㄊ要2ㄓㄥ3",
+      "afterPhonemes": "ㄊ要2ㄓㄥ3",
+      "unchanged": true
+    },
+    {
+      "text": "调动",
+      "beforePhonemes": "ㄉ要4ㄉ中4",
+      "afterPhonemes": "ㄉ要4ㄉ中4",
+      "unchanged": true
+    },
+    {
+      "text": "相似",
+      "beforePhonemes": "ㄒ阳1ㄙㄭ4",
+      "afterPhonemes": "ㄒ阳1ㄙㄭ4",
+      "unchanged": true
+    },
+    {
+      "text": "似的",
+      "beforePhonemes": "ㄕ十4ㄉㄜ5",
+      "afterPhonemes": "ㄕ十4ㄉㄜ5",
+      "unchanged": true
+    },
+    {
+      "text": "尽力",
+      "beforePhonemes": "ㄐ阴4ㄌㄧ4",
+      "afterPhonemes": "ㄐ阴4ㄌㄧ4",
+      "unchanged": true
+    },
+    {
+      "text": "尽量",
+      "beforePhonemes": "ㄐ阴3ㄌ阳4",
+      "afterPhonemes": "ㄐ阴3ㄌ阳4",
+      "unchanged": true
+    },
+    {
+      "text": "倒下",
+      "beforePhonemes": "ㄉㄠ3ㄒ压4",
+      "afterPhonemes": "ㄉㄠ3ㄒ压4",
+      "unchanged": true
+    },
+    {
+      "text": "倒水",
+      "beforePhonemes": "ㄉㄠ4ㄕ为3",
+      "afterPhonemes": "ㄉㄠ4ㄕ为3",
+      "unchanged": true
+    },
+    {
+      "text": "弹琴",
+      "beforePhonemes": "ㄊㄢ2ㄑ阴2",
+      "afterPhonemes": "ㄊㄢ2ㄑ阴2",
+      "unchanged": true
+    },
+    {
+      "text": "子弹",
+      "beforePhonemes": "ㄗㄭ3ㄉㄢ4",
+      "afterPhonemes": "ㄗㄭ3ㄉㄢ4",
+      "unchanged": true
+    },
+    {
+      "text": "佛像",
+      "beforePhonemes": "ㄈㄛ2ㄒ阳4",
+      "afterPhonemes": "ㄈㄛ2ㄒ阳4",
+      "unchanged": true
+    },
+    {
+      "text": "仿佛",
+      "beforePhonemes": "ㄈㄤ3ㄈㄨ2",
+      "afterPhonemes": "ㄈㄤ3ㄈㄨ2",
+      "unchanged": true
+    },
+    {
+      "text": "大地",
+      "beforePhonemes": "ㄉㄚ4ㄉㄧ5",
+      "afterPhonemes": "ㄉㄚ4ㄉㄧ5",
+      "unchanged": true
+    },
+    {
+      "text": "慢慢地",
+      "beforePhonemes": "ㄇㄢ4ㄇㄢ4/ㄉㄜ5",
+      "afterPhonemes": "ㄇㄢ4ㄇㄢ4/ㄉㄜ5",
+      "unchanged": true
+    },
+    {
+      "text": "率领",
+      "beforePhonemes": "ㄕ外4ㄌ应3",
+      "afterPhonemes": "ㄕ外4ㄌ应3",
+      "unchanged": true
+    },
+    {
+      "text": "长绳",
+      "beforePhonemes": "ㄓㄤ3ㄕㄥ2",
+      "afterPhonemes": "ㄔㄤ2ㄕㄥ2",
+      "unchanged": false
+    },
+    {
+      "text": "每一个",
+      "beforePhonemes": "ㄇㄟ3/ㄧ2ㄍㄜ5",
+      "afterPhonemes": "ㄇㄟ3/ㄧ2ㄍㄜ5",
+      "unchanged": true
+    },
+    {
+      "text": "得到",
+      "beforePhonemes": "ㄉㄜ2ㄉㄠ4",
+      "afterPhonemes": "ㄉㄜ2ㄉㄠ4",
+      "unchanged": true
+    },
+    {
+      "text": "走过",
+      "beforePhonemes": "ㄗㄡ3ㄍ我4",
+      "afterPhonemes": "ㄗㄡ3ㄍ我4",
+      "unchanged": true
+    }
+  ],
+  "additionalQuotedGlyphContexts": [
+    {
+      "text": "成为",
+      "beforePhonemes": "ㄔㄥ2为2",
+      "afterPhonemes": "ㄔㄥ2为2",
+      "unchanged": true
+    },
+    {
+      "text": "因为",
+      "beforePhonemes": "阴1为4",
+      "afterPhonemes": "阴1为4",
+      "unchanged": true
+    },
+    {
+      "text": "教书",
+      "beforePhonemes": "ㄐ要1ㄕㄨ1",
+      "afterPhonemes": "ㄐ要1ㄕㄨ1",
+      "unchanged": true
+    },
+    {
+      "text": "教室",
+      "beforePhonemes": "ㄐ要4ㄕ十4",
+      "afterPhonemes": "ㄐ要4ㄕ十4",
+      "unchanged": true
+    },
+    {
+      "text": "处理",
+      "beforePhonemes": "ㄔㄨ2ㄌㄧ3",
+      "afterPhonemes": "ㄔㄨ2ㄌㄧ3",
+      "unchanged": true
+    },
+    {
+      "text": "到处",
+      "beforePhonemes": "ㄉㄠ4ㄔㄨ4",
+      "afterPhonemes": "ㄉㄠ4ㄔㄨ4",
+      "unchanged": true
+    },
+    {
+      "text": "切开",
+      "beforePhonemes": "ㄑㄝ4ㄎㄞ1",
+      "afterPhonemes": "ㄑㄝ4ㄎㄞ1",
+      "unchanged": true
+    },
+    {
+      "text": "一切",
+      "beforePhonemes": "ㄧ2ㄑㄝ4",
+      "afterPhonemes": "ㄧ2ㄑㄝ4",
+      "unchanged": true
+    },
+    {
+      "text": "划船",
+      "beforePhonemes": "ㄏ穵2ㄔ万2",
+      "afterPhonemes": "ㄏ穵2ㄔ万2",
+      "unchanged": true
+    },
+    {
+      "text": "计划",
+      "beforePhonemes": "ㄐㄧ4ㄏ穵5",
+      "afterPhonemes": "ㄐㄧ4ㄏ穵5",
+      "unchanged": true
+    },
+    {
+      "text": "高兴",
+      "beforePhonemes": "ㄍㄠ1ㄒ应4",
+      "afterPhonemes": "ㄍㄠ1ㄒ应4",
+      "unchanged": true
+    },
+    {
+      "text": "兴起",
+      "beforePhonemes": "ㄒ应1ㄑㄧ3",
+      "afterPhonemes": "ㄒ应1ㄑㄧ3",
+      "unchanged": true
+    },
+    {
+      "text": "北斗",
+      "beforePhonemes": "ㄅㄟ2ㄉㄡ3",
+      "afterPhonemes": "ㄅㄟ2ㄉㄡ3",
+      "unchanged": true
+    },
+    {
+      "text": "斗争",
+      "beforePhonemes": "ㄉㄡ4ㄓㄥ1",
+      "afterPhonemes": "ㄉㄡ4ㄓㄥ1",
+      "unchanged": true
+    },
+    {
+      "text": "率领",
+      "beforePhonemes": "ㄕ外4ㄌ应3",
+      "afterPhonemes": "ㄕ外4ㄌ应3",
+      "unchanged": true
+    },
+    {
+      "text": "效率",
+      "beforePhonemes": "ㄒ要4ㄌㄩ4",
+      "afterPhonemes": "ㄒ要4ㄌㄩ4",
+      "unchanged": true
+    },
+    {
+      "text": "背包",
+      "beforePhonemes": "ㄅㄟ1ㄅㄠ1",
+      "afterPhonemes": "ㄅㄟ1ㄅㄠ1",
+      "unchanged": true
+    },
+    {
+      "text": "背面",
+      "beforePhonemes": "ㄅㄟ4ㄇ言4",
+      "afterPhonemes": "ㄅㄟ4ㄇ言4",
+      "unchanged": true
+    }
+  ],
+  "boundary": "Compares the target glyph syllable in actual character narration and both exact quoted quiz templates against written course pinyin. Checks preserved word contexts; it does not grade recordings by listening or establish every poetry pronunciation."
+}
