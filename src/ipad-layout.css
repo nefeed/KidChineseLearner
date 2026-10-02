@@ -7,6 +7,7 @@ body{min-height:100vh;min-height:100dvh}
 .lesson-overlay{padding-top:calc(22px + env(safe-area-inset-top,0px));padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
 .lesson-shell{min-height:calc(100dvh - 44px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
 @media(pointer:coarse){button,a,input,select,summary{touch-action:manipulation}}
+@media(min-width:701px){.sidebar{overflow-y:auto}}
 @media(max-width:1100px){.topbar{padding-right:max(26px,env(safe-area-inset-right,0px))}.sidebar{padding-left:max(12px,env(safe-area-inset-left,0px))}}
 @media(max-width:1000px){.topbar{height:calc(76px + env(safe-area-inset-top,0px))}.sidebar{padding-top:calc(25px + env(safe-area-inset-top,0px));padding-left:max(11px,env(safe-area-inset-left,0px))}}
 @media(max-width:700px){.topbar{height:calc(69px + env(safe-area-inset-top,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}.sidebar{height:calc(75px + env(safe-area-inset-bottom,0px));padding:5px max(10px,env(safe-area-inset-right,0px)) calc(5px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}.main-frame{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}}

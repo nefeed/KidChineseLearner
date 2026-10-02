@@ -376,6 +376,93 @@ for(const kind of ['hanzi','poems'] as const)test(`${kind} catalog browsing posi
   await deep.button.click();await expect(page.getByRole('dialog',{name:deep.dialog,exact:true})).toBeVisible();
 });
 
+test('desktop application window sidebar navigation remains reachable after native resize',async({browser},info)=>{
+  test.setTimeout(60000);
+  // A regular desktop context supports native wheel input in both engines.
+  // These are browser window sizes, not physical tablet/phone acceptance.
+  const context=await browser.newContext({viewport:{width:1180,height:720},isMobile:false}),errors:string[]=[];let crashed=false;
+  type WheelRecord={trusted:boolean;deltaY:number;inSidebar:boolean};
+  await context.addInitScript(({key,data})=>{
+    if(!localStorage.getItem(key))localStorage.setItem(key,JSON.stringify(data));
+    const events:{trusted:boolean;deltaY:number;inSidebar:boolean}[]=[];
+    Object.defineProperty(window,'__sidebarWheelEvents',{value:events});
+    document.addEventListener('wheel',event=>events.push({trusted:event.isTrusted,deltaY:event.deltaY,
+      inSidebar:event.target instanceof Element&&Boolean(event.target.closest('.sidebar'))}),{capture:true,passive:true});
+  },{key:STORAGE_KEY,data:fixture()});
+  const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('crash',()=>crashed=true);
+  const sidebar=page.locator('.sidebar');
+  const geometry=async()=>{
+    await page.evaluate(()=>document.fonts.ready);
+    await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+    return page.evaluate(()=>{
+      const measure=(element:HTMLElement)=>{
+        const r=element.getBoundingClientRect(),s=getComputedStyle(element),x=r.left+r.width/2,y=r.top+r.height/2,hit=document.elementFromPoint(x,y);
+        return{name:element.getAttribute('aria-label')??element.className,rect:{left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height},
+          clientHeight:element.clientHeight,scrollHeight:element.scrollHeight,scrollTop:element.scrollTop,position:s.position,overflowY:s.overflowY,
+          center:{x,y,inViewport:x>=0&&y>=0&&x<innerWidth&&y<innerHeight,receivesEvents:Boolean(hit&&element.contains(hit)),hit:hit?.getAttribute('aria-label')??hit?.tagName??null}};
+      };
+      return{viewport:{width:innerWidth,height:innerHeight},windowScrollY:scrollY,sidebar:measure(document.querySelector<HTMLElement>('.sidebar')!),
+        controls:[...document.querySelectorAll<HTMLElement>('.sidebar button')].map(measure),
+        wheels:(window as unknown as {__sidebarWheelEvents:WheelRecord[]}).__sidebarWheelEvents};
+    });
+  };
+  const attach=async(label:string)=>info.attach(`sidebar-${label}`,{contentType:'application/json',body:JSON.stringify({engine,...await geometry()})});
+  const wheel=async(delta:number,label:string)=>{
+    const from=await page.evaluate(()=>(window as unknown as {__sidebarWheelEvents:WheelRecord[]}).__sidebarWheelEvents.length),bounds=(await sidebar.boundingBox())!;
+    await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);await page.mouse.wheel(0,delta);
+    await page.waitForFunction(({from,direction})=>(window as unknown as {__sidebarWheelEvents:WheelRecord[]}).__sidebarWheelEvents.slice(from)
+      .some(event=>event.trusted&&event.inSidebar&&Math.sign(event.deltaY)===direction),{from,direction:Math.sign(delta)},{timeout:1500});
+    await attach(label);
+  };
+  try{
+    await page.goto(origin);
+    for(const target of [
+      {label:'standard-control',width:1180,height:720},
+      {label:'short-compact',width:844,height:390},
+      {label:'taller-compact-control',width:844,height:500},
+      {label:'short-wide',width:1440,height:500},
+      {label:'return-standard',width:1180,height:720},
+    ])await test.step(target.label,async()=>{
+      await page.setViewportSize({width:target.width,height:target.height});await attach(`${target.label}-before`);
+      const needsScroll=await sidebar.evaluate(element=>element.scrollHeight>element.clientHeight+2);
+      if(needsScroll){
+        await wheel(await sidebar.evaluate(element=>element.scrollHeight),`${target.label}-wheel-down`);
+        await page.waitForFunction(()=>document.querySelector<HTMLElement>('.sidebar')!.scrollTop>0,undefined,{timeout:1500});
+      }
+      const ready=await geometry(),parent=ready.controls.find(control=>control.name==='家长小屋')!;
+      expect(parent.center.inViewport,'The Parents entry is inside the window before clicking').toBe(true);
+      expect(parent.center.receivesEvents,'The Parents entry receives native input before clicking').toBe(true);
+      expect(parent.rect.top).toBeGreaterThanOrEqual(0);expect(parent.rect.bottom).toBeLessThanOrEqual(ready.viewport.height);
+      await sidebar.getByRole('button',{name:'家长小屋',exact:true}).click();
+      await expect(page.getByLabel('家长验证答案',{exact:true})).toBeVisible();
+      await page.keyboard.press('Escape');await expect(page.getByLabel('家长验证答案',{exact:true})).not.toBeVisible();
+      if(needsScroll){
+        await wheel(-await sidebar.evaluate(element=>element.scrollHeight),`${target.label}-wheel-up`);
+        await page.waitForFunction(()=>document.querySelector<HTMLElement>('.sidebar')!.scrollTop===0,undefined,{timeout:1500});
+      }
+      const top=await geometry(),brand=top.controls.find(control=>control.name==='回到字游小岛')!;
+      expect(brand.center.inViewport,'The home brand is inside the window before clicking').toBe(true);
+      expect(brand.center.receivesEvents,'The home brand receives native input before clicking').toBe(true);
+      expect(brand.rect.top).toBeGreaterThanOrEqual(0);expect(brand.rect.bottom).toBeLessThanOrEqual(top.viewport.height);
+      await sidebar.getByRole('button',{name:'回到字游小岛',exact:true}).click();await expect(page.locator('.home-page')).toBeVisible();
+      for(const [name,content] of [['我的小岛','.home-page'],['汉字冒险','.library-page:not(.poetry-library)'],['诗词花园','.poetry-library'],['我的动物园','.zoo-page']]){
+        const button=sidebar.getByRole('button',{name,exact:true});await button.click();await expect(button).toHaveClass(/active/);
+        await expect(page.locator(content)).toBeVisible();
+      }
+      await attach(`${target.label}-all-actions-complete`);
+    });
+  }catch(error){
+    try{
+      if(crashed)throw Error('Page crashed before sidebar failure diagnostics could be captured.');
+      await attach('failure');await info.attach('desktop-sidebar-failure',{body:await page.screenshot(),contentType:'image/png'});
+    }catch(diagnosticError){await info.attach('desktop-sidebar-diagnostic-error',{body:String(diagnosticError),contentType:'text/plain'});}
+    throw error;
+  }finally{
+    await context.close();expect(errors,'No application errors during native sidebar navigation').toEqual([]);
+    expect(crashed,'The native sidebar browser page did not crash').toBe(false);
+  }
+});
+
 for(const viewport of viewports){
   test.describe(`${engine} ${viewport.name} ${viewport.width}x${viewport.height}`,()=>{
     test.use({viewport:{width:viewport.width,height:viewport.height}});
