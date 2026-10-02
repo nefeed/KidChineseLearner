@@ -1,0 +1,2950 @@
+{
+  "startedAt": "2026-10-02T12:26:35.622Z",
+  "inputSources": {
+    "src/components/PoemLesson.tsx": {
+      "sha256": "5e04da31925e70f36b6c5cbe8c0e19e89f52594fa8ea8e355fba1c96d068477e",
+      "bytes": 13579
+    },
+    "src/components/Recitation.tsx": {
+      "sha256": "8743e70a43d0defe96ef35a0053a68f96ed045ff926f413635d7cb506ed2d480",
+      "bytes": 6108
+    },
+    "src/components/TodayConnection.tsx": {
+      "sha256": "927ca19f20654731187570ee5ce2d19621c91de11070efd9c0d898bd6d0764a5",
+      "bytes": 2707
+    },
+    "src/components/Quiz.tsx": {
+      "sha256": "49810575f607bacc7c8477934758b7a61e05c3ff7f570a39765fe553cb277dc5",
+      "bytes": 3170
+    },
+    "src/components/PoetryScene.tsx": {
+      "sha256": "619a001a78de5062d045aa9303765c320beb57a6cb6bd2989b2aa7ae5d62199d",
+      "bytes": 5538
+    },
+    "src/data/rewards.ts": {
+      "sha256": "d3fec879b461326695ad221a06b99b788d6f1f7fb1dee1125d8e388bb28dfde3",
+      "bytes": 6233
+    },
+    "src/App.tsx": {
+      "sha256": "51d6fc0df6b3ded953fbe787f55cc83c4e60b367ee4b0008c40640f3aa358c07",
+      "bytes": 19015
+    },
+    "src/components/Libraries.tsx": {
+      "sha256": "12b6dc6cbaa8bbb90e898f409f066c6c6ebd3087c54593f0c743176ca7925a11",
+      "bytes": 7531
+    },
+    "src/components/Parents.tsx": {
+      "sha256": "ecc39d671e9f63108c0efc5590a9147aadeb878602efdbc609fa69cb218814e8",
+      "bytes": 10463
+    },
+    "src/components/WordPlay.tsx": {
+      "sha256": "823642b731dc2f42b1ed979e5d341c91a0c0ef22a09eb88b4659bafbcdd64a1b",
+      "bytes": 56555
+    },
+    "src/store.ts": {
+      "sha256": "eb153dc96d48dc6af70dbf255c6b3bcbc55f0ff6a287c3249673366abe2bda7d",
+      "bytes": 10048
+    },
+    "src/types.ts": {
+      "sha256": "93fda3dc807b50032f6085c3f251ac410c37ac2bace4bd75eb22346ae916ee8e",
+      "bytes": 2181
+    },
+    "src/tablet-viewport.ts": {
+      "sha256": "6860fc058e6bc30751cc8e1d2882897aa9631933af07828e757c5193a824b5fb",
+      "bytes": 787
+    },
+    "src/data/poems.json": {
+      "sha256": "68873b9ec64c5b3f7b4b3071e8c1154caa7ea6d38adc4a29f94e6bc5ed7c6d5b",
+      "bytes": 642586
+    },
+    "src/data/today-connections.json": {
+      "sha256": "6c11bf04b44ea530ac87b3216a7d1da93f00d004200cc3bc6d750867b4d122f6",
+      "bytes": 2374
+    },
+    "src/styles.css": {
+      "sha256": "5bc73bf26f95b36e9a2b8ce1cda36ec6d302ede816c8d7c0a45e36214262c7ac",
+      "bytes": 55519
+    },
+    "src/ipad-layout.css": {
+      "sha256": "6d288e03d08c9a9acc80c7810543ee5e2db6478e2edcba831510d02d7220e501",
+      "bytes": 17286
+    },
+    "src/poem-viewport.css": {
+      "sha256": "c7cb63d65a35c87f984b9d91319ffc564600c86c593db53beb90664080eb66d9",
+      "bytes": 11400
+    }
+  },
+  "inspectedScreens": 4944,
+  "runtimeErrors": [],
+  "audit": "All 300 poetry courses at the lowest tablet viewport, using the actual components with mock narration",
+  "viewport": {
+    "width": 1180,
+    "height": 720
+  },
+  "courses": [
+    {
+      "id": "poem-001",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-002",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-003",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-004",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-005",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-006",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-007",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-008",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-009",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-010",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-011",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-012",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-013",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-014",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-015",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-016",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-017",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-018",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-019",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-020",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-021",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-022",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-023",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-024",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-025",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-026",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-027",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-028",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-029",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-030",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-031",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-032",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-033",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-034",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-035",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-036",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-037",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-038",
+      "passed": true,
+      "readingLines": 10,
+      "recitationLines": 10,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-039",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-040",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-041",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-042",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-043",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-044",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-045",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-046",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-047",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-048",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-049",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-050",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-051",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-052",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-053",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-054",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-055",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-056",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-057",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-058",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-059",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-060",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-061",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-062",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-063",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-064",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-065",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-066",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-067",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-068",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-069",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-070",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-071",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-072",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-073",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-074",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-075",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-076",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-077",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-078",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-079",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-080",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-081",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-082",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-083",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-084",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-085",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-086",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-087",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-088",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-089",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-090",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-091",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-092",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-093",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-094",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-095",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-096",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-097",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-098",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-099",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-100",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-101",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-102",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-103",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-104",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-105",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-106",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-107",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-108",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-109",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-110",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-111",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-112",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-113",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-114",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-115",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-116",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-117",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-118",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-119",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-120",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-121",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-122",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-123",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-124",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-125",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-126",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-127",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-128",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-129",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-130",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-131",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-132",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-133",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-134",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-135",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-136",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-137",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-138",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-139",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-140",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-141",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-142",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-143",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-144",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-145",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-146",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-147",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-148",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-149",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-150",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-151",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-152",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-153",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-154",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-155",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-156",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-157",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-158",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-159",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-160",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-161",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-162",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-163",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-164",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-165",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-166",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-167",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-168",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-169",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-170",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-171",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-172",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-173",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-174",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-175",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-176",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-177",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-178",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-179",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-180",
+      "passed": true,
+      "readingLines": 3,
+      "recitationLines": 3,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-181",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-182",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-183",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-184",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-185",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-186",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-187",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-188",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-189",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-190",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-191",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-192",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-193",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-194",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-195",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-196",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-197",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-198",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-199",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-200",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-201",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-202",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-203",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-204",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-205",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-206",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-207",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-208",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-209",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-210",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-211",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-212",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-213",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-214",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-215",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-216",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-217",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-218",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-219",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-220",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-221",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-222",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-223",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-224",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-225",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-226",
+      "passed": true,
+      "readingLines": 2,
+      "recitationLines": 2,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-227",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-228",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-229",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-230",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-231",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-232",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-233",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-234",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-235",
+      "passed": true,
+      "readingLines": 11,
+      "recitationLines": 11,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-236",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-237",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-238",
+      "passed": true,
+      "readingLines": 10,
+      "recitationLines": 10,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-239",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-240",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-241",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-242",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-243",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-244",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-245",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-246",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-247",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-248",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-249",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-250",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-251",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-252",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-253",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-254",
+      "passed": true,
+      "readingLines": 4,
+      "recitationLines": 4,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-255",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-256",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-257",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-258",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-259",
+      "passed": true,
+      "readingLines": 7,
+      "recitationLines": 7,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-260",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-261",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-262",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-263",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-264",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-265",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-266",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-267",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-268",
+      "passed": true,
+      "readingLines": 10,
+      "recitationLines": 10,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-269",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-270",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-271",
+      "passed": true,
+      "readingLines": 5,
+      "recitationLines": 5,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-272",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-273",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-274",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-275",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-276",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-277",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-278",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-279",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-280",
+      "passed": true,
+      "readingLines": 9,
+      "recitationLines": 9,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-281",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-282",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-283",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-284",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-285",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-286",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-287",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-288",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-289",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-290",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-291",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-292",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-293",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-294",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-295",
+      "passed": true,
+      "readingLines": 8,
+      "recitationLines": 8,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-296",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-297",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-298",
+      "passed": true,
+      "readingLines": 9,
+      "recitationLines": 9,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-299",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    },
+    {
+      "id": "poem-300",
+      "passed": true,
+      "readingLines": 6,
+      "recitationLines": 6,
+      "storyTextExact": true
+    }
+  ],
+  "issues": [],
+  "limitations": [
+    "Isolated Chromium layout and DOM interaction fixture, not a physical iPad.",
+    "Narration is mocked; this does not test actual audio.",
+    "Source texts are compared across explicit pages; long poem stages and touch are separately checked in the application tests."
+  ],
+  "environment": {
+    "node": "v26.10.0",
+    "platform": "darwin",
+    "browser": "Chromium",
+    "browserVersion": "154.0.8037.93",
+    "channel": "chrome",
+    "physicalDevice": false,
+    "deviceScaleFactor": 1,
+    "isMobile": true,
+    "hasTouch": true,
+    "date": "2026-10-02",
+    "timezone": "Asia/Shanghai"
+  },
+  "renderedFixtureSha256": "ebc16e5ecf226b6226fdb5959b675b0e1d12e670a0fdf3616e5ee42811ca6d63",
+  "finishedAt": "2026-10-02T12:32:27.321Z",
+  "inputStability": {
+    "unchanged": true,
+    "changedPaths": []
+  },
+  "scope": {
+    "poemCourses": 300,
+    "stages": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "allReadingPages": true,
+    "allThreeStoryPartsAndTheirPages": true,
+    "allShownRecitationPages": true,
+    "recitationOrderingChunk": "first completed chunk",
+    "cloze": "initial line",
+    "quiz": "correct feedback in interpretation and both final rounds",
+    "todayConnection": "all four displayed data/source pages when current card exists"
+  },
+  "componentSourceSummary": {
+    "actualReactComponents": [
+      "PoemLesson",
+      "Recitation",
+      "TodayConnection",
+      "Quiz",
+      "PoetryScene"
+    ],
+    "adaptation": "Production TSX is bundled without source replacements. Only the parent harness substitutes narration/preloading/stopping and seeds disposable in-memory profiles.",
+    "persistedProductionDataModified": false,
+    "actualAudioPlayed": false
+  },
+  "supplementaryProfileReview": {
+    "audit": "Twenty 16-character child names in the real App",
+    "originalReportSha256": "d16938ff411ef4df5c07a8a34fcb7c988ad40c27ad17e25224ef93d55856a3e2",
+    "originalRuntimePath": "/tmp/ipad-long-profile-review.json",
+    "runnerSha256": "e0450090ddeebdeba913bad9c92f244f1c87c24d477145b6c3b132d354150948",
+    "scope": "52 DOM/viewport checks in Chromium and WebKit; Home, top profile menu and parent profile cards, with portrait/landscape rotation. All 20 full names were checked across explicit pages. Disposable localStorage; no real save or actual audio.",
+    "physicalDevice": false,
+    "actualAudioPlayed": false,
+    "profiles": 20,
+    "nameCharacters": 16,
+    "checks": 52,
+    "failures": 0,
+    "runtimeErrors": 0,
+    "sourceHashesMatchFinal": true,
+    "saveComparison": "Full profiles array and activeId exactly match the fixture after navigation; only top-level savedAt is excluded.",
+    "originalReport": {
+      "scope": "Real App with 20 legal 16-character names, disposable localStorage and browsers",
+      "actualAudioPlayed": false,
+      "physicalDevice": false,
+      "profiles": 20,
+      "nameCharacters": 16,
+      "startedAt": "2026-10-02T12:26:36.914Z",
+      "finishedAt": "2026-10-02T12:26:42.127Z",
+      "inputHashes": {
+        "src/App.tsx": "51d6fc0df6b3ded953fbe787f55cc83c4e60b367ee4b0008c40640f3aa358c07",
+        "src/components/Parents.tsx": "ecc39d671e9f63108c0efc5590a9147aadeb878602efdbc609fa69cb218814e8",
+        "src/tablet-viewport.ts": "6860fc058e6bc30751cc8e1d2882897aa9631933af07828e757c5193a824b5fb",
+        "src/ipad-layout.css": "6d288e03d08c9a9acc80c7810543ee5e2db6478e2edcba831510d02d7220e501"
+      },
+      "inputStability": {
+        "changedPaths": []
+      },
+      "preservedSaveContent": {
+        "allProfilesExact": true,
+        "activeIdExact": true,
+        "soundAndMusicSettingsExact": true,
+        "ignoredTopLevelSavedAtOnly": true
+      },
+      "allTwentyNamesAccessible": true,
+      "results": [
+        {
+          "label": "chromium/home",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 18
+        },
+        {
+          "label": "chromium/home",
+          "viewport": [
+            1180,
+            820
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 820,
+          "clientHeight": 820,
+          "controlCount": 18
+        },
+        {
+          "label": "chromium/home",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 18
+        },
+        {
+          "label": "chromium/home",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 18
+        },
+        {
+          "label": "chromium/profile-menu-active-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 23
+        },
+        {
+          "label": "chromium/profile-menu-active-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 23
+        },
+        {
+          "label": "chromium/profile-menu-active-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 23
+        },
+        {
+          "label": "chromium/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "chromium/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "chromium/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "chromium/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 23
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "chromium/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/home",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 18
+        },
+        {
+          "label": "webkit/home",
+          "viewport": [
+            1180,
+            820
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 820,
+          "clientHeight": 820,
+          "controlCount": 18
+        },
+        {
+          "label": "webkit/home",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 18
+        },
+        {
+          "label": "webkit/home",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 18
+        },
+        {
+          "label": "webkit/profile-menu-active-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 23
+        },
+        {
+          "label": "webkit/profile-menu-active-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 23
+        },
+        {
+          "label": "webkit/profile-menu-active-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 23
+        },
+        {
+          "label": "webkit/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "webkit/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "webkit/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 27
+        },
+        {
+          "label": "webkit/profile-menu-all-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 23
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1180
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1180,
+          "clientHeight": 1180,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            1180,
+            720
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 720,
+          "clientHeight": 720,
+          "controlCount": 29
+        },
+        {
+          "label": "webkit/parent-profiles-page",
+          "viewport": [
+            820,
+            1080
+          ],
+          "outside": [],
+          "panels": [],
+          "documentHeight": 1080,
+          "clientHeight": 1080,
+          "controlCount": 29
+        }
+      ],
+      "failures": [],
+      "errors": []
+    }
+  },
+  "readOnlySourceReview": {
+    "goal": "Inspect tablet pagination, content access, rotation controls and unchanged save/audio wiring without changing product files.",
+    "paths": [
+      "src/App.tsx",
+      "src/components/Libraries.tsx",
+      "src/components/Parents.tsx",
+      "src/components/WordPlay.tsx",
+      "src/ipad-layout.css",
+      "src/tablet-viewport.ts"
+    ],
+    "completed": [
+      "Reviewed page slicing and min-clamped page labels/buttons, filter resets, retained navigation and parent sound/update callbacks.",
+      "Reviewed tablet completion-screen behavior and rotation breakpoint stability.",
+      "Confirmed pagination retains course content; all reading, story and shown recitation pages are compared with source strings."
+    ],
+    "materialFinding": {
+      "component": "Parents",
+      "originalIssue": "Twenty legal 16-character names were joined into the backup confirmation, placing restore/retain buttons below the 1180x720 viewport.",
+      "evidence": "The original disposable-browser reproduction found document height 843px, restore button bottom 824.9px and retain button bottom 818px in Chromium and WebKit.",
+      "resolution": "Parent agent replaced the joined preview with explicit two-profile pages and fixed actions; final application backup/safe-area cases are checked in the independent iPad test report."
+    },
+    "additionalMaterialFindings": [],
+    "strengths": [
+      "Explicit pagination exposes long text without vertical scrolling.",
+      "The mock harness bundles actual production lesson components and checks original-string completeness."
+    ],
+    "limits": [
+      "Source review is not a proof of every application state.",
+      "The supplementary 52 checks cover profile navigation; the backup fix and simulated safe-area application suite are independently recorded by the parent agent."
+    ],
+    "nextFocus": "Physical iPad Safari and actual listening remain outside this simulated layout report."
+  },
+  "runner": {
+    "originalRuntimePath": "/private/tmp/poem-one-screen-audit-runner.mjs",
+    "sha256": "537cfff241b386f81f0222d685c88dcf817e18eb88020724b9d15aadc0331e2e",
+    "source": "import {createRequire} from 'node:module';\nimport {createHash} from 'node:crypto';\nimport {fileURLToPath} from 'node:url';\nimport {readFileSync,writeFileSync,existsSync} from 'node:fs';\nconst repo=process.cwd();\nconst startedAt=new Date().toISOString();\nconst sha=value=>createHash('sha256').update(value).digest('hex');\nconst inputPaths=['src/components/PoemLesson.tsx','src/components/Recitation.tsx','src/components/TodayConnection.tsx','src/components/Quiz.tsx','src/components/PoetryScene.tsx','src/data/rewards.ts','src/App.tsx','src/components/Libraries.tsx','src/components/Parents.tsx','src/components/WordPlay.tsx','src/store.ts','src/types.ts','src/tablet-viewport.ts','src/data/poems.json','src/data/today-connections.json','src/styles.css','src/ipad-layout.css','src/poem-viewport.css'];\nconst inputSources=Object.fromEntries(inputPaths.map(path=>[path,{sha256:sha(readFileSync(repo+'/'+path)),bytes:readFileSync(repo+'/'+path).length}]));\nconst require=createRequire(repo+'/package.json');\nconst {buildSync}=require('esbuild');\nconst {chromium,webkit}=require('@playwright/test');\nconst poems=JSON.parse(readFileSync(repo+'/src/data/poems.json','utf8'));\nconst css=['styles.css','ipad-layout.css','poem-viewport.css'].map(p=>readFileSync(repo+'/src/'+p,'utf8')).join('\\n');\nconst fixture=buildSync({stdin:{contents:`import React,{useState} from 'react';import {createRoot} from 'react-dom/client';import {flushSync} from 'react-dom';import PoemLesson from './src/components/PoemLesson';import {createProfile,initialProgress} from './src/store';import poems from './src/data/poems.json';let sequence=0;const root=createRoot(document.getElementById('root'));function Harness({index,stage,recitation}){const poem=poems[index];const [profile,update]=useState(()=>{const p=createProfile('诗词视口测试');p.settings.sound=false;p.settings.music=false;p.poems[poem.id]={...initialProgress(),stage,activityDone:true,listenedLines:poem.lines.map((_,i)=>i),recitation};return p;});window.latestProfile=profile;return <PoemLesson poem={poem} profile={profile} onUpdate={update} onSpeak={async text=>{window.spoken.push(text);await new Promise(r=>setTimeout(r,5));return true;}} onPrepare={()=>{}} onStop={()=>{}} onClose={()=>{}} onZoo={()=>{}}/>;}window.spoken=[];window.mountPoem=(index,stage,recitation)=>flushSync(()=>root.render(<Harness key={sequence++} index={index} stage={stage} recitation={recitation}/>));`,resolveDir:repo,loader:'tsx'},bundle:true,write:false,format:'iife',target:'es2020',jsx:'automatic',loader:{'.css':'empty'},define:{'process.env.NODE_ENV':'\"production\"'},logLevel:'silent'}).outputFiles[0].text;\nconst html='<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>'+css+'</style><div id=\"root\"></div><script>'+fixture.replace(/<\\/script/gi,'<\\\\/script')+'</script>';\nconst report={startedAt,inputSources,inspectedScreens:0,runtimeErrors:[],audit:'All 300 poetry courses at the lowest tablet viewport, using the actual components with mock narration',viewport:{width:1180,height:720},courses:[],issues:[],limitations:['Isolated Chromium layout and DOM interaction fixture, not a physical iPad.', 'Narration is mocked; this does not test actual audio.', 'Source texts are compared across explicit pages; long poem stages and touch are separately checked in the application tests.']};\nasync function settle(page){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}\nasync function mount(page,index,stage,recitation){await page.evaluate(({index,stage,recitation})=>window.mountPoem(index,stage,recitation),{index,stage,recitation});await settle(page);}\nasync function inspect(page,label){report.inspectedScreens++;const result=await page.evaluate(()=>{const h=innerHeight,w=innerWidth;const outside=[...document.querySelectorAll('.poetry-overlay button,.poetry-overlay a,.poetry-overlay p,.poetry-overlay h2,.poetry-overlay h3')].filter(e=>e.getClientRects().length).map(e=>{const r=e.getBoundingClientRect();return{tag:e.tagName,text:e.textContent?.trim().slice(0,75),top:r.top,bottom:r.bottom,left:r.left,right:r.right};}).filter(r=>r.top<-.5||r.bottom>h+.5||r.left<-.5||r.right>w+.5);const scrollers=[...document.querySelectorAll('.poetry-overlay,.poetry-overlay *')].filter(e=>{const s=getComputedStyle(e);return /auto|scroll/.test(s.overflowY)&&e.scrollHeight>e.clientHeight+1;}).map(e=>e.className);return {height:h,documentHeight:document.documentElement.scrollHeight,overlayHeight:document.querySelector('.poetry-overlay').scrollHeight,outside,scrollers};});const panels=await page.evaluate(()=>[...document.querySelectorAll('.lesson-content,.poem-reading,.poem-paper,.poem-lines,.poem-story,.poem-today,.line-order,.ordered-lines,.line-options,.recite-final,.hidden-poem')].filter(e=>e.getClientRects().length&&e.scrollHeight>e.clientHeight+2).map(e=>({className:e.className,excess:e.scrollHeight-e.clientHeight})));result.panels=panels;if(panels.length||result.outside.length||result.scrollers.length||result.documentHeight>result.height+1||result.overlayHeight>result.height+1)report.issues.push({label,...result});return result;}\n\nconst browser=await chromium.launch({channel:'chrome'});report.environment={node:process.version,platform:process.platform,browser:'Chromium',browserVersion:browser.version(),channel:'chrome',physicalDevice:false,deviceScaleFactor:1,isMobile:true,hasTouch:true,date:new Date().toLocaleDateString('sv-SE'),timezone:Intl.DateTimeFormat().resolvedOptions().timeZone};report.renderedFixtureSha256=sha(html);const page=await browser.newPage({viewport:report.viewport,deviceScaleFactor:1,isMobile:true,hasTouch:true});page.on('pageerror',error=>report.runtimeErrors.push(error.message));await page.route('**/poem-viewport-fixture',route=>route.fulfill({contentType:'text/html',body:html}));await page.goto('http://127.0.0.1:5173/poem-viewport-fixture');await page.waitForFunction(()=>typeof window.mountPoem==='function');\nasync function inspectPages(label,nextName,readText){const result=[];let count=0;for(;;){await inspect(page,label+'/page-'+(++count));if(readText)result.push(...await readText());const next=page.getByRole('button',{name:nextName,exact:true});if(!await next.count()||!await next.isEnabled())break;await next.click();await settle(page);if(count>30)throw Error('Pagination did not terminate '+label);}return result;}\nfor(const [index,poem]of poems.entries()){\n const initialIssues=report.issues.length;\n await mount(page,index,0);const reading=await inspectPages(poem.id+'/reading','下一页诗句',()=>page.locator('.poem-line').evaluateAll(nodes=>nodes.map(n=>{const copy=n.cloneNode(true);copy.querySelectorAll('rt').forEach(rt=>rt.remove());return copy.textContent;})));if(JSON.stringify(reading)!==JSON.stringify(poem.lines))report.issues.push({label:poem.id+'/reading-content',reading});\n await mount(page,index,1);for(const [part,title]of ['诗人是谁？','那时发生了什么？','诗里看见了什么？'].entries()){await page.getByRole('button',{name:title,exact:true}).click();await settle(page);const story=await inspectPages(poem.id+'/story-'+part,'下一页故事',async()=>[await page.locator('.poem-story-card p').textContent()]);const expected=[`${poem.dynasty}代的${poem.author}，写下了《${poem.title}》。`,poem.background,poem.interpretation.join(' ')][part];if(story.join('')!==expected)report.issues.push({label:poem.id+'/story-'+part+'-content',story});}\n await mount(page,index,2);await page.getByRole('button',{name:poem.question.options[poem.question.answer],exact:true}).click();await settle(page);await inspect(page,poem.id+'/quiz-feedback');\n await mount(page,index,3);await inspect(page,poem.id+'/practice');await page.getByRole('button',{name:'今天的小发现',exact:true}).click();await settle(page);await inspectPages(poem.id+'/discovery','下一页生活资料');\n await mount(page,index,4,{phase:0,chunk:0,selected:[0,1,2,3].slice(0,Math.min(4,poem.lines.length)),clozeRound:0});await inspect(page,poem.id+'/order-completed');\n await mount(page,index,4,{phase:1,chunk:0,selected:[],clozeRound:0});await inspect(page,poem.id+'/cloze');\n await mount(page,index,4,{phase:2,chunk:0,selected:[],clozeRound:0});await page.getByRole('button',{name:'看看提示',exact:true}).click();await page.getByRole('button',{name:'家长确认：孩子已尝试完整背诵',exact:true}).click();await settle(page);const recalled=await inspectPages(poem.id+'/recitation','下一页背诵诗句',()=>page.locator('.hidden-poem p').allTextContents());if(JSON.stringify(recalled)!==JSON.stringify(poem.lines))report.issues.push({label:poem.id+'/recitation-content',recalled});\n await mount(page,index,5);await page.getByRole('button',{name:poem.question.options[poem.question.answer],exact:true}).click();await settle(page);await inspect(page,poem.id+'/final-quiz-feedback');await page.getByRole('button',{name:'下一小题',exact:true}).click();await settle(page);await page.getByRole('button',{name:poem.author,exact:true}).click();await settle(page);await inspect(page,poem.id+'/author-quiz-feedback');\n await mount(page,index,6);await inspect(page,poem.id+'/completion');\n report.courses.push({id:poem.id,passed:report.issues.length===initialIssues,readingLines:reading.length,recitationLines:recalled.length,storyTextExact:!report.issues.slice(initialIssues).some(issue=>issue.label.startsWith(poem.id+'/story-')&&issue.label.endsWith('-content'))});if((index+1)%30===0)console.log(JSON.stringify({courses:index+1,issues:report.issues.length}));\n}\nawait browser.close();report.finishedAt=new Date().toISOString();report.inputStability={unchanged:true,changedPaths:inputPaths.filter(path=>sha(readFileSync(repo+'/'+path))!==inputSources[path].sha256)};report.inputStability.unchanged=report.inputStability.changedPaths.length===0;report.scope={poemCourses:300,stages:[0,1,2,3,4,5,6],allReadingPages:true,allThreeStoryPartsAndTheirPages:true,allShownRecitationPages:true,recitationOrderingChunk:'first completed chunk',cloze:'initial line',quiz:'correct feedback in interpretation and both final rounds',todayConnection:'all four displayed data/source pages when current card exists'};report.componentSourceSummary={actualReactComponents:['PoemLesson','Recitation','TodayConnection','Quiz','PoetryScene'],adaptation:'Production TSX is bundled without source replacements. Only the parent harness substitutes narration/preloading/stopping and seeds disposable in-memory profiles.',persistedProductionDataModified:false,actualAudioPlayed:false};\nconst supplementaryPath='/tmp/ipad-long-profile-review.json';\nif(existsSync(supplementaryPath)){\n const originalText=readFileSync(supplementaryPath,'utf8');const original=JSON.parse(originalText);\n report.supplementaryProfileReview={audit:'Twenty 16-character child names in the real App',originalReportSha256:sha(originalText),originalRuntimePath:supplementaryPath,runnerSha256:sha(readFileSync('/tmp/ipad-long-profile-review.mts')),scope:'52 DOM/viewport checks in Chromium and WebKit; Home, top profile menu and parent profile cards, with portrait/landscape rotation. All 20 full names were checked across explicit pages. Disposable localStorage; no real save or actual audio.',physicalDevice:false,actualAudioPlayed:false,profiles:20,nameCharacters:16,checks:original.results.length,failures:original.failures.length,runtimeErrors:original.errors.length,sourceHashesMatchFinal:Object.entries(original.inputHashes).every(([path,value])=>inputSources[path]?.sha256===value),saveComparison:'Full profiles array and activeId exactly match the fixture after navigation; only top-level savedAt is excluded.',originalReport:original};\n}\nreport.readOnlySourceReview={goal:'Inspect tablet pagination, content access, rotation controls and unchanged save/audio wiring without changing product files.',paths:['src/App.tsx','src/components/Libraries.tsx','src/components/Parents.tsx','src/components/WordPlay.tsx','src/ipad-layout.css','src/tablet-viewport.ts'],completed:['Reviewed page slicing and min-clamped page labels/buttons, filter resets, retained navigation and parent sound/update callbacks.','Reviewed tablet completion-screen behavior and rotation breakpoint stability.','Confirmed pagination retains course content; all reading, story and shown recitation pages are compared with source strings.'],materialFinding:{component:'Parents',originalIssue:'Twenty legal 16-character names were joined into the backup confirmation, placing restore/retain buttons below the 1180x720 viewport.',evidence:'The original disposable-browser reproduction found document height 843px, restore button bottom 824.9px and retain button bottom 818px in Chromium and WebKit.',resolution:'Parent agent replaced the joined preview with explicit two-profile pages and fixed actions; final application backup/safe-area cases are checked in the independent iPad test report.'},additionalMaterialFindings:[],strengths:['Explicit pagination exposes long text without vertical scrolling.','The mock harness bundles actual production lesson components and checks original-string completeness.'],limits:['Source review is not a proof of every application state.','The supplementary 52 checks cover profile navigation; the backup fix and simulated safe-area application suite are independently recorded by the parent agent.'],nextFocus:'Physical iPad Safari and actual listening remain outside this simulated layout report.'};\nreport.runner={originalRuntimePath:fileURLToPath(import.meta.url),sha256:sha(readFileSync(fileURLToPath(import.meta.url))),source:readFileSync(fileURLToPath(import.meta.url),'utf8'),reproduce:'Extract runner.source to an .mjs file, then run node <file> with project root as cwd; uses project esbuild and Playwright plus installed Chrome. All browser contexts and profiles are disposable. The route supplies a local fixture, so no live app server is required.'};report.passed=report.courses.length===300&&report.courses.every(c=>c.passed)&&report.issues.length===0&&report.runtimeErrors.length===0&&report.inputStability.unchanged;const output=repo+'/scripts/verification/poem-one-screen-audit.json';writeFileSync(output,JSON.stringify(report,null,2)+'\\n');console.log(JSON.stringify({passed:report.passed,courses:report.courses.length,inspectedScreens:report.inspectedScreens,issues:report.issues.length,changedInputs:report.inputStability.changedPaths,firstIssues:report.issues.slice(0,4),report:output}));if(!report.passed)process.exitCode=1;\n",
+    "reproduce": "Extract runner.source to an .mjs file, then run node <file> with project root as cwd; uses project esbuild and Playwright plus installed Chrome. All browser contexts and profiles are disposable. The route supplies a local fixture, so no live app server is required."
+  },
+  "passed": true
+}

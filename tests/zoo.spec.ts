@@ -48,6 +48,43 @@ async function profileSave(page: Page): Promise<Profile> {
   }, STORAGE_KEY);
 }
 
+async function foodButton(page: Page, name: string) {
+  const previous = page.getByRole('button', { name: '上一页食物', exact: true });
+  while (await previous.isEnabled()) await previous.click();
+  const button = page.getByRole('button', { name: `喂${name}`, exact: true });
+  for (let step = 0; step < FOODS.length; step++) {
+    if (await button.count()) {
+      await expect(button).toBeVisible();
+      return button;
+    }
+    const next = page.getByRole('button', { name: '下一页食物', exact: true });
+    await expect(next, `Food ${name} must be reachable through its pages`).toBeEnabled();
+    await next.click();
+  }
+  throw new Error(`Food ${name} was not found in the food pages`);
+}
+
+async function rewardCard(page: Page, requirement: string) {
+  await page.getByRole('button', { name: /小岛邀请函/ }).click();
+  const showAll = page.getByRole('button', { name: '查看全部 160 份奖励', exact: true });
+  if (await showAll.count()) await showAll.click();
+  const pages = page.getByRole('combobox', { name: '选择奖励页码', exact: true });
+  await pages.selectOption('0');
+  const card = page.locator('.zoo-reward-card').filter({
+    has: page.locator('.zoo-reward-copy p', { hasText: new RegExp(`^${requirement}$`) }),
+  });
+  const count = await pages.locator('option').count();
+  for (let step = 0; step < count; step++) {
+    if (await card.count()) {
+      await expect(card).toHaveCount(1);
+      await expect(card).toBeVisible();
+      return card;
+    }
+    await page.getByRole('button', { name: '奖励下一页', exact: true }).click();
+  }
+  throw new Error(`Reward ${requirement} was not found in the invitation pages`);
+}
+
 async function scrubFirstMark(page: Page) {
   const dirt = await page.locator('.zoo-dirt').first().boundingBox();
   if (!dirt) throw new Error('Expected a visible dirt mark');
@@ -101,11 +138,11 @@ test('静态 24 种动物及四种动作均生成原创 SVG，图形各不相同
 test('错误食物不增加状态，合适食物即时保存，刷新恢复', async ({ page }) => {
   await seed(page, fixture());
   const before = await profileSave(page);
-  await page.getByRole('button', { name: '喂小鱼', exact: true }).click();
+  await (await foodButton(page, '小鱼')).click();
   await expect(page.locator('.zoo-feedback')).toContainText('不适合');
   expect((await profileSave(page)).zoo.animals['welcome-rabbit']).toEqual(before.zoo.animals['welcome-rabbit']);
   expect((await profileSave(page)).stars).toBe(before.stars);
-  await page.getByRole('button', { name: '喂青草绿叶', exact: true }).click();
+  await (await foodButton(page, '青草绿叶')).click();
   await expect.poll(async () => (await profileSave(page)).zoo.animals['welcome-rabbit'].fullness).toBe(87);
   expect((await profileSave(page)).zoo.animals['welcome-rabbit'].affection).toBe(5);
   await page.reload();
@@ -163,29 +200,39 @@ test('移动、动物园及动物命名均保存并可恢复', async ({ page }) 
 
 test('10 字及 5 首诗的奖励可领取，双击幂等，刷新后仍已领取', async ({ page }) => {
   await seed(page, fixture(10, 5));
-  const characterGift = page.locator('.zoo-reward-card').filter({ hasText: '学会 10 个字' });
+  // The complete invitation map keeps a claimed gift in the same slot. A
+  // double click then exercises the same reward rather than the next card
+  // replacing it in the shorter list of unclaimed gifts.
+  const characterGift = await rewardCard(page, '学会 10 个字');
   await characterGift.getByRole('button', { name: '邀请入园', exact: true }).dblclick();
   await expect.poll(async () => (await profileSave(page)).zoo.claimed.filter((id) => id === 'hanzi-10').length).toBe(1);
   expect(Object.keys((await profileSave(page)).zoo.animals)).toHaveLength(2);
-  const poetryGift = page.locator('.zoo-reward-card').filter({ hasText: '学会 5 首诗词' });
+  const poetryGift = await rewardCard(page, '学会 5 首诗词');
   await poetryGift.getByRole('button', { name: '邀请入园', exact: true }).dblclick();
   expect((await profileSave(page)).zoo.claimed.filter((id) => id === 'poems-5')).toHaveLength(1);
   expect(Object.keys((await profileSave(page)).zoo.buildings)).toHaveLength(1);
   await page.reload();
   await openZoo(page);
-  await page.getByRole('button', { name: '查看全部 160 份奖励', exact: true }).click();
-  await expect(page.locator('.zoo-reward-card').filter({ hasText: '学会 10 个字' }).getByRole('button', { name: '已来到', exact: true })).toBeDisabled();
+  await expect((await rewardCard(page, '学会 10 个字')).getByRole('button', { name: '已来到', exact: true })).toBeDisabled();
+  await expect((await rewardCard(page, '学会 5 首诗词')).getByRole('button', { name: '已来到', exact: true })).toBeDisabled();
   expect((await profileSave(page)).zoo.claimed.sort()).toEqual(['hanzi-10', 'poems-5']);
 });
 
-test('领取全部 160 份后按 12 个分区，名册可以选中最后奖励，手机无横向溢出', async ({ page }) => {
+test('领取全部 160 份后按 12 个分区，卡片分页可以选中最后奖励，手机无横向溢出', async ({ page }) => {
   await seed(page, fixture(1000, 300, true));
   await expect(page.locator('.zoo-map-item')).toHaveCount(12);
-  await expect(page.getByLabel('动物园草地区域')).toContainText('共 14 片');
+  const grassPages = page.getByRole('combobox', { name: '选择草地页码', exact: true });
+  await expect(grassPages.locator('option')).toHaveCount(14);
   const last = REWARDS.at(-1)!;
-  await page.getByLabel('动物园完整名册', { exact: true }).selectOption(`${last.kind}:${last.id}`);
-  await expect(page.getByLabel('动物园草地区域')).toContainText('第 14 片');
+  await grassPages.selectOption('13');
+  await expect(grassPages).toHaveValue('13');
+  await page.getByRole('button', { name: '下一页朋友卡片', exact: true }).click();
+  const lastName = last.kind === 'animal' ? `${last.title}${REWARDS.length}` : BUILDINGS.find(building => building.id === last.species)!.name;
+  const lastCard = page.locator('.zoo-collection button').filter({ hasText: lastName });
+  await expect(lastCard).toHaveCount(1);
+  await lastCard.click();
   await expect(page.locator('.zoo-map-item.is-selected')).toHaveCount(1);
+  await expect(page.locator('.zoo-map-item.is-selected')).toHaveAttribute('aria-label', `选择${lastName}`);
   await expect(page.locator('.zoo-map-item')).toHaveCount(5);
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

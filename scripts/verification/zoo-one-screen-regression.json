@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-02T12:26:28.041Z",
+  "origin": "http://127.0.0.1:5173",
+  "productionAssets": [
+    {
+      "path": "dist/index.html",
+      "bytes": 1190,
+      "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9"
+    },
+    {
+      "path": "dist/assets/index-DyKERcVQ.js",
+      "bytes": 1513982,
+      "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f"
+    },
+    {
+      "path": "dist/assets/index-D2AuYFvJ.css",
+      "bytes": 143037,
+      "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4"
+    }
+  ],
+  "testFile": {
+    "path": "tests/zoo.spec.ts",
+    "bytes": 14072,
+    "sha256": "8c1f8d63c8acb2e2dd479da36be99e01adbd923384b50bf9ee2cd699faccf2e2"
+  },
+  "run": {
+    "name": "zoo",
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "command": "PLAYWRIGHT_CHANNEL=chrome ZOO_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/zoo.spec.ts --workers=1 --reporter=line --output=test-results/final-zoo",
+    "log": {
+      "path": "/tmp/kidchinese-final-zoo.log",
+      "sha256": "a0b243e842e7bea3729e30cd6f37585dd0e457d64d3c42661b46007a0e21960e"
+    }
+  },
+  "boundary": "Synthetic disposable profiles in independent Chrome plus static SVG/reward checks; no real child progress modified."
+}

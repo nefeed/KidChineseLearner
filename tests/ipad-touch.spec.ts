@@ -137,7 +137,7 @@ for(const engine of ['chromium','webkit'] as const){
       await session?.detach();
     });
 
-    test('dragging an umbrella uses capture while the surrounding lesson stays scrollable',async({page})=>{
+    test('dragging an umbrella uses capture scoped to its own scene',async({page})=>{
       await seed(page,'雨');
       const start=await center(page,'.wp-drag-prop'),target=await center(page,'.wp-drop-target');
       const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
@@ -145,7 +145,8 @@ for(const engine of ['chromium','webkit'] as const){
       expect(await page.locator('.lesson-overlay').evaluate(element=>getComputedStyle(element).touchAction)).not.toBe('none');
       await drag(page,[start,{x:(start.x+target.x)/2,y:(start.y+target.y)/2},target],touch);
       await expect(page.getByRole('button',{name:'认识这个字',exact:true})).toBeVisible();
-      await expect(page.locator('.wp-step-counter')).toHaveText('1 / 1');await session?.detach();
+      await expect(page.locator('.semantic-play')).toHaveClass(/is-complete/);
+      await expect(page.locator('.wp-game-content')).toHaveCount(0);await session?.detach();
     });
 
     test('holding warmth stops on release or cancel',async({page})=>{
@@ -168,10 +169,15 @@ for(const engine of ['chromium','webkit'] as const){
       await seed(page,'日');
       const slider=page.getByRole('slider',{name:'太阳升起高度',exact:true});await slider.scrollIntoViewIfNeeded();
       expect(await slider.evaluate(element=>getComputedStyle(element).touchAction)).toBe('pan-y');
+      // The compact completed view removes the native input. Capture its real
+      // input event value before React replaces the gameplay with discovery.
+      await slider.evaluate(element=>element.addEventListener('input',()=>{
+        document.body.dataset.touchSliderValue=(element as HTMLInputElement).value;
+      }));
       const box=(await slider.boundingBox())!,points=Array.from({length:7},(_,step)=>({x:box.x+8+(box.width-16)*step/6,y:box.y+box.height/2}));
       const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
       await drag(page,points,touch);
-      await expect.poll(async()=>Number(await slider.inputValue())).toBeGreaterThanOrEqual(95);
+      await expect.poll(async()=>Number(await page.locator('body').getAttribute('data-touch-slider-value'))).toBeGreaterThanOrEqual(95);
       await expect(page.getByRole('button',{name:'认识这个字',exact:true})).toBeVisible();await session?.detach();
     });
 
@@ -193,7 +199,7 @@ for(const engine of ['chromium','webkit'] as const){
       await expect(page.locator('.wp-scrub-bubbles')).toHaveCount(0);await session?.detach();
     });
 
-    test('animal drag and bathing persist; an empty moving grassland permits scrolling',async({page})=>{
+    test('animal drag and bathing persist; empty grass retains native pan behavior',async({page})=>{
       await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
       await page.getByRole('button',{name:'布置动物园',exact:true}).tap();
       const start=await center(page,'.zoo-map-item--animal');
@@ -219,10 +225,11 @@ for(const engine of ['chromium','webkit'] as const){
 
 test.describe('isolated Chromium Touch → Pointer multi-finger regressions',()=>{
   test.use({engine:'chromium'});
-  test('swiping empty grass scrolls without moving the selected animal',async({page})=>{
+  test('swiping empty grass keeps the tablet page and selected animal stationary',async({page})=>{
     await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
     await page.getByRole('button',{name:'布置动物园',exact:true}).tap();
     const board=page.locator('.zoo-board');await board.scrollIntoViewIfNeeded();
+    expect(await board.evaluate(element=>getComputedStyle(element).touchAction)).toBe('pan-y');
     const box=(await board.boundingBox())!,start={x:box.x+box.width*.85,y:box.y+box.height*.65};
     expect(await page.evaluate(point=>document.elementFromPoint(point.x,point.y)?.classList.contains('zoo-board'),start)).toBe(true);
     const before=(await saved(page)).zoo.animals['welcome-rabbit'],scroll=await page.evaluate(()=>scrollY);
@@ -230,7 +237,8 @@ test.describe('isolated Chromium Touch → Pointer multi-finger regressions',()=
     await touch.down(1,start);
     for(let step=1;step<=6;step++){await touch.move(1,{x:start.x,y:start.y-step*25});await page.waitForTimeout(30);}
     await touch.up(1);
-    await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(scroll+50);
+    expect(await page.evaluate(()=>scrollY)).toBe(scroll);
+    expect(await page.evaluate(()=>document.scrollingElement!.scrollHeight-document.scrollingElement!.clientHeight)).toBeLessThanOrEqual(2);
     const after=(await saved(page)).zoo.animals['welcome-rabbit'];expect({x:after.x,y:after.y}).toEqual({x:before.x,y:before.y});await session.detach();
   });
   test('a secondary finger cannot finish or interrupt the primary writing stroke',async({page})=>{

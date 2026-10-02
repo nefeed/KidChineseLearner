@@ -4,6 +4,7 @@ import type { Hanzi } from '../types';
 import hanziData from '../data/hanzi.json';
 import Animal from './Animal';
 import '../word-play.css';
+import { useTabletViewport } from '../tablet-viewport';
 
 type GameProps = { word: Hanzi; done: () => void; say: (text: string) => void };
 const NUMBERS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
@@ -267,11 +268,12 @@ function Generic({ word, done, say }: GameProps) {
 }
 
 export default function WordPlay({ word, onComplete, onSpeak }: { word: Hanzi; onComplete: () => void; onSpeak: (text: string) => void }) {
+  const {tablet}=useTabletViewport();
   const [complete,setComplete]=useState(false);
   useEffect(()=>setComplete(false),[word.id]);
   const done=()=>setComplete(true),props:GameProps={word,done,say:onSpeak};
   const game=SEMANTIC_WORDS[word.char];
   const association = game === 'feed' ? PETS[word.char].kind : game === 'bowl' ? FOOD_WORDS[word.char].art : game === 'wash' ? (word.char === '牙' ? 'tooth' : 'hand') : game === 'plant' ? (word.char === '草' ? 'grass' : word.char === '花' ? 'flower' : 'tree') : ({sunrise:'sun',night:'moon',mountain:'mountain',water:'drop',fire:'fire',cloud:'cloud',rain:'umbrella',wind:'grass',snow:'snow',swim:'fish',fly:'bird',number:'star',ear:'ear',mouth:'spoon',kindness:'heart',walk:'foot',leaves:word.char==='虫'?'worm':'leaf',peel:word.char==='蛋'?'egg':'melon',color:'flower'} as Record<string,string>)[game];
   const Component=game==='sunrise'||game==='night'?Sunrise:game==='water'?Water:game==='rain'||game==='mouth'||game==='kindness'?DragScene:game==='snow'?Snow:game==='wind'?Wind:game==='plant'?Plant:game==='feed'?Feed:game==='swim'||game==='fly'||game==='walk'?Travel:game==='compare'?Compare:game==='direction'?Direction:game==='number'?Counting:game==='wash'?Wash:game==='ear'?Hearing:game==='eyes'?Eyes:game==='nod'||game==='body'?Body:game==='open'?Opening:game==='bowl'?Bowl:game==='peel'?Peel:game==='color'?Color:game==='mountain'||game==='fire'||game==='cloud'||game==='leaves'?Nature:Generic;
-  return <div className={`word-play semantic-play ${complete?'is-complete':''}`}><Component key={word.id} {...props}/><div className={`wp-word-discovery ${complete?'is-visible':''}`} aria-live="polite">{complete&&<>{association?<span className="wp-origin-picture"><Art kind={association} size={58}/></span>:<Sparkles size={24}/>}<strong>{word.char}</strong><span>{word.pinyin}<small>{word.meaning}</small></span></>}</div>{complete&&<button className="primary-button" onClick={onComplete}>认识这个字<Sparkles size={20}/></button>}</div>;
+  return <div className={`word-play semantic-play ${complete?'is-complete':''}`}>{(!tablet||!complete)&&<div className="wp-game-content"><Component key={word.id} {...props}/></div>}<div className={`wp-word-discovery ${complete?'is-visible':''}`} aria-live="polite">{complete&&<>{association?<span className="wp-origin-picture"><Art kind={association} size={58}/></span>:<Sparkles size={24}/>}<strong>{word.char}</strong><span>{word.pinyin}<small>{word.meaning}</small></span></>}</div>{complete&&<button className="primary-button" onClick={onComplete}>认识这个字<Sparkles size={20}/></button>}</div>;
 }

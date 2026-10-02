@@ -1571,5 +1571,51 @@
         }
       }
     ]
+  },
+  "oneScreenReleaseRegression": {
+    "checkedAt": "2026-10-02T12:26:28.041Z",
+    "origin": "http://127.0.0.1:5173",
+    "productionAssets": [
+      {
+        "path": "dist/index.html",
+        "bytes": 1190,
+        "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9"
+      },
+      {
+        "path": "dist/assets/index-DyKERcVQ.js",
+        "bytes": 1513982,
+        "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f"
+      },
+      {
+        "path": "dist/assets/index-D2AuYFvJ.css",
+        "bytes": 143037,
+        "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4"
+      }
+    ],
+    "runs": [
+      {
+        "name": "pwa-chromium",
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "command": "PLAYWRIGHT_CHANNEL=chrome PWA_TEST_ENGINE=chromium PWA_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/final-pwa-chromium",
+        "log": {
+          "path": "/tmp/kidchinese-final-pwa-chromium.log",
+          "sha256": "e83bffe80155f0bbc3d3c7230eb9a3e41dd45d416dd8d79c29930db73f16207c"
+        }
+      },
+      {
+        "name": "pwa-webkit",
+        "passed": 7,
+        "failed": 0,
+        "skipped": 1,
+        "command": "PWA_TEST_ENGINE=webkit PWA_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/final-pwa-webkit",
+        "log": {
+          "path": "/tmp/kidchinese-final-pwa-webkit.log",
+          "sha256": "c4201d95e5ccecd08e03731ca6807ed271277f6a3ac5528b7a006d5a07780237"
+        }
+      }
+    ],
+    "boundary": "Independent desktop engines against the final production deployment; physical iPad installation was not tested."
   }
 }

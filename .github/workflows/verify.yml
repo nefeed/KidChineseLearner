@@ -25,6 +25,8 @@ jobs:
           PLAYWRIGHT_CHANNEL: chromium
           IPAD_TEST_URL: http://127.0.0.1:5173
           PWA_TEST_URL: http://127.0.0.1:5173
+          IPAD_LAYOUT_TEST_URL: http://127.0.0.1:5173
+          ZOO_TEST_URL: http://127.0.0.1:5173
         run: |
           node scripts/serve-lan.mjs > /tmp/kidchinese-lan.log 2>&1 &
           server_pid=$!
@@ -35,5 +37,9 @@ jobs:
           done
           curl --fail --silent http://127.0.0.1:5173/ > /dev/null
           npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch
+          npx playwright test tests/zoo.spec.ts --workers=1 --reporter=line --output=test-results/zoo
           PWA_TEST_ENGINE=chromium npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-chromium
           PWA_TEST_ENGINE=webkit npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-webkit
+          IPAD_LAYOUT_ENGINE=chromium npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --output=test-results/layout-chromium
+          IPAD_LAYOUT_ENGINE=webkit npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --output=test-results/layout-webkit
+          IPAD_LAYOUT_ENGINE=chromium IPAD_LAYOUT_SAFE_INSETS=20 npx playwright test tests/ipad-layout.spec.ts --grep 'Safari usable landscape' --workers=1 --reporter=line --output=test-results/layout-safe-insets

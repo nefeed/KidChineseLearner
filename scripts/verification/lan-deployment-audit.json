@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-02T10:23:29.345Z",
+  "checkedAt": "2026-10-02T12:26:28.041Z",
   "base": "http://192.168.31.48:5173",
   "bind": "0.0.0.0:5173",
   "service": "com.nefeed.kidchineselearner",
@@ -8,32 +8,58 @@
     {
       "path": "/",
       "status": 200,
-      "type": "text/html; charset=utf-8"
+      "type": "text/html; charset=utf-8",
+      "bytes": 1190,
+      "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9"
     },
     {
       "path": "/manifest.webmanifest",
       "status": 200,
-      "type": "application/manifest+json; charset=utf-8"
+      "type": "application/manifest+json; charset=utf-8",
+      "bytes": 724,
+      "sha256": "1cffb93a34e2138f53dd31ab8b2fca72d5ba8606856fb419fa73ba3f029cea0a"
     },
     {
       "path": "/icons/apple-touch-icon.png",
       "status": 200,
-      "type": "image/png"
+      "type": "image/png",
+      "bytes": 8443,
+      "sha256": "33a1db76a321de3e73757f7f74ac996a31423ee0794efe19e75b6fd58df72413"
     },
     {
       "path": "/icons/island-512.png",
       "status": 200,
-      "type": "image/png"
+      "type": "image/png",
+      "bytes": 23272,
+      "sha256": "de31b3531ba4c5d3efede5190c10df854ade9e0ee19694d59f66732dfcb53411"
     },
     {
       "path": "/LICENSE",
       "status": 200,
-      "type": "text/plain; charset=utf-8"
+      "type": "text/plain; charset=utf-8",
+      "bytes": 4563,
+      "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
     },
     {
       "path": "/docs/IPAD_VERIFICATION.md",
       "status": 200,
-      "type": "text/plain; charset=utf-8"
+      "type": "text/plain; charset=utf-8",
+      "bytes": 6500,
+      "sha256": "7011de481b3ed40beb0d97f32d94a01075ab999a4543357de2c6b05705d02e8b"
+    },
+    {
+      "path": "/assets/index-DyKERcVQ.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8",
+      "bytes": 1513982,
+      "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f"
+    },
+    {
+      "path": "/assets/index-D2AuYFvJ.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 143037,
+      "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4"
     }
   ],
   "range": {
@@ -44,5 +70,10 @@
   },
   "manifestComplete": true,
   "audioFiles": 22453,
-  "limit": "Requests from this Mac to its LAN IP; external iPad access and router isolation not tested"
+  "limit": "Requests from this Mac to its LAN IP; external iPad access and router isolation not tested",
+  "productionAssets": [
+    "/assets/index-DyKERcVQ.js",
+    "/assets/index-D2AuYFvJ.css"
+  ],
+  "release": "iPad Air 5 one-screen layout, maximum profile names and safe-area adaptation"
 }

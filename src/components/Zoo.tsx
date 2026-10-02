@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
-import { Check, Gift, Heart, Move, Pencil, Sparkles, Utensils, Waves, X } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Gift, Heart, Move, PawPrint, Pencil, Sparkles, Utensils, Waves, X } from 'lucide-react';
 import type { Profile } from '../types';
 import { ANIMALS, BUILDINGS, FOODS, REWARDS, type ZooReward } from '../data/rewards';
 import Animal from './Animal';
@@ -9,6 +9,9 @@ type Props = { profile: Profile; onUpdate: (updater: (p: Profile) => Profile) =>
 type Selection = { kind: 'animal' | 'building'; key: string };
 type Point = { x: number; y: number };
 const PAGE_SIZE = 12;
+const COLLECTION_PAGE_SIZE = 4;
+const REWARD_PAGE_SIZE = 6;
+const FOOD_PAGE_SIZE = 4;
 const DIRT: Point[] = [{ x: 34, y: 47 }, { x: 63, y: 45 }, { x: 43, y: 69 }, { x: 67, y: 73 }, { x: 54, y: 58 }];
 const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, value));
 const countLearned = (entries: Profile['hanzi']) => Object.values(entries).filter((progress) => progress.completed).length;
@@ -16,6 +19,23 @@ const countLearned = (entries: Profile['hanzi']) => Object.values(entries).filte
 function zooItems(zoo: Profile['zoo']): (Selection & Point)[] {
   const keys = [...new Set(['welcome-rabbit', ...zoo.claimed, ...Object.keys(zoo.animals), ...Object.keys(zoo.buildings)])];
   return keys.flatMap<Selection & Point>((key) => zoo.animals[key] ? [{ kind: 'animal', key, x: zoo.animals[key].x, y: zoo.animals[key].y }] : zoo.buildings[key] ? [{ kind: 'building', key, x: zoo.buildings[key].x, y: zoo.buildings[key].y }] : []);
+}
+
+function mapPosition(item: Selection & Point, items: (Selection & Point)[]) {
+  // Older saves and a full first grassland can contain the same position twice.
+  // Spread that small stack only for display; moving still saves the pointer's
+  // actual grassland position, and viewing never rewrites a child's layout.
+  const stack = items.filter(other => Math.abs(other.x - item.x) < .01 && Math.abs(other.y - item.y) < .01);
+  if (stack.length < 2) return { left: `${item.x}%`, top: `${item.y}%` };
+  const index = stack.findIndex(other => other.key === item.key && other.kind === item.kind);
+  const columns = Math.min(4, Math.ceil(Math.sqrt(stack.length)));
+  const rows = Math.ceil(stack.length / columns);
+  const axis = (position: number, slot: number, count: number, horizontal: boolean) => {
+    const gap = horizontal ? 'var(--zoo-map-spacing-x,120px)' : 'var(--zoo-map-spacing-y,128px)';
+    const half = horizontal ? 'var(--zoo-map-half-x,56px)' : 'var(--zoo-map-half-y,60px)';
+    return `calc(clamp(${half}, calc(${position}% - ${(count - 1) / 2} * ${gap}), calc(100% - ${half} - ${count - 1} * ${gap})) + ${slot} * ${gap})`;
+  };
+  return { left: axis(stack[0].x, index % columns, columns, true), top: axis(stack[0].y, Math.floor(index / columns), rows, false) };
 }
 
 function FoodIcon({ food }: { food: string }) {
@@ -58,7 +78,12 @@ function Meter({ label, value, color }: { label: string; value: number; color: s
   return <div className="zoo-meter"><div><span>{label}</span><span>{Math.round(value)} / 100</span></div><div className="zoo-meter-track"><span style={{ width: `${clamp(value, 0, 100)}%`, background: color }}/></div></div>;
 }
 
+function PagePicker({ label, page, pages, onPage }: { label: string; page: number; pages: number; onPage: (page: number) => void }) {
+  return <nav className="zoo-pagination" aria-label={label}><button aria-label={`${label}上一页`} disabled={page === 0} onClick={() => onPage(page - 1)}><ChevronLeft size={22}/></button><label>{label}<select aria-label={`选择${label}页码`} value={page} onChange={event => onPage(Number(event.target.value))}>{Array.from({length:pages},(_,index) => <option key={index} value={index}>{index + 1} / {pages}</option>)}</select></label><button aria-label={`${label}下一页`} disabled={page === pages - 1} onClick={() => onPage(page + 1)}><ChevronRight size={22}/></button></nav>;
+}
+
 export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
+  const [view, setView] = useState<'care' | 'rewards'>('care');
   const [selected, setSelected] = useState<Selection>({ kind: 'animal', key: 'welcome-rabbit' });
   const [care, setCare] = useState<'feed' | 'bath'>('feed');
   const [feedback, setFeedback] = useState('小兔已经来到你的岛！学会每 10 个字，或每 5 首诗词，就能邀请新朋友、领取建筑。');
@@ -68,6 +93,9 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
   const [nameInput, setNameInput] = useState('');
   const [showAll, setShowAll] = useState(false);
   const [mapPage, setMapPage] = useState(0);
+  const [collectionPage, setCollectionPage] = useState(0);
+  const [rewardPage, setRewardPage] = useState(0);
+  const [foodPage, setFoodPage] = useState(0);
   const [bubble, setBubble] = useState<Point | null>(null);
   const [dirtyMarks, setDirtyMarks] = useState<Set<number>>(new Set());
   const boardRef = useRef<HTMLDivElement>(null);
@@ -88,12 +116,24 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
   const eligible = REWARDS.filter((reward) => !claimed.has(reward.id) && (reward.source === 'hanzi' ? learned : learnedPoems) >= reward.threshold);
   const upcomingHanzi = REWARDS.find((reward) => reward.source === 'hanzi' && reward.threshold > learned);
   const upcomingPoems = REWARDS.find((reward) => reward.source === 'poems' && reward.threshold > learnedPoems);
-  const rewardsShown = showAll ? REWARDS : [...eligible, ...[upcomingHanzi, upcomingPoems].filter((reward): reward is ZooReward => !!reward)].filter((reward, index, array) => array.findIndex((r) => r.id === reward.id) === index);
+  const rewardChoices = showAll ? REWARDS : [...eligible, ...[upcomingHanzi, upcomingPoems].filter((reward): reward is ZooReward => !!reward)].filter((reward, index, array) => array.findIndex((r) => r.id === reward.id) === index);
+  const rewardPageCount = Math.max(1, Math.ceil(rewardChoices.length / REWARD_PAGE_SIZE));
+  const currentRewardPage = Math.min(rewardPage, rewardPageCount - 1);
+  const rewardsShown = rewardChoices.slice(currentRewardPage * REWARD_PAGE_SIZE, (currentRewardPage + 1) * REWARD_PAGE_SIZE);
+  const collectionPageCount = Math.max(1, Math.ceil(visibleItems.length / COLLECTION_PAGE_SIZE));
+  const currentCollectionPage = Math.min(collectionPage, collectionPageCount - 1);
+  const collectionShown = visibleItems.slice(currentCollectionPage * COLLECTION_PAGE_SIZE, (currentCollectionPage + 1) * COLLECTION_PAGE_SIZE);
+  const foodPageCount = Math.ceil(FOODS.length / FOOD_PAGE_SIZE);
+  const foodsShown = FOODS.slice(foodPage * FOOD_PAGE_SIZE, (foodPage + 1) * FOOD_PAGE_SIZE);
 
   useEffect(() => {
     setSelected({ kind: 'animal', key: Object.keys(profile.zoo.animals)[0] ?? 'welcome-rabbit' });
     setMoving(false);
+    setView('care');
     setMapPage(0);
+    setCollectionPage(0);
+    setRewardPage(0);
+    setFoodPage(0);
     setRenaming(null);
     setFeedback('欢迎回到你的动物园。点一位朋友，就能喂食、洗澡、给它起名字。');
   }, [profile.id]);
@@ -104,7 +144,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
     setDirtyMarks(new Set(dirty));
     setBubble(null);
     setMood('idle');
-  }, [selected.key, care, profile.id]);
+  }, [selected.key, care, profile.id, view]);
 
   useEffect(() => () => { if (moodTimer.current) clearTimeout(moodTimer.current); }, []);
 
@@ -112,7 +152,10 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
   const selectMember = (selection: Selection) => {
     setSelected(selection);
     const index = mapItems.findIndex((item) => item.kind === selection.kind && item.key === selection.key);
-    if (index >= 0) setMapPage(Math.floor(index / PAGE_SIZE));
+    if (index >= 0) {
+      setMapPage(Math.floor(index / PAGE_SIZE));
+      setCollectionPage(Math.floor(index % PAGE_SIZE / COLLECTION_PAGE_SIZE));
+    }
   };
   const animate = (next: typeof mood) => {
     if (moodTimer.current) clearTimeout(moodTimer.current);
@@ -137,6 +180,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
     });
     setSelected({ kind: reward.kind, key: reward.id });
     setMapPage(Math.floor(mapItems.length / PAGE_SIZE));
+    setCollectionPage(Math.floor(mapItems.length % PAGE_SIZE / COLLECTION_PAGE_SIZE));
     animate('happy');
     speakFeedback(`${reward.title}来到动物园啦！点移动，再点草地，就能安排一个位置。`);
   };
@@ -216,7 +260,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
   };
   useEffect(() => {
     endMove();
-  }, [moving, mapPage, profile.id]);
+  }, [moving, mapPage, profile.id, view]);
 
   const keyboardMove = (event: React.KeyboardEvent<HTMLButtonElement>, selection: Selection, position: Point) => {
     if (!moving || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
@@ -269,55 +313,63 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
     else setFeedback('泡泡把一块小泥点洗掉啦，继续轻轻擦一擦。');
   };
 
-  return <section className="zoo-page" aria-label="我的动物园">
+  return <section className={`zoo-page zoo-page--${view}`} aria-label="我的动物园">
     <div className="zoo-heading">
-      <div><span className="zoo-kicker">学会一点点 · 陪伴多一点</span><h1>{profile.zoo.name}<button className="zoo-icon-button" aria-label="给动物园改名" onClick={() => { setNameInput(profile.zoo.name); setRenaming('zoo'); }}><Pencil size={20}/></button></h1><p>{Object.keys(profile.zoo.animals).length} 位朋友，{Object.keys(profile.zoo.buildings).length} 座建筑，都住在你的专属小岛。</p></div>
-      <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? '位置已经保存。' : '先点选一位朋友或建筑，然后拖动它，或点草地上的新位置。'); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>
+      <div><h1>{profile.zoo.name}<button className="zoo-icon-button" aria-label="给动物园改名" onClick={() => { setNameInput(profile.zoo.name); setRenaming('zoo'); }}><Pencil size={20}/></button></h1><p>{Object.keys(profile.zoo.animals).length} 位朋友 · {Object.keys(profile.zoo.buildings).length} 座建筑</p></div>
+      {view === 'care' && <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? '位置已经保存。' : '先点选一位朋友或建筑，然后拖动它，或点草地上的新位置。'); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>}
     </div>
+    <div className="zoo-view-switch" aria-label={`动物园页面`}><button aria-pressed={view === 'care'} onClick={() => setView('care')}><PawPrint size={21}/>照顾朋友</button><button aria-pressed={view === 'rewards'} onClick={() => { setView('rewards'); setMoving(false); }}><Gift size={21}/>小岛邀请函{eligible.length > 0 && <span>{eligible.length}</span>}</button></div>
 
-    {renaming && <form className="zoo-name-form" onSubmit={(event) => { event.preventDefault(); saveName(); }}><label htmlFor="zoo-name-input">{renaming === 'zoo' ? '动物园的名字' : '朋友的新名字'}</label><input id="zoo-name-input" value={nameInput} onChange={(event) => setNameInput(event.target.value)} maxLength={16} autoFocus/><button type="submit" className="zoo-pill-button"><Check size={19}/>记住名字</button><button type="button" className="zoo-icon-button" aria-label="取消改名" onClick={() => setRenaming(null)}><X size={20}/></button></form>}
+    {renaming && <div className="zoo-name-overlay"><form className="zoo-name-form" role="dialog" aria-modal="true" aria-label={renaming === 'zoo' ? `动物园改名` : `朋友改名`} onSubmit={(event) => { event.preventDefault(); saveName(); }}><label htmlFor="zoo-name-input">{renaming === 'zoo' ? '动物园的名字' : '朋友的新名字'}</label><input id="zoo-name-input" value={nameInput} onChange={(event) => setNameInput(event.target.value)} onKeyDown={event => {if(event.key === 'Escape')setRenaming(null);}} maxLength={16} autoFocus/><button type="submit" className="zoo-pill-button"><Check size={19}/>记住名字</button><button type="button" className="zoo-icon-button" aria-label="取消改名" onClick={() => setRenaming(null)}><X size={20}/></button></form></div>}
 
-    <div className="zoo-world-layout">
-      <div>
-        <div ref={boardRef} className={`zoo-board ${moving ? 'zoo-board--moving' : ''}`} onClick={(event) => { if (!moving || event.target !== event.currentTarget) return; const point = boardPoint(event); if (point) moveTo(selected, point); }} onPointerMove={(event) => { const drag = dragRef.current;if (!drag || event.pointerId !== drag.pointerId) return; const point = boardPoint(event); if (point) moveTo(drag.selection, point); }} onPointerUp={endMove} onPointerCancel={endMove} onLostPointerCapture={endMove}>
+    {view === 'care' ? <><div className="zoo-world-layout">
+      <div className="zoo-map-panel">
+        <div ref={boardRef} className={`zoo-board ${moving ? 'zoo-board--moving' : ''}`} onClick={(event) => { if (!moving || event.target !== event.currentTarget) return; const point = boardPoint(event); if (point) moveTo(selected, point); }} onPointerMove={(event) => { const drag = dragRef.current; if (!drag || event.pointerId !== drag.pointerId) return; const point = boardPoint(event); if (point) moveTo(drag.selection, point); }} onPointerUp={endMove} onPointerCancel={endMove} onLostPointerCapture={endMove}>
           <div className="zoo-cloud zoo-cloud-one"/><div className="zoo-cloud zoo-cloud-two"/><div className="zoo-sun"/><div className="zoo-hills"/><div className="zoo-map-pond"><span/><span/></div><div className="zoo-map-path"/><div className="zoo-fence"/>
           <span className="zoo-map-sign">{profile.zoo.name}</span>
           {moving && <div className="zoo-map-grid"/>}
-          {Object.entries(profile.zoo.buildings).filter(([key]) => visibleKeys.has(`building:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--building ${selected.key === key && selected.kind === 'building' ? 'is-selected' : ''}`} style={{ left: `${item.x}%`, top: `${item.y}%`, zIndex: selected.kind === 'building' && selected.key === key ? 1000 : Math.round(item.y) }} aria-label={`选择${BUILDINGS.find((b) => b.id === item.id)?.name ?? '建筑'}`} onPointerDown={(event) => beginMove(event, { kind: 'building', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'building', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'building', key }); }}><Building species={item.id} size={100}/><span>{BUILDINGS.find((b) => b.id === item.id)?.name}</span></button>)}
-          {Object.entries(profile.zoo.animals).filter(([key]) => visibleKeys.has(`animal:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--animal ${selected.key === key && selected.kind === 'animal' ? 'is-selected' : ''}`} style={{ left: `${item.x}%`, top: `${item.y}%`, zIndex: selected.kind === 'animal' && selected.key === key ? 1000 : Math.round(item.y) + 1 }} aria-label={`选择${item.name}`} onPointerDown={(event) => beginMove(event, { kind: 'animal', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'animal', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'animal', key }); }}><Animal species={item.id} size={92} mood={selected.key === key ? mood : 'idle'}/><span>{item.name}</span></button>)}
+          {Object.entries(profile.zoo.buildings).filter(([key]) => visibleKeys.has(`building:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--building ${selected.key === key && selected.kind === 'building' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'building', key }, visibleItems), zIndex: selected.kind === 'building' && selected.key === key ? 1000 : Math.round(item.y) }} aria-label={`选择${BUILDINGS.find((b) => b.id === item.id)?.name ?? `建筑`}`} onPointerDown={(event) => beginMove(event, { kind: 'building', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'building', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'building', key }); }}><Building species={item.id} size={100}/><span>{BUILDINGS.find((b) => b.id === item.id)?.name}</span></button>)}
+          {Object.entries(profile.zoo.animals).filter(([key]) => visibleKeys.has(`animal:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--animal ${selected.key === key && selected.kind === 'animal' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'animal', key }, visibleItems), zIndex: selected.kind === 'animal' && selected.key === key ? 1000 : Math.round(item.y) + 1 }} aria-label={`选择${item.name}`} onPointerDown={(event) => beginMove(event, { kind: 'animal', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'animal', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'animal', key }); }}><Animal species={item.id} size={92} mood={selected.key === key ? mood : 'idle'}/><span>{item.name}</span></button>)}
         </div>
-        {pageCount > 1 && <div className="zoo-map-pages" aria-label="动物园草地区域"><span>我的第 {mapPage + 1} 片草地 · 共 {pageCount} 片</span><div>{Array.from({ length: pageCount }, (_, index) => <button key={index} aria-label={`前往第${index + 1}片草地`} aria-current={mapPage === index ? 'page' : undefined} onClick={() => { const first = mapItems[index * PAGE_SIZE]; if (first) selectMember(first); setMapPage(index); }}>{index + 1}</button>)}</div></div>}
+        <div aria-label="动物园草地区域"><PagePicker label={`草地`} page={mapPage} pages={pageCount} onPage={index => { const first = mapItems[index * PAGE_SIZE]; if (first) selectMember(first); setMapPage(index); setCollectionPage(0); }}/></div>
         <p className="zoo-board-hint"><Move size={17}/>{moving ? '拖动朋友或建筑，也可以选好后点一块草地。位置自动保存。' : '点朋友就能照顾它。所有朋友一直安全、健康地等你回来。'}</p>
-        <div className="zoo-collection" aria-label="动物和建筑列表">{Object.entries(profile.zoo.animals).filter(([key]) => visibleKeys.has(`animal:${key}`)).map(([key, item]) => <button key={key} className={selected.kind === 'animal' && selected.key === key ? 'is-selected' : ''} onClick={() => selectMember({ kind: 'animal', key })}><Animal species={item.id} size={58}/><span>{item.name}</span></button>)}{Object.entries(profile.zoo.buildings).filter(([key]) => visibleKeys.has(`building:${key}`)).map(([key, item]) => <button key={key} className={selected.kind === 'building' && selected.key === key ? 'is-selected' : ''} onClick={() => selectMember({ kind: 'building', key })}><Building species={item.id} size={58}/><span>{BUILDINGS.find((b) => b.id === item.id)?.name}</span></button>)}</div>
-        {pageCount > 1 && <label className="zoo-directory">找一位朋友或建筑<select aria-label="动物园完整名册" value={`${selected.kind}:${selected.key}`} onChange={(event) => { const separator = event.target.value.indexOf(':'); selectMember({ kind: event.target.value.slice(0, separator) as Selection['kind'], key: event.target.value.slice(separator + 1) }); }}>{mapItems.map((item, index) => <option key={`${item.kind}:${item.key}`} value={`${item.kind}:${item.key}`}>第 {Math.floor(index / PAGE_SIZE) + 1} 片草地 · {item.kind === 'animal' ? profile.zoo.animals[item.key].name : BUILDINGS.find((b) => b.id === profile.zoo.buildings[item.key].id)?.name}</option>)}</select></label>}
+        <div className="zoo-collection-strip" aria-label={`本片草地的朋友卡片`}>
+          <button className="zoo-collection-arrow" aria-label={`上一页朋友卡片`} disabled={currentCollectionPage === 0} onClick={() => setCollectionPage(currentCollectionPage - 1)}><ChevronLeft size={21}/></button>
+          <div className="zoo-collection" aria-label="动物和建筑列表">{collectionShown.map(item => {
+            const member = item.kind === 'animal' ? profile.zoo.animals[item.key] : profile.zoo.buildings[item.key];
+            const name = item.kind === 'animal' ? profile.zoo.animals[item.key].name : BUILDINGS.find(b => b.id === member.id)?.name ?? `建筑`;
+            return <button key={`${item.kind}:${item.key}`} title={name} aria-label={`${item.kind === 'animal' ? `照顾` : `查看`}${name}`} className={selected.kind === item.kind && selected.key === item.key ? 'is-selected' : ''} onClick={() => selectMember(item)}>{item.kind === 'animal' ? <Animal species={member.id} size={48}/> : <Building species={member.id} size={48}/>}<span>{name}</span></button>;
+          })}</div>
+          <button className="zoo-collection-arrow" aria-label={`下一页朋友卡片`} disabled={currentCollectionPage === collectionPageCount - 1} onClick={() => setCollectionPage(currentCollectionPage + 1)}><ChevronRight size={21}/></button>
+          <span className="zoo-collection-status">本片朋友卡片 {currentCollectionPage + 1} / {collectionPageCount}</span>
+        </div>
       </div>
 
-      <aside className="zoo-care-panel">
+      <aside className={`zoo-care-panel zoo-care-panel--${care}`}>
         {animal && species ? <>
           <div className="zoo-care-title"><div><span className="zoo-kicker">{species.name} · 喜欢{species.habitat}</span><h2>{animal.name}</h2></div><button className="zoo-icon-button" aria-label="给动物改名" onClick={() => { setNameInput(animal.name); setRenaming('animal'); }}><Pencil size={19}/></button></div>
           <div className="zoo-care-tabs"><button className={care === 'feed' ? 'is-active' : ''} onClick={() => { setCare('feed'); onSpeak(`给${animal.name}选一份食物。${species.foodHint}`); }}><Utensils size={18}/>喂食</button><button className={care === 'bath' ? 'is-active' : ''} onClick={() => { setCare('bath'); onSpeak('按住泡泡，轻轻擦过身上的棕色小泥点。'); }}><Waves size={18}/>洗澡</button></div>
           <div className={`zoo-care-stage zoo-care-stage--${care}`} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); feed(event.dataTransfer.getData('application/zoo-food')); }}>
             <Animal species={animal.id} size={224} mood={mood}/>
-            {care === 'bath' && <div className="zoo-bath-surface" role="application" aria-label="按住并拖动泡泡擦掉棕色泥点" onPointerDown={(event) => { if (!event.isPrimary || event.button !== 0 || bathRef.current.pointerId !== null) return; const point = bathPoint(event);if (!point) return; event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); bathRef.current.pointerId = event.pointerId; bathRef.current.previous = point; bathRef.current.travel = 0; setBubble(point); setMood('bath'); }} onPointerMove={scrub} onPointerUp={endBath} onPointerCancel={endBath} onLostPointerCapture={endBath}>
+            {care === 'bath' && <div className="zoo-bath-surface" role="application" aria-label="按住并拖动泡泡擦掉棕色泥点" onPointerDown={(event) => { if (!event.isPrimary || event.button !== 0 || bathRef.current.pointerId !== null) return; const point = bathPoint(event); if (!point) return; event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); bathRef.current.pointerId = event.pointerId; bathRef.current.previous = point; bathRef.current.travel = 0; setBubble(point); setMood('bath'); }} onPointerMove={scrub} onPointerUp={endBath} onPointerCancel={endBath} onLostPointerCapture={endBath}>
               {DIRT.map((point, index) => dirtyMarks.has(index) ? <span key={index} className="zoo-dirt" style={{ left: `${point.x}%`, top: `${point.y}%` }}/> : null)}
               {bubble && <span className="zoo-bubble-brush" style={{ left: `${bubble.x}%`, top: `${bubble.y}%` }}><i/><i/><i/><i/></span>}
               {!bubble && animal.cleanliness < 100 && <span className="zoo-bath-hand"><Waves size={22}/>拖动泡泡洗一洗</span>}
             </div>}
-            {care === 'feed' && <span className="zoo-care-stage-caption">点食物，或拖到我这里</span>}
+            {care === 'feed' && <span className="zoo-care-stage-caption">点食物喂给我</span>}
             {care === 'bath' && animal.cleanliness >= 100 && <span className="zoo-care-stage-caption"><Sparkles size={16}/>洗干净啦！</span>}
           </div>
+          {care === 'feed' && <div className="zoo-food-choices"><div className="zoo-foods">{foodsShown.map((food) => <button key={food.id} draggable onDragStart={(event) => event.dataTransfer.setData('application/zoo-food', food.id)} onClick={() => feed(food.id)} aria-label={`喂${food.name}`}><FoodIcon food={food.id}/><span>{food.name}</span></button>)}</div><nav className="zoo-food-pagination" aria-label={`食物页`}><button aria-label={`上一页食物`} disabled={foodPage === 0} onClick={() => setFoodPage(foodPage - 1)}><ChevronLeft size={19}/></button><span>{foodPage + 1} / {foodPageCount}</span><button aria-label={`下一页食物`} disabled={foodPage === foodPageCount - 1} onClick={() => setFoodPage(foodPage + 1)}><ChevronRight size={19}/></button></nav></div>}
           <div className="zoo-meters"><Meter label="小肚子" value={animal.fullness} color="#edb36e"/><Meter label="干净度" value={animal.cleanliness} color="#8ebdce"/><Meter label="亲密度" value={animal.affection} color="#dda2b1"/></div>
-          {care === 'feed' ? <><p className="zoo-food-hint">{species.foodHint}</p><div className="zoo-foods">{FOODS.map((food) => <button key={food.id} draggable onDragStart={(event) => event.dataTransfer.setData('application/zoo-food', food.id)} onClick={() => feed(food.id)} aria-label={`喂${food.name}`}><FoodIcon food={food.id}/><span>{food.name}</span></button>)}</div></> : <p className="zoo-food-hint">按住后拖动泡泡，逐块擦掉小泥点。每次洗掉的进度都会记住。</p>}
+          <p className="zoo-food-hint">{care === 'feed' ? species.foodHint : `按住后拖动泡泡，逐块擦掉小泥点。每次洗掉的进度都会记住。`}</p>
         </> : buildingInfo ? <div className="zoo-building-details"><Building species={buildingInfo.id} size={200}/><span className="zoo-kicker">你的动物园建筑</span><h2>{buildingInfo.name}</h2><p>{buildingInfo.description}</p><button className="zoo-pill-button" onClick={() => { setMoving(true); speakFeedback(`给${buildingInfo.name}找个位置吧。拖动建筑，或点一块草地。`); }}><Move size={18}/>安排位置</button></div> : <div className="zoo-building-details"><Heart size={40}/><h2>选择一位朋友</h2><p>点草地上的动物，或下面的朋友卡片，就能开始照顾它。</p></div>}
       </aside>
     </div>
-
     <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedback)} aria-label="再听一次提示"><Waves size={20}/></button></div>
-
-    <section className="zoo-rewards" aria-label="学习奖励">
-      <div className="zoo-reward-heading"><div><span className="zoo-kicker">每次努力都有新惊喜</span><h2><Gift size={25}/>小岛邀请函</h2></div><button className="zoo-text-button" onClick={() => setShowAll(!showAll)}>{showAll ? '收起奖励地图' : '查看全部 160 份奖励'}</button></div>
-      <div className="zoo-learning-progress"><span>已学会 <strong>{learned}</strong> 个字 / 1000</span><span>已学会 <strong>{learnedPoems}</strong> 首诗词 / 300</span><span>已领取 <strong>{profile.zoo.claimed.length}</strong> 份礼物</span></div>
-      <div className={`zoo-reward-grid ${showAll ? 'zoo-reward-grid--all' : ''}`}>{rewardsShown.map((reward) => {
+    </> : <><section className="zoo-rewards" aria-label="学习奖励">
+      <div className="zoo-reward-heading"><h2><Gift size={25}/>小岛邀请函</h2><button className="zoo-text-button" onClick={() => { setShowAll(!showAll); setRewardPage(0); }}>{showAll ? '收起奖励地图' : '查看全部 160 份奖励'}</button></div>
+      <div className="zoo-learning-progress"><span>已学会 <strong>{learned}</strong> 字 / 1000</span><span>已学会 <strong>{learnedPoems}</strong> 首 / 300</span><span>已领取 <strong>{profile.zoo.claimed.length}</strong> 份</span></div>
+      {rewardsShown.length > 0 ? <div className="zoo-reward-grid">{rewardsShown.map((reward) => {
         const received = claimed.has(reward.id);
         const current = reward.source === 'hanzi' ? learned : learnedPoems;
         const available = current >= reward.threshold;
@@ -326,8 +378,11 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
           <div className="zoo-reward-copy"><span className="zoo-kicker">{reward.source === 'hanzi' ? '识字' : '诗词'} · 第 {reward.threshold / (reward.source === 'hanzi' ? 10 : 5)} 份</span><h3>{reward.title}</h3><p>学会 {reward.threshold} {reward.source === 'hanzi' ? '个字' : '首诗词'}</p></div>
           <button className="zoo-reward-claim" disabled={received || !available} onClick={() => claimReward(reward)}>{received ? <><Check size={17}/>已来到</> : available ? <><Gift size={17}/>邀请入园</> : <>还差 {reward.threshold - current} {reward.source === 'hanzi' ? '字' : '首'}</>}</button>
         </article>;
-      })}</div>
-      {!rewardsShown.length && <p className="zoo-reward-complete">全部邀请函都收到了！你可以继续复习，也可以用新名字和新布局建设你的动物园。</p>}
+      })}</div> : <p className="zoo-reward-complete">全部邀请函都收到了！点照顾朋友，继续建设自己的动物园。</p>}
+      <PagePicker label={`奖励`} page={currentRewardPage} pages={rewardPageCount} onPage={setRewardPage}/>
     </section>
+    <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedback)} aria-label="再听一次提示"><Waves size={20}/></button></div>
+    </>}
+
   </section>;
 }
