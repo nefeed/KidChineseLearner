@@ -38,13 +38,26 @@ const test=base.extend<{page:Page},{browser:Browser}>({
   page:async({browser,viewport},use,testInfo)=>{
     const context=await browser.newContext({viewport:viewport!,deviceScaleFactor:2,isMobile:true,hasTouch:true,
       userAgent:'Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'});
-    const page=await context.newPage(),errors:string[]=[];
+    const page=await context.newPage(),errors:string[]=[];let crashed=false;
     const insetSession=safeInsets?await context.newCDPSession(page):null;
     if(insetSession)await insetSession.send('Emulation.setSafeAreaInsetsOverride',{insets:{top:safeInsets,bottom:safeInsets,left:0,right:0}});
     page.on('pageerror',error=>errors.push(error.message));
+    page.on('crash',()=>crashed=true);
     try{await use(page);}finally{
-      if(testInfo.status!==testInfo.expectedStatus&&!page.isClosed())await testInfo.attach('viewport-failure',{body:await page.screenshot(),contentType:'image/png'});
-      await insetSession?.detach();await context.close();expect(errors,'No application errors in the layout fixture').toEqual([]);
+      try{
+        if(testInfo.status!==testInfo.expectedStatus&&!page.isClosed()){
+          try{
+            if(crashed)throw Error('Page crashed before the failure screenshot could be captured.');
+            await testInfo.attach('viewport-failure',{body:await page.screenshot(),contentType:'image/png'});
+          }catch(error){
+            // A crashed renderer cannot provide pixels; retain the primary failure.
+            await testInfo.attach('viewport-screenshot-error',{body:String(error),contentType:'text/plain'});
+          }
+        }
+      }finally{
+        try{await insetSession?.detach();}finally{await context.close();}
+        expect(errors,'No application errors in the layout fixture').toEqual([]);
+      }
     }
   },
 });
@@ -188,7 +201,8 @@ async function fits(page:Page,testInfo:TestInfo,label:string,scope?:string){
 // Sunrise and night share one implementation. Snow adds the twentieth unique
 // semantic implementation through a clearly separate component fixture: it
 // is currently absent from the 1,000-character course.
-const games=[['日','sunrise'],['月','night'],['水','water'],['雨','drag umbrella'],['风','wind'],['木','plant'],['猫','feed'],['鸟','travel'],['大','compare'],['上','direction'],['一','count'],['手','wash'],['耳','hearing'],['目','eyes'],['头','body'],['门','opening'],['米','bowl'],['瓜','peel'],['红','color'],['山','nature'],['龙','generic reveal']] as const;
+// Nature variants share handlers but exercise different art and filter states.
+const games=[['日','sunrise'],['月','night'],['水','water'],['雨','drag umbrella'],['风','wind'],['木','plant'],['猫','feed'],['鸟','travel'],['大','compare'],['上','direction'],['一','count'],['手','wash'],['耳','hearing'],['目','eyes'],['头','body'],['门','opening'],['米','bowl'],['瓜','peel'],['红','color'],['山','nature'],['火','nature'],['云','nature'],['叶','nature'],['虫','nature'],['龙','generic reveal']] as const;
 
 let snowBundle:string|undefined;
 async function snowLayoutFixture(page:Page){
@@ -231,6 +245,10 @@ async function completeGame(page:Page,char:string,info:TestInfo){
     case '米':for(const i of [1,3,5])await click(`第${i}份食物或物品`);break;
     case '红':await click('选择红色');for(let i=1;i<=3;i++)await click(`涂第${i}片花瓣`);break;
     case '山':for(let i=1;i<=3;i++)await click(`第${i}座山峰`);break;
+    case '火':for(let i=1;i<=3;i++)await click(`点亮第${i}束画里的火光`);break;
+    case '云':for(let i=1;i<=3;i++)await click(`第${i}朵白云`);break;
+    case '叶':for(let i=1;i<=3;i++)await click(`第${i}片落叶`);break;
+    case '虫':for(let i=1;i<=3;i++)await click(`第${i}只小虫`);break;
     case '龙':{
       const word=words.find(item=>item.char===char)!;
       const cover=page.locator('.wp-fallback-card');
