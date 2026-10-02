@@ -1,0 +1,3237 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T13:43:27.096481+00:00",
+  "buildMode": "Final production LAN resources with real AAC, real-response JSON bootstrap and temporary esbuild fixture of the frozen NarrationPlayer source",
+  "result": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "exitCode": 0,
+    "durationMs": 35979.729
+  },
+  "command": "NARRATION_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/narration-browser.spec.ts --workers=2 --reporter=json --output=output/release-narration-media-final > output/release-narration-media-final.json 2> output/release-narration-media-final.stderr.log",
+  "executionEvidence": {
+    "jsonReporter": {
+      "file": "output/release-narration-media-final.json",
+      "bytes": 94109,
+      "sha256": "d15a05209c7c760c32abec8783737536fc7a2ac3ac3226b9dd74acf62295bda2"
+    },
+    "stderr": {
+      "file": "output/release-narration-media-final.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "lastRun": {
+      "file": "output/release-narration-media-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "stats": {
+      "startTime": "2026-10-02T13:37:43.174Z",
+      "duration": 35979.729,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "completionChunk": "39e067"
+  },
+  "sourceSnapshots": {
+    "files": [
+      {
+        "file": "src/narration-player.ts",
+        "bytes": 12326,
+        "sha256": "529b3bc397bb6eea1f7b07e5e93d63eb1dffcf18117ac42d648323ee36f0e23d"
+      },
+      {
+        "file": "src/speech.ts",
+        "bytes": 3108,
+        "sha256": "8f2510681aede6a521c35150f5c37e454a72f38645d1fc846382cdf5041d1c17"
+      },
+      {
+        "file": "src/components/StrokePractice.tsx",
+        "bytes": 11793,
+        "sha256": "4ae3db3b3bbd5626532d9eb027ba514e44a3cb656e0fa9e229ab77d73a6548b5"
+      },
+      {
+        "file": "src/trace.ts",
+        "bytes": 4080,
+        "sha256": "9980060e26291c93028c1bd91427c1dc02eb3fbc8e70263dfb20b36a5d63b92a"
+      },
+      {
+        "file": "src/stroke-practice.css",
+        "bytes": 378,
+        "sha256": "04571d1572a65f10970d6c53b8be580afefd2c45c980c27152af5ce9adbc9022"
+      },
+      {
+        "file": "tests/narration-browser.spec.ts",
+        "bytes": 11297,
+        "sha256": "bdb653a24ad614c73b8159bb8b1aeaffc40d8e1ece0506414d53beb3d2dea056"
+      },
+      {
+        "file": "tests/ipad-touch.spec.ts",
+        "bytes": 32620,
+        "sha256": "c21286db214cb0a9c789bdcbf591e85e395fe05351a4c1060be8d8a01b438c9b"
+      },
+      {
+        "file": "tests/trace-guide.test.ts",
+        "bytes": 1754,
+        "sha256": "3f05ae68e608706f1d9b1570bddeb3cfd3d1e4e268eba861aceaf14d09ba06f3"
+      }
+    ],
+    "unchangedSinceCapturedLaunchSnapshot": true,
+    "snapshot": {
+      "file": "output/release-star-narration-before.json",
+      "bytes": 1980,
+      "sha256": "c9b8502cdad5d687d4e46343e964cdd43c33e9385a379f0e2bd9b92013a8cac4"
+    },
+    "capturePhase": "Immediately after launching final suites with corrected real-response JSON bootstrap; product source and bundle remain frozen"
+  },
+  "validatedBehavior": {
+    "fixedPlaybackRate": 0.96,
+    "preservesPitch": true,
+    "volumeAfterFirst50msAndAtEnd": 1,
+    "sentencePauseConfiguredMs": 260,
+    "minimumMeasuredGapRequiredMs": 250,
+    "onlyLatestNearEndRequestPlays": true,
+    "currentRequestCompletesNaturally": true,
+    "explicitStopMuteBackgroundCancelCurrentAndPending": true,
+    "maxNativeClockRegressionToleranceSeconds": 0.02,
+    "nativePlaybackPropertiesOrMethodsMocked": false
+  },
+  "cases": [
+    {
+      "engine": "chromium",
+      "name": "near-end taps finish the real clip at a fixed pitch-preserving rate and play only the latest after the pause",
+      "status": "passed",
+      "durationMs": 5752,
+      "measurements": {
+        "0": {
+          "naturalEnded": true,
+          "decodedDurationSeconds": 2.090667,
+          "playingToEndedMs": 2056.6000000089407,
+          "maxClockRegressionSeconds": 0,
+          "observedRates": [
+            0.96
+          ],
+          "endVolume": 1,
+          "preservesPitchAllSamples": true
+        },
+        "1": {
+          "naturalEnded": true,
+          "decodedDurationSeconds": 2.005333,
+          "playingToEndedMs": 2012.5999999940395,
+          "maxClockRegressionSeconds": 0,
+          "observedRates": [
+            0.96
+          ],
+          "endVolume": 1,
+          "preservesPitchAllSamples": true
+        },
+        "sentenceGapMs": 263.5
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/chromium-case-1.json",
+        "bytes": 11699,
+        "sha256": "ea3b76e714ebd276938a006eab45ef26abcff8c8695ba46775dd17aea7296a70"
+      },
+      "nativeMediaEvidence": {
+        "engine": "chromium",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 148.1000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 148.90000000596046,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 148.90000000596046,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 148.90000000596046,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 153.1000000089407,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 159.90000000596046,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 291.5,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 407.79999999701977,
+            "currentTime": 0.057316,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 672.2999999970198,
+            "currentTime": 0.312217,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 938.7000000029802,
+            "currentTime": 0.565004,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1204.2000000029802,
+            "currentTime": 0.822468,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1468.5,
+            "currentTime": 1.077335,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1734.2999999970198,
+            "currentTime": 1.328103,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2000.2999999970198,
+            "currentTime": 1.587372,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2267.7000000029802,
+            "currentTime": 1.843922,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2348.1000000089407,
+            "currentTime": 2.090667,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "pause",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2348.1000000089407,
+            "currentTime": 2.090667,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ended",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2348.1000000089407,
+            "currentTime": 2.090667,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "emptied",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2611.4000000059605,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2611.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2611.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2611.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2616.7999999970198,
+            "currentTime": 0,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2618.1000000089407,
+            "currentTime": 0,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2622.7999999970198,
+            "currentTime": 0,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2876.7000000029802,
+            "currentTime": 0.197021,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3142.2999999970198,
+            "currentTime": 0.451749,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3407.2999999970198,
+            "currentTime": 0.703174,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3673.6000000089407,
+            "currentTime": 0.961288,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3937.6000000089407,
+            "currentTime": 1.209027,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4203.70000000298,
+            "currentTime": 1.468275,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4469.5,
+            "currentTime": 1.726084,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4630.70000000298,
+            "currentTime": 2.005333,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "pause",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4630.70000000298,
+            "currentTime": 2.005333,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ended",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4630.70000000298,
+            "currentTime": 2.005333,
+            "duration": 2.005333,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2216.6000000089407
+          },
+          "first": {
+            "completed": true,
+            "time": 2611.4000000059605
+          },
+          "latest": {
+            "completed": true,
+            "time": 4892.9000000059605
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 2.090667,
+            "duration": 2.090667,
+            "paused": true,
+            "src": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true
+          },
+          {
+            "currentTime": 2.005333,
+            "duration": 2.005333,
+            "paused": true,
+            "src": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "Stop cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3764,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.592908,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/chromium-case-2.json",
+        "bytes": 6041,
+        "sha256": "a357976116c83969eb12fe923df0d89eaae7972a444bde16616855861c740507"
+      },
+      "nativeMediaEvidence": {
+        "engine": "chromium",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 109.70000000298023,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 110.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 110.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 110.6000000089407,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 115.70000000298023,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 122.1000000089407,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 247.70000000298023,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 370.30000001192093,
+            "currentTime": 0.063884,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 635.7000000029802,
+            "currentTime": 0.319777,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 901.9000000059605,
+            "currentTime": 0.571007,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1165.9000000059605,
+            "currentTime": 0.828271,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1431.5,
+            "currentTime": 1.085816,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1696.7000000029802,
+            "currentTime": 1.334616,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1963,
+            "currentTime": 1.592908,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2194.300000011921,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2194.300000011921,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2194.300000011921,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2177
+          },
+          "first": {
+            "completed": false,
+            "time": 2177
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "Mute cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3770,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.590026,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/chromium-case-3.json",
+        "bytes": 6070,
+        "sha256": "a52142413c83bac2d69dc4a4881048da52b4444b9dde99cdb734a67a5cfd932c"
+      },
+      "nativeMediaEvidence": {
+        "engine": "chromium",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 112.8999999910593,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 113.69999998807907,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 113.69999998807907,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 113.69999998807907,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 118.79999999701977,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 125.19999998807907,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 252.5,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 372.29999999701977,
+            "currentTime": 0.060021,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 637.1999999880791,
+            "currentTime": 0.315347,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 903.0999999940395,
+            "currentTime": 0.566492,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1168.2999999970198,
+            "currentTime": 0.824871,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1434,
+            "currentTime": 1.080962,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1699.2999999970198,
+            "currentTime": 1.33143,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1964.699999988079,
+            "currentTime": 1.590026,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2196.8999999910593,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2196.8999999910593,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2196.8999999910593,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2180.699999988079
+          },
+          "first": {
+            "completed": false,
+            "time": 2180.699999988079
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "Background cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3893,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.56753,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/chromium-case-4.json",
+        "bytes": 6020,
+        "sha256": "dfe6d302e4d330695c23a5909cf8f9649de50b23ad4a9c9eaf3c447ab0f1be43"
+      },
+      "nativeMediaEvidence": {
+        "engine": "chromium",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 126.70000000298023,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 127.5,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 127.5,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 127.5,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 132.1000000089407,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 139.79999999701977,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 294,
+            "currentTime": 0,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 388.70000000298023,
+            "currentTime": 0.037647,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 654.9000000059605,
+            "currentTime": 0.286257,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 920,
+            "currentTime": 0.544457,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1185.5,
+            "currentTime": 0.801913,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1450.7000000029802,
+            "currentTime": 1.050826,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1716.1000000089407,
+            "currentTime": 1.308168,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1982.2999999970198,
+            "currentTime": 1.56753,
+            "duration": 2.090667,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2226.7999999970198,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2226.7999999970198,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2226.7999999970198,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2208.7999999970198
+          },
+          "first": {
+            "completed": false,
+            "time": 2208.7999999970198
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "near-end taps finish the real clip at a fixed pitch-preserving rate and play only the latest after the pause",
+      "status": "passed",
+      "durationMs": 6687,
+      "measurements": {
+        "0": {
+          "naturalEnded": true,
+          "decodedDurationSeconds": 1.961875,
+          "playingToEndedMs": 2403,
+          "maxClockRegressionSeconds": 0,
+          "observedRates": [
+            0.96
+          ],
+          "endVolume": 1,
+          "preservesPitchAllSamples": true
+        },
+        "1": {
+          "naturalEnded": true,
+          "decodedDurationSeconds": 1.9007083333333334,
+          "playingToEndedMs": 2282,
+          "maxClockRegressionSeconds": 0,
+          "observedRates": [
+            0.96
+          ],
+          "endVolume": 1,
+          "preservesPitchAllSamples": true
+        },
+        "sentenceGapMs": 262
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/webkit-case-5.json",
+        "bytes": 12108,
+        "sha256": "b1cfa2c86a647c9455cdd44119e5f596295934a5aa21293e67b34dcae766ac27"
+      },
+      "nativeMediaEvidence": {
+        "engine": "webkit",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 226,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 236,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 236,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 236,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 245,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 247,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 315,
+            "currentTime": 0,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 566,
+            "currentTime": 0.06402095856470705,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 818,
+            "currentTime": 0.21476023519947587,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1070,
+            "currentTime": 0.42910832034690805,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1320,
+            "currentTime": 0.6696215954451643,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1572,
+            "currentTime": 0.9115823497429276,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1824,
+            "currentTime": 1.1535969848115826,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2074,
+            "currentTime": 1.3937267789176937,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2324,
+            "currentTime": 1.6336733742480758,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2576,
+            "currentTime": 1.874898168315747,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2718,
+            "currentTime": 1.961875,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "pause",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2718,
+            "currentTime": 1.961875,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ended",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2718,
+            "currentTime": 1.961875,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "emptied",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2979,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2979,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2979,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2980,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2984,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2990,
+            "currentTime": 0,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 2996,
+            "currentTime": 0,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3248,
+            "currentTime": 0.09863507780503303,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3498,
+            "currentTime": 0.22128454352462137,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 3749,
+            "currentTime": 0.4616514576270505,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4001,
+            "currentTime": 0.7036019329256268,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4253,
+            "currentTime": 0.9456982869744267,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4505,
+            "currentTime": 1.1875953220439117,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 4757,
+            "currentTime": 1.4295605163468357,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 5009,
+            "currentTime": 1.671428631409239,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 5260,
+            "currentTime": 1.9007083333333334,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "pause",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 5278,
+            "currentTime": 1.9007083333333334,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ended",
+            "id": 1,
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "time": 5278,
+            "currentTime": 1.9007083333333334,
+            "duration": 1.9007083333333334,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2326
+          },
+          "first": {
+            "completed": true,
+            "time": 2979
+          },
+          "latest": {
+            "completed": true,
+            "time": 5541
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 1.961875,
+            "duration": 1.961875,
+            "paused": true,
+            "src": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true
+          },
+          {
+            "currentTime": 1.9007083333333334,
+            "duration": 1.9007083333333334,
+            "paused": true,
+            "src": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "Stop cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3807,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.6302019333224365,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/webkit-case-6.json",
+        "bytes": 6181,
+        "sha256": "7ce75a920764aa86df7b87c7e7ed0d90042728185671832331ca987bf8ef1ecb"
+      },
+      "nativeMediaEvidence": {
+        "engine": "webkit",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 210,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 213,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 213,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 213,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 222,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 224,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 287,
+            "currentTime": 0,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 538,
+            "currentTime": 0.06465971856672943,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 790,
+            "currentTime": 0.2104333953043431,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1041,
+            "currentTime": 0.42972408034407744,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1291,
+            "currentTime": 0.6696736344466878,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1541,
+            "currentTime": 0.9100253087763842,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1791,
+            "currentTime": 1.150069583880181,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2041,
+            "currentTime": 1.390165498988732,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2291,
+            "currentTime": 1.6302019333224365,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2293,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2293,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2293,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2293
+          },
+          "first": {
+            "completed": false,
+            "time": 2293
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "Mute cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3813,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.6274682803932337,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/webkit-case-7.json",
+        "bytes": 6183,
+        "sha256": "f365d1ec5ce07b5e19140d9f6b7f76dd90c67eeead991b36fd52067430196ff9"
+      },
+      "nativeMediaEvidence": {
+        "engine": "webkit",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 234,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 237,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 237,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 237,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 245,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 247,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 305,
+            "currentTime": 0,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 557,
+            "currentTime": 0.06078007864884853,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 807,
+            "currentTime": 0.21227463526223658,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1058,
+            "currentTime": 0.4242792284528684,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1308,
+            "currentTime": 0.6645080225507664,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1560,
+            "currentTime": 0.9064690568596666,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1811,
+            "currentTime": 1.1468107309475197,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2061,
+            "currentTime": 1.3869854450532197,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2311,
+            "currentTime": 1.6274682803932337,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2316,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2316,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2316,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2316
+          },
+          "first": {
+            "completed": false,
+            "time": 2316
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "Background cancels the real current clip and its pending next sentence",
+      "status": "passed",
+      "durationMs": 3722,
+      "measurements": {
+        "0": {
+          "naturalEnded": false,
+          "decodedDurationSeconds": null,
+          "playingToEndedMs": null,
+          "maxClockRegressionSeconds": 1.392472272936427,
+          "observedRates": [
+            0.96,
+            1
+          ],
+          "endVolume": null,
+          "preservesPitchAllSamples": true
+        }
+      },
+      "attachment": {
+        "file": "output/release-narration-native-events/webkit-case-8.json",
+        "bytes": 5890,
+        "sha256": "3a22be2cfba4d6b9fa043a94f49d1e51f31b79f3b430218a16acda18804a337b"
+      },
+      "nativeMediaEvidence": {
+        "engine": "webkit",
+        "origin": "http://192.168.31.48:5173",
+        "boundary": "Native AAC playback in isolated desktop browser; mute/background drive controlled snapshot flags plus player.stop(), matching the useSpeech cancellation chain, not an actual iPad background transition or listening review.",
+        "clips": [
+          {
+            "text": "这一笔画好啦！",
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70"
+          },
+          {
+            "text": "你说得真认真。",
+            "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+            "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2"
+          }
+        ],
+        "events": [
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 197,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 200,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 200,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "play",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 200,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.88,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 207,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 0.94,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "volumechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 210,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "playing",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 273,
+            "currentTime": 0,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 524,
+            "currentTime": 0.06515655853435635,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 775,
+            "currentTime": 0.2129432752396551,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1027,
+            "currentTime": 0.43003513432640966,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1279,
+            "currentTime": 0.6720069693870783,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1529,
+            "currentTime": 0.9120752047271559,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 1780,
+            "currentTime": 1.1522096788346867,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2030,
+            "currentTime": 1.392472272936427,
+            "duration": 1.961875,
+            "rate": 0.96,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": false
+          },
+          {
+            "kind": "emptied",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2280,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "timeupdate",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2280,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          },
+          {
+            "kind": "ratechange",
+            "id": 0,
+            "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+            "time": 2280,
+            "currentTime": 0,
+            "duration": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true,
+            "paused": true
+          }
+        ],
+        "results": {
+          "next": {
+            "completed": false,
+            "time": 2280
+          },
+          "first": {
+            "completed": false,
+            "time": 2280
+          }
+        },
+        "state": {
+          "speaking": false,
+          "method": "local-audio",
+          "notice": ""
+        },
+        "audios": [
+          {
+            "currentTime": 0,
+            "duration": null,
+            "paused": true,
+            "src": null,
+            "rate": 1,
+            "volume": 1,
+            "preservesPitch": true
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosticControls": {
+    "boundary": "Only these preliminary rate-policy controls temporarily filtered the native playbackRate setter. The final 8 tests observe the real player and real media without filtering or replacing native methods, properties, clocks or events.",
+    "controls": [
+      {
+        "engine": "chromium",
+        "versionFromSeparateDiagnosticLaunch": "154.0.8037.93",
+        "mode": "fixed",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 0,
+        "playingToEndedMs": 2016.2000000029802,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls.json",
+          "bytes": 13933,
+          "sha256": "c957464337d4cff869f30595543f0aaed01d51a853e20ea5fb2c0988176254cb"
+        }
+      },
+      {
+        "engine": "chromium",
+        "versionFromSeparateDiagnosticLaunch": "154.0.8037.93",
+        "mode": "threshold015",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 4,
+        "playingToEndedMs": 1985.5999999940395,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls.json",
+          "bytes": 13933,
+          "sha256": "c957464337d4cff869f30595543f0aaed01d51a853e20ea5fb2c0988176254cb"
+        }
+      },
+      {
+        "engine": "webkit",
+        "versionFromSeparateDiagnosticLaunch": "26.6",
+        "mode": "fixed",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 0,
+        "playingToEndedMs": 2317,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls.json",
+          "bytes": 13933,
+          "sha256": "c957464337d4cff869f30595543f0aaed01d51a853e20ea5fb2c0988176254cb"
+        }
+      },
+      {
+        "engine": "webkit",
+        "versionFromSeparateDiagnosticLaunch": "26.6",
+        "mode": "threshold015",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 7,
+        "playingToEndedMs": 4299,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls.json",
+          "bytes": 13933,
+          "sha256": "c957464337d4cff869f30595543f0aaed01d51a853e20ea5fb2c0988176254cb"
+        }
+      },
+      {
+        "engine": "chromium",
+        "versionFromSeparateDiagnosticLaunch": "154.0.8037.93",
+        "mode": "monotonic015",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 4,
+        "playingToEndedMs": 1992.8999999910593,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      },
+      {
+        "engine": "chromium",
+        "versionFromSeparateDiagnosticLaunch": "154.0.8037.93",
+        "mode": "fixed096",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 1,
+        "playingToEndedMs": 2049.3999999910593,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      },
+      {
+        "engine": "chromium",
+        "versionFromSeparateDiagnosticLaunch": "154.0.8037.93",
+        "mode": "once094",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 1,
+        "playingToEndedMs": 2007.2000000029802,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      },
+      {
+        "engine": "webkit",
+        "versionFromSeparateDiagnosticLaunch": "26.6",
+        "mode": "monotonic015",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 5,
+        "playingToEndedMs": 4207,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      },
+      {
+        "engine": "webkit",
+        "versionFromSeparateDiagnosticLaunch": "26.6",
+        "mode": "fixed096",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 1,
+        "playingToEndedMs": 2319,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      },
+      {
+        "engine": "webkit",
+        "versionFromSeparateDiagnosticLaunch": "26.6",
+        "mode": "once094",
+        "completed": true,
+        "timedOut": false,
+        "nativeRateWrites": 1,
+        "playingToEndedMs": 2776,
+        "rawEvidence": {
+          "file": "/tmp/kidchinese-native-rate-controls-followup.json",
+          "bytes": 19626,
+          "sha256": "b49f79ecfee2e591e39a62116175659d074f1ef7f113eebede49aa18e756db26"
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Isolated desktop Chromium/WebKit automation, not acceptance on an actual iPad Safari.",
+    "Native AAC decoders report different clip durations; measurements use each engine native duration.",
+    "Mute/background cases control snapshot inputs and call player.stop(), matching the useSpeech cancellation chain; this does not claim a real device background transition.",
+    "Native AAC final-frame clock rounding permits 20ms; this rejects the observed 176ms repeated-rate clock reversal.",
+    "Timing, actual AAC decoding and cancellation were checked; no manual listening review is claimed.",
+    "Temporary raw report paths may not persist. All eight primary native event traces are included in this repository audit.",
+    "The player is exercised through a temporary source fixture, not by clicking the production application speech hook. Its frozen source and served main bundle/media digests are recorded; the actual application tracing is covered separately."
+  ],
+  "productionBundle": {
+    "origin": "http://192.168.31.48:5173",
+    "files": [
+      {
+        "file": "dist/index.html",
+        "bytes": 1190,
+        "sha256": "1e6ced87f42cf7f968b068473e7769ef01ae499e37270c8e01685a1c12955784",
+        "httpBytesMatchDisk": true
+      },
+      {
+        "file": "dist/assets/index-DBoQYTZt.js",
+        "bytes": 1521738,
+        "sha256": "d54cb353a4873a3d0a521dfafa3be70a0a8a35c45bf8cb1f05bead468210c200",
+        "httpBytesMatchDisk": true
+      },
+      {
+        "file": "dist/assets/index-DymezCL7.css",
+        "bytes": 143410,
+        "sha256": "958bcecdb035bfa0f34225d76a8f94b3f709264a4ec2506c790b059df1eab273",
+        "httpBytesMatchDisk": true
+      }
+    ],
+    "httpBytesEqualDisk": true,
+    "unchangedSinceLaunchSnapshot": true
+  },
+  "productionMedia": [
+    {
+      "text": "这一笔画好啦！",
+      "path": "/audio/kokoro-2ad93cea56d6f5cd0803.m4a",
+      "sha256": "9449118455c0c0017ad8fbef9f60c923f589dad5488641078d4b3ce072affa70",
+      "bytes": 16484,
+      "contentType": "audio/mp4",
+      "httpBytesEqualDisk": true
+    },
+    {
+      "text": "你说得真认真。",
+      "path": "/audio/kokoro-0b456ebdca88d4d882f7.m4a",
+      "sha256": "6a61ad08ef124554ca04a3a2ae2e6d6593206296e3c5755a7ec702561d3731a2",
+      "bytes": 16950,
+      "contentType": "audio/mp4",
+      "httpBytesEqualDisk": true
+    }
+  ],
+  "previousSourceRun": {
+    "result": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "exitCode": 0,
+      "durationMs": 38099.943999999996
+    },
+    "executionEvidence": {
+      "jsonReporter": {
+        "file": "/tmp/kidchinese-narration-real-aac-final.json",
+        "bytes": 94640,
+        "sha256": "7e09bdcda5c071e176de1ab2d8d7590299b4fdd00278a75d70d9ee57707e03ff"
+      },
+      "stderr": {
+        "file": "/tmp/kidchinese-narration-real-aac-final.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "completionChunk": "1a017e",
+      "stats": {
+        "startTime": "2026-10-02T13:19:33.161Z",
+        "duration": 38099.943999999996,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "playwrightVersion": "1.63.0",
+      "lastRunArtifact": "Not present at audit creation; all 8 actual passed results and full native event traces were captured in the JSON reporter and are preserved below."
+    },
+    "cases": [
+      {
+        "engine": "chromium",
+        "name": "near-end taps finish the real clip at a fixed pitch-preserving rate and play only the latest after the pause",
+        "measurements": {
+          "0": {
+            "naturalEnded": true,
+            "decodedDurationSeconds": 2.090667,
+            "playingToEndedMs": 2057.2999999970198,
+            "maxClockRegressionSeconds": 0,
+            "observedRates": [
+              0.96
+            ],
+            "endVolume": 1,
+            "preservesPitchAllSamples": true
+          },
+          "1": {
+            "naturalEnded": true,
+            "decodedDurationSeconds": 2.005333,
+            "playingToEndedMs": 2012.0,
+            "maxClockRegressionSeconds": 0,
+            "observedRates": [
+              0.96
+            ],
+            "endVolume": 1,
+            "preservesPitchAllSamples": true
+          },
+          "sentenceGapMs": 262.40000000596046
+        }
+      },
+      {
+        "engine": "chromium",
+        "name": "Stop cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.56791,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      },
+      {
+        "engine": "chromium",
+        "name": "Mute cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.543887,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      },
+      {
+        "engine": "chromium",
+        "name": "Background cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.581562,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      },
+      {
+        "engine": "webkit",
+        "name": "near-end taps finish the real clip at a fixed pitch-preserving rate and play only the latest after the pause",
+        "measurements": {
+          "0": {
+            "naturalEnded": true,
+            "decodedDurationSeconds": 1.961875,
+            "playingToEndedMs": 2404,
+            "maxClockRegressionSeconds": 0,
+            "observedRates": [
+              0.96
+            ],
+            "endVolume": 1,
+            "preservesPitchAllSamples": true
+          },
+          "1": {
+            "naturalEnded": true,
+            "decodedDurationSeconds": 1.9007083333333334,
+            "playingToEndedMs": 2307,
+            "maxClockRegressionSeconds": 0,
+            "observedRates": [
+              0.96
+            ],
+            "endVolume": 1,
+            "preservesPitchAllSamples": true
+          },
+          "sentenceGapMs": 261
+        }
+      },
+      {
+        "engine": "webkit",
+        "name": "Stop cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.6206324275415325,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      },
+      {
+        "engine": "webkit",
+        "name": "Mute cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.6246954284411599,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      },
+      {
+        "engine": "webkit",
+        "name": "Background cancels the real current clip and its pending next sentence",
+        "measurements": {
+          "0": {
+            "naturalEnded": false,
+            "decodedDurationSeconds": null,
+            "playingToEndedMs": null,
+            "maxClockRegressionSeconds": 1.6319321212851063,
+            "observedRates": [
+              0.96,
+              1
+            ],
+            "endVolume": null,
+            "preservesPitchAllSamples": true
+          }
+        }
+      }
+    ]
+  },
+  "fixtureNetworkCorrection": {
+    "initialLANReport": {
+      "file": "output/release-narration-media.json",
+      "bytes": 80257,
+      "sha256": "2745a52de969844bcb69f46f8d9509f4dbe79dab332d4f51b1b34c093a9c923b"
+    },
+    "diagnosis": {
+      "file": "output/release-fixture-network-diagnostic.json",
+      "bytes": 1940,
+      "sha256": "e87c5d2e245412d9946fd390e5af1333b5315a41a5240a0424a4c9cb586a81b0"
+    },
+    "observedError": "The request client is not a secure context and the resource is in more-private address space local",
+    "correction": "Navigate through a genuine same-origin JSON response before page.setContent. Browser security policies remain enabled; no product source changed."
+  }
+}

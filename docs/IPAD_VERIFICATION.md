@@ -52,3 +52,7 @@
 ![iPad Air 5 横屏单屏汉字游戏](screenshots/ipad-air5-landscape-one-screen.png)
 
 ![iPad Air 5 竖屏单屏汉字游戏](screenshots/ipad-air5-portrait-one-screen.png)
+
+## 后续：星星与操作提示修复
+
+书写页已增加可见星星及示范状态提示，盖板支持普通点按和拖擦；认字、跟读和静音模式的完成条件与提示保持一致。修复期间再次执行双引擎四尺寸410项与20像素安全边距51项布局检查，均通过。具体修复、后续触控和真实AAC证据见 [操作提示与语音验证](INTERACTION_VERIFICATION.md)。

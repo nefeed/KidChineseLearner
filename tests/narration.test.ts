@@ -4,7 +4,7 @@ import { act, createElement, StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { useSpeech } from '../src/speech';
 import {
-  isMandarinVoice, narrationPlaybackRate, NarrationPlayer, NARRATION_PAUSE_MS,
+  isMandarinVoice, narrationPlaybackRate, NARRATION_PACE, NarrationPlayer, NARRATION_PAUSE_MS,
   NARRATION_POOL_LIMIT, NARRATION_PRELOAD_COUNT, preferredNarrationVoice,
   type NarrationSnapshot, type NarrationState,
 } from '../src/narration-player';
@@ -12,6 +12,7 @@ import {
 class FakeAudio {
   preload = '';
   currentTime = 8;
+  duration = NaN;
   playbackRate = 1;
   preservesPitch = false;
   volume = 1;
@@ -202,6 +203,7 @@ test('cancelling the quiet tail clears its timer and a queued stale timer cannot
   const {player,audios,timers,state} = setup();
   const first = player.speak('你好');audios[0].start();audios[0].end();
   const oldTail = [...timers.tasks.values()][0].callback;
+  player.stop();
   const second = player.speak('你好'),secondResults = watch(second);
   assert.equal(await first,false);assert.equal(timers.tasks.size,0);
   oldTail();await settle();
@@ -317,9 +319,66 @@ test('local playback preserves pitch and maps the parent rate relative to the ma
   assert.equal(narrationPlaybackRate(10,.86),2);
   const {player,audios} = setup({rate:.6,defaultPlaybackRate:.86});
   const promise = player.speak('你好');
-  assert.ok(Math.abs(audios[0].playbackRate-.645)<1e-12);
+  assert.ok(Math.abs(audios[0].playbackRate-.645*NARRATION_PACE)<1e-12);
   assert.equal(audios[0].preservesPitch,true);
   player.stop();assert.equal(await promise,false);player.dispose();
+});
+
+test('the gentler pace stays constant through the last syllable without reducing its volume or pitch',async () => {
+  const {player,audios,timers} = setup({defaultPlaybackRate:1});
+  const promise = player.speak('你好'),audio = audios[0];audio.duration=2;audio.start();
+  assert.equal(audio.playbackRate,.96);
+  audio.currentTime=1;timers.advance(1000);assert.equal(audio.playbackRate,.96);
+  audio.currentTime=1.9;timers.advance(1000);assert.equal(audio.playbackRate,.96);
+  assert.equal(audio.volume,1,'do not fade away the last character');assert.equal(audio.preservesPitch,true);
+  assert.equal(timers.tasks.size,0,'no recurring playbackRate writes during the media stream');
+  audio.end();timers.advance(NARRATION_PAUSE_MS);assert.equal(await promise,true);
+  assert.equal(timers.tasks.size,0);player.dispose();
+});
+
+test('a new tap near the end waits for the whole word and its pause, then plays',async () => {
+  const {player,audios,timers} = setup();
+  const first=player.speak('你好'),audio=audios[0];audio.duration=2;audio.start();audio.currentTime=1.7;
+  const second=player.speak('下一句','/next.m4a'),results=watch(second);
+  assert.equal(audios.length,1);assert.equal(audio.pauses,0);
+  audio.end();timers.advance(NARRATION_PAUSE_MS-1);await settle();
+  assert.deepEqual(results,[]);assert.equal(audios.length,1);
+  timers.advance(1);assert.equal(await first,true);assert.equal(audios[1].src,'/next.m4a');
+  audios[1].start();audios[1].end();timers.advance(NARRATION_PAUSE_MS);
+  assert.equal(await second,true);player.dispose();
+});
+
+test('multiple taps during the ending retain only the latest requested narration',async () => {
+  const {player,audios,timers} = setup();
+  const first=player.speak('你好');audios[0].start();audios[0].end();
+  const obsolete=player.speak('旧提示','/old.m4a');
+  const latest=player.speak('新提示','/latest.m4a');
+  assert.equal(await obsolete,false);timers.advance(NARRATION_PAUSE_MS);
+  assert.equal(await first,true);assert.equal(audios.length,2);assert.equal(audios[1].src,'/latest.m4a');
+  audios[1].start();audios[1].end();timers.advance(NARRATION_PAUSE_MS);
+  assert.equal(await latest,true);player.dispose();
+});
+
+test('explicit stop, mute, background and dispose cancel both the ending and its pending tap',async t => {
+  for (const reason of ['stop','mute','hidden','dispose']) await t.test(reason,async () => {
+    const {player,audios,timers,snapshot}=setup();
+    const first=player.speak('你好'),audio=audios[0];audio.duration=2;audio.start();audio.currentTime=1.7;
+    const queued=player.speak('下一句','/next.m4a');
+    if (reason==='mute') {snapshot.enabled=false;player.stop();}
+    else if (reason==='hidden') {snapshot.hidden=true;player.stop();}
+    else if (reason==='dispose') player.dispose();
+    else player.stop();
+    assert.equal(await first,false);assert.equal(await queued,false);
+    timers.advance(3000);assert.equal(audios.length,1);assert.equal(timers.tasks.size,0);player.dispose();
+  });
+});
+
+test('a tap early in a long sentence remains immediately interruptible',async () => {
+  const {player,audios}=setup();
+  const first=player.speak('你好');audios[0].duration=20;audios[0].start();audios[0].currentTime=2;
+  const second=player.speak('换一句','/next.m4a');
+  assert.equal(await first,false);assert.equal(audios[1].src,'/next.m4a');
+  player.stop();assert.equal(await second,false);player.dispose();
 });
 
 test('phrase fallback text selects a complete clip while an explicit path takes precedence',async () => {
@@ -456,7 +515,7 @@ test('StrictMode recreates the hook player and unmount cancels playback, fetches
     }
     let first!: Promise<boolean>;
     await act(async () => { first = api!.speak('日',undefined,'日',{pauseAfterMs:0}); });
-    assert.equal(clips.length,1);assert.equal(clips[0].plays,1);assert.equal(clips[0].playbackRate,.86);
+    assert.equal(clips.length,1);assert.equal(clips[0].plays,1);assert.equal(clips[0].playbackRate,.86*NARRATION_PACE);
     assert.equal(api!.speaking,true);
     await act(async () => { clips[0].end(); });
     assert.equal(await first,true);assert.equal(api!.speaking,false);

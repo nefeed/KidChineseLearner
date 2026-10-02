@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T13:38:18.471922+00:00",
+  "status": "passed",
+  "sourceCodeFrozen": true,
+  "scope": {
+    "components": [
+      "WordPlay",
+      "HanziLesson",
+      "PoemLesson",
+      "Recitation",
+      "TodayConnection",
+      "PoetryScene",
+      "Quiz"
+    ],
+    "excludedImplementation": [
+      "StrokePractice",
+      "Zoo"
+    ],
+    "wordPlayScenes": 21,
+    "semanticGroups": 29,
+    "hanziCourseEntries": 1000,
+    "promptControlStateRows": 41,
+    "sourceReview": "All scene dispatch branches and stages were inspected; runtime regression cases focus on concrete mismatches and asynchronous gates. This is not a claim that all 1000 games were manually played."
+  },
+  "findings": [
+    {
+      "id": "generic-premature-listening",
+      "area": "WordPlay.Generic",
+      "before": "盖板未打开时提示点小喇叭，实际句子卡不存在",
+      "resolution": "先明确擦/点盖板，打开8块后再听/看句子",
+      "evidence": "reveal instructions expose a cover before any sentence speaker",
+      "status": "fixed"
+    },
+    {
+      "id": "generic-pointer-capture",
+      "area": "WordPlay.Generic",
+      "before": "父层捕获使普通按钮单击无法揭盖，双引擎均实测失败",
+      "resolution": "pointerDown按真实落点揭盖，拖动同源；键盘onClick保留；8块门槛不变",
+      "evidence": "reveal instructions expose a cover before any sentence speaker",
+      "status": "fixed"
+    },
+    {
+      "id": "generic-heard-on-click",
+      "area": "WordPlay.Generic",
+      "before": "点句子卡即heard，取消或尚未播完仍可选词",
+      "resolution": "仅Promise true解锁，取消可重试，播放中禁选；静音先看句子",
+      "evidence": "generic sentence choices unlock only after successful playback",
+      "status": "fixed"
+    },
+    {
+      "id": "hearing-heard-on-click",
+      "area": "WordPlay.Hearing",
+      "before": "点听一听立即能作答，未等实际完整声音",
+      "resolution": "真实完成解锁本轮；取消不计；静音看本轮铃铛/鼓提示",
+      "evidence": "hearing waits for completion and does not accept canceled narration",
+      "status": "fixed"
+    },
+    {
+      "id": "hanzi-recognition-heard-on-click",
+      "area": "Hanzi.stage1",
+      "before": "认字点播放即允许推进",
+      "resolution": "真实播放完成才heard；明确忙态；静音阅读入口",
+      "evidence": "recognition listens to completion before enabling progression",
+      "status": "fixed"
+    },
+    {
+      "id": "hanzi-followreading-heard-on-click",
+      "area": "Hanzi.stage4",
+      "before": "点击示范即写heardWord/heardSentence",
+      "resolution": "两个示范分别完成后记录，取消不计；家长确认保持手动",
+      "evidence": "follow-reading marks only fully played word and sentence demonstrations",
+      "status": "fixed"
+    },
+    {
+      "id": "late-completion-state",
+      "area": "Hanzi.stage1/4",
+      "before": "改为异步后旧单字/阶段/声音上下文可能被迟到完成污染",
+      "resolution": "请求token+当前word/stage/sound上下文；卸载/推进/切静音使旧结果失效",
+      "evidence": "old playback cannot update a newly active lesson or a muted state",
+      "status": "fixed"
+    },
+    {
+      "id": "silent-learning-gates",
+      "area": "WordPlay.Generic/Hearing + Hanzi.stage1/4 + Poem.stage0",
+      "before": "关闭总声音仍写先听并缺明确替代入口",
+      "resolution": "静音看句子、看提示、阅读或家长确认；不伪造持久化听音字段",
+      "evidence": "muted recognition and follow-reading remain operable without fake heard flags",
+      "status": "fixed"
+    },
+    {
+      "id": "phantom-rabbit-question",
+      "area": "Hanzi.stage5",
+      "before": "问小兔子在说哪个字，但没有小兔",
+      "resolution": "直接问词语里有哪个字；静音指向先前词语",
+      "evidence": "muted recognition and follow-reading remain operable without fake heard flags",
+      "status": "fixed"
+    },
+    {
+      "id": "curtain-spoken-as-window",
+      "area": "WordPlay.Opening",
+      "before": "真实拉开窗帘却说窗打开了",
+      "resolution": "窗帘拉开了，阳光照进来。",
+      "evidence": "window completion describes opening curtains, not opening the window",
+      "status": "fixed"
+    },
+    {
+      "id": "melon-opening-versus-separating",
+      "area": "WordPlay.Peel",
+      "before": "已显示两块瓜，提示和反馈仍说打开/切成两半",
+      "resolution": "明确分开两块西瓜，保留滑块与按钮",
+      "evidence": "watermelon instructions match the two visible pieces and separation",
+      "status": "fixed"
+    },
+    {
+      "id": "soil-covering-instruction",
+      "area": "WordPlay.Plant",
+      "before": "要求给种子盖土，实际只有种种子和浇水",
+      "resolution": "把种子种进松软的泥土；按实际种/浇操作",
+      "evidence": "worm and soil instructions name the actual targets and planting action",
+      "status": "fixed"
+    },
+    {
+      "id": "worms-absent-leaves",
+      "area": "WordPlay.Nature",
+      "before": "要求在叶子之间找虫，实际只显示三只虫",
+      "resolution": "点一点，找到三只小虫",
+      "evidence": "worm and soil instructions name the actual targets and planting action",
+      "status": "fixed"
+    },
+    {
+      "id": "fish-bird-walking-retry",
+      "area": "WordPlay.Travel",
+      "before": "鱼/鸟乱序时也说走到最近下一个",
+      "resolution": "按顺序点下一个标记。",
+      "evidence": "manual source inspection of three Travel branches",
+      "status": "fixed"
+    },
+    {
+      "id": "poem-busy-primary-paused",
+      "area": "Poem.stage0",
+      "before": "正在听诗主按钮点击会暂停，文字未说明",
+      "resolution": "忙主按钮只表示状态并禁用；独立暂停仍可操作",
+      "evidence": "poem busy button is a status, with a separate functional pause action",
+      "status": "fixed"
+    },
+    {
+      "id": "poem-imagery-credit",
+      "area": "Poem.stage0",
+      "before": "图例真实播完原文行但未记录已听，导致提示与进度不一致",
+      "resolution": "匹配原文时统一readLine；完成true才记录该行",
+      "evidence": "imagery listening credits the exact line only after it finishes",
+      "status": "fixed"
+    },
+    {
+      "id": "restored-activity-indicators",
+      "area": "Poem.stage3",
+      "before": "持久化activityDone为true，重开两个确认仍未完成/第二个禁用",
+      "resolution": "本地activity从既有完成字段恢复为2，不改持久化schema",
+      "evidence": "muted poem progresses by reading and restores completed practice indicators",
+      "status": "fixed"
+    },
+    {
+      "id": "practice-share-tense",
+      "area": "Poem.stage3",
+      "before": "点击已分享发现后播邀请再向动物分享",
+      "resolution": "你们尝试过，也分享了发现。",
+      "evidence": "muted poem progresses by reading and restores completed practice indicators",
+      "status": "fixed"
+    },
+    {
+      "id": "recitation-retry-line",
+      "area": "Recitation.phase0",
+      "before": "提示先听前一句，实际上播下一句待接原文",
+      "resolution": "还没轮到这一句，先听接下来该接的诗句。",
+      "evidence": "ordering retry describes the next required line and plays exactly that line",
+      "status": "fixed"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "WordPlay.Sunrise",
+      "source": "src/components/WordPlay.tsx",
+      "line": 74,
+      "semanticGroups": [
+        "sunrise",
+        "night"
+      ],
+      "characters": "日月",
+      "courseEntriesRoutedHere": 2,
+      "instructionSourceExpressions": [
+        "<Instruction title={night ? '点亮夜空，陪月亮出来' : '让太阳慢慢升到山上'}>{night ? '点亮三颗星星，看看月亮弯弯的样子。' : '把下面的太阳滑块向右拖，太阳会升起来。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "太阳高度滑块或升高按钮；月亮场景三颗可点星星",
+      "completionOrStateContract": "日：滑块>=95或按钮累计100；月：三颗不同星星全点亮",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Water",
+      "source": "src/components/WordPlay.tsx",
+      "line": 81,
+      "semanticGroups": [
+        "water"
+      ],
+      "characters": "水",
+      "courseEntriesRoutedHere": 1,
+      "instructionSourceExpressions": [
+        "<Instruction title=\"给口渴的小花浇水\">轻轻倒三次水，看看小花怎样长高。</Instruction>"
+      ],
+      "actualControlsOrGesture": "浇一点水按钮，三滴进度与花朵缩放",
+      "completionOrStateContract": "water===3",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.DragScene",
+      "source": "src/components/WordPlay.tsx",
+      "line": 86,
+      "semanticGroups": [
+        "rain",
+        "mouth",
+        "kindness"
+      ],
+      "characters": "雨口心友",
+      "courseEntriesRoutedHere": 4,
+      "instructionSourceExpressions": [
+        "<Instruction title={umbrella?'把雨伞移到小朋友头顶':kindness?'把爱心送给小伙伴':'把小勺里的饭送到嘴巴'}>拖动{umbrella?'雨伞':kindness?'爱心':'小勺'}，也可以先点它，再点虚线圈。{!umbrella&&`完成 ${required} 次。`}</Instruction>"
+      ],
+      "actualControlsOrGesture": "拖动真实雨伞/爱心/饭勺到虚线目标；也可先点物品再点目标",
+      "completionOrStateContract": "雨1次，心/友2次，口3次；同一手势仅一次交付",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Snow",
+      "source": "src/components/WordPlay.tsx",
+      "line": 101,
+      "semanticGroups": [
+        "snow"
+      ],
+      "characters": "雪",
+      "courseEntriesRoutedHere": 0,
+      "instructionSourceExpressions": [
+        "<Instruction title=\"把温暖送给小雪花\">按住太阳按钮，雪花会慢慢融化成水。</Instruction>"
+      ],
+      "actualControlsOrGesture": "按住太阳按钮融雪；键盘入口保留",
+      "completionOrStateContract": "heat>=100；结束仅done一次",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Wind",
+      "source": "src/components/WordPlay.tsx",
+      "line": 110,
+      "semanticGroups": [
+        "wind"
+      ],
+      "characters": "风",
+      "courseEntriesRoutedHere": 1,
+      "instructionSourceExpressions": [
+        "<Instruction title=\"送一阵风，让风车转起来\">点三次吹风按钮，看空气怎样推着风车转。</Instruction>"
+      ],
+      "actualControlsOrGesture": "吹一阵风按钮与转动风车",
+      "completionOrStateContract": "三次吹风",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Plant",
+      "source": "src/components/WordPlay.tsx",
+      "line": 115,
+      "semanticGroups": [
+        "plant"
+      ],
+      "characters": "木林森土树草花",
+      "courseEntriesRoutedHere": 6,
+      "instructionSourceExpressions": [
+        "<Instruction title={word.char==='土'?'把种子种进松软的泥土':`种出${total===1?'一棵':total===2?'两棵':'三棵'}${art==='flower'?'小花':art==='grass'?'小草':'树'}`}>先点土坑放种子，再点浇水按钮。{word.char==='林'?'两棵木，组成林。':word.char==='森'?'三棵木，组成森。':'植物在土里扎根，喝水长大。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "先点土坑放种子，已种后点给种子浇水",
+      "completionOrStateContract": "木/土/树1株；林2株；森/花/草3株全部长出",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Feed",
+      "source": "src/components/WordPlay.tsx",
+      "line": 122,
+      "semanticGroups": [
+        "feed"
+      ],
+      "characters": "猫狗牛羊马兔",
+      "courseEntriesRoutedHere": 6,
+      "instructionSourceExpressions": [
+        "<Instruction title={`给${pet.name}送适合的食物`}>{pet.hint}先选食物，再点动物送过去。</Instruction>"
+      ],
+      "actualControlsOrGesture": "先选食物，再点对应动物，错误食物只给提示",
+      "completionOrStateContract": "PETS指定食物，累计三口",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Travel",
+      "source": "src/components/WordPlay.tsx",
+      "line": 128,
+      "semanticGroups": [
+        "swim",
+        "fly",
+        "walk"
+      ],
+      "characters": "鱼鸟足脚",
+      "courseEntriesRoutedHere": 4,
+      "instructionSourceExpressions": [
+        "<Instruction title={fly?'帮小鸟飞回树上的窝':walk?'沿着小脚印，一步一步走':'让小鱼在水里游过三个泡泡'}>{fly?'依次点亮三个飞行圈，小鸟拍翅膀飞起来。':walk?'依次点三双脚印，小脚带我们向前走。':'先点近处，再点远处。鱼住在水里。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "按从左到右顺序点三个泡泡/飞行圈/脚印",
+      "completionOrStateContract": "step按序达到3；乱序不推进，提示按顺序点下一个标记",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Compare",
+      "source": "src/components/WordPlay.tsx",
+      "line": 135,
+      "semanticGroups": [
+        "compare"
+      ],
+      "characters": "大小多少长短",
+      "courseEntriesRoutedHere": 6,
+      "instructionSourceExpressions": [
+        "<Instruction title={`比一比，找到${size?word.char+'的皮球':quantity?'苹果'+word.char+'的篮子':word.char+'的绳子'}`}>先看看两个实物的不同，再点你找到的那个。</Instruction>"
+      ],
+      "actualControlsOrGesture": "两份真实皮球/苹果篮/绳子选择按钮",
+      "completionOrStateContract": "大小/多少/长短对应目标，正确才完成",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Direction",
+      "source": "src/components/WordPlay.tsx",
+      "line": 141,
+      "semanticGroups": [
+        "direction"
+      ],
+      "characters": "上下左右",
+      "courseEntriesRoutedHere": 4,
+      "instructionSourceExpressions": [
+        "<Instruction title={`让小朋友走到${word.char}面的花旁边`}>我们面向同一个方向。点方向箭头，小朋友会真的移动。</Instruction>"
+      ],
+      "actualControlsOrGesture": "上/下/左/右四个箭头，3×3格内移动",
+      "completionOrStateContract": "实际position===当前字的target",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Counting",
+      "source": "src/components/WordPlay.tsx",
+      "line": 148,
+      "semanticGroups": [
+        "number"
+      ],
+      "characters": "一二三四五六七八九十",
+      "courseEntriesRoutedHere": 10,
+      "instructionSourceExpressions": [
+        "<Instruction title={`点亮 ${total} 颗小星星`}>点一个，数一个。点完后，这个数量会变成汉字「{word.char}」。</Instruction>"
+      ],
+      "actualControlsOrGesture": "与NUMBERS同数的独立星星按钮",
+      "completionOrStateContract": "所有不同星星点亮，重复点不重复计数",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Wash",
+      "source": "src/components/WordPlay.tsx",
+      "line": 153,
+      "semanticGroups": [
+        "wash"
+      ],
+      "characters": "手牙",
+      "courseEntriesRoutedHere": 2,
+      "instructionSourceExpressions": [
+        "<Instruction title={tooth?'给牙齿刷一个泡泡澡':'把小手洗干净'}>先点{tooth?'牙膏':'肥皂'}，再按住画面拖动泡泡。单点不会洗掉污点。</Instruction>"
+      ],
+      "actualControlsOrGesture": "先牙膏/肥皂，再按住拖动泡泡经过四处污点",
+      "completionOrStateContract": "真实拖动距离门槛与四个污点全部擦掉；单点不能洗完",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Hearing",
+      "source": "src/components/WordPlay.tsx",
+      "line": 163,
+      "semanticGroups": [
+        "ear"
+      ],
+      "characters": "耳",
+      "courseEntriesRoutedHere": 1,
+      "instructionSourceExpressions": [
+        "<Instruction title={soundEnabled?'用耳朵听，谁在响呢？':'看看铃铛和小鼓，认识「耳」'}>{soundEnabled?'先听拟声朗读，再选画面。听完两种声音，认识「耳」。':'当前已静音，先看本轮提示，再选图。打开声音后，可以听拟声朗读。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "听一听/正在听按钮、铃铛/小鼓两张图；静音改看本轮提示",
+      "completionOrStateContract": "真实播放完成才允许本轮选择；取消保持未听；静音先看提示；两轮正确才完成",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Eyes",
+      "source": "src/components/WordPlay.tsx",
+      "line": 181,
+      "semanticGroups": [
+        "eyes"
+      ],
+      "characters": "目眼",
+      "courseEntriesRoutedHere": 2,
+      "instructionSourceExpressions": [
+        "<Instruction title=\"用眼睛找出两颗小皮球\">仔细看树叶和花朵之间，圆圆的皮球藏在哪里？</Instruction>"
+      ],
+      "actualControlsOrGesture": "六张小图中两个真实皮球按钮，其余树/花/叶/云",
+      "completionOrStateContract": "两个不同皮球都找到",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Body",
+      "source": "src/components/WordPlay.tsx",
+      "line": 186,
+      "semanticGroups": [
+        "nod",
+        "body"
+      ],
+      "characters": "头身",
+      "courseEntriesRoutedHere": 2,
+      "instructionSourceExpressions": [
+        "<Instruction title={nod?'和小朋友一起点点头':'小身体转一转，伸伸手'}>点动作按钮三次，看看{nod?'头怎样轻轻点动':'身体怎样变换姿势'}，也可以和家长一起做。</Instruction>"
+      ],
+      "actualControlsOrGesture": "点点头/转转身按钮，画中人物姿势变化",
+      "completionOrStateContract": "三次动作；家长一起做为可选活动",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Opening",
+      "source": "src/components/WordPlay.tsx",
+      "line": 191,
+      "semanticGroups": [
+        "open"
+      ],
+      "characters": "门窗家",
+      "courseEntriesRoutedHere": 3,
+      "instructionSourceExpressions": [
+        "<Instruction title={window?'把窗帘慢慢拉开':'轻轻打开小屋的门'}>拖动下面的滑块，{window?'阳光会从窗进来':'门后的家会出现在眼前'}。</Instruction>"
+      ],
+      "actualControlsOrGesture": "窗帘/门打开程度滑块或拉开一点/打开一点按钮",
+      "completionOrStateContract": "滑块>=95或按钮累计100；窗只拉窗帘，门才开门",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Bowl",
+      "source": "src/components/WordPlay.tsx",
+      "line": 196,
+      "semanticGroups": [
+        "bowl"
+      ],
+      "characters": "米面果豆菜肉饭糖",
+      "courseEntriesRoutedHere": 8,
+      "instructionSourceExpressions": [
+        "<Instruction title={`把三份${food.name}放进干净的小碗`}>点选{food.name}，其他东西留在原处。{word.char==='糖'?'糖果只吃一点点，记得刷牙。':'好好吃饭，也要珍惜食物。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "五个食物/物品按钮与小碗，三份对应食品",
+      "completionOrStateContract": "三份FOOD_WORDS匹配项放入碗，其他项不推进",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Peel",
+      "source": "src/components/WordPlay.tsx",
+      "line": 202,
+      "semanticGroups": [
+        "peel"
+      ],
+      "characters": "瓜蛋",
+      "courseEntriesRoutedHere": 2,
+      "instructionSourceExpressions": [
+        "<Instruction title={egg?'剥开熟鸡蛋的小外壳':'把画里的两块西瓜慢慢分开'}>{egg?'点开三块蛋壳，看蛋白和蛋黄。':'拖动滑块分开两块瓜，不用真的刀子。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "蛋：三块可点蛋壳；瓜：已有两块西瓜及分开滑块/按钮",
+      "completionOrStateContract": "蛋壳全剥；瓜滑块>=95或累计100，实际两块分离",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Color",
+      "source": "src/components/WordPlay.tsx",
+      "line": 207,
+      "semanticGroups": [
+        "color"
+      ],
+      "characters": "红黄蓝绿白黑",
+      "courseEntriesRoutedHere": 6,
+      "instructionSourceExpressions": [
+        "<Instruction title={`用${word.char}色给小花涂颜色`}>先选{word.char}色颜料，再点花瓣，涂好三片。</Instruction>"
+      ],
+      "actualControlsOrGesture": "颜色颜料按钮、三片花瓣",
+      "completionOrStateContract": "先选当前字颜色，再给三片不同花瓣着色",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Nature",
+      "source": "src/components/WordPlay.tsx",
+      "line": 212,
+      "semanticGroups": [
+        "mountain",
+        "cloud",
+        "fire",
+        "leaves"
+      ],
+      "characters": "山云火叶虫",
+      "courseEntriesRoutedHere": 5,
+      "instructionSourceExpressions": [
+        "<Instruction title={game==='mountain'?'点亮三座山峰，看山的形状':game==='cloud'?'把三朵白云聚到天空中':game==='fire'?'点亮画里的三束火光':word.char==='虫'?'点一点，找到三只小虫':'把三片落叶收进小篮子'}>{game==='fire'?'只在画里看火光。真的火不能用手摸，要找大人帮忙。':game==='mountain'?'一座山峰高，两边的山峰低，像「山」的形状。':game==='cloud'?'云在天空里，轻轻飘来飘去。':word.char==='虫'?'观察小虫，不抓它、不伤害它。':'叶子从树上落下来，我们收好落叶。'}</Instruction>"
+      ],
+      "actualControlsOrGesture": "三座山/三朵云/三束画中火/三只虫/三片落叶按钮",
+      "completionOrStateContract": "三个不同目标选完；虫没有叶子背景，提示不再声称藏在叶间",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "WordPlay.Generic",
+      "source": "src/components/WordPlay.tsx",
+      "line": 219,
+      "semanticGroups": [],
+      "characters": "",
+      "courseEntriesRoutedHere": 925,
+      "instructionSourceExpressions": [
+        "<Instruction title={revealing && !revealReady ? `擦开字卡，看看「${word.char}」` : phase !== 'word' ? `哪一个意思在说「${target}」？` : `${soundEnabled?'听':'看'}生活句子，找「${word.char}」的词语朋友`}>\n      {revealing && !revealReady ? `按住盖板擦一擦，也可以点开盖板。打开八块后，再${soundEnabled?'听':'看'}生活句子。` : phase !== 'word' ? soundEnabled?'可以点小喇叭听意思，再选择和刚才词语相符的一张。':'看每张意思卡，选择和刚才词语相符的一张。' : soundEnabled?'先听生活句子，选出含这个字的词语，再选择正确意思。两步都完成才能进入认字。':'当前已静音。先看生活句子，选出含这个字的词语，再选择正确意思。'}\n    </Instruction>"
+      ],
+      "actualControlsOrGesture": "可选12块盖板；句子卡；三张词卡；三张意思卡；完成后认识这个字",
+      "completionOrStateContract": "reveal型先揭>=8；真实句子播放成功或静音显式看句；词语正确后意思正确；两步都完成",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage0",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 61,
+      "prompt": "玩 → 认识这个字",
+      "actualControlsOrGesture": "WordPlay真实场景与手动继续按钮",
+      "completionOrStateContract": "小游戏done后才显示继续，不自动播放下一关",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage1",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 62,
+      "prompt": "先听听这个字 / 正在听这个字 / 去找字朋友",
+      "actualControlsOrGesture": "当前汉字播放、拼音播放和主按钮",
+      "completionOrStateContract": "Promise===true才heard；busy禁继续；取消保持未听；静音学习入口直接阅读继续",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage2",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 63,
+      "prompt": "听一听，找出这个字；静音：找出刚才认识的字",
+      "actualControlsOrGesture": "实际Quiz音频来自word.char，答案包含当前字",
+      "completionOrStateContract": "静音不传audio；保存quizRound，正确才完成；播放不是该Quiz必过门槛",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage3-wrapper",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 64,
+      "prompt": "先看示范，再从圆点出发",
+      "actualControlsOrGesture": "现有StrokePractice圆点/箭头/示范按钮，外层完成按钮",
+      "completionOrStateContract": "仅onComplete后写好啦；内层星星由audio_tests负责，本清单只核外层说明",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage4",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 65,
+      "prompt": "先听一遍，再用你自己的声音说一说；家长确认",
+      "actualControlsOrGesture": "词语/一句话切换、示范播放、家长确认",
+      "completionOrStateContract": "heardWord/heardSentence分别真实播放成功写入；忙时禁推进；家长手动确认；静音看读入口不伪造heard字段",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage5",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 66,
+      "prompt": "听一听，词语里有哪个字？ / 哪个词里有当前字",
+      "actualControlsOrGesture": "题一朗读word.words[0]，两题字卡/词卡选择",
+      "completionOrStateContract": "不再声称有不存在的小兔；静音题一以先前词语为线索，不传audio",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Hanzi.stage6",
+      "source": "src/components/HanziLesson.tsx",
+      "line": 67,
+      "prompt": "首次过关奖励3颗星星 / 复习安排",
+      "actualControlsOrGesture": "动物园和下一个字按钮",
+      "completionOrStateContract": "由既有finishLesson一次奖励/复习逻辑产生，未改存档schema",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage0",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 93,
+      "prompt": "点诗里的发现；慢慢听整首；先听完这首诗",
+      "actualControlsOrGesture": "图例、诗行、完整播放、独立暂停、分页、拼音开关",
+      "completionOrStateContract": "当前原文真实播放完成才计入listenedLines；图例若匹配也走readLine；busy主按钮仅状态；静音阅读显式继续，未造听音",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage1",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 94,
+      "prompt": "诗人是谁/那时发生什么/诗里看见什么",
+      "actualControlsOrGesture": "三张故事页签、100/180字分页、全文故事卡播放、背景链接",
+      "completionOrStateContract": "阅读分页保留完整字符串，点击卡朗读完整主题；朗读不作为阅读完成门槛",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage2",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 95,
+      "prompt": "我读懂啦：诗意题",
+      "actualControlsOrGesture": "原课程question传入Quiz",
+      "completionOrStateContract": "题和选项来自冻结数据，正确后推进",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage3",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 96,
+      "prompt": "我和家长商量好了；我们尝试过，分享了发现",
+      "actualControlsOrGesture": "生活小任务/今天小发现页签；2个明确确认按钮",
+      "completionOrStateContract": "第二步要求第一步；恢复activityDone时本地指示同步为已完成；第二步反馈说已分享而非再次邀请分享",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage4",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 97,
+      "prompt": "记忆小桥",
+      "actualControlsOrGesture": "真实Recitation分组/填空/家长背诵确认",
+      "completionOrStateContract": "下列三阶段逐项核，保存既有recitation检查点",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage5",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 98,
+      "prompt": "诗意题与这首作品是谁写的",
+      "actualControlsOrGesture": "原课程题及作者选择Quiz",
+      "completionOrStateContract": "原诗意不改；作者正确答案来自poem.author",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Poem.stage6",
+      "source": "src/components/PoemLesson.tsx",
+      "line": 99,
+      "prompt": "首次过关奖励8颗星星 / 复习安排",
+      "actualControlsOrGesture": "回诗词花园/去动物园按钮",
+      "completionOrStateContract": "既有finishLesson字段与奖励逻辑，未改存档schema",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Recitation.phase0",
+      "source": "src/components/Recitation.tsx",
+      "line": 37,
+      "prompt": "给诗句排好队；点卡片接在前一句后面",
+      "actualControlsOrGesture": "四行一组的乱序行卡、已选队列、重新排队、下一组",
+      "completionOrStateContract": "只能按原行序选择；错序说接下来该接的诗句，并播放selected.length对应行，不再声称前一句",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Recitation.phase1",
+      "source": "src/components/Recitation.tsx",
+      "line": 43,
+      "prompt": "记忆小桥·填一填",
+      "actualControlsOrGesture": "每首每行原文字中挖空的Quiz",
+      "completionOrStateContract": "每行都参与；clozeRound持久化；真实行作audio与explanation，正确后继续",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Recitation.phase2",
+      "source": "src/components/Recitation.tsx",
+      "line": 44,
+      "prompt": "想不起来可以打开提示；家长确认已尝试完整背诵",
+      "actualControlsOrGesture": "显示/收起提示、分页、整首重播、家长确认",
+      "completionOrStateContract": "所有行可翻页；重播明确为整首；由家长确认，不声称自动语音评分",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "TodayConnection.card",
+      "source": "src/components/TodayConnection.tsx",
+      "line": 6,
+      "prompt": "今天的小发现/诗与生活/小实践/家长资料",
+      "actualControlsOrGesture": "四页显式前后分页与资料链接；听今天的小发现按钮",
+      "completionOrStateContract": "日期与match选择同一真实卡；朗读fact+connection+activity全卡；按钮未声称仅读当前页；无卡时明确提示",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "PoetryScene.objects",
+      "source": "src/components/PoetryScene.tsx",
+      "line": 5,
+      "prompt": "点一点，找诗里的发现",
+      "actualControlsOrGesture": "poem.keywords前四项真实按钮，与编辑关键词驱动插画",
+      "completionOrStateContract": "按钮调用onFind当前关键词；匹配原文行时由父组件真实完成才计入听音；未给诗添加不存在的课程关键词",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    },
+    {
+      "id": "Quiz.shared",
+      "source": "src/components/Quiz.tsx",
+      "line": 21,
+      "prompt": "听一听题目/点我听一听/听选项；想好了再点",
+      "actualControlsOrGesture": "题目/选项播放与真实答案按钮",
+      "completionOrStateContract": "q.audio存在时播指定原文；否则题目；选项音频播该项；随机后answer同步；正确才给下一题；未强制播放才答题",
+      "reviewMethod": "manual source inspection; runtime coverage separately listed",
+      "status": "consistent under the specified scene state"
+    }
+  ],
+  "runtimeVerification": {
+    "method": "Actual current component sources bundled in an isolated route under the requested production origin; controlled narration Promise resolves success/cancel/late. Does not load the deployed App entry bundle. Parent separately owns full production App layout/audio regression.",
+    "origin": "http://192.168.31.48:5173",
+    "viewport": {
+      "width": 1180,
+      "height": 720,
+      "deviceScaleFactor": 2,
+      "touch": true
+    },
+    "physicalIPad": false,
+    "actualAudioPlayback": false,
+    "narration": "simulated controlled completion promises; never claimed as listened AAC",
+    "reports": [
+      {
+        "engine": "chromium",
+        "path": "output/release-lesson-chromium.json",
+        "sha256": "5b8135d81c514d51164d0bc40534ec2c0ed21891581e2397361291e1a3776352",
+        "command": "LESSON_PROMPT_ENGINE=chromium LESSON_PROMPT_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=json --output=output/release-lesson-chromium-artifacts > output/release-lesson-chromium.json",
+        "exitCode": 0,
+        "stats": {
+          "startTime": "2026-10-02T13:31:32.858Z",
+          "duration": 16006.784,
+          "expected": 17,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "reveal instructions expose a cover before any sentence speaker",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "generic sentence choices unlock only after successful playback",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted generic game explicitly uses viewing and retains both choices",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "window completion describes opening curtains, not opening the window",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "watermelon instructions match the two visible pieces and separation",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "worm and soil instructions name the actual targets and planting action",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "hearing waits for completion and does not accept canceled narration",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted hearing provides explicit object clues instead of pretending sound",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "recognition listens to completion before enabling progression",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "follow-reading marks only fully played word and sentence demonstrations",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "old playback cannot update a newly active lesson or a muted state",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted recognition and follow-reading remain operable without fake heard flags",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "poem busy button is a status, with a separate functional pause action",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "imagery listening credits the exact line only after it finishes",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted poem progresses by reading and restores completed practice indicators",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "ordering retry describes the next required line and plays exactly that line",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "today card pagination retains sources while narration explicitly covers the card",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          }
+        ]
+      },
+      {
+        "engine": "webkit",
+        "path": "output/release-lesson-webkit.json",
+        "sha256": "e65ffdb40827c0c115489359a2797295726e7854efeb67ed6a409739d1fd93de",
+        "command": "LESSON_PROMPT_ENGINE=webkit LESSON_PROMPT_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=json --output=output/release-lesson-webkit-artifacts > output/release-lesson-webkit.json",
+        "exitCode": 0,
+        "stats": {
+          "startTime": "2026-10-02T13:31:32.858Z",
+          "duration": 13315.233,
+          "expected": 17,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "cases": [
+          {
+            "title": "reveal instructions expose a cover before any sentence speaker",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "generic sentence choices unlock only after successful playback",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted generic game explicitly uses viewing and retains both choices",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "window completion describes opening curtains, not opening the window",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "watermelon instructions match the two visible pieces and separation",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "worm and soil instructions name the actual targets and planting action",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "hearing waits for completion and does not accept canceled narration",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted hearing provides explicit object clues instead of pretending sound",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "recognition listens to completion before enabling progression",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "follow-reading marks only fully played word and sentence demonstrations",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "old playback cannot update a newly active lesson or a muted state",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted recognition and follow-reading remain operable without fake heard flags",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "poem busy button is a status, with a separate functional pause action",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "imagery listening credits the exact line only after it finishes",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "muted poem progresses by reading and restores completed practice indicators",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "ordering retry describes the next required line and plays exactly that line",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          },
+          {
+            "title": "today card pagination retains sources while narration explicitly covers the card",
+            "status": "expected",
+            "results": [
+              "passed"
+            ]
+          }
+        ]
+      }
+    ],
+    "totalPassed": 34,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "runtimeErrors": 0,
+    "tsc": {
+      "command": "npx tsc -b",
+      "exitCode": 0,
+      "testedBeforeFinalProductionOriginRuns": true
+    }
+  },
+  "inputStability": {
+    "passed": true,
+    "beforeSnapshot": "output/release-lesson-input-before.json",
+    "beforeCapturedAt": "2026-10-02T13:31:32.009110+00:00",
+    "afterSnapshot": "output/release-lesson-input-after.json",
+    "afterCapturedAt": "2026-10-02T13:32:33.342127+00:00",
+    "changedInputs": [],
+    "inputSources": [
+      {
+        "path": "src/components/WordPlay.tsx",
+        "sha256": "f19aa853aa2505c100b2f3a5d5ec641ab7f11c8a7df527cbf23b6d73b16fc90e",
+        "bytes": 58586,
+        "beforeTaskSha256": "823642b731dc2f42b1ed979e5d341c91a0c0ef22a09eb88b4659bafbcdd64a1b"
+      },
+      {
+        "path": "src/components/HanziLesson.tsx",
+        "sha256": "b14fd156f18d28d1322380f135ec4a8234c0502f8c80137e4db6fa73e1d87ce0",
+        "bytes": 11783,
+        "beforeTaskSha256": "bca444b0c50b0945a61662b5982b147eb4da4ad3d1905b07cc7b1bd07a5ae0a9"
+      },
+      {
+        "path": "src/components/PoemLesson.tsx",
+        "sha256": "f0bd812cd0511def17db609d872f5df64c3fa296e49f93bc4a9458499caf6dc0",
+        "bytes": 13856,
+        "beforeTaskSha256": "5e04da31925e70f36b6c5cbe8c0e19e89f52594fa8ea8e355fba1c96d068477e"
+      },
+      {
+        "path": "src/components/Recitation.tsx",
+        "sha256": "970597df250b5778401fb3b26c2dd73be346075c0a2dfa6c283819383b319698",
+        "bytes": 6120,
+        "beforeTaskSha256": "8743e70a43d0defe96ef35a0053a68f96ed045ff926f413635d7cb506ed2d480"
+      },
+      {
+        "path": "src/components/TodayConnection.tsx",
+        "sha256": "927ca19f20654731187570ee5ce2d19621c91de11070efd9c0d898bd6d0764a5",
+        "bytes": 2707,
+        "beforeTaskSha256": "927ca19f20654731187570ee5ce2d19621c91de11070efd9c0d898bd6d0764a5"
+      },
+      {
+        "path": "src/components/PoetryScene.tsx",
+        "sha256": "619a001a78de5062d045aa9303765c320beb57a6cb6bd2989b2aa7ae5d62199d",
+        "bytes": 5538,
+        "beforeTaskSha256": "619a001a78de5062d045aa9303765c320beb57a6cb6bd2989b2aa7ae5d62199d"
+      },
+      {
+        "path": "src/components/Quiz.tsx",
+        "sha256": "49810575f607bacc7c8477934758b7a61e05c3ff7f570a39765fe553cb277dc5",
+        "bytes": 3170,
+        "beforeTaskSha256": "49810575f607bacc7c8477934758b7a61e05c3ff7f570a39765fe553cb277dc5"
+      },
+      {
+        "path": "src/word-play-narration.ts",
+        "sha256": "8a0e63dd13b0a5255f57916de0c84835ed339cab1be0fc088e46141fcc09be97",
+        "bytes": 1340
+      },
+      {
+        "path": "src/App.tsx",
+        "sha256": "f28f62ae878e5a3100e0cd7ba405d77dc2c435c7261f84a10986ef688459b75b",
+        "bytes": 19424
+      },
+      {
+        "path": "src/store.ts",
+        "sha256": "eb153dc96d48dc6af70dbf255c6b3bcbc55f0ff6a287c3249673366abe2bda7d",
+        "bytes": 10048
+      },
+      {
+        "path": "src/tablet-viewport.ts",
+        "sha256": "6860fc058e6bc30751cc8e1d2882897aa9631933af07828e757c5193a824b5fb",
+        "bytes": 787
+      },
+      {
+        "path": "src/styles.css",
+        "sha256": "5bc73bf26f95b36e9a2b8ce1cda36ec6d302ede816c8d7c0a45e36214262c7ac",
+        "bytes": 55519
+      },
+      {
+        "path": "src/ipad-layout.css",
+        "sha256": "6d288e03d08c9a9acc80c7810543ee5e2db6478e2edcba831510d02d7220e501",
+        "bytes": 17286
+      },
+      {
+        "path": "src/word-play.css",
+        "sha256": "efea5751de6a961a7094c7aa46bb3c598c6a24144867203d3bacb589985a4d63",
+        "bytes": 29855
+      },
+      {
+        "path": "src/poem-viewport.css",
+        "sha256": "c7cb63d65a35c87f984b9d91319ffc564600c86c593db53beb90664080eb66d9",
+        "bytes": 11400
+      },
+      {
+        "path": "src/data/hanzi.json",
+        "sha256": "44020d191fbacd8542805ba5b8ba88636f93661d22ead3bb05603406236f2f91",
+        "bytes": 399007
+      },
+      {
+        "path": "src/data/poems.json",
+        "sha256": "68873b9ec64c5b3f7b4b3071e8c1154caa7ea6d38adc4a29f94e6bc5ed7c6d5b",
+        "bytes": 642586
+      },
+      {
+        "path": "src/data/today-connections.json",
+        "sha256": "6c11bf04b44ea530ac87b3216a7d1da93f00d004200cc3bc6d750867b4d122f6",
+        "bytes": 2374
+      },
+      {
+        "path": "tests/lesson-prompts.spec.ts",
+        "sha256": "ac321ec3b95b5f748a7f6009268b569acf6b7ae24713a33f2d28fc2e2158b679",
+        "bytes": 19789
+      }
+    ]
+  },
+  "deployedAssetsIndependentByteCheck": {
+    "origin": "http://192.168.31.48:5173",
+    "checkedAt": "2026-10-02T13:34:05.786396+00:00",
+    "checks": [
+      {
+        "path": "/assets/index-DBoQYTZt.js",
+        "sha256": "d54cb353a4873a3d0a521dfafa3be70a0a8a35c45bf8cb1f05bead468210c200",
+        "bytes": 1521738,
+        "matchesLocalProductionBuild": true
+      },
+      {
+        "path": "/assets/index-DymezCL7.css",
+        "sha256": "958bcecdb035bfa0f34225d76a8f94b3f709264a4ec2506c790b059df1eab273",
+        "bytes": 143410,
+        "matchesLocalProductionBuild": true
+      }
+    ]
+  },
+  "audioChanges": {
+    "resourcesEditedByThisAgent": false,
+    "planEditedByThisAgent": false,
+    "coordination": "Root owns the audio plan, generation and final audio audit. Shared pure vocabulary is in src/word-play-narration.ts.",
+    "actualSpokenReplacements": [
+      {
+        "before": "窗打开了，阳光照进来。",
+        "after": "窗帘拉开了，阳光照进来。"
+      },
+      {
+        "before": "西瓜打开了，里面有果肉和瓜子。",
+        "after": "两块西瓜分开了，里面有果肉和瓜子。"
+      },
+      {
+        "before": "先走到离我们最近的下一个。",
+        "after": "按顺序点下一个标记。"
+      },
+      {
+        "before": "把你的发现说给动物朋友听吧。",
+        "after": "你们尝试过，也分享了发现。"
+      }
+    ],
+    "note": "Additional visible instruction/state labels changed; Recitation retry hint is not itself spoken. Static plan extraction may include non-spoken literals; rely on Root final plan audit for deployed coverage."
+  },
+  "preservedContracts": {
+    "courseDataEdited": false,
+    "storageSchemaEdited": false,
+    "lessonIDsChanged": false,
+    "existingProgressFieldsRetained": true,
+    "tabletPaginationRetained": true,
+    "noSourceOrCssEditsAfterFreeze": true
+  },
+  "limitations": [
+    "These controlled narration tests establish UI gating semantics, not real file completion, timbre or physical iPad behavior.",
+    "The origin fixture does not execute the deployed App JS; independent asset byte checks bind the served JS/CSS to local production build but do not replace parent App integration tests.",
+    "Static scene review and focused browser regressions have different coverage; no claim that every word, audio phrase or all page states were interactively tested here.",
+    "Ordinary optional replay buttons are not mandatory listening gates; global sound suppression is owned by App."
+  ]
+}

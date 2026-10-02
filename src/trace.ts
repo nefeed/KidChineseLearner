@@ -6,6 +6,34 @@ function segmentDistance(p: Point, a: Point, b: Point) {
   return distance(p, [a[0] + t * dx, a[1] + t * dy]);
 }
 const pathLength = (points: Point[]) => points.slice(1).reduce((n, p, i) => n + distance(p, points[i]), 0);
+// Guides move by distance, so a short median segment never takes as long as a
+// long one. These helpers affect the illustration only, not trace acceptance.
+export function pointAlongStroke(median: Point[], progress: number): Point {
+  if (!median.length) return [0, 0];
+  let remaining = pathLength(median) * Math.max(0, Math.min(1, Number.isFinite(progress) ? progress : 0));
+  for (let i = 1; i < median.length; i++) {
+    const length = distance(median[i - 1], median[i]);
+    if (length && remaining <= length) {
+      const fraction = remaining / length;
+      return [median[i - 1][0] + (median[i][0] - median[i - 1][0]) * fraction, median[i - 1][1] + (median[i][1] - median[i - 1][1]) * fraction];
+    }
+    remaining -= length;
+  }
+  return [...median.at(-1)!];
+}
+export function strokeProgress(median: Point[], point: Point): number {
+  const total = pathLength(median);
+  if (!total) return 0;
+  let travelled = 0, nearest = Infinity, progress = 0;
+  for (let i = 1; i < median.length; i++) {
+    const a = median[i - 1], b = median[i], dx = b[0] - a[0], dy = b[1] - a[1], length = distance(a, b);
+    const fraction = Math.max(0, Math.min(1, ((point[0] - a[0]) * dx + (point[1] - a[1]) * dy) / (length * length || 1)));
+    const gap = distance(point, [a[0] + fraction * dx, a[1] + fraction * dy]);
+    if (gap < nearest) { nearest = gap; progress = (travelled + length * fraction) / total; }
+    travelled += length;
+  }
+  return progress;
+}
 export function canContinueTrace(trace:Point[],median:Point[],tolerance=130):boolean {
   if(trace.length<2||median.length<2||distance(trace[0],median[0])>tolerance)return false;
   if(distance(trace[0],median[0])>distance(trace[0],median.at(-1)!))return false;

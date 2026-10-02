@@ -24,11 +24,11 @@ const test=base.extend<{engine:'chromium'|'webkit';page:Page}>({
 
 // All profiles and checkpoints here are isolated test fixtures, not evidence of
 // a child's learning. Chromium CDP touches target only Playwright's own browser.
-async function seed(page:Page,char?:string,stage=0){
+async function seed(page:Page,char?:string,stage=0,strokeIndex=0){
   const profile=createProfile('触控测试员');profile.settings.sound=false;profile.settings.music=false;
   const word=char?words.find(item=>item.char===char)!:undefined;
   if(char&&!word)throw Error(`Missing test character ${char}`);
-  if(word)profile.hanzi[word.id]={...initialProgress(),stage,strokeIndex:0};
+  if(word)profile.hanzi[word.id]={...initialProgress(),stage,strokeIndex};
   const data:SaveData={version:1,activeId:profile.id,profiles:[profile],savedAt:Date.now()};
   await page.addInitScript(({key,value})=>{if(!localStorage.getItem(key))localStorage.setItem(key,JSON.stringify(value));},{key:STORAGE_KEY,value:data});
   await page.goto(url);
@@ -91,6 +91,21 @@ async function snowFixture(page:Page){
   await page.goto(`${url}/touch-component-fixture`);
 }
 
+let strokeBundle:string|undefined;
+async function strokeFixture(page:Page){
+  // StrictMode and a same-instance character switch expose stale completion,
+  // demo timers and paths that the lesson's own React key would otherwise hide.
+  if(!strokeBundle)strokeBundle=buildSync({stdin:{contents:`import React from 'react';import {createRoot} from 'react-dom/client';import StrokePractice from './src/components/StrokePractice';function Fixture(){const [char,setChar]=React.useState('一');return React.createElement(React.Fragment,null,React.createElement('button',{id:'switch-character',onClick:()=>setChar(c=>c==='一'?'二':'一')},'Switch character'),React.createElement(StrokePractice,{char,savedIndex:0,onSpeak:()=>{document.body.dataset.spoken=String(Number(document.body.dataset.spoken||0)+1);},onStroke:index=>{document.body.dataset.strokeIndex=String(index);},onComplete:()=>{document.body.dataset.completions=String(Number(document.body.dataset.completions||0)+1);}}));}createRoot(document.getElementById('root')).render(React.createElement(React.StrictMode,null,React.createElement(Fixture)));`,resolveDir:fileURLToPath(new URL('..',import.meta.url)),loader:'tsx'},bundle:true,write:false,format:'iife',jsx:'automatic',loader:{'.css':'empty'},define:{'process.env.NODE_ENV':'"development"'},logLevel:'silent'}).outputFiles[0].text;
+  const style=readFileSync(new URL('../src/stroke-practice.css',import.meta.url),'utf8');
+  // An intercepted LAN main document lacks the real response's local address
+  // space. Chromium then blocks even same-origin stroke fetches as more-private
+  // network access. Bootstrap through a real inert JSON response, retaining
+  // normal browser security and avoiding any live application's timers/music.
+  const bootstrap=await page.goto(new URL('/data/strokes/一.json',url).href);
+  expect(bootstrap?.ok()).toBe(true);
+  await page.setContent(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><style>.stroke-practice{width:310px;margin:auto}.trace-grid{width:100%;touch-action:none}.stroke-toolbar{display:flex;justify-content:space-between}.stroke-toolbar button{min-height:44px}${style}</style><div id="root"></div><script>${strokeBundle.replace(/<\/script/gi,'<\\/script')}</script>`);
+}
+
 for(const engine of ['chromium','webkit'] as const){
   test.describe(`iPad layout and pointer regression (${engine})`,()=>{
     test.use({engine});
@@ -100,6 +115,7 @@ for(const engine of ['chromium','webkit'] as const){
       const word=(await seed(page,'一',3))!;
       const data=JSON.parse(readFileSync(new URL('../public/data/strokes/一.json',import.meta.url),'utf8')) as StrokeData;
       await expect(page.locator('.trace-grid')).toBeVisible();
+      await expect(page.locator('.trace-guide-star')).toBeVisible();
       await page.setViewportSize({width:1180,height:820});
       await page.locator('.trace-grid').evaluate(element=>{const svg=element as SVGSVGElement;svg.style.width='80%';svg.style.height='240px';svg.style.transform='scale(.85)';});
       const session=engine==='chromium'?await page.context().newCDPSession(page):null;
@@ -107,6 +123,7 @@ for(const engine of ['chromium','webkit'] as const){
       await drag(page,await tracePoints(page,data.medians[0]),touch);
       await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);
       await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toBeVisible();
+      await expect(page.locator('.trace-guide')).toHaveCount(0);
       expect(errors).toEqual([]);await session?.detach();
       await page.reload();
       await page.getByRole('button',{name:'汉字冒险',exact:true}).tap();
@@ -129,12 +146,136 @@ for(const engine of ['chromium','webkit'] as const){
       }
       await drag(page,[middle,end],touch);
       expect((await saved(page)).hanzi[word.id].strokeIndex).toBe(0);
+      await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','preview');
       const box=(await page.locator('.trace-grid').boundingBox())!;
       await drag(page,[start,{x:box.x-12,y:start.y},end],touch);
       expect((await saved(page)).hanzi[word.id].strokeIndex).toBe(0);
       await drag(page,await tracePoints(page,data.medians[0]),touch);
       await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);
       await session?.detach();
+    });
+
+    test('a visible star follows the stroke, pauses with a partial trace and lets a finger finish',async({page})=>{
+      await page.setViewportSize({width:1180,height:720});
+      const word=(await seed(page,'一',3))!;
+      const data=JSON.parse(readFileSync(new URL('../public/data/strokes/一.json',import.meta.url),'utf8')) as StrokeData;
+      const guide=page.locator('.trace-guide'),star=page.locator('.trace-guide-star');
+      await expect(star).toBeVisible();await expect(page.locator('.trace-start')).toBeVisible();
+      expect(await star.evaluate(element=>getComputedStyle(element).pointerEvents)).toBe('none');
+      const starBox=(await star.boundingBox())!;
+      expect(starBox.width).toBeGreaterThan(20);expect(starBox.height).toBeGreaterThan(20);
+      const begin=(await tracePoints(page,[data.medians[0][0]]))[0];
+      await expect.poll(async()=>Number(await guide.getAttribute('data-progress'))).toBeGreaterThan(.12);
+      const moved=(await star.boundingBox())!;expect(moved.x+moved.width/2).toBeGreaterThan(begin.x+15);
+      const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
+      const points=await tracePoints(page,data.medians[0]),cut=1;
+      await drag(page,points.slice(0,cut+1),touch);
+      await expect(guide).toHaveAttribute('data-guide-state','paused');
+      const stopped=await guide.getAttribute('transform');await page.waitForTimeout(650);
+      await expect(guide).toHaveAttribute('transform',stopped!);
+      expect((await saved(page)).hanzi[word.id].strokeIndex).toBe(0);
+      await drag(page,points.slice(cut),touch);
+      await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);
+      await expect(guide).toHaveCount(0);await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toBeVisible();
+      await page.getByRole('button',{name:'重新描写',exact:true}).tap();
+      await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toHaveCount(0);
+      for(const button of await page.locator('.stroke-toolbar button').all()){
+        // Keep a full 44px target after a real tap, with no relaxed tolerance.
+        await expect.poll(async()=>{const box=await button.boundingBox();return box?Math.min(box.width,box.height):0;}).toBeGreaterThanOrEqual(44);
+        const box=(await button.boundingBox())!;expect(box.height).toBeGreaterThanOrEqual(44);expect(box.width).toBeGreaterThanOrEqual(44);
+      }
+      expect(await page.evaluate(()=>document.scrollingElement!.scrollHeight-document.scrollingElement!.clientHeight)).toBeLessThanOrEqual(2);
+      await session?.detach();
+    });
+
+    test('demonstration, reset and orientation changes restore the current stroke guide',async({page})=>{
+      const word=(await seed(page,'二',3))!;
+      const data=JSON.parse(readFileSync(new URL('../public/data/strokes/二.json',import.meta.url),'utf8')) as StrokeData;
+      const guide=page.locator('.trace-guide');await expect(guide).toBeVisible();
+      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();
+      await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('先看小星星示范，结束后再动手描写。');
+      await expect.poll(async()=>Number(await guide.getAttribute('data-progress'))).toBeGreaterThan(.15);
+      await page.getByRole('button',{name:'重新描写',exact:true}).tap();
+      await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await expect(page.getByRole('button',{name:'看笔顺',exact:true})).toBeVisible();
+      await page.waitForTimeout(1050);await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();
+      await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await expect(guide).toHaveAttribute('data-guide-state','preview',{timeout:3500});
+      await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('从第一笔，再走一遍。');
+      expect((await saved(page)).hanzi[word.id].strokeIndex).toBe(0);
+      const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
+      const [a,b]=data.medians[0].slice(1,3),middle=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+      const median=[...data.medians[0].slice(0,2),middle,...data.medians[0].slice(2)],cut=2;
+      const points=await tracePoints(page,median);
+      await drag(page,points.slice(0,cut+1),touch);await expect(guide).toHaveAttribute('data-guide-state','paused');
+      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await page.getByRole('button',{name:'停止示范',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('跟着小星星，画好这一笔。');
+      await drag(page,points.slice(0,cut+1),touch);await expect(guide).toHaveAttribute('data-guide-state','paused');
+      await page.setViewportSize({width:1180,height:720});await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('跟着小星星，画好这一笔。');
+      const rotated=await tracePoints(page,median);
+      await drag(page,rotated.slice(cut),touch);
+      expect((await saved(page)).hanzi[word.id].strokeIndex).toBe(0);
+      await drag(page,rotated,touch);
+      await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);
+      await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 2 / 2 笔');
+      await expect(guide).toHaveAttribute('data-guide-state','preview');
+      const secondStart=(await tracePoints(page,[data.medians[1][0]]))[0],star=(await page.locator('.trace-guide-star').boundingBox())!;
+      expect(Math.hypot(star.x+star.width/2-secondStart.x,star.y+star.height/2-secondStart.y)).toBeLessThan(10);
+      await session?.detach();
+    });
+
+    test('a reduced-motion guide stays visible and character changes discard old state',async({page})=>{
+      await page.emulateMedia({reducedMotion:'reduce'});await strokeFixture(page);
+      const guide=page.locator('.trace-guide');await expect(page.locator('.trace-guide-star')).toBeVisible();
+      const transform=await guide.getAttribute('transform');await page.waitForTimeout(800);
+      await expect(guide).toHaveAttribute('transform',transform!);
+      const data=JSON.parse(readFileSync(new URL('../public/data/strokes/一.json',import.meta.url),'utf8')) as StrokeData;
+      const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
+      await drag(page,await tracePoints(page,data.medians[0]),touch);
+      await expect(page.locator('body')).toHaveAttribute('data-completions','1');await expect(guide).toHaveCount(0);
+      await page.locator('#switch-character').tap();await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^二字/);
+      await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 2 笔');await expect(guide).toBeVisible();
+      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await page.getByRole('button',{name:'停止示范',exact:true}).tap();
+      await expect(guide).toHaveAttribute('data-guide-state','preview');await expect(page.locator('body')).toHaveAttribute('data-spoken','1');
+      await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('跟着小星星，画好这一笔。');
+      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(page.locator('body')).toHaveAttribute('data-spoken','2');
+      await page.locator('#switch-character').tap();await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^一字/);
+      await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 1 笔');
+      await page.waitForTimeout(1050);await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await expect(page.locator('body')).toHaveAttribute('data-completions','1');
+      await drag(page,await tracePoints(page,data.medians[0]),touch);
+      await expect(page.locator('body')).toHaveAttribute('data-completions','2');await session?.detach();
+    });
+
+    for(const {char,index} of [{char:'口',index:1},{char:'派',index:8}])test(`the ${char} guide follows a turn or edge without clipping or taking pointer capture`,async({page})=>{
+      await page.emulateMedia({reducedMotion:'reduce'});await page.setViewportSize({width:1180,height:720});
+      const word=(await seed(page,char,3,index))!;
+      const data=JSON.parse(readFileSync(new URL(`../public/data/strokes/${char}.json`,import.meta.url),'utf8')) as StrokeData;
+      const guide=page.locator('.trace-guide'),grid=page.locator('.trace-grid');
+      const points=await tracePoints(page,data.medians[index]);
+      const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
+      if(touch)await touch.down(1,points[0]);else{await page.mouse.move(points[0].x,points[0].y);await page.mouse.down();}
+      for(const point of points.slice(1)){
+        if(touch)await touch.move(1,point);else await page.mouse.move(point.x,point.y,{steps:3});
+        await expect(guide).toHaveAttribute('data-guide-state','following');
+        // CDP dispatch resolves before the browser's next Pointer/React paint.
+        // Await the actual shape reaching this point, not the previous frame.
+        await expect.poll(async()=>{const star=(await page.locator('.trace-guide-star').boundingBox())!;return Math.hypot(star.x+star.width/2-point.x,star.y+star.height/2-point.y);}).toBeLessThan(16);
+        const star=(await page.locator('.trace-guide-star').boundingBox())!,canvas=(await grid.boundingBox())!;
+        expect(star.x).toBeGreaterThanOrEqual(canvas.x);expect(star.y).toBeGreaterThanOrEqual(canvas.y);
+        expect(star.x+star.width).toBeLessThanOrEqual(canvas.x+canvas.width);expect(star.y+star.height).toBeLessThanOrEqual(canvas.y+canvas.height);
+        expect(Math.hypot(star.x+star.width/2-point.x,star.y+star.height/2-point.y)).toBeLessThan(16);
+        expect(await page.evaluate(point=>!!document.elementFromPoint(point.x,point.y)?.closest('.trace-grid'),point)).toBe(true);
+      }
+      await expect.poll(async()=>Number(await guide.getAttribute('data-progress'))).toBeGreaterThan(.99);
+      if(touch)await touch.up(1);else await page.mouse.up();
+      await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(index+1);await session?.detach();
     });
 
     test('dragging an umbrella uses capture scoped to its own scene',async({page})=>{

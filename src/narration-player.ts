@@ -26,7 +26,9 @@ interface Request {
 }
 export const NARRATION_PRELOAD_COUNT = 12;
 export const NARRATION_POOL_LIMIT = 16;
-export const NARRATION_PAUSE_MS = 160;
+export const NARRATION_PAUSE_MS = 260;
+export const NARRATION_FINISH_WINDOW_SECONDS = .65;
+export const NARRATION_PACE = .96;
 
 export function isMandarinVoice(voice: SpeechSynthesisVoice) {
   return /^zh[-_](CN|TW)(?:[-_]|$)|^zh[-_]Hans(?:[-_]|$)|^zh[-_]Hant(?:[-_]TW)?$|^cmn(?:[-_]|$)/i.test(voice.lang);
@@ -59,6 +61,7 @@ const browserTimers: NarrationTimers = {
 /** A completed request means the actual voice finished, including its quiet tail. */
 export class NarrationPlayer {
   private request: Request | null = null;
+  private pending: {start: () => void; cancel: () => void} | null = null;
   private pool = new Map<string,HTMLAudioElement>();
   private state: NarrationState = {speaking:false,method:null,notice:''};
   private disposed = false;
@@ -139,6 +142,7 @@ export class NarrationPlayer {
     }
   }
   stop() {
+    const pending = this.pending;this.pending = null;pending?.cancel();
     const request = this.request;this.request = null;
     if (request) {this.detach(request,true);request.resolve(false);}
     this.synthesis()?.cancel();this.publish({speaking:false});
@@ -146,7 +150,9 @@ export class NarrationPlayer {
   private finish(request: Request, completed: boolean) {
     if (this.request !== request) return;
     this.request = null;this.detach(request,!completed);
-    this.publish({speaking:false});request.resolve(completed);
+    const pending = this.pending;this.pending = null;
+    if (!pending) this.publish({speaking:false});
+    request.resolve(completed);pending?.start();
   }
   private naturalEnd(request: Request, options: NarrationOptions) {
     if (!this.current(request) || !request.started || request.phase==='tail') return;
@@ -156,6 +162,21 @@ export class NarrationPlayer {
     else this.later(request,() => this.finish(request,true),pause);
   }
   speak(text: string,audioPath?: string,fallbackText = text,options: NarrationOptions = {}): Promise<boolean> {
+    const request = this.request;
+    const audio = request?.audio;
+    const remaining = audio ? (audio.duration-audio.currentTime)/audio.playbackRate : Infinity;
+    // Let an almost finished word land before the next tap's narration. Keep
+    // only the latest pending tap; navigation/mute/stop still cancel immediately.
+    if (this.canPlay() && text.trim() && request?.started &&
+      (request.phase==='tail' || (request.phase==='audio' && remaining>0 && remaining<=NARRATION_FINISH_WINDOW_SECONDS))) {
+      this.pending?.cancel();
+      return new Promise<boolean>(resolve => {
+        this.pending = {start:() => {void this.begin(text,audioPath,fallbackText,options).then(resolve);},cancel:() => resolve(false)};
+      });
+    }
+    return this.begin(text,audioPath,fallbackText,options);
+  }
+  private begin(text: string,audioPath: string|undefined,fallbackText: string,options: NarrationOptions): Promise<boolean> {
     this.stop();
     if (!this.canPlay() || !text.trim()) return Promise.resolve(false);
     return new Promise<boolean>(resolve => {
@@ -168,7 +189,10 @@ export class NarrationPlayer {
       if (!path) {this.fallback(request,fallbackText,options);return;}
       try {
         const audio = this.clip(path);request.audio = audio;request.path = path;
-        audio.currentTime = 0;audio.playbackRate = narrationPlaybackRate(snapshot.rate,snapshot.defaultPlaybackRate);
+        audio.currentTime = 0;
+        // Set one steady pace before playback. Mid-syllable rate changes make
+        // WebKit restart its media pipeline and can repeat or stall the ending.
+        audio.playbackRate = Math.max(.5,narrationPlaybackRate(snapshot.rate,snapshot.defaultPlaybackRate)*NARRATION_PACE);
         audio.preservesPitch = true;
         // Only 10ms, already audible at 88%: do not swallow initial consonants.
         audio.volume = .88;

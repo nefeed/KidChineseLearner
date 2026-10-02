@@ -1,601 +1,404 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T12:33:23.863Z",
-  "buildMode": "production-bundle",
-  "scope": "Desktop browser iPad-layout simulation with isolated synthetic test profiles; no physical iPad Safari acceptance.",
+  "generatedAt": "2026-10-02T13:43:27.097427+00:00",
+  "buildMode": "Final production LAN build with 25 actual application cases and 4 explicitly bounded source fixture cases",
   "result": {
-    "status": "passed",
-    "passed": 19,
+    "passed": 29,
     "failed": 0,
     "skipped": 0,
     "flaky": 0,
-    "chromiumPassed": 11,
-    "webkitPassed": 8,
-    "productionApplicationCases": 17,
-    "inlineComponentFixtureCases": 2
+    "exitCode": 0,
+    "durationMs": 50757.085
   },
-  "executedCommand": "IPAD_TEST_URL=http://127.0.0.1:5173 npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=json --output=test-results/ipad-touch-one-screen-production > /tmp/kidchinese-ipad-touch-one-screen-production.json 2> /tmp/kidchinese-ipad-touch-one-screen-production.stderr.log",
-  "testFile": {
-    "file": "tests/ipad-touch.spec.ts",
-    "bytes": 19179,
-    "sha256": "1973d11d5af2c0838dce272f682eca0931f9bd4b62597dedca29f2d31aba8963",
-    "modifiedAt": "2026-10-02T12:01:35.537Z"
-  },
+  "command": "IPAD_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/ipad-touch.spec.ts --workers=2 --reporter=json --output=output/release-ipad-touch-final > output/release-ipad-touch-final.json 2> output/release-ipad-touch-final.stderr.log",
   "executionEvidence": {
-    "reporter": "json",
+    "jsonReporter": {
+      "file": "output/release-ipad-touch-final.json",
+      "bytes": 37320,
+      "sha256": "284c87376889885ad91e8878801dffa2de8b5c605562417538286a76ec389977"
+    },
+    "stderr": {
+      "file": "output/release-ipad-touch-final.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "lastRun": {
+      "file": "output/release-ipad-touch-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
     "stats": {
-      "startTime": "2026-10-02T12:25:16.321Z",
-      "duration": 32244.297,
-      "expected": 19,
+      "startTime": "2026-10-02T13:37:44.485Z",
+      "duration": 50757.085,
+      "expected": 29,
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
     },
-    "processExitCode": 0,
-    "codexExecSessionId": 55593,
-    "completionOutputChunkId": "83c526",
-    "rawReport": {
-      "file": "/tmp/kidchinese-ipad-touch-one-screen-production.json",
-      "bytes": 25250,
-      "sha256": "c9dfffbd767a14c6f872bf884e324a068ca438a1d277fc75371fd46938d42c8c",
-      "modifiedAt": "2026-10-02T12:25:48.569Z"
-    },
-    "stderrLog": {
-      "file": "/tmp/kidchinese-ipad-touch-one-screen-production.stderr.log",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "modifiedAt": "2026-10-02T12:25:14.371Z"
-    },
-    "lastRun": {
-      "file": "test-results/ipad-touch-one-screen-production/.last-run.json",
-      "bytes": 45,
-      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
-      "modifiedAt": "2026-10-02T12:25:48.570Z",
-      "content": {
-        "status": "passed",
-        "failedTests": []
-      }
-    },
-    "caseStatusBasis": "Each JSON reporter case has status passed and no errors; expected=19, unexpected=0, skipped=0, flaky=0."
-  },
-  "engines": [
-    {
-      "engine": "chromium",
-      "launcher": "Playwright chromium.launch",
-      "channel": "chrome",
-      "browserVersion": "154.0.8037.93",
-      "hostPlatform": "darwin",
-      "playwrightVersion": "1.63.0",
-      "browserVersionEvidence": "Separate launch of the same installed binary/channel while verification ran; not instrumentation of the test browser instance.",
-      "physicalDevice": false,
-      "inputMechanisms": [
-        "Native Playwright touchscreen .tap for navigation/single actions",
-        "CDP Input.dispatchTouchEvent for continuous touch and multiple fingers in the isolated Chromium browser; browser-native Touch → Pointer delivery"
-      ]
-    },
-    {
-      "engine": "webkit",
-      "launcher": "Playwright webkit.launch",
-      "channel": null,
-      "browserVersion": "26.6",
-      "hostPlatform": "darwin",
-      "playwrightVersion": "1.63.0",
-      "browserVersionEvidence": "Separate launch of the same installed binary/channel while verification ran; not instrumentation of the test browser instance.",
-      "physicalDevice": false,
-      "inputMechanisms": [
-        "Native Playwright touchscreen .tap for navigation/single actions",
-        "Playwright page.mouse for continuous drag/press/release, producing mouse Pointer events",
-        "Synthetic mouse pointercancel in the stroke cancellation case"
-      ]
-    }
-  ],
-  "context": {
-    "initialViewport": {
-      "width": 820,
-      "height": 1180
-    },
-    "rotatedViewportInWritingCase": {
-      "width": 1180,
-      "height": 820
-    },
-    "deviceScaleFactor": 2,
-    "isMobile": true,
-    "hasTouch": true,
-    "freshBrowserAndContextPerCase": true,
-    "soundEnabled": false,
-    "musicEnabled": false,
-    "userBrowserOrCDPConnectionUsed": false
-  },
-  "server": {
-    "implementation": "Production createLanServer(dist) through existing LAN LaunchAgent",
-    "verificationHost": "127.0.0.1",
-    "port": 5173,
-    "temporaryPort": false,
-    "stoppedAfterVerification": false,
-    "actualLANDeviceAccessTestedByThisRun": false
+    "completionChunk": "46b17c"
   },
   "productionBundle": {
-    "directory": "dist",
-    "algorithm": "SHA-256",
-    "capturedAfterCompletedRuns": true,
+    "origin": "http://192.168.31.48:5173",
     "files": [
       {
         "file": "dist/index.html",
         "bytes": 1190,
-        "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9",
-        "modifiedAt": "2026-10-02T12:23:09.572Z"
+        "sha256": "1e6ced87f42cf7f968b068473e7769ef01ae499e37270c8e01685a1c12955784",
+        "httpBytesMatchDisk": true
       },
       {
-        "file": "dist/assets/index-DyKERcVQ.js",
-        "bytes": 1513982,
-        "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f",
-        "modifiedAt": "2026-10-02T12:23:09.573Z"
+        "file": "dist/assets/index-DBoQYTZt.js",
+        "bytes": 1521738,
+        "sha256": "d54cb353a4873a3d0a521dfafa3be70a0a8a35c45bf8cb1f05bead468210c200",
+        "httpBytesMatchDisk": true
       },
       {
-        "file": "dist/assets/index-D2AuYFvJ.css",
-        "bytes": 143037,
-        "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4",
-        "modifiedAt": "2026-10-02T12:23:09.572Z"
+        "file": "dist/assets/index-DymezCL7.css",
+        "bytes": 143410,
+        "sha256": "958bcecdb035bfa0f34225d76a8f94b3f709264a4ec2506c790b059df1eab273",
+        "httpBytesMatchDisk": true
       }
     ],
-    "servedBytesVerifiedEqualToDisk": true,
-    "verificationOrigin": "http://127.0.0.1:5173",
-    "servedResourceChecks": [
-      {
-        "file": "dist/index.html",
-        "url": "http://127.0.0.1:5173/",
-        "responseBytes": 1190,
-        "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9",
-        "contentType": "text/html; charset=utf-8",
-        "matchesDisk": true
-      },
-      {
-        "file": "dist/assets/index-DyKERcVQ.js",
-        "url": "http://127.0.0.1:5173/assets/index-DyKERcVQ.js",
-        "responseBytes": 1513982,
-        "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f",
-        "contentType": "text/javascript; charset=utf-8",
-        "matchesDisk": true
-      },
-      {
-        "file": "dist/assets/index-D2AuYFvJ.css",
-        "url": "http://127.0.0.1:5173/assets/index-D2AuYFvJ.css",
-        "responseBytes": 143037,
-        "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4",
-        "contentType": "text/css; charset=utf-8",
-        "matchesDisk": true
-      }
-    ],
-    "unchangedSinceRunStart": true,
-    "beforeRunSnapshot": {
-      "file": "/tmp/kidchinese-ipad-final-before-run-snapshot.json",
-      "bytes": 6965,
-      "sha256": "d3b06b61aebde4a31b4be3150be949f6e2f8401df77bf03719e33bf5f3df3a09",
-      "modifiedAt": "2026-10-02T12:25:15.611Z"
-    },
-    "audioScope": "Sound and music disabled in synthetic profiles; these runs do not audit audio quality or audio release completeness."
+    "httpBytesEqualDisk": true,
+    "unchangedSinceLaunchSnapshot": true
   },
-  "cases": [
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
-      "status": "passed",
-      "durationMs": 3375,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
-      "status": "passed",
-      "durationMs": 2671,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "dragging an umbrella uses capture scoped to its own scene",
-      "status": "passed",
-      "durationMs": 1752,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "holding warmth stops on release or cancel",
-      "status": "passed",
-      "durationMs": 1745,
-      "target": "inline Snow component fixture"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "a finger tap can uncover a covered character tile",
-      "status": "passed",
-      "durationMs": 1304,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "the native horizontal slider responds while preserving vertical page gestures",
-      "status": "passed",
-      "durationMs": 1866,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "washing needs movement and does not connect a brush path across the surface edge",
-      "status": "passed",
-      "durationMs": 1824,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "iPad layout and pointer regression (chromium)",
-      "title": "animal drag and bathing persist; empty grass retains native pan behavior",
-      "status": "passed",
-      "durationMs": 1960,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
-      "status": "passed",
-      "durationMs": 1214,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
-      "status": "passed",
-      "durationMs": 960,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "dragging an umbrella uses capture scoped to its own scene",
-      "status": "passed",
-      "durationMs": 975,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "holding warmth stops on release or cancel",
-      "status": "passed",
-      "durationMs": 1130,
-      "target": "inline Snow component fixture"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "a finger tap can uncover a covered character tile",
-      "status": "passed",
-      "durationMs": 896,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "the native horizontal slider responds while preserving vertical page gestures",
-      "status": "passed",
-      "durationMs": 1133,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "washing needs movement and does not connect a brush path across the surface edge",
-      "status": "passed",
-      "durationMs": 1050,
-      "target": "production dist application"
-    },
-    {
-      "engine": "webkit",
-      "suite": "iPad layout and pointer regression (webkit)",
-      "title": "animal drag and bathing persist; empty grass retains native pan behavior",
-      "status": "passed",
-      "durationMs": 1063,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
-      "title": "swiping empty grass keeps the tablet page and selected animal stationary",
-      "status": "passed",
-      "durationMs": 1895,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
-      "title": "a secondary finger cannot finish or interrupt the primary writing stroke",
-      "status": "passed",
-      "durationMs": 2030,
-      "target": "production dist application"
-    },
-    {
-      "engine": "chromium",
-      "suite": "isolated Chromium Touch → Pointer multi-finger regressions",
-      "title": "secondary scrub touches are ignored and cancellation stops the brush",
-      "status": "passed",
-      "durationMs": 1696,
-      "target": "production dist application"
-    }
-  ],
-  "snowFixture": {
-    "cases": 2,
-    "courseIncludesSnow": false,
-    "implementation": "Ephemeral browser route with an esbuild-bundled WordPlay Snow component from repository source and inline source CSS; no production route or resource is written.",
-    "productionApplicationRouteUsed": false,
-    "purpose": "Verify the retained component hold timer stops after release/cancel without adding a character to the 1,000-character course."
-  },
-  "linuxCI": {
-    "browserInstall": "npx playwright install --with-deps chromium webkit",
-    "server": "Build first, then start node scripts/serve-lan.mjs --port 5173.",
-    "command": "IPAD_TEST_URL=http://127.0.0.1:5173 PLAYWRIGHT_CHANNEL=chromium npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch",
-    "startsServerAutomatically": false
-  },
-  "limitations": [
-    "No physical iPad, Safari on iPadOS, finger or Apple Pencil was operated; these are desktop-engine simulations.",
-    "WebKit continuous gestures are mouse Pointer events, not a continuous iPad touch stream; multi-finger and browser-native touch-scroll coverage is Chromium CDP only.",
-    "The writing test uses the character 一 and explicit SVG CSS scaling; this does not certify every stroke dataset or handwritten character.",
-    "Synthetic profiles and saved checkpoints are testing fixtures, not evidence of a child learning or mastery.",
-    "Native Home Screen installation, real safe-area insets, standalone launch and audio quality are outside this touch audit."
-  ],
-  "rawReportsCommitted": false,
-  "updatedBehaviorVerified": [
-    "Empty grass retains touch-action:pan-y while a full tablet page remains stationary and the selected animal position is unchanged.",
-    "Umbrella completion reveals the word/continue action and removes gameplay on tablet.",
-    "Real native range input events reach at least 95 before the completed view removes the slider."
-  ],
   "sourceSnapshots": {
-    "scope": "All repository src files plus index.html; code, CSS and bundled curriculum data.",
-    "algorithm": "SHA-256",
-    "canonicalDigestInput": "Sorted file path + NUL + file SHA-256 + newline (UTF-8).",
-    "combinedSha256": "d935a2c65ba11a8314aa6a2733f6bc7ec87407731661b4ddbcee514a4a44d374",
-    "unchangedSinceRunStart": true,
     "files": [
       {
-        "file": "index.html",
-        "bytes": 1092,
-        "sha256": "d7cafb94bcc9c48b862431d633836b31beac58c1444e108c6774ff8cac7e6f93",
-        "modifiedAt": "2026-10-02T09:34:03.915Z"
-      },
-      {
-        "file": "src/App.tsx",
-        "bytes": 19015,
-        "sha256": "51d6fc0df6b3ded953fbe787f55cc83c4e60b367ee4b0008c40640f3aa358c07",
-        "modifiedAt": "2026-10-02T11:47:20.979Z"
-      },
-      {
-        "file": "src/components/Animal.tsx",
-        "bytes": 9773,
-        "sha256": "c6c4442d3ad4d27a5f02aab6e091c15e2d41ff3a0a3d58f4317428424ed609d3",
-        "modifiedAt": "2026-10-01T15:51:51.850Z"
-      },
-      {
-        "file": "src/components/HanziLesson.tsx",
-        "bytes": 10214,
-        "sha256": "bca444b0c50b0945a61662b5982b147eb4da4ad3d1905b07cc7b1bd07a5ae0a9",
-        "modifiedAt": "2026-10-01T16:49:57.993Z"
-      },
-      {
-        "file": "src/components/IslandScene.tsx",
-        "bytes": 4094,
-        "sha256": "5d5bf7c4e82be7ad6db290951bb14767e97ad260444e5956c78f0070a32bc19d",
-        "modifiedAt": "2026-10-01T15:51:44.830Z"
-      },
-      {
-        "file": "src/components/Libraries.tsx",
-        "bytes": 7531,
-        "sha256": "12b6dc6cbaa8bbb90e898f409f066c6c6ebd3087c54593f0c743176ca7925a11",
-        "modifiedAt": "2026-10-02T11:52:48.652Z"
-      },
-      {
-        "file": "src/components/MusicControls.tsx",
-        "bytes": 1982,
-        "sha256": "1b2c74147e77aafce7060583ee63d91be33436e64dbe5d6210f17135f4268b31",
-        "modifiedAt": "2026-10-02T06:44:37.274Z"
-      },
-      {
-        "file": "src/components/Parents.tsx",
-        "bytes": 10463,
-        "sha256": "ecc39d671e9f63108c0efc5590a9147aadeb878602efdbc609fa69cb218814e8",
-        "modifiedAt": "2026-10-02T12:10:15.668Z"
-      },
-      {
-        "file": "src/components/PoemLesson.tsx",
-        "bytes": 13579,
-        "sha256": "5e04da31925e70f36b6c5cbe8c0e19e89f52594fa8ea8e355fba1c96d068477e",
-        "modifiedAt": "2026-10-02T11:50:09.401Z"
-      },
-      {
-        "file": "src/components/PoetryScene.tsx",
-        "bytes": 5538,
-        "sha256": "619a001a78de5062d045aa9303765c320beb57a6cb6bd2989b2aa7ae5d62199d",
-        "modifiedAt": "2026-10-01T17:42:56.860Z"
-      },
-      {
-        "file": "src/components/PwaControls.tsx",
-        "bytes": 4817,
-        "sha256": "638851be1889de83f084e876abaa6f44df9af87ba8a811f92dc6ca1b6f057762",
-        "modifiedAt": "2026-10-02T09:50:24.659Z"
-      },
-      {
-        "file": "src/components/Quiz.tsx",
-        "bytes": 3170,
-        "sha256": "49810575f607bacc7c8477934758b7a61e05c3ff7f570a39765fe553cb277dc5",
-        "modifiedAt": "2026-10-01T16:49:03.893Z"
-      },
-      {
-        "file": "src/components/Recitation.tsx",
-        "bytes": 6108,
-        "sha256": "8743e70a43d0defe96ef35a0053a68f96ed045ff926f413635d7cb506ed2d480",
-        "modifiedAt": "2026-10-02T11:50:09.401Z"
-      },
-      {
-        "file": "src/components/StrokePractice.tsx",
-        "bytes": 7680,
-        "sha256": "6c8ff5d167ff26b852e863ec4bf32c965b3ec2e33ce6cbcb4f53e9aaa3685a9c",
-        "modifiedAt": "2026-10-02T09:30:19.005Z"
-      },
-      {
-        "file": "src/components/TodayConnection.tsx",
-        "bytes": 2707,
-        "sha256": "927ca19f20654731187570ee5ce2d19621c91de11070efd9c0d898bd6d0764a5",
-        "modifiedAt": "2026-10-02T11:46:36.752Z"
-      },
-      {
-        "file": "src/components/WordPlay.tsx",
-        "bytes": 56555,
-        "sha256": "823642b731dc2f42b1ed979e5d341c91a0c0ef22a09eb88b4659bafbcdd64a1b",
-        "modifiedAt": "2026-10-02T11:35:46.852Z"
-      },
-      {
-        "file": "src/components/Zoo.tsx",
-        "bytes": 38025,
-        "sha256": "a9189ea0cbee2a11a711d2ba9178af0147a0c6a7d526beb60e8429e62f218a90",
-        "modifiedAt": "2026-10-02T11:58:06.693Z"
-      },
-      {
-        "file": "src/data/hanzi.json",
-        "bytes": 399007,
-        "sha256": "44020d191fbacd8542805ba5b8ba88636f93661d22ead3bb05603406236f2f91",
-        "modifiedAt": "2026-10-01T18:01:12.517Z"
-      },
-      {
-        "file": "src/data/poems.json",
-        "bytes": 642586,
-        "sha256": "68873b9ec64c5b3f7b4b3071e8c1154caa7ea6d38adc4a29f94e6bc5ed7c6d5b",
-        "modifiedAt": "2026-10-01T18:16:57.723Z"
-      },
-      {
-        "file": "src/data/rewards.ts",
-        "bytes": 6233,
-        "sha256": "d3fec879b461326695ad221a06b99b788d6f1f7fb1dee1125d8e388bb28dfde3",
-        "modifiedAt": "2026-10-01T15:51:51.850Z"
-      },
-      {
-        "file": "src/data/today-connections.json",
-        "bytes": 2374,
-        "sha256": "6c11bf04b44ea530ac87b3216a7d1da93f00d004200cc3bc6d750867b4d122f6",
-        "modifiedAt": "2026-10-01T17:28:50.808Z"
-      },
-      {
-        "file": "src/ipad-layout.css",
-        "bytes": 17286,
-        "sha256": "6d288e03d08c9a9acc80c7810543ee5e2db6478e2edcba831510d02d7220e501",
-        "modifiedAt": "2026-10-02T12:22:11.319Z"
-      },
-      {
-        "file": "src/main.tsx",
-        "bytes": 252,
-        "sha256": "29d8b4a5df8d7c1bc8ffdd281b9f7c5963c0cc11b03a6ac7c863f9931c13b84f",
-        "modifiedAt": "2026-10-02T09:40:47.577Z"
-      },
-      {
-        "file": "src/music-engine.ts",
-        "bytes": 10930,
-        "sha256": "f7cb3a69cb04e4f274e263fdd7769cab89d7f925aa528b4547217c390bf2c32b",
-        "modifiedAt": "2026-10-02T06:47:41.463Z"
-      },
-      {
-        "file": "src/music.css",
-        "bytes": 1801,
-        "sha256": "6608dc389abaa9249118d29fb0f9d3ff6f7474af66392c7316a54ae56ba6adc6",
-        "modifiedAt": "2026-10-02T06:44:37.274Z"
-      },
-      {
-        "file": "src/music.ts",
-        "bytes": 1950,
-        "sha256": "9fa4d88afeb4cda2c50412a1def3688072a46217c5228c0cd7947867f4fcaefa",
-        "modifiedAt": "2026-10-02T06:44:37.274Z"
-      },
-      {
         "file": "src/narration-player.ts",
-        "bytes": 10878,
-        "sha256": "0c104a345707100bf2cf3c99b251cd99727a84c8b2b9fca53a8df91161226cdc",
-        "modifiedAt": "2026-10-02T07:09:28.576Z"
-      },
-      {
-        "file": "src/poem-viewport.css",
-        "bytes": 11400,
-        "sha256": "c7cb63d65a35c87f984b9d91319ffc564600c86c593db53beb90664080eb66d9",
-        "modifiedAt": "2026-10-02T11:50:09.402Z"
-      },
-      {
-        "file": "src/pronunciation.ts",
-        "bytes": 2020,
-        "sha256": "c32d3568447f6913001482bbc36c85744d3d51f3bd8bad843b88d7b14ba87b4c",
-        "modifiedAt": "2026-10-01T17:56:28.538Z"
-      },
-      {
-        "file": "src/pwa.css",
-        "bytes": 2003,
-        "sha256": "48664077c8288bd6daef5685a1d3f3d4c898b8f95cc3b713e83cf4f291ebd69c",
-        "modifiedAt": "2026-10-02T09:52:18.686Z"
-      },
-      {
-        "file": "src/pwa.ts",
-        "bytes": 3073,
-        "sha256": "9875e49dc3e3e2435d89800a6fedf6128cf32cfb9a7209c5505f84e15b80680f",
-        "modifiedAt": "2026-10-02T09:40:18.985Z"
+        "bytes": 12326,
+        "sha256": "529b3bc397bb6eea1f7b07e5e93d63eb1dffcf18117ac42d648323ee36f0e23d"
       },
       {
         "file": "src/speech.ts",
         "bytes": 3108,
-        "sha256": "8f2510681aede6a521c35150f5c37e454a72f38645d1fc846382cdf5041d1c17",
-        "modifiedAt": "2026-10-02T07:09:28.577Z"
+        "sha256": "8f2510681aede6a521c35150f5c37e454a72f38645d1fc846382cdf5041d1c17"
       },
       {
-        "file": "src/store.ts",
-        "bytes": 10048,
-        "sha256": "eb153dc96d48dc6af70dbf255c6b3bcbc55f0ff6a287c3249673366abe2bda7d",
-        "modifiedAt": "2026-10-02T06:47:35.506Z"
-      },
-      {
-        "file": "src/styles.css",
-        "bytes": 55519,
-        "sha256": "5bc73bf26f95b36e9a2b8ce1cda36ec6d302ede816c8d7c0a45e36214262c7ac",
-        "modifiedAt": "2026-10-02T06:59:19.099Z"
-      },
-      {
-        "file": "src/tablet-viewport.ts",
-        "bytes": 787,
-        "sha256": "6860fc058e6bc30751cc8e1d2882897aa9631933af07828e757c5193a824b5fb",
-        "modifiedAt": "2026-10-02T11:38:40.212Z"
+        "file": "src/components/StrokePractice.tsx",
+        "bytes": 11793,
+        "sha256": "4ae3db3b3bbd5626532d9eb027ba514e44a3cb656e0fa9e229ab77d73a6548b5"
       },
       {
         "file": "src/trace.ts",
-        "bytes": 2624,
-        "sha256": "7d30f38bf46b11002e5fe9d69fe4339d1720bd2998aaa9cdc001e5160125a3b9",
-        "modifiedAt": "2026-10-01T17:17:27.024Z"
+        "bytes": 4080,
+        "sha256": "9980060e26291c93028c1bd91427c1dc02eb3fbc8e70263dfb20b36a5d63b92a"
       },
       {
-        "file": "src/types.ts",
-        "bytes": 2181,
-        "sha256": "93fda3dc807b50032f6085c3f251ac410c37ac2bace4bd75eb22346ae916ee8e",
-        "modifiedAt": "2026-10-02T06:47:35.505Z"
+        "file": "src/stroke-practice.css",
+        "bytes": 378,
+        "sha256": "04571d1572a65f10970d6c53b8be580afefd2c45c980c27152af5ce9adbc9022"
       },
       {
-        "file": "src/word-play.css",
-        "bytes": 29855,
-        "sha256": "efea5751de6a961a7094c7aa46bb3c598c6a24144867203d3bacb589985a4d63",
-        "modifiedAt": "2026-10-02T09:34:26.895Z"
+        "file": "tests/narration-browser.spec.ts",
+        "bytes": 11297,
+        "sha256": "bdb653a24ad614c73b8159bb8b1aeaffc40d8e1ece0506414d53beb3d2dea056"
       },
       {
-        "file": "src/zoo.css",
-        "bytes": 26166,
-        "sha256": "0db6f9804931222128de1995883f748e53fa63a562d8e2178b6808f5dde36cbb",
-        "modifiedAt": "2026-10-02T11:58:06.693Z"
+        "file": "tests/ipad-touch.spec.ts",
+        "bytes": 32620,
+        "sha256": "c21286db214cb0a9c789bdcbf591e85e395fe05351a4c1060be8d8a01b438c9b"
+      },
+      {
+        "file": "tests/trace-guide.test.ts",
+        "bytes": 1754,
+        "sha256": "3f05ae68e608706f1d9b1570bddeb3cfd3d1e4e268eba861aceaf14d09ba06f3"
       }
-    ]
+    ],
+    "unchangedSinceCapturedLaunchSnapshot": true,
+    "snapshot": {
+      "file": "output/release-star-narration-before.json",
+      "bytes": 1980,
+      "sha256": "c9b8502cdad5d687d4e46343e964cdd43c33e9385a379f0e2bd9b92013a8cac4"
+    },
+    "capturePhase": "Immediately after launching final suites with corrected real-response JSON bootstrap; product source and bundle remain frozen"
+  },
+  "testFile": {
+    "file": "tests/ipad-touch.spec.ts",
+    "bytes": 32620,
+    "sha256": "c21286db214cb0a9c789bdcbf591e85e395fe05351a4c1060be8d8a01b438c9b"
+  },
+  "cases": [
+    {
+      "engine": "chromium",
+      "name": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "durationMs": 1332,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "durationMs": 1597,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a visible star follows the stroke, pauses with a partial trace and lets a finger finish",
+      "status": "passed",
+      "durationMs": 3908,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "demonstration, reset and orientation changes restore the current stroke guide",
+      "status": "passed",
+      "durationMs": 5568,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a reduced-motion guide stays visible and character changes discard old state",
+      "status": "passed",
+      "durationMs": 3254,
+      "scope": "ephemeral source fixture",
+      "fixture": "StrictMode StrokePractice source component"
+    },
+    {
+      "engine": "chromium",
+      "name": "the 口 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 1629,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "the 派 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 1366,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "dragging an umbrella uses capture scoped to its own scene",
+      "status": "passed",
+      "durationMs": 1116,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "durationMs": 1119,
+      "scope": "ephemeral source fixture",
+      "fixture": "Snow source component"
+    },
+    {
+      "engine": "chromium",
+      "name": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "durationMs": 915,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "durationMs": 1346,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "durationMs": 1279,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "animal drag and bathing persist; empty grass retains native pan behavior",
+      "status": "passed",
+      "durationMs": 1549,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "durationMs": 1110,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "durationMs": 924,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a visible star follows the stroke, pauses with a partial trace and lets a finger finish",
+      "status": "passed",
+      "durationMs": 3411,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "demonstration, reset and orientation changes restore the current stroke guide",
+      "status": "passed",
+      "durationMs": 4869,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a reduced-motion guide stays visible and character changes discard old state",
+      "status": "passed",
+      "durationMs": 2758,
+      "scope": "ephemeral source fixture",
+      "fixture": "StrictMode StrokePractice source component"
+    },
+    {
+      "engine": "webkit",
+      "name": "the 口 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 890,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "the 派 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 860,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "dragging an umbrella uses capture scoped to its own scene",
+      "status": "passed",
+      "durationMs": 826,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "durationMs": 923,
+      "scope": "ephemeral source fixture",
+      "fixture": "Snow source component"
+    },
+    {
+      "engine": "webkit",
+      "name": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "durationMs": 757,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "durationMs": 820,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "durationMs": 863,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "animal drag and bathing persist; empty grass retains native pan behavior",
+      "status": "passed",
+      "durationMs": 1024,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "swiping empty grass keeps the tablet page and selected animal stationary",
+      "status": "passed",
+      "durationMs": 1346,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a secondary finger cannot finish or interrupt the primary writing stroke",
+      "status": "passed",
+      "durationMs": 1290,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "secondary scrub touches are ignored and cancellation stops the brush",
+      "status": "passed",
+      "durationMs": 1202,
+      "scope": "production application",
+      "fixture": null
+    }
+  ],
+  "inputMechanisms": {
+    "chromium": "Native taps and CDP Input.dispatchTouchEvent through genuine Touch → Pointer dispatch, including primary/secondary fingers and cancellation.",
+    "webkit": "Native touchscreen taps; continuous drags use mouse Pointer events. These do not claim actual continuous iPad touch delivery."
+  },
+  "fixtureBoundaries": {
+    "snow": "2 cases; supported Snow component is absent from current 1000-character course.",
+    "stroke": "2 cases; direct StrictMode component fixture tests char prop changes and completion de-duplication without the caller key. Real JSON bootstrap preserves LAN address space."
+  },
+  "limitations": [
+    "Isolated desktop Playwright engines, not physical iPad Safari acceptance.",
+    "Four source fixture cases do not execute the production application bundle.",
+    "Synthetic localStorage profiles; no real child save was used."
+  ],
+  "fixtureNetworkCorrection": {
+    "initialLANReport": {
+      "file": "output/release-ipad-touch.json",
+      "bytes": 41609,
+      "sha256": "95cd1c8a08fb6cdb31309982d0fc9387a23e12acb1de6207c97ab6cf07684f4a"
+    },
+    "diagnosis": {
+      "file": "output/release-fixture-network-diagnostic.json",
+      "bytes": 1940,
+      "sha256": "e87c5d2e245412d9946fd390e5af1333b5315a41a5240a0424a4c9cb586a81b0"
+    },
+    "productChanged": false,
+    "securityDisabled": false
+  },
+  "screenshot": {
+    "file": "output/release-ipad-writing-star-webkit-1180x720.png",
+    "bytes": 213411,
+    "sha256": "6dac3eb6a75b698eb8969e834fcf69d9401b78dfabb6fca474bef254d15231be"
+  },
+  "screenshotMeasurements": {
+    "origin": "http://192.168.31.48:5173",
+    "engine": "webkit",
+    "version": "26.6",
+    "viewport": {
+      "width": 1180,
+      "height": 720
+    },
+    "hint": "跟着小星星，画好这一笔。",
+    "starBox": {
+      "x": 809.792724609375,
+      "y": 394.6552429199219,
+      "width": 32.83282470703125,
+      "height": 31.649566650390625
+    },
+    "overflow": 0
   }
 }

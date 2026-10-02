@@ -4,6 +4,10 @@ import type { Hanzi, Poem, Profile } from '../types';
 import { completedCount } from '../store';
 import { useTabletViewport } from '../tablet-viewport';
 
+function searchKey(text: string) {
+  return text.trim().toLowerCase().normalize('NFD').replace(/u\u0308/g, 'v').replace(/[\u0300-\u036f]/g, '');
+}
+
 export function HanziLibrary({words,profile,onOpen,onSpeak}:{words:Hanzi[];profile:Profile;onOpen:(word:Hanzi)=>void;onSpeak:(text:string)=>void}){
   const {tablet}=useTabletViewport();
   const pageSize=tablet?10:50;
@@ -11,9 +15,9 @@ export function HanziLibrary({words,profile,onOpen,onSpeak}:{words:Hanzi[];profi
   const [page,setPage]=useState(()=>{const w=words.find(w=>w.id===profile.lastActivity?.id);return w?Math.floor(words.indexOf(w)/pageSize):0;});
   const [filter,setFilter]=useState('全部');
   const completed=completedCount(profile.hanzi);
-  const filtered=useMemo(()=>words.filter(w=>(!query||`${w.char}${w.pinyin}${w.words.join('')}${w.meaning}`.includes(query))&&(filter==='全部'||(filter==='已过关'&&profile.hanzi[w.id]?.completed)||(filter==='待复习'&&profile.hanzi[w.id]?.completed&&profile.hanzi[w.id].reviewAt<=Date.now())||(filter==='未过关'&&!profile.hanzi[w.id]?.completed))),[words,query,filter,profile.hanzi]);
+  const filtered=useMemo(()=>{const key=searchKey(query);return words.filter(w=>(!key||searchKey(`${w.char}${w.pinyin}${w.words.join('')}${w.meaning}`).includes(key))&&(filter==='全部'||(filter==='已过关'&&profile.hanzi[w.id]?.completed)||(filter==='待复习'&&profile.hanzi[w.id]?.completed&&profile.hanzi[w.id].reviewAt<=Date.now())||(filter==='未过关'&&!profile.hanzi[w.id]?.completed)));},[words,query,filter,profile.hanzi]);
   const pages=Math.ceil(filtered.length/pageSize),currentPage=Math.min(page,Math.max(0,pages-1)),visible=filtered.slice(currentPage*pageSize,(currentPage+1)*pageSize);
-  const searching=Boolean(query)||filter!=='全部';
+  const searching=Boolean(searchKey(query))||filter!=='全部';
   return <div className="library-page"><div className="page-heading"><div><span className="eyebrow"><Sprout size={16}/>从小小的发现，到大大的世界</span><h1>汉字小冒险</h1><p>每个字都有自己的故事，慢慢认识 1000 个朋友。</p></div><div className="library-total"><b>{completed}</b><span>/ 1000 个字</span></div></div><div className="course-ribbon"><span>① 生活启蒙 · 前100字</span><span>② 常用表达 · 101—500字</span><span>③ 阅读进阶 · 501—1000字</span></div><div className="library-tools"><div className="filter-tabs">{['全部','未过关','已过关','待复习'].map(f=><button key={f} className={filter===f?'active':''} onClick={()=>{setFilter(f);setPage(0);}}>{f}</button>)}</div><label className="search-box"><Search size={18}/><input value={query} aria-label="搜索汉字" placeholder="找一个字、拼音或词语" onChange={e=>{setQuery(e.target.value);setPage(0);}}/></label></div><div className="hanzi-course">{Array.from({length:Math.ceil(visible.length/10)},(_,i)=>{const group=visible.slice(i*10,(i+1)*10);return <section className="word-group" key={i}><div className="word-group-heading"><span>{searching?'找到的汉字朋友':`第 ${Math.floor(words.indexOf(group[0])/10)+1} 站`}</span><h3>{searching?'认识你的新朋友':group[0]?.theme}</h3><span className="muted">{searching?'选一个字，听听它的故事':'认识10个字，迎接新动物'}</span></div><div className="word-grid">{group.map(w=>{const p=profile.hanzi[w.id],due=p?.completed&&p.reviewAt<=Date.now();return <button key={w.id} className={`word-tile ${p?.completed?'mastered':''} ${p&&!p.completed?'in-progress':''}`} onClick={()=>onOpen(w)} aria-label={`学习${w.char}字${p?.completed?'，已过关':''}`}><span className="word-tile-icon">{w.icon}</span><b>{w.char}</b><small>{w.pinyin}</small><span className="word-status">{due?<Clock3 size={14}/>:p?.completed?<Check size={14}/>:p?<span className="progress-dot"/>:null}{due?'复习':p?.completed?'已过关':p?'继续':'出发'}</span></button>;})}</div></section>;})}</div>{!visible.length&&<div className="empty-note">这片小岛上暂时没有找到这个字，换个词试试。</div>}<div className="pagination"><button className="pill-button" disabled={currentPage===0} onClick={()=>{setPage(currentPage-1);window.scrollTo(0,0);}}>上一片小岛</button><span>{currentPage+1} / {Math.max(1,pages)}</span><button className="pill-button" disabled={currentPage>=pages-1} onClick={()=>{setPage(currentPage+1);window.scrollTo(0,0);}}>下一片小岛<ArrowRight size={18}/></button></div><p className="muted small library-tip"><Volume2 size={16}/>进入每个字后，可以点小喇叭听字音与拼音。<button className="text-button" onClick={()=>onSpeak('每个字都是一个新朋友，先玩一玩，再认识它。')}>听小提示</button></p></div>;
 }
 export function PoemLibrary({poems,profile,onOpen}:{poems:Poem[];profile:Profile;onOpen:(poem:Poem)=>void}){

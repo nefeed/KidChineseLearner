@@ -225,7 +225,7 @@ async function completeGame(page:Page,char:string,info:TestInfo){
         await page.mouse.down();await page.mouse.move(box.x+box.width*(x+10)/100,box.y+box.height*y/100,{steps:8});await page.mouse.up();
       }break;
     }
-    case '耳':await click('听一听');await click('选择铃铛');await click('听一听');await click('选择小鼓');break;
+    case '耳':await click('看本轮提示');await click('选择铃铛');await click('看本轮提示');await click('选择小鼓');break;
     case '目':await click('观察第2幅小图');await click('观察第5幅小图');break;
     case '头':for(let i=0;i<3;i++)await click('点点头');break;
     case '米':for(const i of [1,3,5])await click(`第${i}份食物或物品`);break;
@@ -349,8 +349,9 @@ for(const viewport of viewports){
       await expect(page.getByRole('button',{name:'认识这个字',exact:true})).toBeVisible();await page.mouse.up();await fits(page,info,'snow-component-complete');
     });
     test('hanzi stage 1 recognition with the longest course story',async({page},info)=>{
-      await openWord(page,storyWord.char,1);await page.getByRole('button',{name:'先听听这个字',exact:true}).click();await fits(page,info,'hanzi-recognition');
-      await expect(page.getByRole('button',{name:'去找字朋友',exact:true})).toBeVisible();
+      await openWord(page,storyWord.char,1);await fits(page,info,'hanzi-recognition-muted');
+      await expect(page.getByRole('button',{name:'静音学习：去找字朋友',exact:true})).toBeVisible();
+      await expect(page.getByRole('button',{name:`听${storyWord.char}字读音`,exact:true})).toBeDisabled();
     });
     test('hanzi stage 2 practice feedback and continue',async({page},info)=>{
       await openWord(page,storyWord.char,2,{quizRound:1});await page.getByRole('button',{name:storyWord.meaning,exact:true}).click();await fits(page,info,'hanzi-practice-correct');
@@ -370,7 +371,7 @@ for(const viewport of viewports){
     });
     test('hanzi stage 4 sentence and parent confirmation',async({page},info)=>{
       await openWord(page,storyWord.char,4,{heardWord:true,heardSentence:true});await page.getByRole('button',{name:'一句话',exact:true}).click();
-      await page.getByRole('button',{name:'家长确认：孩子已跟读词语和句子',exact:true}).click();await fits(page,info,'hanzi-speaking-confirmed');
+      await page.getByRole('button',{name:'家长确认：孩子已尝试读词语和句子',exact:true}).click();await fits(page,info,'hanzi-speaking-confirmed');
       await expect(page.getByRole('button',{name:'去过关',exact:true})).toBeVisible();
     });
     test('hanzi stage 5 final quiz feedback and continue',async({page},info)=>{
@@ -380,7 +381,7 @@ for(const viewport of viewports){
 
     test('short poem stage 0 listen and ready-to-continue',async({page},info)=>{
       await openPoem(page,shortPoem,0,{listenedLines:shortPoem.lines.map((_,i)=>i)});await fits(page,info,'short-poem-listen');
-      await expect(page.getByRole('button',{name:'去听诗里的故事',exact:true})).toBeVisible();
+      await expect(page.getByRole('button',{name:'静音阅读：去看诗里的故事',exact:true})).toBeVisible();
     });
     test(`widest poem lines ${widePoem.title}`,async({page},info)=>{
       await openPoem(page,widePoem,0,{listenedLines:widePoem.lines.map((_,i)=>i)});await fits(page,info,'wide-poem-pinyin');

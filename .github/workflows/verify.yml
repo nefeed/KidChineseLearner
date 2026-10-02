@@ -27,6 +27,10 @@ jobs:
           PWA_TEST_URL: http://127.0.0.1:5173
           IPAD_LAYOUT_TEST_URL: http://127.0.0.1:5173
           ZOO_TEST_URL: http://127.0.0.1:5173
+          NARRATION_TEST_URL: http://127.0.0.1:5173
+          ZOO_NARRATION_TEST_URL: http://127.0.0.1:5173
+          PROMPT_TEST_URL: http://127.0.0.1:5173
+          LESSON_PROMPT_TEST_URL: http://127.0.0.1:5173
         run: |
           node scripts/serve-lan.mjs > /tmp/kidchinese-lan.log 2>&1 &
           server_pid=$!
@@ -37,6 +41,12 @@ jobs:
           done
           curl --fail --silent http://127.0.0.1:5173/ > /dev/null
           npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch
+          npx playwright test tests/narration-browser.spec.ts --workers=1 --reporter=line --output=test-results/narration
+          npx playwright test tests/zoo-narration.spec.ts --workers=1 --reporter=line --output=test-results/zoo-narration
+          PROMPT_TEST_ENGINE=chromium npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --output=test-results/prompts-chromium
+          PROMPT_TEST_ENGINE=webkit npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --output=test-results/prompts-webkit
+          LESSON_PROMPT_ENGINE=chromium npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --output=test-results/lesson-prompts-chromium
+          LESSON_PROMPT_ENGINE=webkit npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --output=test-results/lesson-prompts-webkit
           npx playwright test tests/zoo.spec.ts --workers=1 --reporter=line --output=test-results/zoo
           PWA_TEST_ENGINE=chromium npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-chromium
           PWA_TEST_ENGINE=webkit npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-webkit

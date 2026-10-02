@@ -36,7 +36,7 @@ export default function Recitation({ poem, saved, pageSize=poem.lines.length, on
   function checkpoint(patch:Partial<Checkpoint>){const next={...state,...patch};setState(next);onCheckpoint(next);}
   function choose(index:number){
     if(state.selected.includes(index))return;
-    if(index!==state.selected.length){setHint('这一句还在后面，先听听前一句。');onSpeak(chunks[state.chunk][state.selected.length]);onMistake();return;}
+    if(index!==state.selected.length){setHint('还没轮到这一句，先听接下来该接的诗句。');onSpeak(chunks[state.chunk][state.selected.length]);onMistake();return;}
     checkpoint({selected:[...state.selected,index]});setHint('接对啦！');onSpeak(chunks[state.chunk][index]);
   }
   if(state.phase===1)return <div className="recitation-cloze"><span className="mini-label">记忆小桥 · 填一填</span><Quiz key={poem.id} questions={cloze} savedRound={state.clozeRound} onCheckpoint={clozeRound=>checkpoint({clozeRound})} onComplete={()=>checkpoint({phase:2})} onMistake={onMistake} onSpeak={onSpeak}/></div>;

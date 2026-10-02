@@ -5,10 +5,9 @@ import hanziData from '../data/hanzi.json';
 import Animal from './Animal';
 import '../word-play.css';
 import { useTabletViewport } from '../tablet-viewport';
+import { NUMBERS, COLORS, PETS, FOOD_WORDS } from '../word-play-narration';
 
-type GameProps = { word: Hanzi; done: () => void; say: (text: string) => void };
-const NUMBERS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
-const COLORS: Record<string, string> = { 红: '#e99583', 黄: '#efcf79', 蓝: '#91bed8', 绿: '#92b887', 白: '#fffcf0', 黑: '#53605d' };
+type GameProps = { word: Hanzi; done: () => void; say: (text: string) => void | Promise<boolean>; soundEnabled: boolean };
 const GROUPS: Record<string, string> = {
   sunrise: '日', night: '月', mountain: '山', water: '水', fire: '火', cloud: '云', rain: '雨', wind: '风', snow: '雪',
   plant: '木林森土树草花', feed: '猫狗牛羊马兔', swim: '鱼', fly: '鸟', compare: '大小多少长短', direction: '上下左右',
@@ -117,12 +116,9 @@ function Plant({ word, done, say }: GameProps) {
   const total=word.char==='森'?3:word.char==='林'?2:word.char==='花'||word.char==='草'?3:1;
   const art=word.char==='草'?'grass':word.char==='花'?'flower':'tree';
   const [seeds,setSeeds]=useState<number[]>([]),[grown,setGrown]=useState<number[]>([]);
-  return <><Instruction title={word.char==='土'?'给种子盖上松软的泥土':`种出${total===1?'一棵':total===2?'两棵':'三棵'}${art==='flower'?'小花':art==='grass'?'小草':'树'}`}>先点土坑放种子，再点浇水按钮。{word.char==='林'?'两棵木，组成林。':word.char==='森'?'三棵木，组成森。':'植物在土里扎根，喝水长大。'}</Instruction><Stage className="wp-plant-scene"><div className="wp-plant-plots">{Array.from({length:total},(_,i)=><button key={i} className={`wp-soil-plot ${seeds.includes(i)?'is-seeded':''} ${grown.includes(i)?'is-grown':''}`} aria-label={`第${i+1}个土坑种种子`} onClick={()=>{if(seeds.includes(i))return;setSeeds([...seeds,i]);say('种子躺进泥土里，再给它浇水。');}}>{grown.includes(i)?<Art kind={art} size={140}/>:seeds.includes(i)?<Art kind="seed" size={72}/>:<span className="wp-empty-soil">点这里种</span>}<span className="wp-soil-mound"/></button>)}</div></Stage><Controls><Action disabled={!seeds.length||grown.length===total} onClick={()=>{const next=[...seeds];setGrown(next);say(word.char==='土'?'泥土保护种子，种子发芽了。':`${next.length}棵${art==='flower'?'小花':art==='grass'?'小草':'树'}长出来啦。`);if(next.length===total)done();}}><Art kind="can" size={40}/>给种子浇水</Action></Controls></>;
+  return <><Instruction title={word.char==='土'?'把种子种进松软的泥土':`种出${total===1?'一棵':total===2?'两棵':'三棵'}${art==='flower'?'小花':art==='grass'?'小草':'树'}`}>先点土坑放种子，再点浇水按钮。{word.char==='林'?'两棵木，组成林。':word.char==='森'?'三棵木，组成森。':'植物在土里扎根，喝水长大。'}</Instruction><Stage className="wp-plant-scene"><div className="wp-plant-plots">{Array.from({length:total},(_,i)=><button key={i} className={`wp-soil-plot ${seeds.includes(i)?'is-seeded':''} ${grown.includes(i)?'is-grown':''}`} aria-label={`第${i+1}个土坑种种子`} onClick={()=>{if(seeds.includes(i))return;setSeeds([...seeds,i]);say('种子躺进泥土里，再给它浇水。');}}>{grown.includes(i)?<Art kind={art} size={140}/>:seeds.includes(i)?<Art kind="seed" size={72}/>:<span className="wp-empty-soil">点这里种</span>}<span className="wp-soil-mound"/></button>)}</div></Stage><Controls><Action disabled={!seeds.length||grown.length===total} onClick={()=>{const next=[...seeds];setGrown(next);say(word.char==='土'?'泥土保护种子，种子发芽了。':`${next.length}棵${art==='flower'?'小花':art==='grass'?'小草':'树'}长出来啦。`);if(next.length===total)done();}}><Art kind="can" size={40}/>给种子浇水</Action></Controls></>;
 }
 
-const PETS: Record<string,{kind:string;food:string;name:string;hint:string}> = {
-  猫:{kind:'cat',food:'fish',name:'小猫',hint:'小猫吃适合它的鱼肉。'},狗:{kind:'dog',food:'meat',name:'小狗',hint:'小狗吃适合它的肉食。'},牛:{kind:'cow',food:'grass',name:'小牛',hint:'小牛喜欢吃草。'},羊:{kind:'sheep',food:'grass',name:'小羊',hint:'小羊喜欢吃草。'},马:{kind:'horse',food:'grass',name:'小马',hint:'小马喜欢吃草。'},兔:{kind:'rabbit',food:'grass',name:'小兔',hint:'小兔主要吃草，也可以吃一点胡萝卜。'},
-};
 function Feed({ word, done, say }: GameProps) {
   const pet=PETS[word.char],foods=pet.food==='fish'?['fish','grass','apple']:pet.food==='meat'?['meat','grass','apple']:['grass','fish','candy'];
   const [food,setFood]=useState(''),[bites,setBites]=useState(0),[notice,setNotice]=useState('');
@@ -133,7 +129,7 @@ function Travel({ word, done, say }: GameProps) {
   const fly=word.char==='鸟',walk=word.char==='足'||word.char==='脚';
   const [step,setStep]=useState(0);
   const positions=walk?[20,45,72]:[35,58,80];
-  return <><Instruction title={fly?'帮小鸟飞回树上的窝':walk?'沿着小脚印，一步一步走':'让小鱼在水里游过三个泡泡'}>{fly?'依次点亮三个飞行圈，小鸟拍翅膀飞起来。':walk?'依次点三双脚印，小脚带我们向前走。':'先点近处，再点远处。鱼住在水里。'}</Instruction><Stage className={fly?'wp-flight':walk?'wp-walk-scene':'wp-underwater'}><div className={`wp-traveller ${fly?'is-flying':''}`} style={{left:`${step===0?12:positions[step-1]}%`,top:`${fly?73-step*15:walk?50:51+step%2*8}%`}}><Art kind={fly?'bird':walk?'child':'fish'} size={fly?95:105}/></div>{fly&&<div className="wp-destination-tree"><Art kind="tree" size={170}/><span className="wp-nest"/></div>}{!fly&&!walk&&<><div className="wp-water-weeds"><Art kind="grass" size={115}/></div><div className="wp-water-waves"/></>}{positions.map((x,i)=><button key={i} className={`wp-travel-stop ${i<step?'is-passed':''}`} style={{left:`${x}%`,top:`${fly?65-i*15:walk?80:53+i%2*8}%`}} aria-label={`第${i+1}${walk?'双脚印':fly?'个飞行圈':'个水泡'}`} onClick={()=>{if(i!==step){say('先走到离我们最近的下一个。');return;}const next=step+1;setStep(next);say(fly?'小鸟拍翅膀，飞高一点。':walk?'小脚向前走一步。':'小鱼在水里游。');if(next===3)done();}}>{walk?<Art kind="foot" size={50}/>:i<step?<Check size={25}/>:i+1}</button>)}</Stage></>;
+  return <><Instruction title={fly?'帮小鸟飞回树上的窝':walk?'沿着小脚印，一步一步走':'让小鱼在水里游过三个泡泡'}>{fly?'依次点亮三个飞行圈，小鸟拍翅膀飞起来。':walk?'依次点三双脚印，小脚带我们向前走。':'先点近处，再点远处。鱼住在水里。'}</Instruction><Stage className={fly?'wp-flight':walk?'wp-walk-scene':'wp-underwater'}><div className={`wp-traveller ${fly?'is-flying':''}`} style={{left:`${step===0?12:positions[step-1]}%`,top:`${fly?73-step*15:walk?50:51+step%2*8}%`}}><Art kind={fly?'bird':walk?'child':'fish'} size={fly?95:105}/></div>{fly&&<div className="wp-destination-tree"><Art kind="tree" size={170}/><span className="wp-nest"/></div>}{!fly&&!walk&&<><div className="wp-water-weeds"><Art kind="grass" size={115}/></div><div className="wp-water-waves"/></>}{positions.map((x,i)=><button key={i} className={`wp-travel-stop ${i<step?'is-passed':''}`} style={{left:`${x}%`,top:`${fly?65-i*15:walk?80:53+i%2*8}%`}} aria-label={`第${i+1}${walk?'双脚印':fly?'个飞行圈':'个水泡'}`} onClick={()=>{if(i!==step){say('按顺序点下一个标记。');return;}const next=step+1;setStep(next);say(fly?'小鸟拍翅膀，飞高一点。':walk?'小脚向前走一步。':'小鱼在水里游。');if(next===3)done();}}>{walk?<Art kind="foot" size={50}/>:i<step?<Check size={25}/>:i+1}</button>)}</Stage></>;
 }
 
 function Compare({ word, done, say }: GameProps) {
@@ -164,10 +160,22 @@ function Wash({ word, done, say }: GameProps) {
   return <><Instruction title={tooth?'给牙齿刷一个泡泡澡':'把小手洗干净'}>先点{tooth?'牙膏':'肥皂'}，再按住画面拖动泡泡。单点不会洗掉污点。</Instruction><Stage className="wp-wash-scene"><div className="wp-wash-object"><Art kind={tooth?'tooth':'hand'} size={210}/></div><div className={`wp-rub-surface ${soaped?'is-soaped':''}`} aria-label={tooth?'拖动泡泡刷牙':'拖动泡泡洗手'} onPointerDown={(event)=>{if(hold.current!==null||!event.isPrimary||event.button!==0)return;if(!soaped){say(`先点${tooth?'牙膏':'肥皂'}。`);return;}const next=point(event);if(!next)return;event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);hold.current=event.pointerId;travel.current=0;previous.current=next;setCursor(next);}} onPointerMove={rub} onPointerUp={stopRub} onPointerCancel={stopRub} onLostPointerCapture={stopRub}>{dirt.map((p,i)=>!washed.includes(i)&&<span key={i} className="wp-wash-dirt" style={{left:`${p.x}%`,top:`${p.y}%`}}/>)}{cursor&&<span className="wp-scrub-bubbles" style={{left:`${cursor.x}%`,top:`${cursor.y}%`}}>○<i>○</i><i>○</i></span>}</div><span className="wp-step-counter">洗净 {washed.length} / 4 块</span></Stage><Controls><Action onClick={()=>{setSoaped(true);say(tooth?'挤一点牙膏，轻轻刷。':'搓出肥皂泡泡，轻轻洗。');}}>{soaped?<Check size={21}/>:<Sparkles size={21}/>}加一点{tooth?'牙膏':'肥皂'}</Action></Controls></>;
 }
 
-function Hearing({ done, say }: GameProps) {
+function Hearing({ done, say, soundEnabled }: GameProps) {
   const [round,setRound]=useState(0),[listened,setListened]=useState(false),[notice,setNotice]=useState('');
+  const [listening,setListening]=useState(false),narration=useRef(0);
+  useEffect(()=>{narration.current++;setListened(false);setListening(false);},[soundEnabled]);
+  useEffect(()=>()=>{narration.current++;},[]);
+  async function listen(){
+    if(!soundEnabled){setListened(true);setNotice(round===0?'这一轮找铃铛，点铃铛图。':'这一轮找小鼓，点小鼓图。');return;}
+    const seq=++narration.current;setListened(false);setListening(true);
+    const completed=await Promise.resolve(say(round===0?'叮铃铃，叮铃铃，铃铛响了。':'咚咚咚，咚咚咚，小鼓响了。')).catch(()=>false);
+    if(seq!==narration.current)return;
+    setListening(false);
+    if(completed){setListened(true);setNotice('这是拟声朗读。用耳朵听，再选一选。');}
+    else setNotice('这次没有听完，点听一听再试一次。');
+  }
   const target=round===0?'bell':'drum';
-  return <><Instruction title="用耳朵听，谁在响呢？">先听拟声朗读，再选画面。听完两种声音，认识「耳」。</Instruction><Stage className="wp-hearing-scene"><Art kind="ear" size={140}/><div className="wp-sound-choices">{['bell','drum'].map((kind)=><button key={kind} aria-label={kind==='bell'?'选择铃铛':'选择小鼓'} onClick={()=>{if(!listened){setNotice('先点听一听，用耳朵听。');say('先听一听。');return;}if(kind!==target){setNotice('再听一遍：铃铛叮铃铃，小鼓咚咚咚。');say('再听一遍。');return;}const next=round+1;setRound(next);setListened(false);setNotice('耳朵听到了声音。');say('耳朵帮助我们听声音。');if(next>=2)done();}} disabled={round>=2}><Art kind={kind} size={87}/></button>)}</div><span className="wp-step-counter">已听懂 {round} / 2 种</span></Stage><Controls><Action disabled={round>=2} onClick={()=>{setListened(true);say(target==='bell'?'叮铃铃，叮铃铃，铃铛响了。':'咚咚咚，咚咚咚，小鼓响了。');setNotice('这是拟声朗读。用耳朵听，再选一选。');}}><Volume2 size={21}/>听一听</Action></Controls><p className="wp-game-note" role="status">{notice||'点听一听，再选出响起来的物品。'}</p></>;
+  return <><Instruction title={soundEnabled?'用耳朵听，谁在响呢？':'看看铃铛和小鼓，认识「耳」'}>{soundEnabled?'先听拟声朗读，再选画面。听完两种声音，认识「耳」。':'当前已静音，先看本轮提示，再选图。打开声音后，可以听拟声朗读。'}</Instruction><Stage className="wp-hearing-scene"><Art kind="ear" size={140}/><div className="wp-sound-choices">{['bell','drum'].map((kind)=><button key={kind} aria-label={kind==='bell'?'选择铃铛':'选择小鼓'} onClick={()=>{if(!listened){setNotice(soundEnabled?'先点听一听，用耳朵听。':'先点看本轮提示，再选图。');if(soundEnabled)say('先听一听。');return;}if(kind!==target){setNotice(soundEnabled?'再听一遍：铃铛叮铃铃，小鼓咚咚咚。':'再看本轮提示，找到对应的物品。');if(soundEnabled)say('再听一遍。');return;}const next=round+1;setRound(next);setListened(false);setNotice(soundEnabled?'耳朵听到了声音。':'找到了对应的物品。');if(soundEnabled)say('耳朵帮助我们听声音。');if(next>=2)done();}} disabled={round>=2||listening}><Art kind={kind} size={87}/></button>)}</div><span className="wp-step-counter">{soundEnabled?'已听懂':'已找到'} {round} / 2 种</span></Stage><Controls><Action disabled={round>=2||listening} onClick={()=>void listen()}><Volume2 size={21}/>{!soundEnabled?'看本轮提示':listening?'正在听':'听一听'}</Action></Controls><p className="wp-game-note" role="status">{notice||(soundEnabled?'点听一听，再选出响起来的物品。':'点看本轮提示，再找到对应的物品。')}</p></>;
 }
 
 function Eyes({ done, say }: GameProps) {
@@ -182,10 +190,9 @@ function Body({ word, done, say }: GameProps) {
 
 function Opening({ word, done, say }: GameProps) {
   const [opened,setOpened]=useState(0),window=word.char==='窗';
-  return <><Instruction title={window?'把窗帘慢慢拉开':'轻轻打开小屋的门'}>拖动下面的滑块，{window?'阳光会从窗进来':'门后的家会出现在眼前'}。</Instruction><Stage className="wp-opening-scene"><div className="wp-house-roof"/><div className="wp-house-wall"><div className={`wp-house-opening ${window?'is-window':''}`}><div className="wp-room-family"><Art kind="child" size={100}/><Art kind="flower" size={56}/></div>{window?<><div className="wp-curtain wp-curtain-left" style={{transform:`translateX(-${opened*.85}%)`}}/><div className="wp-curtain wp-curtain-right" style={{transform:`translateX(${opened*.85}%)`}}/></>:<div className="wp-door-panel" style={{transform:`perspective(400px) rotateY(-${opened*.9}deg)`}}><span/></div>}</div></div></Stage><Controls><label className="wp-slider-label">{window?'拉开窗帘':'慢慢开门'}<input type="range" min="0" max="100" aria-label={window?'窗帘打开程度':'门打开程度'} value={opened} onChange={(event)=>{const value=Number(event.target.value);setOpened(value);if(value>=95){say(window?'窗打开了，阳光照进来。':'门打开了，欢迎回家。');done();}}}/></label><Action onClick={()=>{const next=Math.min(100,opened+34);setOpened(next);if(next===100){say(window?'窗让阳光进来。':'打开门，回到家。');done();}}}>{window?'拉开一点':'打开一点'}<ArrowRight size={18}/></Action></Controls></>;
+  return <><Instruction title={window?'把窗帘慢慢拉开':'轻轻打开小屋的门'}>拖动下面的滑块，{window?'阳光会从窗进来':'门后的家会出现在眼前'}。</Instruction><Stage className="wp-opening-scene"><div className="wp-house-roof"/><div className="wp-house-wall"><div className={`wp-house-opening ${window?'is-window':''}`}><div className="wp-room-family"><Art kind="child" size={100}/><Art kind="flower" size={56}/></div>{window?<><div className="wp-curtain wp-curtain-left" style={{transform:`translateX(-${opened*.85}%)`}}/><div className="wp-curtain wp-curtain-right" style={{transform:`translateX(${opened*.85}%)`}}/></>:<div className="wp-door-panel" style={{transform:`perspective(400px) rotateY(-${opened*.9}deg)`}}><span/></div>}</div></div></Stage><Controls><label className="wp-slider-label">{window?'拉开窗帘':'慢慢开门'}<input type="range" min="0" max="100" aria-label={window?'窗帘打开程度':'门打开程度'} value={opened} onChange={(event)=>{const value=Number(event.target.value);setOpened(value);if(value>=95){say(window?'窗帘拉开了，阳光照进来。':'门打开了，欢迎回家。');done();}}}/></label><Action onClick={()=>{const next=Math.min(100,opened+34);setOpened(next);if(next===100){say(window?'窗让阳光进来。':'打开门，回到家。');done();}}}>{window?'拉开一点':'打开一点'}<ArrowRight size={18}/></Action></Controls></>;
 }
 
-const FOOD_WORDS: Record<string,{art:string;name:string}>={米:{art:'rice',name:'米粒'},面:{art:'noodles',name:'面条'},果:{art:'apple',name:'水果'},豆:{art:'beans',name:'豆子'},菜:{art:'leaf',name:'青菜'},肉:{art:'meat',name:'熟肉'},饭:{art:'rice',name:'米饭'},糖:{art:'candy',name:'糖果'}};
 function Bowl({ word, done, say }: GameProps) {
   const food=FOOD_WORDS[word.char], [filled,setFilled]=useState<number[]>([]);
   const choices=[food.art,food.art==='apple'?'noodles':'apple',food.art,'ball',food.art];
@@ -194,7 +201,7 @@ function Bowl({ word, done, say }: GameProps) {
 
 function Peel({ word, done, say }: GameProps) {
   const egg=word.char==='蛋', [peeled,setPeeled]=useState<number[]>([]),[split,setSplit]=useState(0);
-  return <><Instruction title={egg?'剥开熟鸡蛋的小外壳':'把画里的西瓜分成两半'}>{egg?'点开三块蛋壳，看蛋白和蛋黄。':'拖动滑块分开瓜，不用真的刀子。'}</Instruction><Stage className="wp-peel-scene">{egg?<div className="wp-egg-peel"><Art kind="egg" size={195}/>{[0,1,2].map((i)=>!peeled.includes(i)&&<button key={i} className={`wp-egg-shell wp-egg-shell-${i}`} aria-label={`剥开第${i+1}块熟蛋壳`} onClick={()=>{const next=[...peeled,i];setPeeled(next);say('熟蛋壳剥下来，里面是蛋白和蛋黄。');if(next.length===3)done();}}/>)}</div>:<div className="wp-melon-halves"><span style={{transform:`translateX(-${split*.48}px) rotate(-${split*.1}deg)`}}><Art kind="melon" size={160}/></span><span style={{transform:`translateX(${split*.48}px) rotate(${split*.1}deg)`}}><Art kind="melon" size={160}/></span></div>}</Stage>{!egg&&<Controls><label className="wp-slider-label">分开西瓜<input type="range" min="0" max="100" value={split} aria-label="西瓜分开程度" onChange={(event)=>{const value=Number(event.target.value);setSplit(value);if(value>=95){say('西瓜打开了，里面有果肉和瓜子。');done();}}}/></label><Action onClick={()=>{const next=Math.min(100,split+34);setSplit(next);if(next===100){say('瓜有果肉和瓜子。');done();}}}>分开一点<ArrowRight size={18}/></Action></Controls>}</>;
+  return <><Instruction title={egg?'剥开熟鸡蛋的小外壳':'把画里的两块西瓜慢慢分开'}>{egg?'点开三块蛋壳，看蛋白和蛋黄。':'拖动滑块分开两块瓜，不用真的刀子。'}</Instruction><Stage className="wp-peel-scene">{egg?<div className="wp-egg-peel"><Art kind="egg" size={195}/>{[0,1,2].map((i)=>!peeled.includes(i)&&<button key={i} className={`wp-egg-shell wp-egg-shell-${i}`} aria-label={`剥开第${i+1}块熟蛋壳`} onClick={()=>{const next=[...peeled,i];setPeeled(next);say('熟蛋壳剥下来，里面是蛋白和蛋黄。');if(next.length===3)done();}}/>)}</div>:<div className="wp-melon-halves"><span style={{transform:`translateX(-${split*.48}px) rotate(-${split*.1}deg)`}}><Art kind="melon" size={160}/></span><span style={{transform:`translateX(${split*.48}px) rotate(${split*.1}deg)`}}><Art kind="melon" size={160}/></span></div>}</Stage>{!egg&&<Controls><label className="wp-slider-label">分开西瓜<input type="range" min="0" max="100" value={split} aria-label="西瓜分开程度" onChange={(event)=>{const value=Number(event.target.value);setSplit(value);if(value>=95){say('两块西瓜分开了，里面有果肉和瓜子。');done();}}}/></label><Action onClick={()=>{const next=Math.min(100,split+34);setSplit(next);if(next===100){say('瓜有果肉和瓜子。');done();}}}>分开一点<ArrowRight size={18}/></Action></Controls>}</>;
 }
 
 function Color({ word, done, say }: GameProps) {
@@ -206,12 +213,15 @@ function Nature({ word, done, say }: GameProps) {
   const game=SEMANTIC_WORDS[word.char], [picked,setPicked]=useState<number[]>([]);
   const art=game==='mountain'?'mountain':game==='cloud'?'cloud':game==='fire'?'fire':word.char==='虫'?'worm':'leaf';
   const total=game==='fire'?3:3;
-  return <><Instruction title={game==='mountain'?'点亮三座山峰，看山的形状':game==='cloud'?'把三朵白云聚到天空中':game==='fire'?'点亮画里的三束火光':word.char==='虫'?'在叶子之间找到三只小虫':'把三片落叶收进小篮子'}>{game==='fire'?'只在画里看火光。真的火不能用手摸，要找大人帮忙。':game==='mountain'?'一座山峰高，两边的山峰低，像「山」的形状。':game==='cloud'?'云在天空里，轻轻飘来飘去。':word.char==='虫'?'观察小虫，不抓它、不伤害它。':'叶子从树上落下来，我们收好落叶。'}</Instruction><Stage className={`wp-nature-scene wp-nature-${game}`}><div className="wp-nature-items">{Array.from({length:total},(_,i)=><button key={i} aria-label={game==='fire'?`点亮第${i+1}束画里的火光`:game==='mountain'?`第${i+1}座山峰`:game==='cloud'?`第${i+1}朵白云`:word.char==='虫'?`第${i+1}只小虫`:`第${i+1}片落叶`} className={picked.includes(i)?'is-picked':''} onClick={()=>{if(picked.includes(i))return;const next=[...picked,i];setPicked(next);say(game==='fire'?'画里的火有亮光。':game==='mountain'?'高高的山峰。':game==='cloud'?'白云在天空。':word.char==='虫'?'找到小虫啦。':'落叶收好了。');if(next.length===total)done();}}><Art kind={art} size={game==='mountain'?(i===1?157:111):110}/>{picked.includes(i)&&<Check size={25}/>}</button>)}</div>{game==='leaves'&&word.char!=='虫'&&<div className="wp-leaf-basket"><Art kind="basket" size={100}/></div>}</Stage></>;
+  return <><Instruction title={game==='mountain'?'点亮三座山峰，看山的形状':game==='cloud'?'把三朵白云聚到天空中':game==='fire'?'点亮画里的三束火光':word.char==='虫'?'点一点，找到三只小虫':'把三片落叶收进小篮子'}>{game==='fire'?'只在画里看火光。真的火不能用手摸，要找大人帮忙。':game==='mountain'?'一座山峰高，两边的山峰低，像「山」的形状。':game==='cloud'?'云在天空里，轻轻飘来飘去。':word.char==='虫'?'观察小虫，不抓它、不伤害它。':'叶子从树上落下来，我们收好落叶。'}</Instruction><Stage className={`wp-nature-scene wp-nature-${game}`}><div className="wp-nature-items">{Array.from({length:total},(_,i)=><button key={i} aria-label={game==='fire'?`点亮第${i+1}束画里的火光`:game==='mountain'?`第${i+1}座山峰`:game==='cloud'?`第${i+1}朵白云`:word.char==='虫'?`第${i+1}只小虫`:`第${i+1}片落叶`} className={picked.includes(i)?'is-picked':''} onClick={()=>{if(picked.includes(i))return;const next=[...picked,i];setPicked(next);say(game==='fire'?'画里的火有亮光。':game==='mountain'?'高高的山峰。':game==='cloud'?'白云在天空。':word.char==='虫'?'找到小虫啦。':'落叶收好了。');if(next.length===total)done();}}><Art kind={art} size={game==='mountain'?(i===1?157:111):110}/>{picked.includes(i)&&<Check size={25}/>}</button>)}</div>{game==='leaves'&&word.char!=='虫'&&<div className="wp-leaf-basket"><Art kind="basket" size={100}/></div>}</Stage></>;
 }
 
-function Generic({ word, done, say }: GameProps) {
+function Generic({ word, done, say, soundEnabled }: GameProps) {
   const [revealed, setRevealed] = useState<number[]>([]);
   const [heard, setHeard] = useState(false);
+  const [listening,setListening]=useState(false),narration=useRef(0);
+  useEffect(()=>{narration.current++;setHeard(false);setListening(false);},[soundEnabled]);
+  useEffect(()=>()=>{narration.current++;},[]);
   const [phase, setPhase] = useState<'word' | 'meaning' | 'done'>('word');
   const [notice, setNotice] = useState('');
   const dragging = useRef<number|null>(null);
@@ -223,55 +233,67 @@ function Generic({ word, done, say }: GameProps) {
   const definitions = [{ correct: true, text: word.meaning }, ...examples.map((item) => ({ correct: false, text: item.meaning }))].sort((a, b) => a.text.localeCompare(b.text));
   const stopReveal = (event: PointerEvent<HTMLDivElement>) => {if(dragging.current!==event.pointerId)return;dragging.current=null;if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);};
   const uncover = (index: number) => setRevealed((previous) => previous.includes(index) ? previous : [...previous, index]);
+  const uncoverAt = (event:PointerEvent<HTMLDivElement>) => {
+    const rect=event.currentTarget.getBoundingClientRect();
+    if(!rect.width||!rect.height||event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)return;
+    const x=Math.min(3,Math.max(0,Math.floor((event.clientX-rect.left)/rect.width*4)));
+    const y=Math.min(2,Math.max(0,Math.floor((event.clientY-rect.top)/rect.height*3)));
+    uncover(y*4+x);
+  };
+  async function listenSentence(){
+    if(!soundEnabled){setHeard(true);setNotice('看完句子，再找含这个字的词语。');return;}
+    const seq=++narration.current;setHeard(false);setListening(true);
+    const completed=await Promise.resolve(say(`${target}。${word.sentence}`)).catch(()=>false);
+    if(seq!==narration.current)return;
+    setListening(false);
+    if(completed){setHeard(true);setNotice('句子里的词语朋友是哪一个？');}
+    else setNotice('这次没有听完，点句子卡再试一次。');
+  }
   return <>
-    <Instruction title={phase !== 'word' ? `哪一个意思在说「${target}」？` : `听生活句子，找「${word.char}」的词语朋友`}>
-      {phase !== 'word' ? '听听每张意思卡，再选择和刚才词语相符的一张。' : '先听生活句子，选出含这个字的词语，再选择正确意思。两步都完成才能进入认字。'}
+    <Instruction title={revealing && !revealReady ? `擦开字卡，看看「${word.char}」` : phase !== 'word' ? `哪一个意思在说「${target}」？` : `${soundEnabled?'听':'看'}生活句子，找「${word.char}」的词语朋友`}>
+      {revealing && !revealReady ? `按住盖板擦一擦，也可以点开盖板。打开八块后，再${soundEnabled?'听':'看'}生活句子。` : phase !== 'word' ? soundEnabled?'可以点小喇叭听意思，再选择和刚才词语相符的一张。':'看每张意思卡，选择和刚才词语相符的一张。' : soundEnabled?'先听生活句子，选出含这个字的词语，再选择正确意思。两步都完成才能进入认字。':'当前已静音。先看生活句子，选出含这个字的词语，再选择正确意思。'}
     </Instruction>
     {revealing && !revealReady ? <Stage className="wp-fallback-scene">
       <div className="wp-fallback-card"
-        onPointerDown={(event) => { if(dragging.current!==null||!event.isPrimary||event.button!==0)return;dragging.current=event.pointerId;event.currentTarget.setPointerCapture(event.pointerId); }}
+        onPointerDown={(event) => { if(dragging.current!==null||!event.isPrimary||event.button!==0)return;dragging.current=event.pointerId;event.currentTarget.setPointerCapture(event.pointerId);uncoverAt(event); }}
         onPointerUp={stopReveal}
         onPointerCancel={stopReveal}
         onLostPointerCapture={stopReveal}
         onPointerMove={(event) => {
           if (dragging.current!==event.pointerId) return;
-          const rect = event.currentTarget.getBoundingClientRect();
-          if(!rect.width||!rect.height||event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)return;
-          const x = Math.min(3, Math.max(0, Math.floor((event.clientX - rect.left) / rect.width * 4)));
-          const y = Math.min(2, Math.max(0, Math.floor((event.clientY - rect.top) / rect.height * 3)));
-          uncover(y * 4 + x);
+          uncoverAt(event);
         }}>
         <strong>{word.char}</strong>
         <div className="wp-fallback-tiles">{Array.from({ length: 12 }, (_, index) => <button key={index} aria-label={`擦开第${index + 1}块字卡盖子`} className={revealed.includes(index) ? 'is-revealed' : ''} onClick={() => uncover(index)}/>)}</div>
       </div>
       <span className="wp-step-counter">先打开字卡 {revealed.length} / 8</span>
     </Stage> : phase === 'word' ? <Stage className="wp-fallback-scene">
-      <button className="wp-sentence-card" onClick={() => { setHeard(true); say(`${target}。${word.sentence}`); setNotice('句子里的词语朋友是哪一个？'); }}>
+      <button className="wp-sentence-card" disabled={listening} aria-label={soundEnabled?'听生活句子':'看生活句子'} onClick={() => void listenSentence()}>
         <Volume2 size={25}/><strong>{target}</strong><span>{word.sentence}</span>
       </button>
-      <div className="wp-vocabulary-options">{vocabulary.map((text) => <button key={text} onClick={() => {
-        if (!heard) { setNotice('先点生活句子卡听一听。'); say('先听一遍生活句子。'); return; }
-        if (text !== target) { setNotice(`这张词卡没有「${word.char}」。再听句子，找找「${target}」。`); say(`再听句子，找找${target}。`); return; }
+      <div className="wp-vocabulary-options">{vocabulary.map((text) => <button key={text} disabled={listening} onClick={() => {
+        if (!heard) { setNotice(soundEnabled?'先点生活句子卡听一听。':'先点生活句子卡看一看。'); if(soundEnabled)say('先听一遍生活句子。'); return; }
+        if (text !== target) { setNotice(`这张词卡没有「${word.char}」。再${soundEnabled?'听':'看'}句子，找找「${target}」。`); if(soundEnabled)say(`再听句子，找找${target}。`); return; }
         setPhase('meaning'); setNotice('词语找对了，再想想它的意思。'); say(`${target}。${word.meaning}`);
       }}>{text}</button>)}</div>
       <span className="wp-step-counter">第 1 步 · 找词语</span>
     </Stage> : <div className="wp-definition-scene">
-      <button className="wp-definition-listen" onClick={() => say(`${target}。${word.sentence}`)}><Volume2 size={21}/>再听生活句子</button>
-      <div className="wp-definition-options">{definitions.map((definition,index) => <div className="wp-definition-card" key={definition.text}><button className="wp-definition-audio" aria-label={`听第${index+1}张意思卡`} onClick={()=>say(definition.text)}><Volume2 size={22}/></button><button className={phase === 'done' && definition.correct ? 'is-correct' : ''} onClick={() => {
-        if (!definition.correct) { setNotice(`这个意思和「${target}」不相符。再听一听：${word.meaning}`); say(word.meaning); return; }
+      <button className="wp-definition-listen" disabled={!soundEnabled} onClick={() => say(`${target}。${word.sentence}`)}><Volume2 size={21}/>{soundEnabled?'再听生活句子':'静音：生活句子已看过'}</button>
+      <div className="wp-definition-options">{definitions.map((definition,index) => <div className="wp-definition-card" key={definition.text}><button className="wp-definition-audio" disabled={!soundEnabled} aria-label={`听第${index+1}张意思卡`} onClick={()=>say(definition.text)}><Volume2 size={22}/></button><button className={phase === 'done' && definition.correct ? 'is-correct' : ''} onClick={() => {
+        if (!definition.correct) { setNotice(`这个意思和「${target}」不相符。再${soundEnabled?'听一听':'看一看'}：${word.meaning}`); if(soundEnabled)say(word.meaning); return; }
         setPhase('done'); setNotice(`两步完成了。「${word.char}」：${word.meaning}`); say(`${word.char}。${word.meaning}`); done();
       }}>{definition.text}{phase === 'done' && definition.correct && <Check size={22}/>}</button></div>)}</div>
       <span className="wp-definition-step">第 2 步 · 想意思</span>
     </div>}
-    <p className="wp-game-note" role="status">{notice || '点小喇叭听一听，和家长一起找一找。'}</p>
+    <p className="wp-game-note" role="status">{notice || (revealing && !revealReady ? `先打开八块盖板，再${soundEnabled?'听':'看'}句子、选词语。` : soundEnabled?'点小喇叭听一听，和家长一起找一找。':'看句子和词卡，和家长一起找一找。')}</p>
   </>;
 }
 
-export default function WordPlay({ word, onComplete, onSpeak }: { word: Hanzi; onComplete: () => void; onSpeak: (text: string) => void }) {
+export default function WordPlay({ word, onComplete, onSpeak, soundEnabled = true }: { word: Hanzi; onComplete: () => void; onSpeak: (text: string) => void | Promise<boolean>; soundEnabled?: boolean }) {
   const {tablet}=useTabletViewport();
   const [complete,setComplete]=useState(false);
   useEffect(()=>setComplete(false),[word.id]);
-  const done=()=>setComplete(true),props:GameProps={word,done,say:onSpeak};
+  const done=()=>setComplete(true),props:GameProps={word,done,say:text=>soundEnabled?onSpeak(text):Promise.resolve(false),soundEnabled};
   const game=SEMANTIC_WORDS[word.char];
   const association = game === 'feed' ? PETS[word.char].kind : game === 'bowl' ? FOOD_WORDS[word.char].art : game === 'wash' ? (word.char === '牙' ? 'tooth' : 'hand') : game === 'plant' ? (word.char === '草' ? 'grass' : word.char === '花' ? 'flower' : 'tree') : ({sunrise:'sun',night:'moon',mountain:'mountain',water:'drop',fire:'fire',cloud:'cloud',rain:'umbrella',wind:'grass',snow:'snow',swim:'fish',fly:'bird',number:'star',ear:'ear',mouth:'spoon',kindness:'heart',walk:'foot',leaves:word.char==='虫'?'worm':'leaf',peel:word.char==='蛋'?'egg':'melon',color:'flower'} as Record<string,string>)[game];
   const Component=game==='sunrise'||game==='night'?Sunrise:game==='water'?Water:game==='rain'||game==='mouth'||game==='kindness'?DragScene:game==='snow'?Snow:game==='wind'?Wind:game==='plant'?Plant:game==='feed'?Feed:game==='swim'||game==='fly'||game==='walk'?Travel:game==='compare'?Compare:game==='direction'?Direction:game==='number'?Counting:game==='wash'?Wash:game==='ear'?Hearing:game==='eyes'?Eyes:game==='nod'||game==='body'?Body:game==='open'?Opening:game==='bowl'?Bowl:game==='peel'?Peel:game==='color'?Color:game==='mountain'||game==='fire'||game==='cloud'||game==='leaves'?Nature:Generic;

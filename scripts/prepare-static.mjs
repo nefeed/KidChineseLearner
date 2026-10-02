@@ -1,5 +1,5 @@
 import { mkdirSync, copyFileSync, cpSync, readFileSync, writeFileSync } from 'node:fs';
-const files=['SPEC.md','RESEARCH.md','HANZI_SOURCES.md','POETRY_SOURCES.md','VERIFICATION.md','REVIEW.md','LICENSING.md','ZOO_VERIFICATION.md', 'IPAD_VERIFICATION.md'];
+const files=['SPEC.md','RESEARCH.md','HANZI_SOURCES.md','POETRY_SOURCES.md','VERIFICATION.md','REVIEW.md','LICENSING.md','ZOO_VERIFICATION.md', 'IPAD_VERIFICATION.md','INTERACTION_VERIFICATION.md'];
 mkdirSync('public/docs',{recursive:true});
 for(const file of files)copyFileSync(`docs/${file}`,`public/docs/${file}`);
 for(const file of ['LICENSE','THIRD_PARTY_NOTICES.md','README.md']){

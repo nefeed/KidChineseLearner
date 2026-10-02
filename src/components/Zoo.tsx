@@ -3,9 +3,10 @@ import { Check, ChevronLeft, ChevronRight, Gift, Heart, Move, PawPrint, Pencil, 
 import type { Profile } from '../types';
 import { ANIMALS, BUILDINGS, FOODS, REWARDS, type ZooReward } from '../data/rewards';
 import Animal from './Animal';
+import { zooNarration } from '../zoo-narration';
 import '../zoo.css';
 
-type Props = { profile: Profile; onUpdate: (updater: (p: Profile) => Profile) => void; onSpeak: (text: string) => void };
+type Props = { profile: Profile; onUpdate: (updater: (p: Profile) => Profile) => void; onSpeak: (text: string) => void; initialView?: 'care' | 'rewards' };
 type Selection = { kind: 'animal' | 'building'; key: string };
 type Point = { x: number; y: number };
 const PAGE_SIZE = 12;
@@ -82,11 +83,12 @@ function PagePicker({ label, page, pages, onPage }: { label: string; page: numbe
   return <nav className="zoo-pagination" aria-label={label}><button aria-label={`${label}上一页`} disabled={page === 0} onClick={() => onPage(page - 1)}><ChevronLeft size={22}/></button><label>{label}<select aria-label={`选择${label}页码`} value={page} onChange={event => onPage(Number(event.target.value))}>{Array.from({length:pages},(_,index) => <option key={index} value={index}>{index + 1} / {pages}</option>)}</select></label><button aria-label={`${label}下一页`} disabled={page === pages - 1} onClick={() => onPage(page + 1)}><ChevronRight size={22}/></button></nav>;
 }
 
-export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
-  const [view, setView] = useState<'care' | 'rewards'>('care');
+export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }: Props) {
+  const [view, setView] = useState<'care' | 'rewards'>(initialView);
   const [selected, setSelected] = useState<Selection>({ kind: 'animal', key: 'welcome-rabbit' });
   const [care, setCare] = useState<'feed' | 'bath'>('feed');
-  const [feedback, setFeedback] = useState('小兔已经来到你的岛！学会每 10 个字，或每 5 首诗词，就能邀请新朋友、领取建筑。');
+  const [feedback, setFeedback] = useState(zooNarration.intro);
+  const [feedbackSpeech, setFeedbackSpeech] = useState(zooNarration.intro);
   const [mood, setMood] = useState<'idle' | 'eat' | 'bath' | 'happy'>('idle');
   const [moving, setMoving] = useState(false);
   const [renaming, setRenaming] = useState<'zoo' | 'animal' | null>(null);
@@ -129,14 +131,16 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
   useEffect(() => {
     setSelected({ kind: 'animal', key: Object.keys(profile.zoo.animals)[0] ?? 'welcome-rabbit' });
     setMoving(false);
-    setView('care');
+    setView(initialView);
     setMapPage(0);
     setCollectionPage(0);
     setRewardPage(0);
     setFoodPage(0);
     setRenaming(null);
-    setFeedback('欢迎回到你的动物园。点一位朋友，就能喂食、洗澡、给它起名字。');
-  }, [profile.id]);
+    const message = initialView === 'rewards' ? zooNarration.welcomeRewards : zooNarration.welcomeCare;
+    setFeedback(message);
+    setFeedbackSpeech(message);
+  }, [profile.id, initialView]);
 
   useEffect(() => {
     const dirty = new Set(DIRT.map((_, index) => index).filter((index) => (animal?.cleanliness ?? 100) < (index + 1) * 20));
@@ -148,7 +152,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
 
   useEffect(() => () => { if (moodTimer.current) clearTimeout(moodTimer.current); }, []);
 
-  const speakFeedback = (message: string) => { setFeedback(message); onSpeak(message); };
+  const speakFeedback = (message: string, spoken = message) => { setFeedback(message); setFeedbackSpeech(spoken); onSpeak(spoken); };
   const selectMember = (selection: Selection) => {
     setSelected(selection);
     const index = mapItems.findIndex((item) => item.kind === selection.kind && item.key === selection.key);
@@ -182,7 +186,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
     setMapPage(Math.floor(mapItems.length / PAGE_SIZE));
     setCollectionPage(Math.floor(mapItems.length % PAGE_SIZE / COLLECTION_PAGE_SIZE));
     animate('happy');
-    speakFeedback(`${reward.title}来到动物园啦！点移动，再点草地，就能安排一个位置。`);
+    speakFeedback(zooNarration.claim(reward.title));
   };
 
   const feed = (foodId: string) => {
@@ -190,12 +194,12 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
     const food = FOODS.find((item) => item.id === foodId);
     if (!food) return;
     if (!species.foods.includes(foodId)) {
-      speakFeedback(`谢谢你照顾${animal.name}。这份${food.name}不适合它。${species.foodHint}再选一份试试。`);
+      speakFeedback(`谢谢你照顾${animal.name}。这份${food.name}不适合它。${species.foodHint}再选一份试试。`, zooNarration.feedWrong(species, food));
       return;
     }
     if (animal.fullness >= 100) {
       animate('happy');
-      speakFeedback(`${animal.name}已经吃饱啦。我们可以陪它洗澡，或者看看动物园。`);
+      speakFeedback(`${animal.name}已经吃饱啦。我们可以陪它洗澡，或者看看动物园。`, zooNarration.full);
       return;
     }
     onUpdate((p) => {
@@ -204,12 +208,12 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
       return { ...p, zoo: { ...p.zoo, animals: { ...p.zoo.animals, [selected.key]: { ...current, fullness: Math.min(100, current.fullness + 22), affection: Math.min(100, current.affection + 5) } } }, updatedAt: Date.now() };
     });
     animate('eat');
-    speakFeedback(`${animal.name}吃了一口${food.name}。${food.word}。${species.foodHint}`);
+    speakFeedback(`${animal.name}吃了一口${food.name}。${food.word}。${species.foodHint}`, zooNarration.feedCorrect(species, food));
   };
 
   const saveName = () => {
     const cleaned = nameInput.trim().slice(0, 16);
-    if (!cleaned) { speakFeedback('名字还没有写好，请和家长一起写一个名字。'); return; }
+    if (!cleaned) { speakFeedback(zooNarration.nameMissing); return; }
     const target = renaming;
     onUpdate((p) => {
       if (target === 'zoo') return { ...p, zoo: { ...p.zoo, name: cleaned }, updatedAt: Date.now() };
@@ -218,7 +222,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
       return { ...p, zoo: { ...p.zoo, animals: { ...p.zoo.animals, [selected.key]: { ...current, name: cleaned } } }, updatedAt: Date.now() };
     });
     setRenaming(null);
-    speakFeedback(`新名字是${cleaned}，已经记住啦。`);
+    speakFeedback(`新名字是${cleaned}，已经记住啦。`, zooNarration.nameSaved);
   };
 
   const moveTo = (selection: Selection, point: Point) => {
@@ -309,14 +313,14 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
       return { ...p, zoo: { ...p.zoo, animals: { ...p.zoo.animals, [selected.key]: { ...current, cleanliness, affection: Math.min(100, current.affection + hit.length * 3) } } }, updatedAt: Date.now() };
     });
     setMood('bath');
-    if (animal.cleanliness + hit.length * 20 >= 100) speakFeedback(`${animal.name}洗得干干净净！谢谢你轻轻地帮它洗澡。`);
-    else setFeedback('泡泡把一块小泥点洗掉啦，继续轻轻擦一擦。');
+    if (animal.cleanliness + hit.length * 20 >= 100) speakFeedback(`${animal.name}洗得干干净净！谢谢你轻轻地帮它洗澡。`, zooNarration.bathComplete);
+    else { setFeedback(zooNarration.bathProgress); setFeedbackSpeech(zooNarration.bathProgress); }
   };
 
   return <section className={`zoo-page zoo-page--${view}`} aria-label="我的动物园">
     <div className="zoo-heading">
       <div><h1>{profile.zoo.name}<button className="zoo-icon-button" aria-label="给动物园改名" onClick={() => { setNameInput(profile.zoo.name); setRenaming('zoo'); }}><Pencil size={20}/></button></h1><p>{Object.keys(profile.zoo.animals).length} 位朋友 · {Object.keys(profile.zoo.buildings).length} 座建筑</p></div>
-      {view === 'care' && <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? '位置已经保存。' : '先点选一位朋友或建筑，然后拖动它，或点草地上的新位置。'); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>}
+      {view === 'care' && <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? zooNarration.positionSaved : zooNarration.movement); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>}
     </div>
     <div className="zoo-view-switch" aria-label={`动物园页面`}><button aria-pressed={view === 'care'} onClick={() => setView('care')}><PawPrint size={21}/>照顾朋友</button><button aria-pressed={view === 'rewards'} onClick={() => { setView('rewards'); setMoving(false); }}><Gift size={21}/>小岛邀请函{eligible.length > 0 && <span>{eligible.length}</span>}</button></div>
 
@@ -348,7 +352,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
       <aside className={`zoo-care-panel zoo-care-panel--${care}`}>
         {animal && species ? <>
           <div className="zoo-care-title"><div><span className="zoo-kicker">{species.name} · 喜欢{species.habitat}</span><h2>{animal.name}</h2></div><button className="zoo-icon-button" aria-label="给动物改名" onClick={() => { setNameInput(animal.name); setRenaming('animal'); }}><Pencil size={19}/></button></div>
-          <div className="zoo-care-tabs"><button className={care === 'feed' ? 'is-active' : ''} onClick={() => { setCare('feed'); onSpeak(`给${animal.name}选一份食物。${species.foodHint}`); }}><Utensils size={18}/>喂食</button><button className={care === 'bath' ? 'is-active' : ''} onClick={() => { setCare('bath'); onSpeak('按住泡泡，轻轻擦过身上的棕色小泥点。'); }}><Waves size={18}/>洗澡</button></div>
+          <div className="zoo-care-tabs"><button className={care === 'feed' ? 'is-active' : ''} onClick={() => { setCare('feed'); onSpeak(zooNarration.feedChoice(species)); }}><Utensils size={18}/>喂食</button><button className={care === 'bath' ? 'is-active' : ''} onClick={() => { setCare('bath'); onSpeak(zooNarration.bathStart); }}><Waves size={18}/>洗澡</button></div>
           <div className={`zoo-care-stage zoo-care-stage--${care}`} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); feed(event.dataTransfer.getData('application/zoo-food')); }}>
             <Animal species={animal.id} size={224} mood={mood}/>
             {care === 'bath' && <div className="zoo-bath-surface" role="application" aria-label="按住并拖动泡泡擦掉棕色泥点" onPointerDown={(event) => { if (!event.isPrimary || event.button !== 0 || bathRef.current.pointerId !== null) return; const point = bathPoint(event); if (!point) return; event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); bathRef.current.pointerId = event.pointerId; bathRef.current.previous = point; bathRef.current.travel = 0; setBubble(point); setMood('bath'); }} onPointerMove={scrub} onPointerUp={endBath} onPointerCancel={endBath} onLostPointerCapture={endBath}>
@@ -362,10 +366,10 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
           {care === 'feed' && <div className="zoo-food-choices"><div className="zoo-foods">{foodsShown.map((food) => <button key={food.id} draggable onDragStart={(event) => event.dataTransfer.setData('application/zoo-food', food.id)} onClick={() => feed(food.id)} aria-label={`喂${food.name}`}><FoodIcon food={food.id}/><span>{food.name}</span></button>)}</div><nav className="zoo-food-pagination" aria-label={`食物页`}><button aria-label={`上一页食物`} disabled={foodPage === 0} onClick={() => setFoodPage(foodPage - 1)}><ChevronLeft size={19}/></button><span>{foodPage + 1} / {foodPageCount}</span><button aria-label={`下一页食物`} disabled={foodPage === foodPageCount - 1} onClick={() => setFoodPage(foodPage + 1)}><ChevronRight size={19}/></button></nav></div>}
           <div className="zoo-meters"><Meter label="小肚子" value={animal.fullness} color="#edb36e"/><Meter label="干净度" value={animal.cleanliness} color="#8ebdce"/><Meter label="亲密度" value={animal.affection} color="#dda2b1"/></div>
           <p className="zoo-food-hint">{care === 'feed' ? species.foodHint : `按住后拖动泡泡，逐块擦掉小泥点。每次洗掉的进度都会记住。`}</p>
-        </> : buildingInfo ? <div className="zoo-building-details"><Building species={buildingInfo.id} size={200}/><span className="zoo-kicker">你的动物园建筑</span><h2>{buildingInfo.name}</h2><p>{buildingInfo.description}</p><button className="zoo-pill-button" onClick={() => { setMoving(true); speakFeedback(`给${buildingInfo.name}找个位置吧。拖动建筑，或点一块草地。`); }}><Move size={18}/>安排位置</button></div> : <div className="zoo-building-details"><Heart size={40}/><h2>选择一位朋友</h2><p>点草地上的动物，或下面的朋友卡片，就能开始照顾它。</p></div>}
+        </> : buildingInfo ? <div className="zoo-building-details"><Building species={buildingInfo.id} size={200}/><span className="zoo-kicker">你的动物园建筑</span><h2>{buildingInfo.name}</h2><p>{buildingInfo.description}</p><button className="zoo-pill-button" onClick={() => { setMoving(true); speakFeedback(zooNarration.buildingPlacement(buildingInfo.name)); }}><Move size={18}/>安排位置</button></div> : <div className="zoo-building-details"><Heart size={40}/><h2>选择一位朋友</h2><p>点草地上的动物，或下面的朋友卡片，就能开始照顾它。</p></div>}
       </aside>
     </div>
-    <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedback)} aria-label="再听一次提示"><Waves size={20}/></button></div>
+    <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedbackSpeech)} aria-label="再听一次提示"><Waves size={20}/></button></div>
     </> : <><section className="zoo-rewards" aria-label="学习奖励">
       <div className="zoo-reward-heading"><h2><Gift size={25}/>小岛邀请函</h2><button className="zoo-text-button" onClick={() => { setShowAll(!showAll); setRewardPage(0); }}>{showAll ? '收起奖励地图' : '查看全部 160 份奖励'}</button></div>
       <div className="zoo-learning-progress"><span>已学会 <strong>{learned}</strong> 字 / 1000</span><span>已学会 <strong>{learnedPoems}</strong> 首 / 300</span><span>已领取 <strong>{profile.zoo.claimed.length}</strong> 份</span></div>
@@ -381,7 +385,7 @@ export default function Zoo({ profile, onUpdate, onSpeak }: Props) {
       })}</div> : <p className="zoo-reward-complete">全部邀请函都收到了！点照顾朋友，继续建设自己的动物园。</p>}
       <PagePicker label={`奖励`} page={currentRewardPage} pages={rewardPageCount} onPage={setRewardPage}/>
     </section>
-    <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedback)} aria-label="再听一次提示"><Waves size={20}/></button></div>
+    <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedbackSpeech)} aria-label="再听一次提示"><Waves size={20}/></button></div>
     </>}
 
   </section>;

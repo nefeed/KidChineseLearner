@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T13:43:27.097427+00:00",
+  "buildMode": "Final production LAN build with 25 actual application cases and 4 explicitly bounded source fixture cases",
+  "result": {
+    "passed": 29,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "exitCode": 0,
+    "durationMs": 50757.085
+  },
+  "command": "IPAD_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/ipad-touch.spec.ts --workers=2 --reporter=json --output=output/release-ipad-touch-final > output/release-ipad-touch-final.json 2> output/release-ipad-touch-final.stderr.log",
+  "executionEvidence": {
+    "jsonReporter": {
+      "file": "output/release-ipad-touch-final.json",
+      "bytes": 37320,
+      "sha256": "284c87376889885ad91e8878801dffa2de8b5c605562417538286a76ec389977"
+    },
+    "stderr": {
+      "file": "output/release-ipad-touch-final.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "lastRun": {
+      "file": "output/release-ipad-touch-final/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    "stats": {
+      "startTime": "2026-10-02T13:37:44.485Z",
+      "duration": 50757.085,
+      "expected": 29,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "completionChunk": "46b17c"
+  },
+  "productionBundle": {
+    "origin": "http://192.168.31.48:5173",
+    "files": [
+      {
+        "file": "dist/index.html",
+        "bytes": 1190,
+        "sha256": "1e6ced87f42cf7f968b068473e7769ef01ae499e37270c8e01685a1c12955784",
+        "httpBytesMatchDisk": true
+      },
+      {
+        "file": "dist/assets/index-DBoQYTZt.js",
+        "bytes": 1521738,
+        "sha256": "d54cb353a4873a3d0a521dfafa3be70a0a8a35c45bf8cb1f05bead468210c200",
+        "httpBytesMatchDisk": true
+      },
+      {
+        "file": "dist/assets/index-DymezCL7.css",
+        "bytes": 143410,
+        "sha256": "958bcecdb035bfa0f34225d76a8f94b3f709264a4ec2506c790b059df1eab273",
+        "httpBytesMatchDisk": true
+      }
+    ],
+    "httpBytesEqualDisk": true,
+    "unchangedSinceLaunchSnapshot": true
+  },
+  "sourceSnapshots": {
+    "files": [
+      {
+        "file": "src/narration-player.ts",
+        "bytes": 12326,
+        "sha256": "529b3bc397bb6eea1f7b07e5e93d63eb1dffcf18117ac42d648323ee36f0e23d"
+      },
+      {
+        "file": "src/speech.ts",
+        "bytes": 3108,
+        "sha256": "8f2510681aede6a521c35150f5c37e454a72f38645d1fc846382cdf5041d1c17"
+      },
+      {
+        "file": "src/components/StrokePractice.tsx",
+        "bytes": 11793,
+        "sha256": "4ae3db3b3bbd5626532d9eb027ba514e44a3cb656e0fa9e229ab77d73a6548b5"
+      },
+      {
+        "file": "src/trace.ts",
+        "bytes": 4080,
+        "sha256": "9980060e26291c93028c1bd91427c1dc02eb3fbc8e70263dfb20b36a5d63b92a"
+      },
+      {
+        "file": "src/stroke-practice.css",
+        "bytes": 378,
+        "sha256": "04571d1572a65f10970d6c53b8be580afefd2c45c980c27152af5ce9adbc9022"
+      },
+      {
+        "file": "tests/narration-browser.spec.ts",
+        "bytes": 11297,
+        "sha256": "bdb653a24ad614c73b8159bb8b1aeaffc40d8e1ece0506414d53beb3d2dea056"
+      },
+      {
+        "file": "tests/ipad-touch.spec.ts",
+        "bytes": 32620,
+        "sha256": "c21286db214cb0a9c789bdcbf591e85e395fe05351a4c1060be8d8a01b438c9b"
+      },
+      {
+        "file": "tests/trace-guide.test.ts",
+        "bytes": 1754,
+        "sha256": "3f05ae68e608706f1d9b1570bddeb3cfd3d1e4e268eba861aceaf14d09ba06f3"
+      }
+    ],
+    "unchangedSinceCapturedLaunchSnapshot": true,
+    "snapshot": {
+      "file": "output/release-star-narration-before.json",
+      "bytes": 1980,
+      "sha256": "c9b8502cdad5d687d4e46343e964cdd43c33e9385a379f0e2bd9b92013a8cac4"
+    },
+    "capturePhase": "Immediately after launching final suites with corrected real-response JSON bootstrap; product source and bundle remain frozen"
+  },
+  "testFile": {
+    "file": "tests/ipad-touch.spec.ts",
+    "bytes": 32620,
+    "sha256": "c21286db214cb0a9c789bdcbf591e85e395fe05351a4c1060be8d8a01b438c9b"
+  },
+  "cases": [
+    {
+      "engine": "chromium",
+      "name": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "durationMs": 1332,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "durationMs": 1597,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a visible star follows the stroke, pauses with a partial trace and lets a finger finish",
+      "status": "passed",
+      "durationMs": 3908,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "demonstration, reset and orientation changes restore the current stroke guide",
+      "status": "passed",
+      "durationMs": 5568,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a reduced-motion guide stays visible and character changes discard old state",
+      "status": "passed",
+      "durationMs": 3254,
+      "scope": "ephemeral source fixture",
+      "fixture": "StrictMode StrokePractice source component"
+    },
+    {
+      "engine": "chromium",
+      "name": "the 口 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 1629,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "the 派 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 1366,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "dragging an umbrella uses capture scoped to its own scene",
+      "status": "passed",
+      "durationMs": 1116,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "durationMs": 1119,
+      "scope": "ephemeral source fixture",
+      "fixture": "Snow source component"
+    },
+    {
+      "engine": "chromium",
+      "name": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "durationMs": 915,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "durationMs": 1346,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "durationMs": 1279,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "animal drag and bathing persist; empty grass retains native pan behavior",
+      "status": "passed",
+      "durationMs": 1549,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "finger taps work and tracing follows SVG coordinates after scaling and rotation",
+      "status": "passed",
+      "durationMs": 1110,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a cancelled or out-of-bounds stroke cannot reuse an old partial path",
+      "status": "passed",
+      "durationMs": 924,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a visible star follows the stroke, pauses with a partial trace and lets a finger finish",
+      "status": "passed",
+      "durationMs": 3411,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "demonstration, reset and orientation changes restore the current stroke guide",
+      "status": "passed",
+      "durationMs": 4869,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "a reduced-motion guide stays visible and character changes discard old state",
+      "status": "passed",
+      "durationMs": 2758,
+      "scope": "ephemeral source fixture",
+      "fixture": "StrictMode StrokePractice source component"
+    },
+    {
+      "engine": "webkit",
+      "name": "the 口 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 890,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "the 派 guide follows a turn or edge without clipping or taking pointer capture",
+      "status": "passed",
+      "durationMs": 860,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "dragging an umbrella uses capture scoped to its own scene",
+      "status": "passed",
+      "durationMs": 826,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "holding warmth stops on release or cancel",
+      "status": "passed",
+      "durationMs": 923,
+      "scope": "ephemeral source fixture",
+      "fixture": "Snow source component"
+    },
+    {
+      "engine": "webkit",
+      "name": "a finger tap can uncover a covered character tile",
+      "status": "passed",
+      "durationMs": 757,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "the native horizontal slider responds while preserving vertical page gestures",
+      "status": "passed",
+      "durationMs": 820,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "washing needs movement and does not connect a brush path across the surface edge",
+      "status": "passed",
+      "durationMs": 863,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "webkit",
+      "name": "animal drag and bathing persist; empty grass retains native pan behavior",
+      "status": "passed",
+      "durationMs": 1024,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "swiping empty grass keeps the tablet page and selected animal stationary",
+      "status": "passed",
+      "durationMs": 1346,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "a secondary finger cannot finish or interrupt the primary writing stroke",
+      "status": "passed",
+      "durationMs": 1290,
+      "scope": "production application",
+      "fixture": null
+    },
+    {
+      "engine": "chromium",
+      "name": "secondary scrub touches are ignored and cancellation stops the brush",
+      "status": "passed",
+      "durationMs": 1202,
+      "scope": "production application",
+      "fixture": null
+    }
+  ],
+  "inputMechanisms": {
+    "chromium": "Native taps and CDP Input.dispatchTouchEvent through genuine Touch → Pointer dispatch, including primary/secondary fingers and cancellation.",
+    "webkit": "Native touchscreen taps; continuous drags use mouse Pointer events. These do not claim actual continuous iPad touch delivery."
+  },
+  "fixtureBoundaries": {
+    "snow": "2 cases; supported Snow component is absent from current 1000-character course.",
+    "stroke": "2 cases; direct StrictMode component fixture tests char prop changes and completion de-duplication without the caller key. Real JSON bootstrap preserves LAN address space."
+  },
+  "limitations": [
+    "Isolated desktop Playwright engines, not physical iPad Safari acceptance.",
+    "Four source fixture cases do not execute the production application bundle.",
+    "Synthetic localStorage profiles; no real child save was used."
+  ],
+  "fixtureNetworkCorrection": {
+    "initialLANReport": {
+      "file": "output/release-ipad-touch.json",
+      "bytes": 41609,
+      "sha256": "95cd1c8a08fb6cdb31309982d0fc9387a23e12acb1de6207c97ab6cf07684f4a"
+    },
+    "diagnosis": {
+      "file": "output/release-fixture-network-diagnostic.json",
+      "bytes": 1940,
+      "sha256": "e87c5d2e245412d9946fd390e5af1333b5315a41a5240a0424a4c9cb586a81b0"
+    },
+    "productChanged": false,
+    "securityDisabled": false
+  },
+  "screenshot": {
+    "file": "output/release-ipad-writing-star-webkit-1180x720.png",
+    "bytes": 213411,
+    "sha256": "6dac3eb6a75b698eb8969e834fcf69d9401b78dfabb6fca474bef254d15231be"
+  },
+  "screenshotMeasurements": {
+    "origin": "http://192.168.31.48:5173",
+    "engine": "webkit",
+    "version": "26.6",
+    "viewport": {
+      "width": 1180,
+      "height": 720
+    },
+    "hint": "跟着小星星，画好这一笔。",
+    "starBox": {
+      "x": 809.792724609375,
+      "y": 394.6552429199219,
+      "width": 32.83282470703125,
+      "height": 31.649566650390625
+    },
+    "overflow": 0
+  },
+  "scope": "Visible five-point stroke guide and coherent tracing/demo guidance; shares the final 29-case production touch regression evidence",
+  "sourceChanges": [
+    "True five-point SVG star follows the median by arc distance; drawing/partial traces stop autoplay and follow or pause at projected finger progress.",
+    "Artwork insets near canvas edges without changing trace coordinates, medians or acceptance. Pointer events pass through the guide.",
+    "Cancel/out-of-bounds/resize clear the fragment and stale resume hint; character changes reset data/gesture/demo state.",
+    "Reset stops demonstrations; completion notification happens once. Stopping demonstration does not replay its start narration.",
+    "Demonstration has explicit watch-first guidance, then restores the current hint. Toolbar targets remain 44px even while pressed."
+  ],
+  "newNarrationText": [
+    "先看小星星示范，结束后再动手描写。"
+  ],
+  "nodeTests": {
+    "passed": 102,
+    "failed": 0,
+    "command": "npm test",
+    "log": {
+      "file": "/tmp/kidchinese-star-narration-final-node.log",
+      "bytes": 8684,
+      "sha256": "a77dddbe9139242e0185841f39e42060f09a6ae351d28b27535d562ce7d6a9bf"
+    }
+  },
+  "typescript": {
+    "command": "npx tsc --noEmit",
+    "exitCode": 0,
+    "completionChunk": "39c8ab"
+  },
+  "writingLayoutSupplements": [
+    {
+      "label": "Chromium CDP env top/bottom20 at 1180x720 source writing completion/rotation",
+      "scope": "source server 5174",
+      "stats": {
+        "startTime": "2026-10-02T13:25:46.718Z",
+        "duration": 3176.475,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "jsonReporter": {
+        "file": "/tmp/kidchinese-stroke-star-writing-safe-final.json",
+        "bytes": 7369,
+        "sha256": "5f450876dd2b7b4a6a4855deb2c8b5eda036a639b660304239b7fb5b8727ca3f"
+      }
+    },
+    {
+      "label": "WebKit four source tablet viewports writing completion/rotation",
+      "scope": "source server 5174",
+      "stats": {
+        "startTime": "2026-10-02T13:28:44.413Z",
+        "duration": 7091.353,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "jsonReporter": {
+        "file": "/tmp/kidchinese-stroke-star-writing-webkit-final.json",
+        "bytes": 23502,
+        "sha256": "8a71cb358a735aecfa83ba68e225d0e78236252338b57ee4e0ebcfab4e521774"
+      }
+    }
+  ],
+  "safeAreaDemoProbe": {
+    "scope": "source 5174, actual CDP env top/bottom20 and demo hint/control bounds",
+    "evidence": {
+      "file": "/tmp/kidchinese-star-demo-safe20.json",
+      "bytes": 1965,
+      "sha256": "bad9bbef364d4cf345484e9b56a763988294872096921134c1f34b7347202063"
+    }
+  }
+}

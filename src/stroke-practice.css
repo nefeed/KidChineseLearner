@@ -1,0 +1,5 @@
+.trace-guide{pointer-events:none;filter:drop-shadow(0 4px 3px #8b652a55)}
+.trace-guide-halo{fill:#fffaf0;fill-opacity:.48;stroke:#d28d32;stroke-width:3}
+.trace-guide-star{fill:#ffe47b;stroke:#ab7124;stroke-width:7;stroke-linejoin:round}
+.stroke-practice .stroke-toolbar .icon-button{width:44px;min-width:44px;height:44px}
+.stroke-practice .stroke-toolbar button:active{scale:1}
