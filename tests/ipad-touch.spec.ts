@@ -1,4 +1,4 @@
-import {test as base,expect,chromium,webkit,type Page,type CDPSession} from '@playwright/test';
+import {test as base,expect,chromium,webkit,type Page,type CDPSession,type Locator} from '@playwright/test';
 import {existsSync,readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {buildSync} from 'esbuild';
@@ -65,6 +65,30 @@ class Touch {
     await this.session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:this.points.size?[{...point,id}]:[]});
   }
   async cancel(){this.points.clear();await this.dispatch('touchCancel');}
+  async tap(point:Position){
+    if(this.points.size)throw Error('Cannot tap while a tracing finger is active');
+    await this.down(1,point);await this.up(1);
+  }
+}
+async function tapAfterTrace(locator:Locator,touch:Touch|null){
+  if(!touch){await locator.tap();return;}
+  // Native Chromium taps dispatch start/end concurrently on Playwright's
+  // separate CDP session. Keep post-trace taps on the same sequential device,
+  // especially when pointerup just removed React's completed stroke guide.
+  // Trial mode preserves native visibility, stability and hit-target checks.
+  await locator.tap({trial:true});
+  const target=await locator.elementHandle();if(!target)throw Error('Missing post-trace tap target');
+  try{
+    const box=await target.boundingBox();if(!box)throw Error('Missing post-trace tap bounds');
+    await target.evaluate(element=>{
+      element.setAttribute('data-touch-tap-received','false');
+      element.addEventListener('click',()=>element.setAttribute('data-touch-tap-received','true'),{once:true});
+    });
+    await touch.tap({x:box.x+box.width/2,y:box.y+box.height/2});
+    // A successful toggle changes its accessible name. Observe the actual
+    // target instead of looking up the old role/name after the click.
+    await expect.poll(()=>target.getAttribute('data-touch-tap-received')).toBe('true');
+  }finally{await target.dispose();}
 }
 async function tracePoints(page:Page,median:number[][]):Promise<Position[]>{
   await page.locator('.trace-grid').scrollIntoViewIfNeeded();
@@ -179,7 +203,7 @@ for(const engine of ['chromium','webkit'] as const){
       await drag(page,points.slice(cut),touch);
       await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);
       await expect(guide).toHaveCount(0);await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toBeVisible();
-      await page.getByRole('button',{name:'重新描写',exact:true}).tap();
+      await tapAfterTrace(page.getByRole('button',{name:'重新描写',exact:true}),touch);
       await expect(guide).toHaveAttribute('data-guide-state','preview');
       await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toHaveCount(0);
       for(const button of await page.locator('.stroke-toolbar button').all()){
@@ -213,8 +237,8 @@ for(const engine of ['chromium','webkit'] as const){
       const median=[...data.medians[0].slice(0,2),middle,...data.medians[0].slice(2)],cut=2;
       const points=await tracePoints(page,median);
       await drag(page,points.slice(0,cut+1),touch);await expect(guide).toHaveAttribute('data-guide-state','paused');
-      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','demo');
-      await page.getByRole('button',{name:'停止示范',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','preview');
+      await tapAfterTrace(page.getByRole('button',{name:'看笔顺',exact:true}),touch);await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await tapAfterTrace(page.getByRole('button',{name:'停止示范',exact:true}),touch);await expect(guide).toHaveAttribute('data-guide-state','preview');
       await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('跟着小星星，画好这一笔。');
       await drag(page,points.slice(0,cut+1),touch);await expect(guide).toHaveAttribute('data-guide-state','paused');
       await page.setViewportSize({width:1180,height:720});await expect(guide).toHaveAttribute('data-guide-state','preview');
@@ -240,14 +264,14 @@ for(const engine of ['chromium','webkit'] as const){
       const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
       await drag(page,await tracePoints(page,data.medians[0]),touch);
       await expect(page.locator('body')).toHaveAttribute('data-completions','1');await expect(guide).toHaveCount(0);
-      await page.locator('#switch-character').tap();await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^二字/);
+      await tapAfterTrace(page.locator('#switch-character'),touch);await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^二字/);
       await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 2 笔');await expect(guide).toBeVisible();
-      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(guide).toHaveAttribute('data-guide-state','demo');
-      await page.getByRole('button',{name:'停止示范',exact:true}).tap();
+      await tapAfterTrace(page.getByRole('button',{name:'看笔顺',exact:true}),touch);await expect(guide).toHaveAttribute('data-guide-state','demo');
+      await tapAfterTrace(page.getByRole('button',{name:'停止示范',exact:true}),touch);
       await expect(guide).toHaveAttribute('data-guide-state','preview');await expect(page.locator('body')).toHaveAttribute('data-spoken','1');
       await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('跟着小星星，画好这一笔。');
-      await page.getByRole('button',{name:'看笔顺',exact:true}).tap();await expect(page.locator('body')).toHaveAttribute('data-spoken','2');
-      await page.locator('#switch-character').tap();await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^一字/);
+      await tapAfterTrace(page.getByRole('button',{name:'看笔顺',exact:true}),touch);await expect(page.locator('body')).toHaveAttribute('data-spoken','2');
+      await tapAfterTrace(page.locator('#switch-character'),touch);await expect(page.locator('.trace-grid')).toHaveAttribute('aria-label',/^一字/);
       await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 1 笔');
       await page.waitForTimeout(1050);await expect(guide).toHaveAttribute('data-guide-state','preview');
       await expect(page.locator('body')).toHaveAttribute('data-completions','1');
