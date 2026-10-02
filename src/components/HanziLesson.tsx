@@ -3,7 +3,8 @@ import { ArrowRight, Check, CheckCircle2, ChevronLeft, Mic, Sparkles, Volume2, X
 import { pronunciationParts } from '../pronunciation';
 import type { Hanzi, Profile } from '../types';
 import { finishLesson, initialProgress, lessonMistake, updateLesson } from '../store';
-import Quiz, { type Question } from './Quiz';
+import { createHanziQuestions, selectHanziDistractors } from '../hanzi-quiz';
+import Quiz from './Quiz';
 import StrokePractice from './StrokePractice';
 import WordPlay from './WordPlay';
 
@@ -38,18 +39,8 @@ export default function HanziLesson({ word, words, profile, onUpdate, onSpeak, o
   const [spoken, setSpoken] = useState(false);
   const [written, setWritten] = useState(false);
   const [example, setExample] = useState(0);
-  const distractors = useMemo(()=>{
-    const others = words.filter(w=>w.id!==word.id&&w.char!==word.char&&w.meaning!==word.meaning);
-    return [others[Math.floor(Math.random()*Math.min(others.length,100))],others[Math.floor(Math.random()*Math.min(others.length,200))]].filter(Boolean).filter((w,i,a)=>a.findIndex(x=>x.id===w.id)===i);
-  },[word.id,words]);
-  const practice:Question[] = useMemo(()=>[
-    {prompt:sound?'听一听，找出这个字':'找出刚才认识的字',audio:sound?word.char:undefined,options:[word.char,...distractors.map(w=>w.char)],answer:0,explanation:`${word.char}，读作${word.char}。`},
-    {prompt:`“${word.char}”是什么意思？`,options:[word.meaning,...distractors.map(w=>w.meaning)],answer:0,explanation:word.sentence}
-  ],[word,distractors,sound]);
-  const finalQuiz:Question[] = useMemo(()=>[
-    {prompt:sound?'听一听，词语里有哪个字？':'哪个字在刚才的词语里？',audio:sound?(word.words[0]||word.char):undefined,options:[word.char,...distractors.map(w=>w.char)],answer:0,explanation:word.words[0]||word.char},
-    {prompt:`哪个词里有“${word.char}”？`,options:[word.words[0]||word.char,...distractors.map(w=>w.words[0]||w.char)],answer:0,explanation:word.sentence}
-  ],[word,distractors,sound]);
+  const distractors = useMemo(()=>selectHanziDistractors(word,words),[word,words]);
+  const {practice,finalQuiz} = useMemo(()=>createHanziQuestions(word,distractors,sound),[word,distractors,sound]);
   const nextStage = () => { listenToken.current++;setListening(false);onUpdate(p=>updateLesson(p,'hanzi',word.id,{stage:stage+1,quizRound:0})); setHeard(false); setSpoken(false); };
   const {initial,final,tone,apical} = pronunciationParts(word.pinyin);
   const toneText = ({'1':'一声平平的，像走平路。','2':'二声往上扬，像小车上山。','3':'三声先下后上，像走进小山谷。','4':'四声从高到低，像滑滑梯。','0':'轻声轻轻的，短一些。'} as Record<string,string>)[tone]||'跟着声音，慢慢读一读。';
