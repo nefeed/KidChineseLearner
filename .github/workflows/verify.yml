@@ -6,10 +6,10 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -32,24 +32,33 @@ jobs:
           PROMPT_TEST_URL: http://127.0.0.1:5173
           LESSON_PROMPT_TEST_URL: http://127.0.0.1:5173
         run: |
-          node scripts/serve-lan.mjs > /tmp/kidchinese-lan.log 2>&1 &
+          mkdir -p test-results
+          node scripts/serve-lan.mjs > test-results/server.log 2>&1 &
           server_pid=$!
-          trap 'kill "$server_pid"' EXIT
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:5173/ > /dev/null; then break; fi
             sleep 1
           done
           curl --fail --silent http://127.0.0.1:5173/ > /dev/null
-          npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --output=test-results/ipad-touch
-          npx playwright test tests/narration-browser.spec.ts --workers=1 --reporter=line --output=test-results/narration
-          npx playwright test tests/zoo-narration.spec.ts --workers=1 --reporter=line --output=test-results/zoo-narration
-          PROMPT_TEST_ENGINE=chromium npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --output=test-results/prompts-chromium
-          PROMPT_TEST_ENGINE=webkit npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --output=test-results/prompts-webkit
-          LESSON_PROMPT_ENGINE=chromium npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --output=test-results/lesson-prompts-chromium
-          LESSON_PROMPT_ENGINE=webkit npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --output=test-results/lesson-prompts-webkit
-          npx playwright test tests/zoo.spec.ts --workers=1 --reporter=line --output=test-results/zoo
-          PWA_TEST_ENGINE=chromium npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-chromium
-          PWA_TEST_ENGINE=webkit npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --output=test-results/pwa-webkit
-          IPAD_LAYOUT_ENGINE=chromium npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --output=test-results/layout-chromium
-          IPAD_LAYOUT_ENGINE=webkit npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --output=test-results/layout-webkit
-          IPAD_LAYOUT_ENGINE=chromium IPAD_LAYOUT_SAFE_INSETS=20 npx playwright test tests/ipad-layout.spec.ts --grep 'Safari usable landscape' --workers=1 --reporter=line --output=test-results/layout-safe-insets
+          npx playwright test tests/ipad-touch.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/ipad-touch
+          npx playwright test tests/narration-browser.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/narration
+          npx playwright test tests/zoo-narration.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/zoo-narration
+          PROMPT_TEST_ENGINE=chromium npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/prompts-chromium
+          PROMPT_TEST_ENGINE=webkit npx playwright test tests/prompt-navigation.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/prompts-webkit
+          LESSON_PROMPT_ENGINE=chromium npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/lesson-prompts-chromium
+          LESSON_PROMPT_ENGINE=webkit npx playwright test tests/lesson-prompts.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/lesson-prompts-webkit
+          npx playwright test tests/zoo.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/zoo
+          PWA_TEST_ENGINE=chromium npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/pwa-chromium
+          PWA_TEST_ENGINE=webkit npx playwright test tests/pwa.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/pwa-webkit
+          IPAD_LAYOUT_ENGINE=chromium npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/layout-chromium
+          IPAD_LAYOUT_ENGINE=webkit npx playwright test tests/ipad-layout.spec.ts --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/layout-webkit
+          IPAD_LAYOUT_ENGINE=chromium IPAD_LAYOUT_SAFE_INSETS=20 npx playwright test tests/ipad-layout.spec.ts --grep 'Safari usable landscape' --workers=1 --reporter=line --trace=retain-on-failure --output=test-results/layout-safe-insets
+      - name: Upload browser failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: browser-failure-diagnostics
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 14

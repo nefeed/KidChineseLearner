@@ -58,9 +58,11 @@ class Touch {
   async up(id:number){
     const point=this.points.get(id);if(!point)throw Error(`Touch ${id} is not active`);
     this.points.delete(id);
-    // CDP touchEnd lists released points, whereas touchStart/Move list active
-    // points. Sending the remaining primary here would end the wrong finger.
-    await this.session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[{...point,id}]});
+    // End the whole gesture with CDP's documented empty point list so the
+    // browser's touch device is ready for Playwright's next native tap. Only
+    // selective multi-finger release needs the legacy released-point form;
+    // sending the remaining primary here would release the wrong finger.
+    await this.session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:this.points.size?[{...point,id}]:[]});
   }
   async cancel(){this.points.clear();await this.dispatch('touchCancel');}
 }
@@ -366,6 +368,36 @@ for(const engine of ['chromium','webkit'] as const){
 
 test.describe('isolated Chromium Touch → Pointer multi-finger regressions',()=>{
   test.use({engine:'chromium'});
+  test('releasing the last injected finger leaves native taps usable',async({page})=>{
+    // Keep this independent of React and the writing component: the driver
+    // must release each finger correctly before a native Playwright tap.
+    await page.setContent('<meta name="viewport" content="width=device-width,initial-scale=1"><div id="touch-surface" style="width:260px;height:260px;touch-action:none"></div><button id="next-tap" style="height:44px">Next tap</button>');
+    await page.evaluate(()=>{
+      const surface=document.querySelector<HTMLElement>('#touch-surface')!;
+      const events:{type:string;primary:boolean}[]=[];
+      for(const type of ['pointerdown','pointerup','pointercancel'])surface.addEventListener(type,event=>{
+        const pointer=event as PointerEvent;
+        events.push({type,primary:pointer.isPrimary});document.body.dataset.pointers=JSON.stringify(events);
+        if(type==='pointerdown'){event.preventDefault();surface.setPointerCapture(pointer.pointerId);}
+        else if(surface.hasPointerCapture(pointer.pointerId))surface.releasePointerCapture(pointer.pointerId);
+      });
+      surface.addEventListener('touchend',event=>{document.body.dataset.activeTouches=String(event.touches.length);});
+      document.querySelector('#next-tap')!.addEventListener('click',()=>{document.body.dataset.clicks=String(Number(document.body.dataset.clicks||0)+1);});
+    });
+    const session=await page.context().newCDPSession(page),touch=new Touch(session);
+    await touch.down(1,{x:60,y:60});await touch.down(2,{x:160,y:60});await touch.up(2);
+    await expect(page.locator('body')).toHaveAttribute('data-active-touches','1');
+    await expect(page.locator('body')).toHaveAttribute('data-pointers',JSON.stringify([
+      {type:'pointerdown',primary:true},{type:'pointerdown',primary:false},{type:'pointerup',primary:false},
+    ]));
+    await touch.move(1,{x:90,y:60});await touch.up(1);
+    await expect(page.locator('body')).toHaveAttribute('data-active-touches','0');
+    await expect(page.locator('body')).toHaveAttribute('data-pointers',JSON.stringify([
+      {type:'pointerdown',primary:true},{type:'pointerdown',primary:false},{type:'pointerup',primary:false},{type:'pointerup',primary:true},
+    ]));
+    await page.locator('#next-tap').tap();
+    await expect(page.locator('body')).toHaveAttribute('data-clicks','1');await session.detach();
+  });
   test('swiping empty grass keeps the tablet page and selected animal stationary',async({page})=>{
     await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
     await page.getByRole('button',{name:'布置动物园',exact:true}).tap();
