@@ -1,7 +1,7 @@
 import {test,expect,type BrowserContext,type Page} from '@playwright/test';
 import {existsSync,readFileSync} from 'node:fs';
 import {createProfile,initialProgress,STORAGE_KEY} from '../src/store';
-import type {Hanzi,Poem,SaveData} from '../src/types';
+import type {Hanzi,LessonProgress,Poem,SaveData} from '../src/types';
 
 const origin=process.env.PROFILE_SYNC_TEST_URL??'http://127.0.0.1:5173';
 const engine=process.env.PROFILE_SYNC_TEST_ENGINE??'chromium';
@@ -13,21 +13,23 @@ test.use({browserName:engine as 'chromium'|'webkit',channel:engine==='chromium'?
 
 const word=(JSON.parse(readFileSync(new URL('../src/data/hanzi.json',import.meta.url),'utf8')) as Hanzi[]).find(item=>item.id==='hz-001')!;
 const poem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta.url),'utf8')) as Poem[]).find(item=>item.id==='poem-001')!;
+const longPoem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta.url),'utf8')) as Poem[]).find(item=>item.id==='poem-029')!;
 const catalog=JSON.parse(readFileSync(new URL('../public/audio/manifest.json',import.meta.url),'utf8')).files as Record<string,string>;
 for(const text of [word.sentence,...poem.lines]){
   if(!catalog[text]?.endsWith('.m4a')||!existsSync(new URL(`../public${catalog[text]}`,import.meta.url)))throw Error(`Missing native AAC fixture: ${text}`);
 }
 type MediaEvent={kind:string;id:number;path:string;time:number;currentTime:number;duration:number};
-type SyncMedia={audios:HTMLAudioElement[];paths:string[];events:MediaEvent[];fallback:string[];storage:{trusted:boolean;activeId:string;url:string}[]};
+type SyncMedia={audios:HTMLAudioElement[];paths:string[];events:MediaEvent[];fallback:string[];storage:{trusted:boolean;activeId:string;url:string;data:SaveData}[]};
 declare global{interface Window{__profileSyncMedia:SyncMedia}}
 
-async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems'){
+async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixture:{poem?:Poem;progress?:Partial<LessonProgress>;sound?:boolean}={}){
+  const lessonPoem=fixture.poem??poem;
   const profiles=['同步儿童甲','同步儿童乙'].map(name=>{
-    const profile=createProfile(name);profile.settings.sound=true;profile.settings.music=false;return profile;
+    const profile=createProfile(name);profile.settings.sound=fixture.sound??true;profile.settings.music=false;return profile;
   });
   if(kind==='hanzi')profiles[0].hanzi[word.id]={...initialProgress(),stage:4};
-  else profiles[0].poems[poem.id]={...initialProgress(),stage:0};
-  profiles[0].lastActivity={kind,id:kind==='hanzi'?word.id:poem.id};
+  else profiles[0].poems[lessonPoem.id]={...initialProgress(),stage:0,...fixture.progress};
+  profiles[0].lastActivity={kind,id:kind==='hanzi'?word.id:lessonPoem.id};
   const data:SaveData={version:1,activeId:profiles[0].id,profiles,savedAt:Date.now()};
   await context.addInitScript(({data,key})=>{
     // The only direct storage write is this initial isolated fixture. All later
@@ -54,7 +56,7 @@ async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems'){
       }});
     }
     window.addEventListener('storage',event=>{
-      if(event.key===key&&event.newValue)evidence.storage.push({trusted:event.isTrusted,activeId:JSON.parse(event.newValue).activeId,url:event.url});
+      if(event.key===key&&event.newValue){const data=JSON.parse(event.newValue) as SaveData;evidence.storage.push({trusted:event.isTrusted,activeId:data.activeId,url:event.url,data});}
     });
   },{data,key:STORAGE_KEY});
   const actor=await context.newPage();
@@ -70,6 +72,10 @@ async function saved(page:Page):Promise<SaveData>{return page.evaluate(key=>JSON
 async function snapshot(page:Page){
   return page.evaluate(key=>({visibility:document.visibilityState,child:document.querySelector('.profile-switch b')?.textContent,
     lesson:document.querySelector('.lesson-content')?.className??null,data:JSON.parse(localStorage.getItem(key)!),
+    recitation:{group:document.querySelector('.line-order > p')?.textContent??null,selected:[...document.querySelectorAll('.ordered-line')].map(line=>line.textContent),
+      question:document.querySelector('.recitation-cloze .quiz-heading h2')?.textContent??null,round:document.querySelector('.recitation-cloze .quiz-heading .mini-label')?.textContent??null,
+      hint:document.querySelector('.hidden-poem')?.className??null,lines:[...document.querySelectorAll('.hidden-poem p')].map(line=>line.textContent),
+      page:document.querySelector('.recitation-page-controls [role="status"]')?.textContent??null,parent:document.querySelector('.recitation-parent-confirm')?.textContent??null},
     media:{events:window.__profileSyncMedia.events,fallback:window.__profileSyncMedia.fallback,storage:window.__profileSyncMedia.storage,
       audios:window.__profileSyncMedia.audios.map((audio,id)=>({id,path:window.__profileSyncMedia.paths[id],native:audio instanceof HTMLAudioElement,
         src:audio.getAttribute('src'),paused:audio.paused,ended:audio.ended,currentTime:audio.currentTime,duration:audio.duration}))}}),STORAGE_KEY);
@@ -107,6 +113,37 @@ async function openParents(page:Page){
   await page.getByRole('textbox',{name:'家长验证答案',exact:true}).fill('13');
   await page.getByRole('button',{name:'打开家长小屋',exact:true}).click();
   await expect(page.getByRole('textbox',{name:'当前儿童昵称',exact:true})).toBeVisible();
+}
+type RecitationCheckpoint=NonNullable<LessonProgress['recitation']>;
+async function openLongPoem(page:Page){
+  await page.getByRole('button',{name:`继续《${longPoem.title}》`,exact:true}).click();
+  await expect(page.locator('.poem-stage-4')).toBeVisible();
+}
+async function metadataMarker(actor:Page,page:Page,name:string){
+  await actor.getByRole('button',{name:'关闭诗词学习，保存进度',exact:true}).click();
+  await openParents(actor);
+  await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
+  // A rendered nickname proves the App accepted the peer save, independently
+  // of localStorage merely being shared between the two pages.
+  await expect(page.locator('.profile-switch b')).toHaveText(name);await visible(page,actor);
+}
+async function trustedRecitation(page:Page,id:string,checkpoint:RecitationCheckpoint,name?:string){
+  await page.waitForFunction(({id,poemId,checkpoint,name})=>window.__profileSyncMedia.storage.some(event=>{
+    const profile=event.data.profiles.find(profile=>profile.id===id),saved=profile?.poems[poemId]?.recitation;
+    return event.trusted&&(!name||profile?.name===name)&&saved&&saved.phase===checkpoint.phase&&saved.chunk===checkpoint.chunk&&
+      saved.clozeRound===checkpoint.clozeRound&&JSON.stringify(saved.selected)===JSON.stringify(checkpoint.selected);
+  }),{id,poemId:longPoem.id,checkpoint,name});
+}
+async function answerCloze(page:Page,line:string,advance=true){
+  const prompt=await page.locator('.recitation-cloze .quiz-heading h2').innerText(),blank=prompt.indexOf('□');
+  expect(blank).toBeGreaterThanOrEqual(0);
+  // Infer the answer from the actual displayed blank and source poem text;
+  // do not depend on option order or duplicate the question generator.
+  expect(prompt.slice(0,blank)+line[blank]+prompt.slice(blank+1)).toBe(line);
+  await page.locator('.recitation-cloze .answer-grid').getByRole('button',{name:line[blank],exact:true}).click();
+  await expect(page.locator('.recitation-cloze .quiz-feedback')).toContainText(`找对啦！${line}`);
+  await expect(page.getByRole('button',{name:'下一小题',exact:true})).toBeVisible();
+  if(advance)await page.getByRole('button',{name:'下一小题',exact:true}).click();
 }
 
 test.afterEach(async({context},info)=>{
@@ -174,4 +211,72 @@ test('a native same-child nickname update preserves the open lesson and its adva
   await expect(page.locator('.lesson-stage-4')).toBeVisible();
   const data=await saved(page);expect(data.activeId).toBe(profiles[0].id);expect(data.profiles[0].name).toBe('同步儿童甲改名');expect(data.profiles[1].hanzi[word.id]).toBeUndefined();
   expect(await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length)).toBe(1);
+});
+
+test('a native same-child recitation group update preserves peer progress before continuing',async({context,page})=>{
+  const initial:RecitationCheckpoint={phase:0,chunk:0,selected:[],clozeRound:0};
+  const {actor,profiles}=await boot(context,page,'poems',{poem:longPoem,progress:{stage:4,recitation:initial},sound:false});
+  await openLongPoem(page);await openLongPoem(actor);
+  for(const line of longPoem.lines.slice(0,4))await actor.locator('.line-options').getByRole('button',{name:line,exact:true}).click();
+  await actor.getByRole('button',{name:'下一组诗句',exact:true}).click();
+  const advanced:RecitationCheckpoint={...initial,chunk:1};
+  expect((await saved(actor)).profiles[0].poems[longPoem.id].recitation).toEqual(advanced);
+  const name='同步背诵分组已更新';await metadataMarker(actor,page,name);
+  await trustedRecitation(page,profiles[0].id,advanced,name);
+  await expect(page.locator('.line-order > p').first()).toContainText('第 2 组 / 2 组');
+  for(const [index,line] of longPoem.lines.slice(4,6).entries()){
+    await page.locator('.line-options').getByRole('button',{name:line,exact:true}).click();
+    await expect(page.locator('.ordered-line')).toHaveText(longPoem.lines.slice(4,5+index));
+    await expect(page.locator('.gentle-hint')).toHaveText('接对啦！');
+  }
+  const continued={...advanced,selected:[0,1]};
+  const data=await saved(page);expect(data.profiles[0].name).toBe(name);
+  expect(data.profiles[0].poems[longPoem.id]).toMatchObject({stage:4,recitation:continued});
+  await trustedRecitation(actor,profiles[0].id,continued,name);await visible(page,actor);
+});
+
+test('a native same-child recitation cloze update adopts the peer question before continuing',async({context,page})=>{
+  const initial:RecitationCheckpoint={phase:1,chunk:1,selected:[0,1,2,3],clozeRound:0};
+  const {actor,profiles}=await boot(context,page,'poems',{poem:longPoem,progress:{stage:4,recitation:initial},sound:false});
+  await openLongPoem(page);await openLongPoem(actor);
+  await answerCloze(page,longPoem.lines[0],false);
+  await answerCloze(actor,longPoem.lines[0]);
+  const advanced={...initial,clozeRound:1};
+  expect((await saved(actor)).profiles[0].poems[longPoem.id].recitation).toEqual(advanced);
+  const name='同步填空题目已更新';await metadataMarker(actor,page,name);
+  await trustedRecitation(page,profiles[0].id,advanced,name);
+  await expect(page.locator('.recitation-cloze .quiz-heading .mini-label')).toHaveText('小挑战 2 / 8');
+  await expect(page.locator('.recitation-cloze .quiz-feedback')).toHaveText('不用着急，想好了再点。');
+  await expect(page.locator('.recitation-cloze .answer-card.correct')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'下一小题',exact:true})).toHaveCount(0);
+  await answerCloze(page,longPoem.lines[1]);
+  await expect(page.locator('.recitation-cloze .quiz-heading .mini-label')).toHaveText('小挑战 3 / 8');
+  const continued={...initial,clozeRound:2};
+  const data=await saved(page);expect(data.profiles[0].name).toBe(name);
+  expect(data.profiles[0].poems[longPoem.id]).toMatchObject({stage:4,recitation:continued});
+  await trustedRecitation(actor,profiles[0].id,continued,name);await visible(page,actor);
+});
+
+test('a native same-child metadata update preserves recitation hints, page and parent confirmation',async({context,page})=>{
+  const checkpoint:RecitationCheckpoint={phase:2,chunk:1,selected:[0,1,2,3],clozeRound:7};
+  const {actor,profiles}=await boot(context,page,'poems',{poem:longPoem,progress:{stage:4,recitation:checkpoint},sound:false});
+  await openParents(actor);await openLongPoem(page);
+  await page.getByRole('button',{name:'看看提示',exact:true}).click();
+  await page.getByRole('button',{name:'下一页背诵诗句',exact:true}).click();
+  await page.getByRole('button',{name:'家长确认：孩子已尝试完整背诵',exact:true}).click();
+  const visibleLines=await page.locator('.hidden-poem p').allTextContents();
+  const pageLabel=await page.locator('.recitation-page-controls [role="status"]').innerText();
+  expect(visibleLines.length).toBeGreaterThan(0);expect(visibleLines.every(line=>longPoem.lines.includes(line))).toBe(true);
+  expect(visibleLines).not.toContain(longPoem.lines[0]);expect(pageLabel).toContain('第 2 /');
+  const name='同步背诵提示仍保留';
+  await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
+  await expect(page.locator('.profile-switch b')).toHaveText(name);
+  await trustedRecitation(page,profiles[0].id,checkpoint,name);await visible(page,actor);
+  await expect(page.locator('.hidden-poem')).toHaveClass('hidden-poem visible');
+  await expect(page.getByRole('button',{name:'收起提示',exact:true})).toBeVisible();
+  await expect(page.locator('.hidden-poem p')).toHaveText(visibleLines);
+  await expect(page.locator('.recitation-page-controls [role="status"]')).toHaveText(pageLabel);
+  await expect(page.getByRole('button',{name:'家长已确认背诵练习',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'记忆小桥走完啦',exact:true})).toBeVisible();
+  expect((await saved(page)).profiles[0].poems[longPoem.id]).toMatchObject({stage:4,recitation:checkpoint});
 });

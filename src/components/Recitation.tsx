@@ -9,19 +9,30 @@ const shuffle = <T,>(items:T[]) => {
   return result;
 };
 type Checkpoint = NonNullable<LessonProgress['recitation']>;
+const checkpointSignature = ({phase,chunk,selected,clozeRound}:Checkpoint) => `${phase}:${chunk}:${clozeRound}:${selected.join(',')}`;
 export default function Recitation({ poem, saved, pageSize=poem.lines.length, onCheckpoint, onComplete, onMistake, onSpeak }: {
   poem:Poem; saved?:Checkpoint; pageSize?:number; onCheckpoint:(state:Checkpoint)=>void;
   onComplete:()=>void; onMistake:()=>void; onSpeak:(text:string)=>void;
 }) {
   const chunks = useMemo(()=>Array.from({length:Math.ceil(poem.lines.length/4)},(_,i)=>poem.lines.slice(i*4,i*4+4)),[poem]);
-  const [state,setState] = useState<Checkpoint>(()=>({
+  const incoming:Checkpoint = {
     phase:saved?.phase??0,chunk:Math.min(saved?.chunk??0,chunks.length-1),
     selected:saved?.selected??[],clozeRound:Math.min(saved?.clozeRound??0,poem.lines.length-1),
-  }));
+  };
+  const incomingSignature = checkpointSignature(incoming);
+  const [state,setState] = useState<Checkpoint>(incoming);
+  const [lastSavedSignature,setLastSavedSignature] = useState(incomingSignature);
   const [hint,setHint] = useState('');
   const [show,setShow] = useState(false);
   const [parentConfirmed,setParentConfirmed] = useState(false);
   const [page,setPage] = useState(0);
+  if(incomingSignature!==lastSavedSignature){
+    setLastSavedSignature(incomingSignature);
+    // Local checkpoints already update state; only differing incoming progress resets the practice UI.
+    if(incomingSignature!==checkpointSignature(state)){
+      setState(incoming);setHint('');setShow(false);setParentConfirmed(false);setPage(0);
+    }
+  }
   const pageCount=Math.ceil(poem.lines.length/pageSize);
   const currentPage=Math.min(page,pageCount-1);
   const options = useMemo(()=>shuffle(chunks[state.chunk].map((line,i)=>({line,index:i}))),[state.chunk,chunks]);
@@ -39,7 +50,7 @@ export default function Recitation({ poem, saved, pageSize=poem.lines.length, on
     if(index!==state.selected.length){setHint('还没轮到这一句，先听接下来该接的诗句。');onSpeak(chunks[state.chunk][state.selected.length]);onMistake();return;}
     checkpoint({selected:[...state.selected,index]});setHint('接对啦！');onSpeak(chunks[state.chunk][index]);
   }
-  if(state.phase===1)return <div className="recitation-cloze"><span className="mini-label">记忆小桥 · 填一填</span><Quiz key={poem.id} questions={cloze} savedRound={state.clozeRound} onCheckpoint={clozeRound=>checkpoint({clozeRound})} onComplete={()=>checkpoint({phase:2})} onMistake={onMistake} onSpeak={onSpeak}/></div>;
+  if(state.phase===1)return <div className="recitation-cloze"><span className="mini-label">记忆小桥 · 填一填</span><Quiz key={`${poem.id}-${state.clozeRound}`} questions={cloze} savedRound={state.clozeRound} onCheckpoint={clozeRound=>checkpoint({clozeRound})} onComplete={()=>checkpoint({phase:2})} onMistake={onMistake} onSpeak={onSpeak}/></div>;
   if(state.phase===2)return <div className="recite-final">
     <span className="mini-label">记忆小桥 · 读一读</span><h2>现在，试着读给动物朋友听</h2>
     <p>想不起来时，可以打开小提示。</p>
