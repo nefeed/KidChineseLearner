@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowRight, BookOpen, Check, ChevronLeft, ChevronRight, Leaf, Pause, Play, Sparkles, Volume2, X } from 'lucide-react';
 import type { Poem, Profile } from '../types';
 import { finishLesson, initialProgress, lessonMistake, updateLesson } from '../store';
@@ -71,6 +71,14 @@ export default function PoemLesson({poem,profile,onUpdate,onSpeak,onPrepare,onSt
   const [activity,setActivity]=useState(progress.activityDone?2:0);
   const [objects,setObjects]=useState<string[]>([]);
   const token=useRef(0);
+  const previousStage=useRef(stage);
+  useLayoutEffect(()=>{
+    if(previousStage.current===stage)return;
+    previousStage.current=stage;
+    // A peer window can advance this lesson without using the local next button.
+    // Cancel before the new stage can start its own narration.
+    token.current++;onStop();setReading(false);setActiveLine(-1);
+  },[stage,onStop]);
   const next=()=>{token.current++;onStop();setReading(false);setActiveLine(-1);onUpdate(p=>updateLesson(p,'poems',poem.id,{stage:stage+1,quizRound:0}));};
   const mistake=()=>onUpdate(p=>lessonMistake(p,'poems',poem.id));
   useEffect(()=>()=>{token.current++;onStop();},[onStop]);

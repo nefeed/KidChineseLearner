@@ -17,10 +17,11 @@ const poem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta
 const longPoem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta.url),'utf8')) as Poem[]).find(item=>item.id==='poem-029')!;
 const strokes=JSON.parse(readFileSync(new URL(`../public/data/strokes/${word.char}.json`,import.meta.url),'utf8')) as StrokeData;
 const catalog=JSON.parse(readFileSync(new URL('../public/audio/manifest.json',import.meta.url),'utf8')).files as Record<string,string>;
-for(const text of [word.sentence,...poem.lines]){
+const poemStory=`${poem.dynasty}代的${poem.author}，写下了《${poem.title}》。`;
+for(const text of [word.sentence,...poem.lines,poemStory,poem.question.prompt]){
   if(!catalog[text]?.endsWith('.m4a')||!existsSync(new URL(`../public${catalog[text]}`,import.meta.url)))throw Error(`Missing native AAC fixture: ${text}`);
 }
-type MediaEvent={kind:string;id:number;path:string;time:number;currentTime:number;duration:number};
+type MediaEvent={kind:string;id:number;path:string;time:number;trusted:boolean;currentTime:number;duration:number};
 type PointerEvidence={type:string;time:number;trusted:boolean;pointerId:number;primary:boolean;captured:boolean};
 type SyncMedia={audios:HTMLAudioElement[];paths:string[];events:MediaEvent[];fallback:string[];pointers:PointerEvidence[];storage:{trusted:boolean;activeId:string;url:string;data:SaveData}[]};
 declare global{interface Window{__profileSyncMedia:SyncMedia}}
@@ -46,8 +47,8 @@ async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixtur
         const audio=Reflect.construct(target,args) as HTMLAudioElement;
         const id=evidence.audios.length,path=String(args[0]??'');
         evidence.audios.push(audio);evidence.paths.push(path);
-        for(const kind of ['play','playing','timeupdate','ended','pause','emptied','error'])audio.addEventListener(kind,()=>{
-          evidence.events.push({kind,id,path,time:performance.now(),currentTime:audio.currentTime,duration:audio.duration});
+        for(const kind of ['play','playing','timeupdate','ended','pause','emptied','error'])audio.addEventListener(kind,event=>{
+          evidence.events.push({kind,id,path,time:performance.now(),trusted:event.isTrusted,currentTime:audio.currentTime,duration:audio.duration});
         });
         return audio;
       },
@@ -131,6 +132,28 @@ async function openParents(page:Page){
   await page.getByRole('textbox',{name:'家长验证答案',exact:true}).fill('13');
   await page.getByRole('button',{name:'打开家长小屋',exact:true}).click();
   await expect(page.getByRole('textbox',{name:'当前儿童昵称',exact:true})).toBeVisible();
+}
+async function openListeningPoem(page:Page){
+  await page.getByRole('button',{name:`继续《${poem.title}》`,exact:true}).click();
+  await expect(page.locator('.poem-stage-0')).toBeVisible();
+}
+async function trustedPoemStage(page:Page,id:string,stage:number,name?:string){
+  await page.waitForFunction(({id,poemId,stage,name})=>window.__profileSyncMedia.storage.some(event=>{
+    const profile=event.data.profiles.find(profile=>profile.id===id);
+    return event.trusted&&event.activeId===id&&profile?.poems[poemId]?.stage===stage&&(!name||profile.name===name);
+  }),{id,poemId:poem.id,stage,name});
+}
+async function nativePoemPlayback(page:Page,id:number){
+  const value=await page.evaluate(id=>{const audio=window.__profileSyncMedia.audios[id];return {time:performance.now(),id,native:audio instanceof HTMLAudioElement,
+    paused:audio.paused,currentTime:audio.currentTime,duration:audio.duration,remaining:(audio.duration-audio.currentTime)/audio.playbackRate};},id);
+  expect(value.native).toBe(true);expect(value.paused).toBe(false);expect(value.remaining).toBeGreaterThan(.65);
+  return value;
+}
+async function finishStoryControl(actor:Page){
+  await actor.locator('.poem-stage-1 .poem-story-card').click();
+  const control=await playing(actor,catalog[poemStory]);
+  await expect.poll(()=>actor.evaluate(id=>window.__profileSyncMedia.audios[id].ended,control),{timeout:10000}).toBe(true);
+  await expect(actor.locator('.sound-toggle')).toHaveAttribute('data-speaking','false');
 }
 type RecitationCheckpoint=NonNullable<LessonProgress['recitation']>;
 async function openLongPoem(page:Page){
@@ -263,6 +286,81 @@ test('a native cross-window child switch closes the poem and cancels its remaini
   await visible(page,actor);await stopped(page,id);
   expect(await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length)).toBe(plays);
   data=await saved(page);expect(data.profiles[0].poems[poem.id].listenedLines??[]).toEqual([]);expect(data.profiles[1].poems[poem.id].listenedLines).toEqual([0]);
+});
+
+test('a native same-child poem peer stage update cancels read-all and its remaining queue',async({context,page},info)=>{
+  const heard=poem.lines.map((_,index)=>index);
+  const {actor,profiles}=await boot(context,page,'poems',{progress:{stage:0,listenedLines:heard}});
+  await openListeningPoem(page);await openListeningPoem(actor);
+  await expect(actor.getByRole('button',{name:'去听诗里的故事',exact:true})).toBeEnabled();
+  await page.getByRole('button',{name:'慢慢听整首',exact:true}).click();
+  const id=await playing(page,catalog[poem.lines[0]]),before=await nativePoemPlayback(page,id);
+  await actor.getByRole('button',{name:'去听诗里的故事',exact:true}).click();
+  await expect(page.locator('.poem-stage-1 .poem-story')).toBeVisible();await trustedPoemStage(page,profiles[0].id,1);
+  await info.attach('poem-peer-stage-playback-boundary',{contentType:'application/json',body:JSON.stringify({before,after:await snapshot(page)},null,2)});
+  await visible(page,actor);await stopped(page,id);
+  const raw=await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY);
+  const plays=await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length);
+  // A genuine independent story AAC supplies a completion boundary beyond the
+  // cancelled first line; no sleep or synthetic media completion is used.
+  await finishStoryControl(actor);await visible(page,actor);await stopped(page,id);
+  expect(await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length)).toBe(plays);
+  expect(await page.evaluate(path=>window.__profileSyncMedia.events.some(event=>event.kind==='play'&&event.path===path),catalog[poem.lines[1]])).toBe(false);
+  expect(await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY)).toBe(raw);
+  expect((await saved(page)).profiles[0].poems[poem.id]).toMatchObject({stage:1,listenedLines:heard});
+  await page.locator('.poem-stage-1 .poem-story-card').click();
+  const story=await playing(page,catalog[poemStory]);expect(story).not.toBe(id);
+  await expect(page.locator('.poem-stage-1 .poem-story')).toBeVisible();await visible(page,actor);
+});
+
+test('a native same-child poem peer stage update cancels a single line and local next cancels fresh story audio',async({context,page},info)=>{
+  const heard=poem.lines.map((_,index)=>index);
+  const {actor,profiles}=await boot(context,page,'poems',{progress:{stage:0,listenedLines:heard}});
+  await openListeningPoem(page);await openListeningPoem(actor);
+  await expect(actor.getByRole('button',{name:'去听诗里的故事',exact:true})).toBeEnabled();
+  await page.locator('.poem-line').first().click();
+  const id=await playing(page,catalog[poem.lines[0]]),before=await nativePoemPlayback(page,id);
+  await actor.getByRole('button',{name:'去听诗里的故事',exact:true}).click();
+  await expect(page.locator('.poem-stage-1 .poem-story')).toBeVisible();await trustedPoemStage(page,profiles[0].id,1);
+  await info.attach('poem-peer-stage-playback-boundary',{contentType:'application/json',body:JSON.stringify({before,after:await snapshot(page)},null,2)});
+  await visible(page,actor);await stopped(page,id);
+  const raw=await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY);
+  await finishStoryControl(actor);await stopped(page,id);
+  expect(await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY)).toBe(raw);
+  await page.locator('.poem-stage-1 .poem-story-card').click();
+  const story=await playing(page,catalog[poemStory]);await nativePoemPlayback(page,story);
+  await page.getByRole('button',{name:'走进这幅诗的画',exact:true}).click();
+  await expect(page.locator('.poem-stage-2')).toBeVisible();await stopped(page,story);
+  const plays=await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length);
+  await expect(actor.locator('.poem-stage-2')).toBeVisible();
+  await actor.getByRole('button',{name:'听一听题目',exact:true}).click();
+  const control=await playing(actor,catalog[poem.question.prompt]);
+  await expect.poll(()=>actor.evaluate(id=>window.__profileSyncMedia.audios[id].ended,control),{timeout:10000}).toBe(true);
+  await visible(page,actor);await stopped(page,story);
+  expect(await page.evaluate(()=>window.__profileSyncMedia.events.filter(event=>event.kind==='play').length)).toBe(plays);
+  expect((await saved(page)).profiles[0].poems[poem.id]).toMatchObject({stage:2,listenedLines:heard});
+});
+
+test('a native same-child poem same-stage metadata update preserves read-all and its listening checkpoint echo',async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'poems',{progress:{stage:0,listenedLines:[]}});
+  await openParents(actor);await openListeningPoem(page);
+  await page.getByRole('button',{name:'慢慢听整首',exact:true}).click();
+  const id=await playing(page,catalog[poem.lines[0]]);await nativePoemPlayback(page,id);
+  const name='同步诗词朗读儿童改名';await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
+  await expect(page.locator('.profile-switch b')).toHaveText(name);await trustedPoemStage(page,profiles[0].id,0,name);
+  await expect(page.locator('.poem-stage-0')).toBeVisible();await visible(page,actor);
+  expect(await page.evaluate(id=>{const audio=window.__profileSyncMedia.audios[id];return {paused:audio.paused,ended:audio.ended,src:audio.getAttribute('src')};},id)).toEqual({paused:false,ended:false,src:catalog[poem.lines[0]]});
+  const beforeTime=await page.evaluate(id=>window.__profileSyncMedia.audios[id].currentTime,id);
+  await page.waitForFunction(({id,beforeTime})=>{const audio=window.__profileSyncMedia.audios[id];return !audio.paused&&!audio.ended&&audio.currentTime>beforeTime+.15;},{id,beforeTime});
+  const second=await playing(page,catalog[poem.lines[1]]);expect(second).not.toBe(id);
+  await actor.waitForFunction(({id,poemId,name})=>window.__profileSyncMedia.storage.some(event=>{
+    const profile=event.data.profiles.find(profile=>profile.id===id);
+    return event.trusted&&profile?.name===name&&profile.poems[poemId]?.stage===0&&JSON.stringify(profile.poems[poemId].listenedLines)==='[0]';
+  }),{id:profiles[0].id,poemId:poem.id,name});
+  await expect(page.getByRole('button',{name:'暂停',exact:true})).toBeVisible();
+  expect(await page.locator('.poem-line.reading ruby').evaluateAll(rubies=>rubies.map(ruby=>ruby.childNodes[0]?.textContent).join(''))).toBe(poem.lines[1].replace(/\P{Script=Han}/gu,''));
+  expect(await page.evaluate(path=>window.__profileSyncMedia.events.some(event=>event.kind==='play'&&event.path===path&&event.trusted),catalog[poem.lines[1]])).toBe(true);
+  expect((await saved(page)).profiles[0].poems[poem.id]).toMatchObject({stage:0,listenedLines:[0]});await visible(page,actor);
 });
 
 test('a native same-child nickname update preserves the open lesson and its advancing original AAC',async({context,page})=>{
