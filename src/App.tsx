@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowRight, BookOpen, Check, ChevronDown, Clock3, Flower2, Home, Leaf, Music2, PawPrint, Settings2, ShieldCheck, Sparkles, Star, Volume2, VolumeX, X } from 'lucide-react';
 import type { Hanzi, Poem, Profile, SaveData, Screen } from './types';
 import hanziJSON from './data/hanzi.json';
@@ -77,14 +77,15 @@ export default function App(){
     return()=>window.removeEventListener('storage',handler);
   },[speech.stop]);
   const closeLesson=useCallback(()=>{speech.stop();setLesson(null);},[speech.stop]);
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     if(!lesson&&!parentGate&&!rest)return;
     const previous=document.activeElement as HTMLElement;
-    const timer=setTimeout(()=>document.querySelector<HTMLElement>('.lesson-overlay button, .modal button')?.focus(),40);
+    // Set initial focus before the user can start typing in the new dialog.
+    document.querySelector<HTMLElement>('.lesson-overlay button, .modal button')?.focus({preventScroll:true});
     const handler=(e:KeyboardEvent)=>{
       if(e.key==='Escape'){if(lesson)closeLesson();else if(parentGate)setParentGate(false);else setRest(false);}
       if(e.key==='Tab'){const selector=lesson?'.lesson-overlay':'.modal';const nodes=[...document.querySelectorAll<HTMLElement>(`${selector} button:not(:disabled), ${selector} input, ${selector} a[href]`)];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1)!;if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
-    };window.addEventListener('keydown',handler);return()=>{clearTimeout(timer);window.removeEventListener('keydown',handler);previous?.focus();};
+    };window.addEventListener('keydown',handler);return()=>{window.removeEventListener('keydown',handler);previous?.focus();};
   },[lesson,parentGate,rest,closeLesson]);
   function navigate(s:Screen,zooView:'care'|'rewards'='care'){speech.stop();if(s==='zoo')setZooEntry(zooView);setScreen(s);setProfileMenu(false);window.scrollTo(0,0);}
   function openParents(view='schedule'){setParentTarget(view);setParentGate(true);setParentAnswer('');setGateError('');}

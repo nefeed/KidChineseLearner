@@ -60,6 +60,116 @@ async function fits(page: Page) {
   expect(failures).toEqual([]);
 }
 
+type GateFocusEvent = { type: string; time: number; trusted: boolean; target: string; related: string; active: string; value: string | null; inputType: string | null; data: string | null };
+type GateFocusEvidence = { events: GateFocusEvent[]; frames: { time: number; active: string; value: string | null }[]; openingFocus: { tag: string; label: string | null } | null };
+declare global { interface Window { __parentGateFocus: GateFocusEvidence; __parentGatePrevious: Element | null } }
+
+async function observeGateFocus(page: Page) {
+  await page.addInitScript(() => {
+    const label = (element: EventTarget | null | undefined) => element instanceof Element ? element.getAttribute('aria-label') ?? element.textContent?.trim().slice(0, 40) ?? element.tagName : String(element);
+    window.__parentGateFocus = { events: [], frames: [], openingFocus: null };
+    window.__parentGatePrevious = null;
+    for (const type of ['pointerdown', 'pointerup', 'click', 'focusin', 'focusout', 'beforeinput', 'input', 'submit']) document.addEventListener(type, event => {
+      const input = event as InputEvent, focus = event as FocusEvent;
+      window.__parentGateFocus.events.push({ type, time: performance.now(), trusted: event.isTrusted,
+        target: label(event.target), related: label(focus.relatedTarget), active: label(document.activeElement),
+        value: event.target instanceof HTMLInputElement ? event.target.value : null, inputType: input.inputType ?? null, data: input.data ?? null });
+      if (type === 'click' && event.isTrusted && label(event.target) === '家长小屋') {
+        window.__parentGatePrevious = document.activeElement;
+        window.__parentGateFocus.openingFocus = { tag: document.activeElement?.tagName ?? '', label: document.activeElement?.getAttribute('aria-label') ?? null };
+      }
+    }, { capture: true, passive: true });
+  });
+}
+
+async function openGateWithMouse(page: Page) {
+  const entry = page.getByRole('button', { name: '家长小屋', exact: true }), rect = await entry.boundingBox();
+  if (!rect) throw Error('Expected the parent entry in the application window');
+  // Raw native input keeps the fill/input action immediately after opening;
+  // waiting for the modal's first button to focus would hide the delayed-focus race.
+  await page.mouse.click(rect.x + rect.width / 2, rect.y + rect.height / 2);
+}
+
+async function retainGateInputFocus(page: Page) {
+  await page.evaluate(async () => {
+    const evidence = window.__parentGateFocus;
+    const opening = evidence.events.findLast(event => event.type === 'click' && event.target === '家长小屋' && event.trusted);
+    if (!opening) throw Error('Expected a trusted native parent-entry click');
+    // Observe real browser frames beyond the old 40 ms focus timer. This is a
+    // measurement boundary, with native clocks and no delayed input or test sleep.
+    while (performance.now() < opening.time + 120) await new Promise<void>(resolve => requestAnimationFrame(() => {
+      evidence.frames.push({ time: performance.now(), active: document.activeElement?.getAttribute('aria-label') ?? '', value: document.querySelector<HTMLInputElement>('.parent-gate input')?.value ?? null });
+      resolve();
+    }));
+  });
+  const input = page.getByRole('textbox', { name: '家长验证答案', exact: true });
+  await expect(input).toBeFocused();
+  await expect(input).toHaveValue('13');
+  const events = await page.evaluate(() => window.__parentGateFocus.events);
+  expect(events.some(event => event.type === 'beforeinput' && event.trusted && event.target === '家长验证答案' && event.data === '13')).toBe(true);
+  expect(events.some(event => event.type === 'input' && event.trusted && event.target === '家长验证答案' && event.value === '13')).toBe(true);
+}
+
+for (const method of ['fill', 'keyboard'] as const) test(`parent gate focus preserves immediate native ${method} input and submission`, async ({ page }, info) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(String(error))); page.on('crash', () => errors.push('page crashed'));
+  await observeGateFocus(page);
+  try {
+    await boot(page);
+    const input = page.getByRole('textbox', { name: '家长验证答案', exact: true });
+    const enter = async () => {
+      if (method === 'keyboard') {
+        // Establish focus before opening, and passively record the actual focus
+        // at the click: Safari may still blur a mouse-clicked button to the body.
+        const entry = page.getByRole('button', { name: '家长小屋', exact: true });
+        await entry.focus(); await expect(entry).toBeFocused();
+      }
+      await openGateWithMouse(page);
+      if (method === 'fill') await input.fill('13');
+      else {
+        const point = await input.evaluate(element => {
+          const rect = element.getBoundingClientRect(), x = rect.x + rect.width / 2, y = rect.y + rect.height / 2;
+          return { x, y, visible: rect.width > 0 && rect.height > 0 && x >= 0 && x < innerWidth && y >= 0 && y < innerHeight,
+            receivesEvents: document.elementFromPoint(x, y) === element };
+        });
+        expect(point.visible).toBe(true); expect(point.receivesEvents).toBe(true);
+        // Native input clicks use the actual rect, avoiding a locator stability
+        // wait that can outlast the old timer before the user starts typing.
+        await page.mouse.click(point.x, point.y);
+        await page.keyboard.insertText('13');
+      }
+      await retainGateInputFocus(page);
+    };
+    await enter();
+    if (method === 'fill') {
+      const close = page.getByRole('button', { name: '关闭家长验证', exact: true });
+      const submit = page.getByRole('button', { name: '打开家长小屋', exact: true });
+      // Start at the actual trap boundary. Safari's native Tab policy can skip
+      // buttons between form fields, independently of the application's trap.
+      await close.focus(); await expect(close).toBeFocused();
+      await page.keyboard.press('Shift+Tab'); await expect(submit).toBeFocused();
+      await page.keyboard.press('Tab'); await expect(close).toBeFocused();
+      await submit.click();
+    } else {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: '家长验证', exact: true })).toHaveCount(0);
+      expect(await page.evaluate(() => document.activeElement === window.__parentGatePrevious)).toBe(true);
+      const restored = await page.evaluate(() => ({ tag: document.activeElement?.tagName ?? '', label: document.activeElement?.getAttribute('aria-label') ?? null }));
+      expect(restored).toEqual(await page.evaluate(() => window.__parentGateFocus.openingFocus));
+      await enter();
+      await page.keyboard.press('Enter');
+    }
+    await expect(page.getByRole('dialog', { name: '家长验证', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('textbox', { name: '当前儿童昵称', exact: true })).toHaveValue('提示操作测试');
+    expect(await page.evaluate(() => window.__parentGateFocus.events.some(event => event.type === 'submit' && event.trusted))).toBe(true);
+  } finally {
+    await info.attach('parent-gate-native-focus-events', { contentType: 'application/json', body: JSON.stringify({ engine: webkit ? 'webkit' : 'chromium', method,
+      boundary: 'Native mouse, fill or keyboard input, passive event records and real requestAnimationFrame sampling.',
+      errors, visibility: await page.evaluate(() => document.visibilityState), evidence: await page.evaluate(() => window.__parentGateFocus) }, null, 2) });
+    expect(errors).toEqual([]);
+  }
+});
+
 test('首页“看看奖励”直接打开邀请函，不先停在照顾页', async ({ page }) => {
   await boot(page);
   const before = (await active(page)).zoo;
