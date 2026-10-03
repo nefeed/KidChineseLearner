@@ -1,7 +1,8 @@
 import {test,expect,type BrowserContext,type Page} from '@playwright/test';
 import {existsSync,readFileSync} from 'node:fs';
 import {createProfile,initialProgress,STORAGE_KEY} from '../src/store';
-import type {Hanzi,LessonProgress,Poem,SaveData} from '../src/types';
+import type {Hanzi,LessonProgress,Poem,SaveData,StrokeData} from '../src/types';
+import {Touch,tracePoints,drag} from './helpers/pointer-input';
 
 const origin=process.env.PROFILE_SYNC_TEST_URL??'http://127.0.0.1:5173';
 const engine=process.env.PROFILE_SYNC_TEST_ENGINE??'chromium';
@@ -14,12 +15,14 @@ test.use({browserName:engine as 'chromium'|'webkit',channel:engine==='chromium'?
 const word=(JSON.parse(readFileSync(new URL('../src/data/hanzi.json',import.meta.url),'utf8')) as Hanzi[]).find(item=>item.id==='hz-001')!;
 const poem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta.url),'utf8')) as Poem[]).find(item=>item.id==='poem-001')!;
 const longPoem=(JSON.parse(readFileSync(new URL('../src/data/poems.json',import.meta.url),'utf8')) as Poem[]).find(item=>item.id==='poem-029')!;
+const strokes=JSON.parse(readFileSync(new URL(`../public/data/strokes/${word.char}.json`,import.meta.url),'utf8')) as StrokeData;
 const catalog=JSON.parse(readFileSync(new URL('../public/audio/manifest.json',import.meta.url),'utf8')).files as Record<string,string>;
 for(const text of [word.sentence,...poem.lines]){
   if(!catalog[text]?.endsWith('.m4a')||!existsSync(new URL(`../public${catalog[text]}`,import.meta.url)))throw Error(`Missing native AAC fixture: ${text}`);
 }
 type MediaEvent={kind:string;id:number;path:string;time:number;currentTime:number;duration:number};
-type SyncMedia={audios:HTMLAudioElement[];paths:string[];events:MediaEvent[];fallback:string[];storage:{trusted:boolean;activeId:string;url:string;data:SaveData}[]};
+type PointerEvidence={type:string;time:number;trusted:boolean;pointerId:number;primary:boolean;captured:boolean};
+type SyncMedia={audios:HTMLAudioElement[];paths:string[];events:MediaEvent[];fallback:string[];pointers:PointerEvidence[];storage:{trusted:boolean;activeId:string;url:string;data:SaveData}[]};
 declare global{interface Window{__profileSyncMedia:SyncMedia}}
 
 async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixture:{poem?:Poem;progress?:Partial<LessonProgress>;sound?:boolean}={}){
@@ -35,7 +38,7 @@ async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixtur
     // The only direct storage write is this initial isolated fixture. All later
     // changes come from actual App controls and native browser storage events.
     if(!localStorage.getItem(key))localStorage.setItem(key,JSON.stringify(data));
-    const evidence:SyncMedia={audios:[],paths:[],events:[],fallback:[],storage:[]};
+    const evidence:SyncMedia={audios:[],paths:[],events:[],fallback:[],pointers:[],storage:[]};
     window.__profileSyncMedia=evidence;
     const NativeAudio=window.Audio;
     Object.defineProperty(window,'Audio',{configurable:true,value:new Proxy(NativeAudio,{
@@ -58,6 +61,13 @@ async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixtur
     window.addEventListener('storage',event=>{
       if(event.key===key&&event.newValue){const data=JSON.parse(event.newValue) as SaveData;evidence.storage.push({trusted:event.isTrusted,activeId:data.activeId,url:event.url,data});}
     });
+    for(const type of ['pointerdown','pointermove','pointerup','pointercancel','gotpointercapture','lostpointercapture'])document.addEventListener(type,event=>{
+      const grid=event.target instanceof Element?event.target.closest('.trace-grid'):null;
+      if(!(grid instanceof SVGSVGElement))return;
+      const pointer=event as PointerEvent,entry:PointerEvidence={type,time:performance.now(),trusted:event.isTrusted,
+        pointerId:pointer.pointerId,primary:pointer.isPrimary,captured:grid.hasPointerCapture(pointer.pointerId)};
+      evidence.pointers.push(entry);queueMicrotask(()=>{entry.captured=grid.hasPointerCapture(pointer.pointerId);});
+    },{capture:true,passive:true});
   },{data,key:STORAGE_KEY});
   const actor=await context.newPage();
   await page.goto(origin);await actor.goto(origin);
@@ -70,8 +80,13 @@ async function visible(...pages:Page[]){
 }
 async function saved(page:Page):Promise<SaveData>{return page.evaluate(key=>JSON.parse(localStorage.getItem(key)!),STORAGE_KEY);}
 async function snapshot(page:Page){
-  return page.evaluate(key=>({visibility:document.visibilityState,child:document.querySelector('.profile-switch b')?.textContent,
+  return page.evaluate(key=>{const grid=document.querySelector<SVGSVGElement>('.trace-grid');return {visibility:document.visibilityState,child:document.querySelector('.profile-switch b')?.textContent,
     lesson:document.querySelector('.lesson-content')?.className??null,data:JSON.parse(localStorage.getItem(key)!),
+    stroke:{toolbar:document.querySelector('.stroke-toolbar>span')?.textContent??null,hint:document.querySelector('.stroke-practice .gentle-hint')?.textContent??null,
+      drawing:[...document.querySelectorAll('.trace-grid path[stroke-linejoin="round"]')].map(path=>path.getAttribute('d')),
+      guide:document.querySelector('.trace-guide')?.getAttribute('data-guide-state')??null,transform:document.querySelector('.trace-guide')?.getAttribute('transform')??null,
+      capture:[...new Set(window.__profileSyncMedia.pointers.map(event=>event.pointerId))].map(id=>({id,captured:grid?.hasPointerCapture(id)??false})),
+      pointers:window.__profileSyncMedia.pointers},
     quiz:{round:document.querySelector('.quiz-heading .mini-label')?.textContent??null,prompt:document.querySelector('.quiz-heading h2')?.textContent??null,
       options:[...document.querySelectorAll('.answer-card')].map(card=>({text:card.textContent,correct:card.classList.contains('correct')})),
       feedback:document.querySelector('.quiz-feedback')?.textContent??null,next:document.querySelector('.quiz > .primary-button')?.textContent??null},
@@ -81,7 +96,7 @@ async function snapshot(page:Page){
       page:document.querySelector('.recitation-page-controls [role="status"]')?.textContent??null,parent:document.querySelector('.recitation-parent-confirm')?.textContent??null},
     media:{events:window.__profileSyncMedia.events,fallback:window.__profileSyncMedia.fallback,storage:window.__profileSyncMedia.storage,
       audios:window.__profileSyncMedia.audios.map((audio,id)=>({id,path:window.__profileSyncMedia.paths[id],native:audio instanceof HTMLAudioElement,
-        src:audio.getAttribute('src'),paused:audio.paused,ended:audio.ended,currentTime:audio.currentTime,duration:audio.duration}))}}),STORAGE_KEY);
+        src:audio.getAttribute('src'),paused:audio.paused,ended:audio.ended,currentTime:audio.currentTime,duration:audio.duration}))}};},STORAGE_KEY);
 }
 async function playing(page:Page,path:string){
   await page.waitForFunction(path=>window.__profileSyncMedia.audios.some((audio,id)=>window.__profileSyncMedia.paths[id]===path&&
@@ -163,6 +178,44 @@ async function correctHanziAnswer(page:Page,answer:string){
   await page.locator('.answer-grid').getByRole('button',{name:answer,exact:true}).click();
   await expect(page.locator('.answer-card.correct')).toHaveText(answer);
   await expect(page.locator('.quiz-feedback')).toContainText('找对啦！');
+}
+async function openStroke(page:Page,index:number){
+  await page.getByRole('button',{name:'继续我的冒险',exact:true}).click();
+  await expect(page.locator('.lesson-stage-3')).toBeVisible();
+  await expect(page.locator('.stroke-toolbar>span')).toHaveText(index===strokes.strokes.length?'描写完成':`第 ${index+1} / ${strokes.strokes.length} 笔`);
+}
+async function trustedStroke(page:Page,id:string,index:number,name:string,after=0){
+  await page.waitForFunction(({id,wordId,index,name,after})=>window.__profileSyncMedia.storage.slice(after).some(event=>{
+    const profile=event.data.profiles.find(profile=>profile.id===id),progress=profile?.hanzi[wordId];
+    return event.trusted&&profile?.name===name&&progress?.stage===3&&progress.strokeIndex===index;
+  }),{id,wordId:word.id,index,name,after});
+}
+async function strokeInput(page:Page){
+  const session=engine==='chromium'?await page.context().newCDPSession(page):null,touch=session?new Touch(session):null;
+  let held=false;
+  async function up(){if(held){if(touch)await touch.up(1);else await page.mouse.up();held=false;}}
+  return {
+    draw:async(median:number[][])=>{await drag(page,await tracePoints(page,median),touch);},
+    hold:async(median:number[][])=>{
+      const points=await tracePoints(page,median);
+      if(touch)await touch.down(1,points[0]);else{await page.mouse.move(points[0].x,points[0].y);await page.mouse.down();}
+      held=true;
+      // Keep the native finger/button down. Move along every median segment
+      // by at most 8 CSS pixels on each real browser frame, with no fake clock.
+      for(let i=1;i<points.length;i++){
+        const from=points[i-1],to=points[i],steps=Math.ceil(Math.hypot(to.x-from.x,to.y-from.y)/8);
+        for(let step=1;step<=steps;step++){
+          await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>resolve())));
+          const point={x:from.x+(to.x-from.x)*step/steps,y:from.y+(to.y-from.y)*step/steps};
+          if(touch)await touch.move(1,point);else await page.mouse.move(point.x,point.y);
+        }
+      }
+    },up,close:async()=>{try{await up();}finally{await session?.detach();}},
+  };
+}
+function halfStroke(){
+  const median=strokes.medians[0],a=median[3],b=median[4],middle=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+  return {first:[...median.slice(0,4),middle],rest:[middle,...median.slice(4)]};
 }
 
 test.afterEach(async({context},info)=>{
@@ -355,4 +408,116 @@ test('a native same-child Hanzi quiz metadata update preserves the current answe
   await expect(page.locator('.quiz-feedback')).toHaveText(secondFeedback);
   await expect(page.getByRole('button',{name:'挑战完成',exact:true})).toBeVisible();
   expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:2,quizRound:1});
+});
+
+test('a native same-child stroke update adopts peer progress before drawing the next stroke',async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage:3,strokeIndex:0},sound:false});
+  await openStroke(page,0);await openStroke(actor,0);
+  const input=await strokeInput(page),peer=await strokeInput(actor);
+  try{
+    for(const median of strokes.medians.slice(0,2))await peer.draw(median);
+    expect((await saved(actor)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:2});
+    const name='同步描写两笔已保存';await metadataMarker(actor,page,name,'hanzi');await trustedStroke(page,profiles[0].id,2,name);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 3 / 4 笔');
+    await expect(page.locator('.trace-grid path[stroke-linejoin="round"]')).toHaveCount(0);
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','preview');
+    await input.draw(strokes.medians[2]);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 4 / 4 笔');
+    expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:3});
+    await trustedStroke(actor,profiles[0].id,3,name);await visible(page,actor);
+  }finally{await input.close();await peer.close();}
+});
+
+test('a native same-child stroke update releases a held half-stroke without letting its old pointerup save',async({context,page},info)=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage:3,strokeIndex:0},sound:false});
+  await openStroke(page,0);await openStroke(actor,0);
+  const input=await strokeInput(page),peer=await strokeInput(actor);
+  try{
+    await input.hold(halfStroke().first);
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','following');
+    const pointerId=await page.evaluate(()=>window.__profileSyncMedia.pointers.findLast(event=>event.type==='pointerdown'&&event.trusted)!.pointerId);
+    expect(await page.locator('.trace-grid').evaluate((grid,id)=>(grid as SVGSVGElement).hasPointerCapture(id),pointerId)).toBe(true);
+    await info.attach('stroke-held-before-peer',{contentType:'application/json',body:JSON.stringify(await snapshot(page))});
+    for(const median of strokes.medians.slice(0,2))await peer.draw(median);
+    const name='同步描写旧手势已撤销';await metadataMarker(actor,page,name,'hanzi');await trustedStroke(page,profiles[0].id,2,name);
+    await info.attach('stroke-peer-update-before-release',{contentType:'application/json',body:JSON.stringify(await snapshot(page))});
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 3 / 4 笔');
+    expect(await page.locator('.trace-grid').evaluate((grid,id)=>(grid as SVGSVGElement).hasPointerCapture(id),pointerId)).toBe(false);
+    await expect(page.locator('.trace-grid path[stroke-linejoin="round"]')).toHaveCount(0);
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','preview');
+    const before=await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY);
+    await input.up();
+    // The browser may defer lostpointercapture until this native pointerup.
+    await page.waitForFunction(id=>['lostpointercapture','pointerup'].every(type=>window.__profileSyncMedia.pointers.some(event=>event.trusted&&event.pointerId===id&&event.type===type)),pointerId);
+    expect(await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY)).toBe(before);
+    expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:2});
+    await input.draw(strokes.medians[2]);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 4 / 4 笔');
+    expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:3});
+    await trustedStroke(actor,profiles[0].id,3,name);await visible(page,actor);
+  }finally{await input.close();await peer.close();}
+});
+
+test('a native same-child stroke reset clears old completion and allows every real stroke again',async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage:3,strokeIndex:4},sound:false});
+  await openStroke(page,4);await openStroke(actor,4);
+  for(const current of [page,actor])await expect(current.getByRole('button',{name:'我的字写好啦',exact:true})).toBeVisible();
+  const input=await strokeInput(page);
+  try{
+    await actor.getByRole('button',{name:'重新描写',exact:true}).click();
+    const name='同步描写重新开始';await metadataMarker(actor,page,name,'hanzi');await trustedStroke(page,profiles[0].id,0,name);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 4 笔');
+    await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toHaveCount(0);
+    for(const [index,median] of strokes.medians.entries()){
+      await input.draw(median);
+      expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:index+1});
+    }
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('描写完成');
+    await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toBeVisible();
+    await trustedStroke(actor,profiles[0].id,4,name);await visible(page,actor);
+    // Prepare the peer first, so the external reset occurs near the start of
+    // the real four-stroke demonstration rather than its natural completion.
+    await actor.getByRole('button',{name:'回到字游小岛',exact:true}).click();await openStroke(actor,4);
+    await page.getByRole('button',{name:'看笔顺',exact:true}).click();
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','demo');
+    const beforeReset=await page.evaluate(()=>window.__profileSyncMedia.storage.length);
+    await actor.getByRole('button',{name:'重新描写',exact:true}).click();await trustedStroke(page,profiles[0].id,0,name,beforeReset);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 1 / 4 笔');
+    await expect(page.getByRole('button',{name:'停止示范',exact:true})).toHaveCount(0,{timeout:750});
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','preview');
+    await expect(page.getByRole('button',{name:'我的字写好啦',exact:true})).toHaveCount(0);
+    expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:0});
+  }finally{await input.close();}
+});
+
+test('a native same-child stroke metadata update preserves a paused half-stroke, feedback and demonstration',async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage:3,strokeIndex:0},sound:false});
+  await openParents(actor);await openStroke(page,0);
+  const input=await strokeInput(page),half=halfStroke();
+  try{
+    await input.draw(half.first);
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','paused');
+    const path=await page.locator('.trace-grid path[stroke-linejoin="round"]').getAttribute('d');
+    const guide=await page.locator('.trace-guide').getAttribute('transform');
+    const hint=await page.locator('.stroke-practice .gentle-hint').innerText();
+    const name='同步描写半笔仍保留';await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
+    await expect(page.locator('.profile-switch b')).toHaveText(name);await trustedStroke(page,profiles[0].id,0,name);
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','paused');
+    await expect(page.locator('.trace-guide')).toHaveAttribute('transform',guide!);
+    await expect(page.locator('.trace-grid path[stroke-linejoin="round"]')).toHaveAttribute('d',path!);
+    await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText(hint);
+    await input.draw(half.rest);
+    await expect(page.locator('.stroke-toolbar>span')).toHaveText('第 2 / 4 笔');
+    await expect(page.locator('.stroke-practice .gentle-hint')).toHaveText('这一笔画好啦！');
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','preview');
+    await expect(page.locator('.trace-start')).toHaveAttribute('cx',String(strokes.medians[1][0][0]));
+    expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:3,strokeIndex:1});
+    await trustedStroke(actor,profiles[0].id,1,name);
+    await page.getByRole('button',{name:'看笔顺',exact:true}).click();
+    await expect(page.getByRole('button',{name:'停止示范',exact:true})).toBeVisible();
+    const demoName='同步描写示范仍保留';await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(demoName);
+    await expect(page.locator('.profile-switch b')).toHaveText(demoName);await trustedStroke(page,profiles[0].id,1,demoName);
+    await expect(page.getByRole('button',{name:'停止示范',exact:true})).toBeVisible();
+    await expect(page.locator('.trace-guide')).toHaveAttribute('data-guide-state','demo');await visible(page,actor);
+  }finally{await input.close();}
 });

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Play, RotateCcw, Volume2 } from 'lucide-react';
 import type { StrokeData } from '../types';
 import { canContinueTrace, checkTrace, pointAlongStroke, strokeProgress, type Point } from '../trace';
@@ -6,7 +6,7 @@ import '../stroke-practice.css';
 
 const cache = new Map<string, StrokeData>();
 const linePath = (m: number[][]) => m.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ');
-type PracticeProps = { char: string; savedIndex: number; onStroke: (index: number) => void; onComplete: () => void; onSpeak: (text: string) => void };
+type PracticeProps = { char: string; savedIndex: number; onStroke: (index: number) => void; onComplete: () => void; onIncomplete?: () => void; onSpeak: (text: string) => void };
 function StrokeGuide({ median, follow, demo, active }: { median: Point[]; follow: Point | null; demo: boolean; active: boolean }) {
   const guide = useRef<SVGGElement>(null);
   const glyph = useRef<SVGGElement>(null);
@@ -58,10 +58,12 @@ function StrokeGuide({ median, follow, demo, active }: { median: Point[]; follow
 export default function StrokePractice(props: PracticeProps) {
   return <StrokePracticeCanvas key={props.char} {...props}/>;
 }
-function StrokePracticeCanvas({ char, savedIndex, onStroke, onComplete, onSpeak }: PracticeProps) {
+function StrokePracticeCanvas({ char, savedIndex, onStroke, onComplete, onIncomplete, onSpeak }: PracticeProps) {
   const [data, setData] = useState<StrokeData | null>(cache.get(char) ?? null);
   const [error, setError] = useState('');
   const [index, setIndex] = useState(savedIndex);
+  const [lastSavedIndex, setLastSavedIndex] = useState(savedIndex);
+  const [syncRevision, setSyncRevision] = useState(0);
   const [demo, setDemo] = useState(false);
   const [demoIndex, setDemoIndex] = useState(-1);
   const [hint, setHint] = useState('跟着小星星，画好这一笔。');
@@ -71,8 +73,18 @@ function StrokePracticeCanvas({ char, savedIndex, onStroke, onComplete, onSpeak 
   const activePointer = useRef<number | null>(null);
   const svg = useRef<SVGSVGElement>(null);
   const completeCallback = useRef(onComplete);
+  const incompleteCallback = useRef(onIncomplete);
   const completionNotified = useRef(false);
   completeCallback.current = onComplete;
+  incompleteCallback.current = onIncomplete;
+  useLayoutEffect(() => {
+    if (!syncRevision) return;
+    // Finish adopting peer progress before another pointer event can score an
+    // old fragment. Releasing capture can dispatch lostpointercapture itself.
+    const pointer = activePointer.current;
+    activePointer.current = null; path.current = [];
+    if (pointer !== null && svg.current?.hasPointerCapture(pointer)) svg.current.releasePointerCapture(pointer);
+  }, [syncRevision]);
   useEffect(() => {
     const controller = new AbortController();
     if (cache.has(char)) { setData(cache.get(char)!); return; }
@@ -84,12 +96,14 @@ function StrokePracticeCanvas({ char, savedIndex, onStroke, onComplete, onSpeak 
     }).catch(e => { if (e.name !== 'AbortError') setError('这个字的笔顺暂时没有加载成功，请重试。'); });
     return () => controller.abort();
   }, [char]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const done = !!data && index >= data.strokes.length;
-    if (done && !completionNotified.current) completeCallback.current();
+    if (done === completionNotified.current) return;
     completionNotified.current = done;
+    if (done) completeCallback.current();
+    else incompleteCallback.current?.();
   }, [data, index]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!demo || !data) return;
     setDemoIndex(0);
     const timer = window.setInterval(() => setDemoIndex(i => { if (i >= data.strokes.length - 1) { setDemo(false); return -1; } return i + 1; }), 950);
@@ -129,16 +143,26 @@ function StrokePracticeCanvas({ char, savedIndex, onStroke, onComplete, onSpeak 
     const p = point(e); if (!p) { clearGesture(); return; }
     if (Math.hypot(p[0] - path.current.at(-1)![0], p[1] - path.current.at(-1)![1]) > 8) { path.current.push(p); setDrawing([...path.current]); }
   };
+  const completedHint = '每一笔都走完啦！';
   const finish = (e: React.PointerEvent<SVGSVGElement>) => {
     if (activePointer.current !== e.pointerId || !data) return;
     const p = point(e); if (!p) { clearGesture(); return; }
     activePointer.current = null; setTracing(false); path.current.push(p);
     if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
     const result = checkTrace(path.current, data.medians[index] as Point[]);
-    if(result.correct){path.current=[];setDrawing([]);setHint(result.message);const next=index+1;setIndex(next);onStroke(next);if(next===data.strokes.length){setHint('每一笔都走完啦！');}}
+    if(result.correct){path.current=[];setDrawing([]);setHint(result.message);const next=index+1;setIndex(next);onStroke(next);if(next===data.strokes.length){setHint(completedHint);}}
     else if(canContinueTrace(path.current,data.medians[index] as Point[])){setDrawing([...path.current]);setHint('画得很认真，可以从刚才停下的地方继续。');}
     else{path.current=[];setDrawing([]);setHint(result.message);onSpeak(result.message);}
   };
+  if (savedIndex !== lastSavedIndex) {
+    setLastSavedIndex(savedIndex);
+    // Matching local save echoes preserve the current stroke and its feedback.
+    if (savedIndex !== index) {
+      setIndex(savedIndex); setDrawing([]); setTracing(false);
+      setDemo(false); setDemoIndex(-1); setSyncRevision(syncRevision + 1);
+      setHint(data && savedIndex >= data.strokes.length ? completedHint : '跟着小星星，画好这一笔。');
+    }
+  }
   if (error) return <div className="empty-note">{error}<button onClick={() => window.location.reload()}>重新载入</button></div>;
   if (!data) return <div className="loading">正在准备这个字的笔顺…</div>;
   const current = data.medians[Math.min(index, data.strokes.length - 1)];
