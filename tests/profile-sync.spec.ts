@@ -27,7 +27,7 @@ async function boot(context:BrowserContext,page:Page,kind:'hanzi'|'poems',fixtur
   const profiles=['同步儿童甲','同步儿童乙'].map(name=>{
     const profile=createProfile(name);profile.settings.sound=fixture.sound??true;profile.settings.music=false;return profile;
   });
-  if(kind==='hanzi')profiles[0].hanzi[word.id]={...initialProgress(),stage:4};
+  if(kind==='hanzi')profiles[0].hanzi[word.id]={...initialProgress(),stage:4,...fixture.progress};
   else profiles[0].poems[lessonPoem.id]={...initialProgress(),stage:0,...fixture.progress};
   profiles[0].lastActivity={kind,id:kind==='hanzi'?word.id:lessonPoem.id};
   const data:SaveData={version:1,activeId:profiles[0].id,profiles,savedAt:Date.now()};
@@ -72,6 +72,9 @@ async function saved(page:Page):Promise<SaveData>{return page.evaluate(key=>JSON
 async function snapshot(page:Page){
   return page.evaluate(key=>({visibility:document.visibilityState,child:document.querySelector('.profile-switch b')?.textContent,
     lesson:document.querySelector('.lesson-content')?.className??null,data:JSON.parse(localStorage.getItem(key)!),
+    quiz:{round:document.querySelector('.quiz-heading .mini-label')?.textContent??null,prompt:document.querySelector('.quiz-heading h2')?.textContent??null,
+      options:[...document.querySelectorAll('.answer-card')].map(card=>({text:card.textContent,correct:card.classList.contains('correct')})),
+      feedback:document.querySelector('.quiz-feedback')?.textContent??null,next:document.querySelector('.quiz > .primary-button')?.textContent??null},
     recitation:{group:document.querySelector('.line-order > p')?.textContent??null,selected:[...document.querySelectorAll('.ordered-line')].map(line=>line.textContent),
       question:document.querySelector('.recitation-cloze .quiz-heading h2')?.textContent??null,round:document.querySelector('.recitation-cloze .quiz-heading .mini-label')?.textContent??null,
       hint:document.querySelector('.hidden-poem')?.className??null,lines:[...document.querySelectorAll('.hidden-poem p')].map(line=>line.textContent),
@@ -119,8 +122,8 @@ async function openLongPoem(page:Page){
   await page.getByRole('button',{name:`继续《${longPoem.title}》`,exact:true}).click();
   await expect(page.locator('.poem-stage-4')).toBeVisible();
 }
-async function metadataMarker(actor:Page,page:Page,name:string){
-  await actor.getByRole('button',{name:'关闭诗词学习，保存进度',exact:true}).click();
+async function metadataMarker(actor:Page,page:Page,name:string,kind:'hanzi'|'poems'='poems'){
+  await actor.getByRole('button',{name:kind==='hanzi'?'关闭学习，保存进度':'关闭诗词学习，保存进度',exact:true}).click();
   await openParents(actor);
   await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
   // A rendered nickname proves the App accepted the peer save, independently
@@ -144,6 +147,22 @@ async function answerCloze(page:Page,line:string,advance=true){
   await expect(page.locator('.recitation-cloze .quiz-feedback')).toContainText(`找对啦！${line}`);
   await expect(page.getByRole('button',{name:'下一小题',exact:true})).toBeVisible();
   if(advance)await page.getByRole('button',{name:'下一小题',exact:true}).click();
+}
+async function openHanziQuiz(page:Page,stage:2|5){
+  await page.getByRole('button',{name:'继续我的冒险',exact:true}).click();
+  await expect(page.locator(`.lesson-stage-${stage}`)).toBeVisible();
+  await expect(page.locator('.quiz-heading .mini-label')).toHaveText('小挑战 1 / 2');
+}
+async function trustedHanziRound(page:Page,id:string,stage:number,round:number,name:string){
+  await page.waitForFunction(({id,wordId,stage,round,name})=>window.__profileSyncMedia.storage.some(event=>{
+    const profile=event.data.profiles.find(profile=>profile.id===id),progress=profile?.hanzi[wordId];
+    return event.trusted&&profile?.name===name&&progress?.stage===stage&&progress.quizRound===round;
+  }),{id,wordId:word.id,stage,round,name});
+}
+async function correctHanziAnswer(page:Page,answer:string){
+  await page.locator('.answer-grid').getByRole('button',{name:answer,exact:true}).click();
+  await expect(page.locator('.answer-card.correct')).toHaveText(answer);
+  await expect(page.locator('.quiz-feedback')).toContainText('找对啦！');
 }
 
 test.afterEach(async({context},info)=>{
@@ -279,4 +298,61 @@ test('a native same-child metadata update preserves recitation hints, page and p
   await expect(page.getByRole('button',{name:'家长已确认背诵练习',exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'记忆小桥走完啦',exact:true})).toBeVisible();
   expect((await saved(page)).profiles[0].poems[longPoem.id]).toMatchObject({stage:4,recitation:checkpoint});
+});
+
+for(const stage of [2,5] as const)test(`a native same-child Hanzi quiz stage ${stage} update adopts the peer question and clears old feedback`,async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage,quizRound:0},sound:false});
+  await openHanziQuiz(page,stage);await openHanziQuiz(actor,stage);
+  await correctHanziAnswer(page,word.char);
+  await expect(page.getByRole('button',{name:'下一小题',exact:true})).toBeVisible();
+  await correctHanziAnswer(actor,word.char);
+  await actor.getByRole('button',{name:'下一小题',exact:true}).click();
+  expect((await saved(actor)).profiles[0].hanzi[word.id]).toMatchObject({stage,quizRound:1});
+  const name=`同步汉字第${stage}关已更新`;await metadataMarker(actor,page,name,'hanzi');
+  await trustedHanziRound(page,profiles[0].id,stage,1,name);
+  await expect(page.locator('.quiz-heading .mini-label')).toHaveText('小挑战 2 / 2');
+  await expect(page.locator('.quiz-heading h2')).toHaveText(stage===2?`“${word.char}”是什么意思？`:`哪个词里有“${word.char}”？`);
+  await expect(page.locator('.quiz-feedback')).toHaveText('不用着急，想好了再点。');
+  await expect(page.locator('.answer-card.correct')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'下一小题',exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'挑战完成',exact:true})).toHaveCount(0);
+  await correctHanziAnswer(page,stage===2?word.meaning:word.words[0]);
+  await page.getByRole('button',{name:'挑战完成',exact:true}).click();
+  await expect(page.locator(`.lesson-stage-${stage===2?3:6}`)).toBeVisible();
+  const data=await saved(page);expect(data.profiles[0].name).toBe(name);
+  expect(data.profiles[0].hanzi[word.id]).toMatchObject({stage:stage===2?3:6,completed:stage===5});
+  expect(data.profiles[0].stars).toBe(stage===5?3:0);
+  await trustedHanziRound(actor,profiles[0].id,stage===2?3:6,stage===2?0:1,name);await visible(page,actor);
+});
+
+test('a native same-child Hanzi quiz metadata update preserves the current answer, feedback and option order',async({context,page})=>{
+  const {actor,profiles}=await boot(context,page,'hanzi',{progress:{stage:2,quizRound:0},sound:false});
+  await openParents(actor);await openHanziQuiz(page,2);
+  await correctHanziAnswer(page,word.char);
+  const options=await page.locator('.answer-card').allTextContents();
+  const feedback=await page.locator('.quiz-feedback').innerText();
+  const name='同步汉字答案仍保留';await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(name);
+  await expect(page.locator('.profile-switch b')).toHaveText(name);
+  await trustedHanziRound(page,profiles[0].id,2,0,name);await visible(page,actor);
+  await expect(page.locator('.quiz-heading .mini-label')).toHaveText('小挑战 1 / 2');
+  await expect(page.locator('.answer-card')).toHaveText(options);
+  await expect(page.locator('.answer-card.correct')).toHaveText(word.char);
+  await expect(page.locator('.quiz-feedback')).toHaveText(feedback);
+  await page.getByRole('button',{name:'下一小题',exact:true}).click();
+  // A local advance must retain its newly selected question when its own
+  // checkpoint returns through App props, and save exactly the next round.
+  await expect(page.locator('.quiz-heading .mini-label')).toHaveText('小挑战 2 / 2');
+  await expect(page.locator('.quiz-heading h2')).toHaveText(`“${word.char}”是什么意思？`);
+  expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:2,quizRound:1});
+  await correctHanziAnswer(page,word.meaning);
+  const secondOptions=await page.locator('.answer-card').allTextContents();
+  const secondFeedback=await page.locator('.quiz-feedback').innerText();
+  const secondName='同步汉字第二题仍保留';await actor.getByRole('textbox',{name:'当前儿童昵称',exact:true}).fill(secondName);
+  await expect(page.locator('.profile-switch b')).toHaveText(secondName);
+  await trustedHanziRound(page,profiles[0].id,2,1,secondName);await visible(page,actor);
+  await expect(page.locator('.answer-card')).toHaveText(secondOptions);
+  await expect(page.locator('.answer-card.correct')).toHaveText(word.meaning);
+  await expect(page.locator('.quiz-feedback')).toHaveText(secondFeedback);
+  await expect(page.getByRole('button',{name:'挑战完成',exact:true})).toBeVisible();
+  expect((await saved(page)).profiles[0].hanzi[word.id]).toMatchObject({stage:2,quizRound:1});
 });

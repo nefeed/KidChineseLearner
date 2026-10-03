@@ -7,13 +7,23 @@ export function shuffledQuestion(question: Question): Question {
   return { ...question, options: indexed.map(x => x.v), answer: indexed.findIndex(x => x.i === question.answer) };
 }
 export default function Quiz({ questions, onComplete, onMistake, onSpeak, savedRound = 0, onCheckpoint }: { questions: Question[]; onComplete: () => void; onMistake: () => void; onSpeak: (text: string) => void; savedRound?: number; onCheckpoint?: (round:number)=>void }) {
-  const [round, setRound] = useState(() => Math.min(Math.max(0, savedRound), questions.length - 1));
+  const incomingRound = Math.min(Math.max(0, savedRound), questions.length - 1);
+  const [round, setRound] = useState(incomingRound);
+  const [lastSavedRound, setLastSavedRound] = useState(incomingRound);
   const [selected, setSelected] = useState<number | null>(null);
   const [correct, setCorrect] = useState(false);
   const [feedback, setFeedback] = useState('');
-  const [q, setQ] = useState(() => shuffledQuestion(questions[Math.min(Math.max(0, savedRound), questions.length - 1)]));
+  const [q, setQ] = useState(() => shuffledQuestion(questions[incomingRound]));
   const speakRef = useRef(onSpeak); speakRef.current = onSpeak;
   useEffect(() => { if(q.audio)speakRef.current(q.audio); }, [q]);
+  if (incomingRound !== lastSavedRound) {
+    setLastSavedRound(incomingRound);
+    // Local advances already changed the question; only differing peer progress resets its answer.
+    if (incomingRound !== round) {
+      setRound(incomingRound); setQ(shuffledQuestion(questions[incomingRound]));
+      setSelected(null); setCorrect(false); setFeedback('');
+    }
+  }
   function answer(i: number) {
     if (correct) return;
     setSelected(i);
