@@ -541,6 +541,99 @@ for(const viewport of viewports){
       await page.getByRole('button',{name:/小岛邀请函/}).click();await fits(page,info,'mature-zoo-earned-all');
     });
 
+    test('zoo native map hover and building placement remain operable',async({page},info)=>{
+      type MapSample={time:number;name:string;hover:boolean;parentFilter:string;svgFilter:string;svgTransform:string};
+      type MapEvent=MapSample&{type:string;trusted:boolean;propertyName:string|null;key:string|null;target:string};
+      type Evidence={events:MapEvent[];frames:{label:string;time:number;items:MapSample[]}[]};
+      await page.addInitScript(()=>{
+        const evidence:Evidence={events:[],frames:[]};
+        (window as unknown as {__zooMapEvidence:Evidence}).__zooMapEvidence=evidence;
+        for(const type of ['pointerover','pointerout','pointerdown','pointerup','click','keydown','transitionrun','transitionstart','transitionend','transitioncancel']){
+          document.addEventListener(type,event=>{
+            const target=event.target instanceof Element?event.target:null,button=target?.closest<HTMLButtonElement>('.zoo-map-item');
+            if(!button)return;
+            const svg=button.querySelector('svg')!,style=getComputedStyle(svg);
+            evidence.events.push({time:performance.now(),type,trusted:event.isTrusted,name:button.getAttribute('aria-label')!,hover:button.matches(':hover'),
+              parentFilter:getComputedStyle(button).filter,svgFilter:style.filter,svgTransform:style.transform,
+              propertyName:event instanceof TransitionEvent?event.propertyName:null,key:event instanceof KeyboardEvent?event.key:null,target:target!.tagName});
+          },{capture:true,passive:true});
+        }
+      });
+      const sample=async(label:string)=>page.evaluate(async label=>{
+        const evidence=(window as unknown as {__zooMapEvidence:Evidence}).__zooMapEvidence,start=performance.now();
+        // Observe real compositor frames through the former 200ms filter
+        // transition. These styles are diagnostics, not acceptance criteria.
+        do{
+          await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));
+          evidence.frames.push({label,time:performance.now(),items:[...document.querySelectorAll<HTMLButtonElement>('.zoo-map-item')].map(button=>{
+            const svg=getComputedStyle(button.querySelector('svg')!);
+            return{time:performance.now(),name:button.getAttribute('aria-label')!,hover:button.matches(':hover'),parentFilter:getComputedStyle(button).filter,
+              svgFilter:svg.filter,svgTransform:svg.transform};
+          })});
+        }while(performance.now()-start<240);
+      },label);
+      const savedZoo=()=>page.evaluate(key=>{
+        const data=JSON.parse(localStorage.getItem(key)!) as SaveData;
+        return data.profiles.find(profile=>profile.id===data.activeId)!.zoo;
+      },STORAGE_KEY);
+      try{
+        await boot(page,{matureZoo:true});await page.getByRole('button',{name:'我的动物园',exact:true}).click();
+        await page.getByRole('button',{name:'进入鸟儿乐园',exact:true}).click();
+        await page.getByRole('button',{name:'园区场地下一页',exact:true}).click();await fits(page,info,'native-map-before-hover');
+        const story=page.getByRole('button',{name:'选择故事小屋',exact:true}),bench=page.getByRole('button',{name:'选择休息长椅',exact:true});
+        const before=await savedZoo();
+        await expect(story).toHaveCount(1);
+        for(let cycle=0;cycle<2;cycle++){
+          await story.hover();await expect(story).toBeVisible();await sample(`story-hover-${cycle+1}`);
+          await bench.hover();await expect(bench).toBeVisible();await sample(`story-leave-${cycle+1}`);
+        }
+        expect(await savedZoo()).toEqual(before);
+        await story.click();await expect(page.locator('.zoo-building-details h2')).toHaveText('故事小屋');
+        await expect(story).toHaveClass(/is-selected/);await sample('story-selected');await fits(page,info,'native-map-building-selected');
+        await page.getByRole('button',{name:'安排位置',exact:true}).click();await sample('arrange-position-leaves-map');
+        await expect(page.locator('.zoo-board')).toHaveClass(/zoo-board--moving/);await expect(story).toHaveClass(/is-selected/);
+        await fits(page,info,'native-map-building-moving');
+        await story.focus();await expect(story).toBeFocused();await page.keyboard.press('ArrowLeft');
+        await page.waitForFunction(({key,before})=>{
+          const data=JSON.parse(localStorage.getItem(key)!) as SaveData;
+          return Object.entries(data.profiles.find(profile=>profile.id===data.activeId)!.zoo.buildings)
+            .some(([id,item])=>item.x<before[id].x);
+        },{key:STORAGE_KEY,before:before.buildings});
+        await page.keyboard.press('ArrowDown');
+        await page.waitForFunction(({key,before})=>{
+          const data=JSON.parse(localStorage.getItem(key)!) as SaveData;
+          return Object.entries(data.profiles.find(profile=>profile.id===data.activeId)!.zoo.buildings)
+            .some(([id,item])=>item.x<before[id].x&&item.y>before[id].y);
+        },{key:STORAGE_KEY,before:before.buildings});
+        const moved=await savedZoo();expect(moved.animals).toEqual(before.animals);expect(moved.claimed).toEqual(before.claimed);
+        // Derive the selected invitation from what the native keys actually
+        // saved; mature archives can contain several buildings of one species.
+        const changedKeys=Object.keys(moved.buildings).filter(key=>moved.buildings[key].x!==before.buildings[key].x||moved.buildings[key].y!==before.buildings[key].y);
+        expect(changedKeys).toHaveLength(1);const libraryKey=changedKeys[0],oldPosition=before.buildings[libraryKey];
+        expect(moved.buildings[libraryKey]).toEqual({...oldPosition,id:'library',x:oldPosition.x-5,y:oldPosition.y+5});
+        expect(Object.fromEntries(Object.entries(moved.buildings).filter(([key])=>key!==libraryKey)))
+          .toEqual(Object.fromEntries(Object.entries(before.buildings).filter(([key])=>key!==libraryKey)));
+        await expect(story).toHaveClass(/is-selected/);await fits(page,info,'native-map-keyboard-position-saved');
+        await page.getByRole('button',{name:'摆放完成',exact:true}).click();
+        await expect(page.locator('.zoo-board')).not.toHaveClass(/zoo-board--moving/);await expect(page.locator('.zoo-feedback')).toContainText('位置已经保存');
+        await page.getByRole('button',{name:'安排位置',exact:true}).click();await expect(page.locator('.zoo-board')).toHaveClass(/zoo-board--moving/);
+        // Returning to the region chooser exits placement mode; it does not
+        // roll back the positions already saved by native keyboard movement.
+        await page.getByRole('button',{name:'返回园区',exact:true}).click();await fits(page,info,'native-map-return-regions');
+        await page.getByRole('button',{name:'进入鸟儿乐园',exact:true}).click();await page.getByRole('button',{name:'园区场地下一页',exact:true}).click();
+        await expect(page.locator('.zoo-board')).not.toHaveClass(/zoo-board--moving/);await story.click();
+        await expect(page.locator('.zoo-building-details h2')).toHaveText('故事小屋');await expect(story).toHaveClass(/is-selected/);
+        expect(await savedZoo()).toEqual(moved);await fits(page,info,'native-map-reentered-persisted-building');
+        const evidence=await page.evaluate(()=>(window as unknown as {__zooMapEvidence:Evidence}).__zooMapEvidence);
+        for(const type of ['pointerover','pointerout','click'])expect(evidence.events.some(event=>event.name==='选择故事小屋'&&event.type===type&&event.trusted),`Native story ${type}`).toBe(true);
+        for(const key of ['ArrowLeft','ArrowDown'])expect(evidence.events.some(event=>event.name==='选择故事小屋'&&event.type==='keydown'&&event.key===key&&event.trusted),`Native story ${key}`).toBe(true);
+        await info.attach('zoo-map-saved-positions',{body:JSON.stringify({engine,before,moved,reentered:await savedZoo()},null,2),contentType:'application/json'});
+      }finally{
+        try{await info.attach('zoo-map-native-hover-evidence',{body:JSON.stringify({engine,...await page.evaluate(()=>(window as unknown as {__zooMapEvidence:Evidence}).__zooMapEvidence)},null,2),contentType:'application/json'});}
+        catch(error){await info.attach('zoo-map-native-hover-diagnostic-error',{body:String(error),contentType:'text/plain'});}
+      }
+    });
+
     for(const [char,game]of games)test(`WordPlay ${game} ${char}`,async({page},info)=>{
       await openWord(page,char);await expect(page.locator('.semantic-play')).toBeVisible();await fits(page,info,`wordplay-${game}`);
       await completeGame(page,char,info);await fits(page,info,`wordplay-${game}-complete`);
