@@ -122,6 +122,43 @@ const aac=Buffer.concat([
   atom('ftyp'),atom('mdat',Buffer.concat([Buffer.from('mp4a'),Buffer.alloc(24)])),atom('moov',atom('mvhd',mvhd)),
 ]);
 
+test('Qwen release requires the current local voice, style, reading configuration and complete natural stops',() => {
+  const script=fileURLToPath(new URL('../scripts/build-qwen3-audio.py',import.meta.url));
+  const source=`import importlib.util, json, sys
+spec=importlib.util.spec_from_file_location('qwen_release_fixture',sys.argv[1])
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+print(json.dumps({'signature':m.renderer_configuration(),'overrides':m.READING_OVERRIDE_CONFIG,'sha':m.READING_OVERRIDE_SHA256}))`;
+  const result=spawnSync('python3',['-B','-c',source,script],{encoding:'utf8',timeout:30000});
+  assert.equal(result.status,0,result.stderr);
+  const configuration=JSON.parse(result.stdout);
+  const signature=JSON.stringify({...configuration.signature,configSHA256:'a'.repeat(64)});
+  const base={...structuredClone(healthy),renderer:'qwen3-mlx-local',filePrefix:'qwen3-',
+    rendererSignature:signature,model:configuration.signature.model,modelRevision:configuration.signature.revision,
+    modelSHA256:configuration.signature.modelSHA256,voice:'Vivian',rate:1,
+    pronunciationOverrides:configuration.overrides,pronunciationOverridesSHA256:configuration.sha,
+    pronunciationCacheCorrection:{complete:true,overrideSHA256:configuration.sha},
+    generationValidation:{naturalStops:2,sha256Verified:2}};
+  for (const fault of ['none','style','voice','reading','natural-stop','old-audio']) {
+    const directory=mkdtempSync(join(tmpdir(),'kidchinese-qwen-release-'));
+    try {
+      const manifest=structuredClone(base),modified=JSON.parse(signature);
+      if(fault==='style')modified.style='stale style';
+      if(fault==='reading')modified.readingOverrideSHA256='0'.repeat(64);
+      if(fault==='voice')manifest.voice='Serena';
+      if(fault==='natural-stop')manifest.generationValidation.naturalStops=1;
+      manifest.rendererSignature=JSON.stringify(modified);
+      manifest.files=Object.fromEntries(entries.map(entry => {
+        const name=`qwen3-${hash(manifest.rendererSignature+'\0'+entry.spoken).slice(0,20)}.m4a`;
+        writeFileSync(join(directory,name),aac);return [entry.text,'/audio/'+name];
+      }));
+      if(fault==='old-audio')writeFileSync(join(directory,'kokoro-old.m4a'),aac);
+      writeFileSync(join(directory,'manifest.json'),JSON.stringify(manifest));
+      const {failed,report}=auditAudio({directory,entries,complete:true});
+      assert.equal(failed,fault!=='none',JSON.stringify({fault,report}));
+    } finally { rmSync(directory,{recursive:true,force:true}); }
+  }
+});
+
 function changeSignature(manifest: ReleaseManifest,directory: string,signature?: string) {
   for (const entry of entries) {
     const original=manifest.files[entry.text].slice('/audio/'.length);

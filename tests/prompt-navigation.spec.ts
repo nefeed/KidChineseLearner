@@ -75,9 +75,8 @@ test('领取后的提示写实际视图和按钮名称，按提示可摆放并�
   await boot(page, save(10));
   await page.getByRole('button', { name: '看看奖励', exact: true }).click();
   await page.getByRole('button', { name: '邀请入园', exact: true }).click();
-  await expect(page.locator('.zoo-feedback')).toContainText('点“照顾朋友”，再点“布置动物园”');
+  await expect(page.locator('.zoo-feedback')).toContainText('熊猫竹林啦！点“布置动物园”');
   await expect(page.locator('.zoo-feedback')).not.toContainText('点移动');
-  await page.getByRole('button', { name: '照顾朋友', exact: true }).click();
   await page.getByRole('button', { name: '布置动物园', exact: true }).click();
   const before = (await active(page)).zoo.animals['hanzi-10'];
   const board = page.locator('.zoo-board'), rect = await board.boundingBox();
@@ -189,6 +188,7 @@ test('自定义名字保留在反馈中，喂食、改名和重听都使用有�
   data.profiles[0].settings.sound = true;
   await boot(page, data);
   await page.getByRole('button', { name: '我的动物园', exact: true }).click();
+  await page.getByRole('button', { name: '进入小动物乐园', exact: true }).click();
   const feedback = page.locator('.zoo-feedback'), species = ANIMALS.find(animal => animal.id === 'rabbit')!;
   const lastSpoken = () => page.evaluate(() => (window as Window & { __zooSpoken: string[] }).__zooSpoken.at(-1));
   const speechCount = () => page.evaluate(() => (window as Window & { __zooSpoken: string[] }).__zooSpoken.length);

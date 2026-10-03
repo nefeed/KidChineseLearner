@@ -1,0 +1,615 @@
+{
+  "checkedAt": "2026-10-03T00:30:46.445941+00:00",
+  "release": "six-zoo-regions-local-qwen3-vivian",
+  "integratedBase": "e3ec2f92b04537de262c69dcee1f6fc154638dc8",
+  "audio": {
+    "checkedAt": "2026-10-03T00:27:29.039Z",
+    "voice": "Vivian",
+    "renderer": "qwen3-mlx-local",
+    "complete": true,
+    "planMatches": true,
+    "rendererMatches": true,
+    "mappingsMatch": true,
+    "countsMatch": true,
+    "requiredTexts": 23917,
+    "coveredTexts": 23917,
+    "missingRequired": 0,
+    "missingExamples": [],
+    "manifestMappings": 23917,
+    "unexpectedMappings": 0,
+    "unexpectedMappingExamples": [],
+    "requiredAACFiles": 22865,
+    "validAACFiles": 22865,
+    "invalidAACFiles": [],
+    "unexpectedFiles": 0,
+    "unexpectedFileExamples": [],
+    "totalRecordedSeconds": 99180,
+    "brokenMappings": 0,
+    "currentOverrideSHA256": "e4279e26110245f29a4bebe4813de056ca814d38bd173e21db1be9de7bfd969a",
+    "manifestOverrideSHA256": "e4279e26110245f29a4bebe4813de056ca814d38bd173e21db1be9de7bfd969a",
+    "manifestOverrideConfigSHA256": "e4279e26110245f29a4bebe4813de056ca814d38bd173e21db1be9de7bfd969a",
+    "overrideMatches": true,
+    "signatureErrors": [],
+    "boundary": "Checks current renderer and reading configuration, text hashes, exact release directory, mappings, AAC containers and positive durations. It does not prove pronunciation by listening."
+  },
+  "generationReceipts": {
+    "checkedAt": "2026-10-03T00:27:24.438517+00:00",
+    "manifestSHA256": "015a0ab22b08a9522cef1892811224595096a2fb3337278ee272f7725f0e868b",
+    "ledgerSHA256": "c981e66c0be3e8c21f8d6721088de1d335ea956c197c6d8ed0427bdd4ab4a9d7",
+    "receipts": 22865,
+    "naturalStops": 22865,
+    "sha256Verified": 22865,
+    "attemptDistribution": {
+      "0": 22620,
+      "1": 228,
+      "2": 15,
+      "3": 2
+    },
+    "maximumRawDuration": 92.757,
+    "planSHA256": "ecad85b6cf646b2af999c1d50633fa7a89ce13a41999d637a9b0f5a453cdf3cc",
+    "rendererConfiguration": {
+      "bitrate": 48000,
+      "configSHA256": "25ec849dd2502e11f66accb903e9c069e49724925f4755c52deaa5134b44d5a9",
+      "mlx": "0.32.3",
+      "mlxAudio": "0.5.7",
+      "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-6bit",
+      "modelSHA256": "097b66a8c63570b88abc2fb393d1dc2360394ca7741c818455ba9da257ac2f3b",
+      "processing": "complete-native-waveform-peak0.95-pad180ms-no-time-stretch-v1",
+      "qualityGate": {
+        "maxExtraSeconds": 3,
+        "maxFloorSeconds": 4,
+        "maxSecondsPerSyllable": 0.6,
+        "minSeconds": 0.22,
+        "minSecondsPerSyllable": 0.1,
+        "requireNaturalStop": true
+      },
+      "readingOverrideSHA256": "e4279e26110245f29a4bebe4813de056ca814d38bd173e21db1be9de7bfd969a",
+      "renderer": "qwen3-mlx-local-v1",
+      "revision": "1c6c0ff58c43afa8df571facde2efa077efd85e2",
+      "sampleRate": 24000,
+      "sampling": {
+        "repetition_penalty": 1.05,
+        "temperature": 0.9,
+        "top_k": 50,
+        "top_p": 1.0
+      },
+      "seedPolicy": "first-file-sha256-plus-attempt-v1",
+      "speed": 1,
+      "style": "用活泼灵动、温柔亲切的年轻女生声音，带着微笑陪小朋友学习。普通话咬字清晰，语速适中，停顿自然，句尾轻柔地收住。",
+      "tokenizerSHA256": "836b7b357f5ea43e889936a3709af68dfe3751881acefe4ecf0dbd30ba571258",
+      "voice": "Vivian"
+    },
+    "boundary": "Independent receipt, token limit and SHA verification, not human listening review."
+  },
+  "checks": {
+    "nodePassed": 109,
+    "legacyPythonPassed": 10,
+    "qwenPythonPassed": 6,
+    "typeScript": true,
+    "contentAudit": true,
+    "productionBuild": true
+  },
+  "browserRuns": [
+    {
+      "name": "media",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/narration-browser.spec.ts",
+        "tests/zoo-narration.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-media"
+      ],
+      "environment": {},
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:18:51.213Z",
+        "duration": 127204.22899999999,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "regions",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/zoo-regions.spec.ts",
+        "tests/zoo.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-regions"
+      ],
+      "environment": {},
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:20:58.914Z",
+        "duration": 22144.16,
+        "expected": 15,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "touch",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/ipad-touch.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-touch"
+      ],
+      "environment": {},
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:21:21.553Z",
+        "duration": 62840.484,
+        "expected": 30,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "app-chromium",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/backup-recovery.spec.ts",
+        "tests/profile-sync.spec.ts",
+        "tests/prompt-navigation.spec.ts",
+        "tests/lesson-prompts.spec.ts",
+        "tests/pwa.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-app-chromium"
+      ],
+      "environment": {
+        "BACKUP_TEST_ENGINE": "chromium",
+        "PROFILE_SYNC_TEST_ENGINE": "chromium",
+        "PROMPT_TEST_ENGINE": "chromium",
+        "LESSON_PROMPT_ENGINE": "chromium",
+        "PWA_TEST_ENGINE": "chromium"
+      },
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:22:24.980Z",
+        "duration": 33240.783,
+        "expected": 43,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "layout-chromium",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/ipad-layout.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-layout-chromium"
+      ],
+      "environment": {
+        "IPAD_LAYOUT_ENGINE": "chromium"
+      },
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:22:58.724Z",
+        "duration": 162559.749,
+        "expected": 224,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "app-webkit",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/backup-recovery.spec.ts",
+        "tests/profile-sync.spec.ts",
+        "tests/prompt-navigation.spec.ts",
+        "tests/lesson-prompts.spec.ts",
+        "tests/pwa.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-app-webkit"
+      ],
+      "environment": {
+        "BACKUP_TEST_ENGINE": "webkit",
+        "PROFILE_SYNC_TEST_ENGINE": "webkit",
+        "PROMPT_TEST_ENGINE": "webkit",
+        "LESSON_PROMPT_ENGINE": "webkit",
+        "PWA_TEST_ENGINE": "webkit"
+      },
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:25:41.870Z",
+        "duration": 33365.711,
+        "expected": 42,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "layout-webkit",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/ipad-layout.spec.ts",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-layout-webkit"
+      ],
+      "environment": {
+        "IPAD_LAYOUT_ENGINE": "webkit"
+      },
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:26:15.889Z",
+        "duration": 176039.253,
+        "expected": 224,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "layout-safe",
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/ipad-layout.spec.ts",
+        "--grep",
+        "Safari usable landscape",
+        "--workers=1",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=output/qwen-browser-layout-safe"
+      ],
+      "environment": {
+        "IPAD_LAYOUT_ENGINE": "chromium",
+        "IPAD_LAYOUT_SAFE_INSETS": "20"
+      },
+      "origin": "http://127.0.0.1:5175",
+      "returncode": 0,
+      "stats": {
+        "startTime": "2026-10-03T00:29:12.631Z",
+        "duration": 40023.255000000005,
+        "expected": 55,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "src/components/Zoo.tsx": "1e0af237075fe86441c162e1a8037c266b17d0c02aeeeeb9d82a321dc45056ae",
+    "src/components/ZooScenery.tsx": "3d6a5b15b19875c372e4d1c172506982307e6532b0f6ee5104502ce64def5985",
+    "src/data/zoo-regions.ts": "e38b3b55e42a12ecac053f2b453c57a44ecd02f16866f072291dc7432e0e2cdb",
+    "src/zoo-layout.ts": "3eed22dd5d51f0d6f7b153a49c745d5794ea9f94c02db0b1bbe79200ef6ad2ef",
+    "src/zoo-narration.ts": "2da097666aa90c1bc82a99dee498a3e67961d5f747050d6b65883c4670746aa7",
+    "src/zoo.css": "eb1d264e18711ec75208792b6ecc699de9645ab925a397bfe43d1a8b83c90c77",
+    "src/narration-player.ts": "529b3bc397bb6eea1f7b07e5e93d63eb1dffcf18117ac42d648323ee36f0e23d",
+    "src/ipad-layout.css": "61843ecc7bf0219973050468e2e9c03672f5eb8bd50f8c6ee0dc4ca32012879e",
+    "scripts/build-qwen3-audio.py": "2e2379fbf1dbac02d6ace4e808e12ffbdd74a9e2d0c645773f2022ad35cd42e8",
+    "scripts/audit-audio.mjs": "8a7a274f73222c434bd13ec4bc96b8d14fd8cd9c0725ab58055b02a82b1e13c5",
+    "tests/zoo-regions.spec.ts": "e14852f6c76374b2842028d29f640a6dfaed29d61566dcf4c3978b0fe5cf77d3",
+    "tests/zoo-narration.spec.ts": "bbcc906013c8d014c90619a2ebc711865f9196916bb8af0aae6f976072782db5",
+    "tests/narration-browser.spec.ts": "bdb653a24ad614c73b8159bb8b1aeaffc40d8e1ece0506414d53beb3d2dea056",
+    "tests/ipad-layout.spec.ts": "7fd9461da35d23cce14ba1c9ee47ca753da828dee4fe46284ea83b361d4b9e35",
+    "tests/ipad-touch.spec.ts": "3f5144c923248605c4caee0450d819786641e4cb8ce0bb366b391200b9f39f9e"
+  },
+  "fullMatrixBaseline": {
+    "sourceSHA256": {
+      "src/components/Zoo.tsx": "a6cd645c077edbfb6dd4e82604625ec9cfb74e6715cdb3fd47cf36e07d818941",
+      "src/components/ZooScenery.tsx": "3d6a5b15b19875c372e4d1c172506982307e6532b0f6ee5104502ce64def5985",
+      "src/data/zoo-regions.ts": "e38b3b55e42a12ecac053f2b453c57a44ecd02f16866f072291dc7432e0e2cdb",
+      "src/zoo-layout.ts": "3eed22dd5d51f0d6f7b153a49c745d5794ea9f94c02db0b1bbe79200ef6ad2ef",
+      "src/zoo-narration.ts": "2da097666aa90c1bc82a99dee498a3e67961d5f747050d6b65883c4670746aa7",
+      "src/zoo.css": "eb1d264e18711ec75208792b6ecc699de9645ab925a397bfe43d1a8b83c90c77",
+      "src/narration-player.ts": "529b3bc397bb6eea1f7b07e5e93d63eb1dffcf18117ac42d648323ee36f0e23d",
+      "src/ipad-layout.css": "61843ecc7bf0219973050468e2e9c03672f5eb8bd50f8c6ee0dc4ca32012879e",
+      "scripts/build-qwen3-audio.py": "2e2379fbf1dbac02d6ace4e808e12ffbdd74a9e2d0c645773f2022ad35cd42e8",
+      "scripts/audit-audio.mjs": "8a7a274f73222c434bd13ec4bc96b8d14fd8cd9c0725ab58055b02a82b1e13c5",
+      "tests/zoo-regions.spec.ts": "e14852f6c76374b2842028d29f640a6dfaed29d61566dcf4c3978b0fe5cf77d3",
+      "tests/zoo-narration.spec.ts": "bbcc906013c8d014c90619a2ebc711865f9196916bb8af0aae6f976072782db5",
+      "tests/narration-browser.spec.ts": "bdb653a24ad614c73b8159bb8b1aeaffc40d8e1ece0506414d53beb3d2dea056",
+      "tests/ipad-layout.spec.ts": "7fd9461da35d23cce14ba1c9ee47ca753da828dee4fe46284ea83b361d4b9e35",
+      "tests/ipad-touch.spec.ts": "3f5144c923248605c4caee0450d819786641e4cb8ce0bb366b391200b9f39f9e"
+    },
+    "assetsSHA256": {
+      "index.html": "3833697748dc640624a3985f5beee062220f3dd25b632cebffbfae1bcedd2c23",
+      "assets/index-DvHtWrUk.css": "baa87f9e439bfefa6cfdec74082dcafc06ef0578fae74e5d5537f953a9a5d67f",
+      "assets/index-t0I9NZ3T.js": "1cf4c9c7f359902a71777a99a13ffdbe147d8843f08db06e80900b2f7b5b5303",
+      "assets/lessons-hanzi-CeHEC6Vo.js": "08714bd2bc8b793452a75a547070c94b42313b5285ee925e20582a4ab2bfa278",
+      "assets/lessons-poems-Byzi9uPE.js": "fdf6365ef8f564bbf1982380462551af4b104cad99b0eeb5e24e8e5b177f1618",
+      "assets/pinyin-haNF1LmB.js": "0d29031365458afa72cc4dd328b8bdc72c526ffe6701c697ba0c3390b63fc1c7",
+      "assets/react-BEiHexpT.js": "e5ec19c5f3230a6b5eea808ecbf67581195a22fb3996b99c91b480bc469b0ef6"
+    },
+    "manifestSHA256": "b719e268ed00db7c45c9c87adbe07facaf8109c487594f84197ede86eb122463"
+  },
+  "stagedAssetsSHA256": {
+    "index.html": "f97d2ff4400943f98c8cb61987e6120ec843cc3e5ee6ac3c32017740e6f4fdcf",
+    "assets/index-DEmgYT_s.js": "4fc37e0b5ff8fdda8f6c661dead1014fdd702ec6350b5eee6cd9523020ce851a",
+    "assets/index-DvHtWrUk.css": "baa87f9e439bfefa6cfdec74082dcafc06ef0578fae74e5d5537f953a9a5d67f",
+    "assets/lessons-hanzi-CeHEC6Vo.js": "08714bd2bc8b793452a75a547070c94b42313b5285ee925e20582a4ab2bfa278",
+    "assets/lessons-poems-Byzi9uPE.js": "fdf6365ef8f564bbf1982380462551af4b104cad99b0eeb5e24e8e5b177f1618",
+    "assets/pinyin-haNF1LmB.js": "0d29031365458afa72cc4dd328b8bdc72c526ffe6701c697ba0c3390b63fc1c7",
+    "assets/react-BEiHexpT.js": "e5ec19c5f3230a6b5eea808ecbf67581195a22fb3996b99c91b480bc469b0ef6"
+  },
+  "boundary": "Isolated desktop Chromium and WebKit with iPad viewports and synthetic touch/profile fixtures. Native AAC events are real; controlled lesson prompt fixtures use simulated narration. No physical iPad or full human listening acceptance is claimed.",
+  "visualInspection": {
+    "screenshots": [
+      "docs/screenshots/zoo-regions-ipad-landscape.png",
+      "docs/screenshots/zoo-regions-ipad-portrait.png",
+      "docs/screenshots/zoo-coast-ipad-landscape.png"
+    ],
+    "result": "Six selectors, destination scenery and controls fit landscape and portrait screenshots; visually inspected.",
+    "capture": {
+      "errors": [],
+      "origin": "http://127.0.0.1:5176",
+      "viewport": {
+        "innerWidth": 1180,
+        "innerHeight": 720,
+        "scrollWidth": 1180,
+        "scrollHeight": 720
+      },
+      "boundary": "Isolated desktop Chromium capture, not a physical iPad."
+    }
+  },
+  "finalRegionPromptCorrection": {
+    "change": "Placement hint now renders the shared region instruction; retired grassland-only label and AAC removed. Voice configuration and all retained waveforms are unchanged.",
+    "browserRuns": [
+      {
+        "name": "final-zoo",
+        "command": [
+          "npx",
+          "playwright",
+          "test",
+          "tests/zoo-regions.spec.ts",
+          "tests/zoo.spec.ts",
+          "tests/zoo-narration.spec.ts",
+          "--workers=1",
+          "--reporter=line,json",
+          "--trace=retain-on-failure",
+          "--output=output/qwen-browser-final-zoo"
+        ],
+        "environment": {},
+        "origin": "http://127.0.0.1:5176",
+        "returncode": 0,
+        "stats": {
+          "startTime": "2026-10-03T00:30:24.497Z",
+          "duration": 121166.304,
+          "expected": 19,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "name": "final-layout-chromium",
+        "command": [
+          "npx",
+          "playwright",
+          "test",
+          "tests/ipad-layout.spec.ts",
+          "--grep",
+          "zoo|reward invitation",
+          "--workers=1",
+          "--reporter=line,json",
+          "--trace=retain-on-failure",
+          "--output=output/qwen-browser-final-layout-chromium"
+        ],
+        "environment": {
+          "IPAD_LAYOUT_ENGINE": "chromium"
+        },
+        "origin": "http://127.0.0.1:5176",
+        "returncode": 0,
+        "stats": {
+          "startTime": "2026-10-03T00:32:26.433Z",
+          "duration": 25266.446,
+          "expected": 12,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "name": "final-layout-webkit",
+        "command": [
+          "npx",
+          "playwright",
+          "test",
+          "tests/ipad-layout.spec.ts",
+          "--grep",
+          "zoo|reward invitation",
+          "--workers=1",
+          "--reporter=line,json",
+          "--trace=retain-on-failure",
+          "--output=output/qwen-browser-final-layout-webkit"
+        ],
+        "environment": {
+          "IPAD_LAYOUT_ENGINE": "webkit"
+        },
+        "origin": "http://127.0.0.1:5176",
+        "returncode": 0,
+        "stats": {
+          "startTime": "2026-10-03T00:32:52.391Z",
+          "duration": 30973.149999999998,
+          "expected": 12,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "name": "final-layout-safe",
+        "command": [
+          "npx",
+          "playwright",
+          "test",
+          "tests/ipad-layout.spec.ts",
+          "--grep",
+          "Safari usable landscape.*(zoo|reward invitation)",
+          "--workers=1",
+          "--reporter=line,json",
+          "--trace=retain-on-failure",
+          "--output=output/qwen-browser-final-layout-safe"
+        ],
+        "environment": {
+          "IPAD_LAYOUT_ENGINE": "chromium",
+          "IPAD_LAYOUT_SAFE_INSETS": "20"
+        },
+        "origin": "http://127.0.0.1:5176",
+        "returncode": 0,
+        "stats": {
+          "startTime": "2026-10-03T00:33:23.987Z",
+          "duration": 7759.161,
+          "expected": 3,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    ]
+  },
+  "productionLAN": {
+    "checkedAt": "2026-10-03T00:34:03.628683+00:00",
+    "origin": "http://192.168.31.48:5173",
+    "renderer": "qwen3-mlx-local",
+    "manifestSHA256": "015a0ab22b08a9522cef1892811224595096a2fb3337278ee272f7725f0e868b",
+    "checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 1511,
+        "sha256": "f97d2ff4400943f98c8cb61987e6120ec843cc3e5ee6ac3c32017740e6f4fdcf"
+      },
+      {
+        "path": "/audio/manifest.json",
+        "status": 200,
+        "bytes": 2001413,
+        "sha256": "015a0ab22b08a9522cef1892811224595096a2fb3337278ee272f7725f0e868b"
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "bytes": 724,
+        "sha256": "1cffb93a34e2138f53dd31ab8b2fca72d5ba8606856fb419fa73ba3f029cea0a"
+      },
+      {
+        "path": "/LICENSE",
+        "status": 200,
+        "bytes": 4563,
+        "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
+      },
+      {
+        "path": "/README.md",
+        "status": 200,
+        "bytes": 11551,
+        "sha256": "8b9aef477edb99db4cebd85b87eb2999b763c7b145e7bb875c0f088ca10a466e"
+      },
+      {
+        "path": "/THIRD_PARTY_NOTICES.md",
+        "status": 200,
+        "bytes": 8558,
+        "sha256": "08b3f3944fd2c1a96d6bd015e6f636318d82781aa8fc3293652718b3dde4af90"
+      },
+      {
+        "path": "/docs/QWEN3_AUDIO.md",
+        "status": 200,
+        "bytes": 4573,
+        "sha256": "bdbc053b9ff1e16e48458020cc732ce95ed43085d1f5ee795725a1fbf26fa9da"
+      },
+      {
+        "path": "/docs/licenses/qwen3-tts-Apache-2.0.txt",
+        "status": 200,
+        "bytes": 11343,
+        "sha256": "a44a6081c73ad75f0255bb2bb5cab74ef1829565a895a24e53a4f11290ab7655"
+      },
+      {
+        "path": "/docs/licenses/mlx-audio-MIT.txt",
+        "status": 200,
+        "bytes": 1070,
+        "sha256": "11d27e0259dec3a323fa6c04c330621d0950ab96c6760d5aac3e2e97229e6f22"
+      },
+      {
+        "path": "/docs/audio-preview/mandarin-female-sample.m4a",
+        "status": 200,
+        "bytes": 49069,
+        "sha256": "f801954756173a376d5a057f9b6215f770d36f7b3f12076f958f5480821cda88"
+      },
+      {
+        "path": "/icons/apple-touch-icon.png",
+        "status": 200,
+        "bytes": 8443,
+        "sha256": "33a1db76a321de3e73757f7f74ac996a31423ee0794efe19e75b6fd58df72413"
+      },
+      {
+        "path": "/audio/qwen3-0e0bdaf7e44d819279fb.m4a",
+        "status": 206,
+        "bytes": 1024,
+        "headers": {
+          "Content-Type": "audio/mp4",
+          "Content-Range": "bytes 0-1023/49069",
+          "Cache-Control": "public, max-age=31536000, immutable",
+          "Accept-Ranges": "bytes"
+        }
+      }
+    ],
+    "boundary": "LAN requests issued on the host Mac, not from a physical iPad. Browser production-origin regression is recorded separately."
+  },
+  "productionAssetsMatchFinalStage": true,
+  "rollback": {
+    "preserved": true,
+    "directory": ".audio-cache/release-before-qwen3-20261003",
+    "oldPublicAudio": true,
+    "oldDist": true,
+    "childArchives": "No edits to normal browser storage; all testing used isolated synthetic profiles."
+  },
+  "productionBrowser": {
+    "origin": "http://192.168.31.48:5173",
+    "command": "ZOO_TEST_URL=http://192.168.31.48:5173 ZOO_NARRATION_TEST_URL=http://192.168.31.48:5173 npx playwright test tests/zoo-regions.spec.ts tests/zoo-narration.spec.ts --workers=1",
+    "stats": {
+      "startTime": "2026-10-03T00:34:04.076Z",
+      "duration": 110416.375,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "deploymentCompleteAt": "2026-10-03T00:36:38.407213+00:00"
+}

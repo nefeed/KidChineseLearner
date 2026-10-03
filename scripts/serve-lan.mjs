@@ -33,7 +33,7 @@ export function createLanServer(directory){
       const stat=statSync(file);
       if(!stat.isFile()){res.writeHead(404).end();return;}
       const tag=`"${stat.size.toString(16)}-${Math.trunc(stat.mtimeMs).toString(16)}"`;
-      const immutable=/\/assets\//.test(pathname)||/\/audio\/kokoro-[a-f0-9]{20}\.m4a$/.test(pathname);
+      const immutable=/\/assets\//.test(pathname)||/\/audio\/(?:kokoro|qwen3)-[a-f0-9]{20}\.m4a$/.test(pathname);
       const headers={'Content-Type':(basename(file)==='LICENSE'?'text/plain; charset=utf-8':MIME[extname(file)])||'application/octet-stream','Accept-Ranges':'bytes','Cache-Control':immutable?'public, max-age=31536000, immutable':'no-cache','X-Content-Type-Options':'nosniff',ETag:tag};
       if(req.headers['if-none-match']===tag&&!req.headers.range){res.writeHead(304,headers).end();return;}
       const range=req.headers['if-range']&&req.headers['if-range']!==tag?null:parseRange(req.headers.range,stat.size);

@@ -5,6 +5,9 @@ import { ANIMALS, BUILDINGS, FOODS, REWARDS, type ZooReward } from '../data/rewa
 import Animal from './Animal';
 import { zooNarration } from '../zoo-narration';
 import '../zoo.css';
+import { ZOO_REGIONS, regionFor, rewardRegion, regionResidents, type ZooRegionId } from '../data/zoo-regions';
+import ZooScenery from './ZooScenery';
+import { arrangeRegion } from '../zoo-layout';
 
 type Props = { profile: Profile; onUpdate: (updater: (p: Profile) => Profile) => void; onSpeak: (text: string) => void; initialView?: 'care' | 'rewards' };
 type Selection = { kind: 'animal' | 'building'; key: string };
@@ -22,22 +25,6 @@ function zooItems(zoo: Profile['zoo']): (Selection & Point)[] {
   return keys.flatMap<Selection & Point>((key) => zoo.animals[key] ? [{ kind: 'animal', key, x: zoo.animals[key].x, y: zoo.animals[key].y }] : zoo.buildings[key] ? [{ kind: 'building', key, x: zoo.buildings[key].x, y: zoo.buildings[key].y }] : []);
 }
 
-function mapPosition(item: Selection & Point, items: (Selection & Point)[]) {
-  // Older saves and a full first grassland can contain the same position twice.
-  // Spread that small stack only for display; moving still saves the pointer's
-  // actual grassland position, and viewing never rewrites a child's layout.
-  const stack = items.filter(other => Math.abs(other.x - item.x) < .01 && Math.abs(other.y - item.y) < .01);
-  if (stack.length < 2) return { left: `${item.x}%`, top: `${item.y}%` };
-  const index = stack.findIndex(other => other.key === item.key && other.kind === item.kind);
-  const columns = Math.min(4, Math.ceil(Math.sqrt(stack.length)));
-  const rows = Math.ceil(stack.length / columns);
-  const axis = (position: number, slot: number, count: number, horizontal: boolean) => {
-    const gap = horizontal ? 'var(--zoo-map-spacing-x,120px)' : 'var(--zoo-map-spacing-y,128px)';
-    const half = horizontal ? 'var(--zoo-map-half-x,56px)' : 'var(--zoo-map-half-y,60px)';
-    return `calc(clamp(${half}, calc(${position}% - ${(count - 1) / 2} * ${gap}), calc(100% - ${half} - ${count - 1} * ${gap})) + ${slot} * ${gap})`;
-  };
-  return { left: axis(stack[0].x, index % columns, columns, true), top: axis(stack[0].y, Math.floor(index / columns), rows, false) };
-}
 
 function FoodIcon({ food }: { food: string }) {
   return <svg viewBox="0 0 60 60" width="48" height="48" aria-hidden="true">
@@ -84,7 +71,8 @@ function PagePicker({ label, page, pages, onPage }: { label: string; page: numbe
 }
 
 export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }: Props) {
-  const [view, setView] = useState<'care' | 'rewards'>(initialView);
+  const [view, setView] = useState<'regions' | 'care' | 'rewards'>(initialView === 'rewards' ? 'rewards' : 'regions');
+  const [regionId, setRegionId] = useState<ZooRegionId>('meadow');
   const [selected, setSelected] = useState<Selection>({ kind: 'animal', key: 'welcome-rabbit' });
   const [care, setCare] = useState<'feed' | 'bath'>('feed');
   const [feedback, setFeedback] = useState(zooNarration.intro);
@@ -101,6 +89,13 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
   const [bubble, setBubble] = useState<Point | null>(null);
   const [dirtyMarks, setDirtyMarks] = useState<Set<number>>(new Set());
   const boardRef = useRef<HTMLDivElement>(null);
+  const [boardSize, setBoardSize] = useState({width:0,height:0,compact:true});
+  useEffect(() => {
+    const board = boardRef.current;if(!board)return;
+    const update = () => setBoardSize({width:board.clientWidth,height:board.clientHeight,compact:window.matchMedia('(min-width:768px) and (max-width:1366px)').matches});
+    const observer = new ResizeObserver(update);observer.observe(board);update();
+    return () => observer.disconnect();
+  },[view,regionId]);
   const dragRef = useRef<{ selection: Selection; pointerId: number; target: HTMLButtonElement } | null>(null);
   const bathRef = useRef<{ pointerId: number | null; previous: Point | null; dirty: Set<number>; travel: number }>({ pointerId: null, previous: null, dirty: new Set(), travel: 0 });
   const moodTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -111,9 +106,14 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
   const learned = countLearned(profile.hanzi);
   const learnedPoems = countLearned(profile.poems);
   const claimed = new Set(profile.zoo.claimed);
-  const mapItems = zooItems(profile.zoo);
+  const region = ZOO_REGIONS.find(item => item.id === regionId)!;
+  const allItems = zooItems(profile.zoo);
+  const itemRegion = (item: Selection) => regionFor(item.kind, item.kind === 'animal' ? profile.zoo.animals[item.key].id : profile.zoo.buildings[item.key].id);
+  const mapItems = allItems.filter(item => itemRegion(item).id === regionId);
   const pageCount = Math.max(1, Math.ceil(mapItems.length / PAGE_SIZE));
   const visibleItems = mapItems.slice(mapPage * PAGE_SIZE, (mapPage + 1) * PAGE_SIZE);
+  const arranged = arrangeRegion(visibleItems,boardSize.width,boardSize.height,`${selected.kind}:${selected.key}`,boardSize.compact);
+  const mapPosition = (item: Selection & Point) => arranged.get(`${item.kind}:${item.key}`) ?? {left:`${item.x}%`,top:`${item.y}%`};
   const visibleKeys = new Set(visibleItems.map((item) => `${item.kind}:${item.key}`));
   const eligible = REWARDS.filter((reward) => !claimed.has(reward.id) && (reward.source === 'hanzi' ? learned : learnedPoems) >= reward.threshold);
   const upcomingHanzi = REWARDS.find((reward) => reward.source === 'hanzi' && reward.threshold > learned);
@@ -131,13 +131,14 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
   useEffect(() => {
     setSelected({ kind: 'animal', key: Object.keys(profile.zoo.animals)[0] ?? 'welcome-rabbit' });
     setMoving(false);
-    setView(initialView);
+    setView(initialView === 'rewards' ? 'rewards' : 'regions');
+    setRegionId('meadow');
     setMapPage(0);
     setCollectionPage(0);
     setRewardPage(0);
     setFoodPage(0);
     setRenaming(null);
-    const message = initialView === 'rewards' ? zooNarration.welcomeRewards : zooNarration.welcomeCare;
+    const message = initialView === 'rewards' ? zooNarration.welcomeRewards : zooNarration.welcomeRegions;
     setFeedback(message);
     setFeedbackSpeech(message);
   }, [profile.id, initialView]);
@@ -148,11 +149,31 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
     setDirtyMarks(new Set(dirty));
     setBubble(null);
     setMood('idle');
-  }, [selected.key, care, profile.id, view]);
+  }, [selected.key, care, profile.id, view, regionId]);
 
   useEffect(() => () => { if (moodTimer.current) clearTimeout(moodTimer.current); }, []);
 
   const speakFeedback = (message: string, spoken = message) => { setFeedback(message); setFeedbackSpeech(spoken); onSpeak(spoken); };
+  const openRegion = (id: ZooRegionId) => {
+    const target = ZOO_REGIONS.find(item => item.id === id)!;
+    const members = allItems.filter(item => itemRegion(item).id === id);
+    const first = members.find(item => item.kind === 'animal') ?? members[0];
+    setRegionId(id);setView('care');setMoving(false);setCare('feed');setFoodPage(0);
+    setMapPage(0);setCollectionPage(0);
+    setSelected(first ?? {kind:'animal',key:''});
+    speakFeedback(zooNarration.enterRegion(target.name));
+  };
+  const showRegions = () => {setView('regions');setMoving(false);setRenaming(null);speakFeedback(zooNarration.welcomeRegions);};
+  const nextRegionReward = (id: ZooRegionId) => {
+    const pending = REWARDS.filter(reward => !claimed.has(reward.id) && reward.kind === 'animal' && rewardRegion(reward).id === id);
+    return pending.find(reward => (reward.source === 'hanzi' ? learned : learnedPoems) >= reward.threshold) ?? pending[0];
+  };
+  const seeRegionRewards = () => {
+    const next = nextRegionReward(regionId);
+    setView('rewards');setMoving(false);setShowAll(true);
+    setRewardPage(next ? Math.floor(REWARDS.indexOf(next) / REWARD_PAGE_SIZE) : 0);
+    speakFeedback(zooNarration.welcomeRewards);
+  };
   const selectMember = (selection: Selection) => {
     setSelected(selection);
     const index = mapItems.findIndex((item) => item.kind === selection.kind && item.key === selection.key);
@@ -171,7 +192,8 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
     // Re-check the authoritative profile inside the mutation: double taps cannot duplicate gifts.
     onUpdate((p) => {
       if (p.zoo.claimed.includes(reward.id) || countLearned(reward.source === 'hanzi' ? p.hanzi : p.poems) < reward.threshold) return p;
-      const items = zooItems(p.zoo);
+      const targetRegion = rewardRegion(reward).id;
+      const items = zooItems(p.zoo).filter(item => regionFor(item.kind, item.kind === 'animal' ? p.zoo.animals[item.key].id : p.zoo.buildings[item.key].id).id === targetRegion);
       const total = items.length;
       const currentPageItems = items.slice(Math.floor(total / PAGE_SIZE) * PAGE_SIZE);
       const slots = Array.from({ length: PAGE_SIZE }, (_, index) => ({ x: 18 + index % 4 * 21, y: 35 + Math.floor(index / 4) * 21 }));
@@ -183,10 +205,13 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
       return { ...p, zoo, updatedAt: Date.now() };
     });
     setSelected({ kind: reward.kind, key: reward.id });
-    setMapPage(Math.floor(mapItems.length / PAGE_SIZE));
-    setCollectionPage(Math.floor(mapItems.length % PAGE_SIZE / COLLECTION_PAGE_SIZE));
+    const targetRegion = rewardRegion(reward);
+    const targetCount = allItems.filter(item => itemRegion(item).id === targetRegion.id).length;
+    setRegionId(targetRegion.id);setView('care');setMoving(false);setCare('feed');setFoodPage(0);
+    setMapPage(Math.floor(targetCount / PAGE_SIZE));
+    setCollectionPage(Math.floor(targetCount % PAGE_SIZE / COLLECTION_PAGE_SIZE));
     animate('happy');
-    speakFeedback(zooNarration.claim(reward.title));
+    speakFeedback(zooNarration.claim(reward.title, rewardRegion(reward).name));
   };
 
   const feed = (foodId: string) => {
@@ -264,7 +289,7 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
   };
   useEffect(() => {
     endMove();
-  }, [moving, mapPage, profile.id, view]);
+  }, [moving, mapPage, profile.id, view, regionId]);
 
   const keyboardMove = (event: React.KeyboardEvent<HTMLButtonElement>, selection: Selection, position: Point) => {
     if (!moving || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
@@ -319,25 +344,29 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
 
   return <section className={`zoo-page zoo-page--${view}`} aria-label="我的动物园">
     <div className="zoo-heading">
-      <div><h1>{profile.zoo.name}<button className="zoo-icon-button" aria-label="给动物园改名" onClick={() => { setNameInput(profile.zoo.name); setRenaming('zoo'); }}><Pencil size={20}/></button></h1><p>{Object.keys(profile.zoo.animals).length} 位朋友 · {Object.keys(profile.zoo.buildings).length} 座建筑</p></div>
-      {view === 'care' && <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? zooNarration.positionSaved : zooNarration.movement); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>}
+      <div><h1>{profile.zoo.name}<button className="zoo-icon-button" aria-label="给动物园改名" onClick={() => { setNameInput(profile.zoo.name); setRenaming('zoo'); }}><Pencil size={20}/></button></h1><p>{view === 'care' ? `${region.name} · ${mapItems.filter(item => item.kind === 'animal').length} 位朋友` : `${Object.keys(profile.zoo.animals).length} 位朋友 · 6 个园区`}</p></div>
+      {view === 'care' && mapItems.length > 0 && <button className={`zoo-pill-button ${moving ? 'is-active' : ''}`} onClick={() => { setMoving(!moving); speakFeedback(moving ? zooNarration.positionSaved : zooNarration.movement); }}><Move size={20}/>{moving ? '摆放完成' : '布置动物园'}</button>}
     </div>
-    <div className="zoo-view-switch" aria-label={`动物园页面`}><button aria-pressed={view === 'care'} onClick={() => setView('care')}><PawPrint size={21}/>照顾朋友</button><button aria-pressed={view === 'rewards'} onClick={() => { setView('rewards'); setMoving(false); }}><Gift size={21}/>小岛邀请函{eligible.length > 0 && <span>{eligible.length}</span>}</button></div>
+    <div className="zoo-view-switch" aria-label={`动物园页面`}><button aria-pressed={view === 'regions'} onClick={showRegions}><PawPrint size={21}/>{view === 'care' ? '返回园区' : '选择园区'}</button><button aria-pressed={view === 'rewards'} onClick={() => { setView('rewards'); setMoving(false); }}><Gift size={21}/>小岛邀请函{eligible.length > 0 && <span>{eligible.length}</span>}</button></div>
 
     {renaming && <div className="zoo-name-overlay"><form className="zoo-name-form" role="dialog" aria-modal="true" aria-label={renaming === 'zoo' ? `动物园改名` : `朋友改名`} onSubmit={(event) => { event.preventDefault(); saveName(); }}><label htmlFor="zoo-name-input">{renaming === 'zoo' ? '动物园的名字' : '朋友的新名字'}</label><input id="zoo-name-input" value={nameInput} onChange={(event) => setNameInput(event.target.value)} onKeyDown={event => {if(event.key === 'Escape')setRenaming(null);}} maxLength={16} autoFocus/><button type="submit" className="zoo-pill-button"><Check size={19}/>记住名字</button><button type="button" className="zoo-icon-button" aria-label="取消改名" onClick={() => setRenaming(null)}><X size={20}/></button></form></div>}
 
-    {view === 'care' ? <><div className="zoo-world-layout">
+    {view === 'regions' ? <><section className="zoo-region-picker" aria-label="选择动物园区域"><div className="zoo-region-intro"><h2>今天，想去哪里玩？</h2><p>点一个园区，去看看住在那里的朋友。</p></div><div className="zoo-region-grid">{ZOO_REGIONS.map(area => {
+      const members = allItems.filter(item => itemRegion(item).id === area.id);
+      const count = members.filter(item => item.kind === 'animal').length;
+      return <button key={area.id} className={`zoo-region-card zoo-region-card--${area.id}`} aria-label={`进入${area.name}`} onClick={() => openRegion(area.id)}><div className="zoo-region-art"><ZooScenery region={area.id}/><div className="zoo-region-animals">{area.preview.map(id => <Animal key={id} species={id} size={88}/>)}</div><span className="zoo-region-count">{count ? `${count} 位朋友` : '等朋友来住'}</span></div><div className="zoo-region-copy"><h3>{area.name}<ChevronRight size={20}/></h3><p>{area.subtitle}</p><span>{regionResidents(area)}</span></div></button>;
+    })}</div></section><div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedbackSpeech)} aria-label="再听一次提示"><Waves size={20}/></button></div></> : view === 'care' ? <><div className="zoo-world-layout">
       <div className="zoo-map-panel">
-        <div ref={boardRef} className={`zoo-board ${moving ? 'zoo-board--moving' : ''}`} onClick={(event) => { if (!moving || event.target !== event.currentTarget) return; const point = boardPoint(event); if (point) moveTo(selected, point); }} onPointerMove={(event) => { const drag = dragRef.current; if (!drag || event.pointerId !== drag.pointerId) return; const point = boardPoint(event); if (point) moveTo(drag.selection, point); }} onPointerUp={endMove} onPointerCancel={endMove} onLostPointerCapture={endMove}>
-          <div className="zoo-cloud zoo-cloud-one"/><div className="zoo-cloud zoo-cloud-two"/><div className="zoo-sun"/><div className="zoo-hills"/><div className="zoo-map-pond"><span/><span/></div><div className="zoo-map-path"/><div className="zoo-fence"/>
-          <span className="zoo-map-sign">{profile.zoo.name}</span>
+        <div ref={boardRef} aria-label={`${region.name}地图`} className={`zoo-board zoo-board--${regionId} ${moving ? 'zoo-board--moving' : ''}`} onClick={(event) => { if (!moving || event.target !== event.currentTarget) return; const point = boardPoint(event); if (point) moveTo(selected, point); }} onPointerMove={(event) => { const drag = dragRef.current; if (!drag || event.pointerId !== drag.pointerId) return; const point = boardPoint(event); if (point) moveTo(drag.selection, point); }} onPointerUp={endMove} onPointerCancel={endMove} onLostPointerCapture={endMove}>
+          <ZooScenery region={regionId}/><div className="zoo-cloud zoo-cloud-one"/><div className="zoo-cloud zoo-cloud-two"/>
+          <span className="zoo-map-sign">{region.name}</span>
           {moving && <div className="zoo-map-grid"/>}
-          {Object.entries(profile.zoo.buildings).filter(([key]) => visibleKeys.has(`building:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--building ${selected.key === key && selected.kind === 'building' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'building', key }, visibleItems), zIndex: selected.kind === 'building' && selected.key === key ? 1000 : Math.round(item.y) }} aria-label={`选择${BUILDINGS.find((b) => b.id === item.id)?.name ?? `建筑`}`} onPointerDown={(event) => beginMove(event, { kind: 'building', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'building', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'building', key }); }}><Building species={item.id} size={100}/><span>{BUILDINGS.find((b) => b.id === item.id)?.name}</span></button>)}
-          {Object.entries(profile.zoo.animals).filter(([key]) => visibleKeys.has(`animal:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--animal ${selected.key === key && selected.kind === 'animal' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'animal', key }, visibleItems), zIndex: selected.kind === 'animal' && selected.key === key ? 1000 : Math.round(item.y) + 1 }} aria-label={`选择${item.name}`} onPointerDown={(event) => beginMove(event, { kind: 'animal', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'animal', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'animal', key }); }}><Animal species={item.id} size={92} mood={selected.key === key ? mood : 'idle'}/><span>{item.name}</span></button>)}
+          {Object.entries(profile.zoo.buildings).filter(([key]) => visibleKeys.has(`building:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--building ${selected.key === key && selected.kind === 'building' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'building', key }), zIndex: selected.kind === 'building' && selected.key === key ? 1000 : Math.round(item.y) }} aria-label={`选择${BUILDINGS.find((b) => b.id === item.id)?.name ?? `建筑`}`} onPointerDown={(event) => beginMove(event, { kind: 'building', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'building', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'building', key }); }}><Building species={item.id} size={100}/><span>{BUILDINGS.find((b) => b.id === item.id)?.name}</span></button>)}
+          {Object.entries(profile.zoo.animals).filter(([key]) => visibleKeys.has(`animal:${key}`)).map(([key, item]) => <button key={key} className={`zoo-map-item zoo-map-item--animal ${selected.key === key && selected.kind === 'animal' ? 'is-selected' : ''}`} style={{ ...mapPosition({ ...item, kind: 'animal', key }), zIndex: selected.kind === 'animal' && selected.key === key ? 1000 : Math.round(item.y) + 1 }} aria-label={`选择${item.name}`} onPointerDown={(event) => beginMove(event, { kind: 'animal', key })} onKeyDown={(event) => keyboardMove(event, { kind: 'animal', key }, item)} onClick={(event) => { event.stopPropagation(); selectMember({ kind: 'animal', key }); }}><Animal species={item.id} size={92} mood={selected.key === key ? mood : 'idle'}/><span>{item.name}</span></button>)}
         </div>
-        <div aria-label="动物园草地区域"><PagePicker label={`草地`} page={mapPage} pages={pageCount} onPage={index => { const first = mapItems[index * PAGE_SIZE]; if (first) selectMember(first); setMapPage(index); setCollectionPage(0); }}/></div>
-        <p className="zoo-board-hint"><Move size={17}/>{moving ? '拖动朋友或建筑，也可以选好后点一块草地。位置自动保存。' : '点朋友就能照顾它。所有朋友一直安全、健康地等你回来。'}</p>
-        <div className="zoo-collection-strip" aria-label={`本片草地的朋友卡片`}>
+        <div aria-label="当前园区分页"><PagePicker label={`园区场地`} page={mapPage} pages={pageCount} onPage={index => { const first = mapItems[index * PAGE_SIZE]; if (first) selectMember(first); setMapPage(index); setCollectionPage(0); }}/></div>
+        <p className="zoo-board-hint"><Move size={17}/>{moving ? zooNarration.movement : mapItems.some(item => item.kind === 'animal') ? '点朋友就能照顾它。所有朋友一直安全、健康地等你回来。' : '这里等着新朋友。点小岛邀请函，看看怎样邀请它们入园。'}</p>
+        <div className="zoo-collection-strip" aria-label={`本片场地的朋友卡片`}>
           <button className="zoo-collection-arrow" aria-label={`上一页朋友卡片`} disabled={currentCollectionPage === 0} onClick={() => setCollectionPage(currentCollectionPage - 1)}><ChevronLeft size={21}/></button>
           <div className="zoo-collection" aria-label="动物和建筑列表">{collectionShown.map(item => {
             const member = item.kind === 'animal' ? profile.zoo.animals[item.key] : profile.zoo.buildings[item.key];
@@ -366,7 +395,7 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
           {care === 'feed' && <div className="zoo-food-choices"><div className="zoo-foods">{foodsShown.map((food) => <button key={food.id} draggable onDragStart={(event) => event.dataTransfer.setData('application/zoo-food', food.id)} onClick={() => feed(food.id)} aria-label={`喂${food.name}`}><FoodIcon food={food.id}/><span>{food.name}</span></button>)}</div><nav className="zoo-food-pagination" aria-label={`食物页`}><button aria-label={`上一页食物`} disabled={foodPage === 0} onClick={() => setFoodPage(foodPage - 1)}><ChevronLeft size={19}/></button><span>{foodPage + 1} / {foodPageCount}</span><button aria-label={`下一页食物`} disabled={foodPage === foodPageCount - 1} onClick={() => setFoodPage(foodPage + 1)}><ChevronRight size={19}/></button></nav></div>}
           <div className="zoo-meters"><Meter label="小肚子" value={animal.fullness} color="#edb36e"/><Meter label="干净度" value={animal.cleanliness} color="#8ebdce"/><Meter label="亲密度" value={animal.affection} color="#dda2b1"/></div>
           <p className="zoo-food-hint">{care === 'feed' ? species.foodHint : `按住后拖动泡泡，逐块擦掉小泥点。每次洗掉的进度都会记住。`}</p>
-        </> : buildingInfo ? <div className="zoo-building-details"><Building species={buildingInfo.id} size={200}/><span className="zoo-kicker">你的动物园建筑</span><h2>{buildingInfo.name}</h2><p>{buildingInfo.description}</p><button className="zoo-pill-button" onClick={() => { setMoving(true); speakFeedback(zooNarration.buildingPlacement(buildingInfo.name)); }}><Move size={18}/>安排位置</button></div> : <div className="zoo-building-details"><Heart size={40}/><h2>选择一位朋友</h2><p>点草地上的动物，或下面的朋友卡片，就能开始照顾它。</p></div>}
+        </> : buildingInfo ? <div className="zoo-building-details"><Building species={buildingInfo.id} size={200}/><span className="zoo-kicker">你的动物园建筑</span><h2>{buildingInfo.name}</h2><p>{buildingInfo.description}</p><button className="zoo-pill-button" onClick={() => { setMoving(true); speakFeedback(zooNarration.buildingPlacement(buildingInfo.name)); }}><Move size={18}/>安排位置</button></div> : <div className="zoo-building-details zoo-region-empty"><Animal species={region.preview[0]} size={150}/><h2>这里等着新朋友</h2><p>{regionResidents(region)}会住在这里。完成学习，就能邀请它们来。</p><button className="zoo-pill-button" onClick={seeRegionRewards}><Gift size={18}/>看看入园目标</button></div>}
       </aside>
     </div>
     <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedbackSpeech)} aria-label="再听一次提示"><Waves size={20}/></button></div>
@@ -379,10 +408,10 @@ export default function Zoo({ profile, onUpdate, onSpeak, initialView = 'care' }
         const available = current >= reward.threshold;
         return <article key={reward.id} className={`zoo-reward-card ${available ? 'is-ready' : ''} ${received ? 'is-claimed' : ''}`}>
           <div className="zoo-reward-picture">{reward.kind === 'animal' ? <Animal species={reward.species} size={86} mood={available && !received ? 'happy' : 'idle'}/> : <Building species={reward.species} size={86}/>}</div>
-          <div className="zoo-reward-copy"><span className="zoo-kicker">{reward.source === 'hanzi' ? '识字' : '诗词'} · 第 {reward.threshold / (reward.source === 'hanzi' ? 10 : 5)} 份</span><h3>{reward.title}</h3><p>学会 {reward.threshold} {reward.source === 'hanzi' ? '个字' : '首诗词'}</p></div>
+          <div className="zoo-reward-copy"><span className="zoo-kicker">{reward.source === 'hanzi' ? '识字' : '诗词'} · 第 {reward.threshold / (reward.source === 'hanzi' ? 10 : 5)} 份</span><h3>{reward.title}</h3><p>学会 {reward.threshold} {reward.source === 'hanzi' ? '个字' : '首诗词'}</p><span className="zoo-reward-region">入住{rewardRegion(reward).name}</span></div>
           <button className="zoo-reward-claim" disabled={received || !available} onClick={() => claimReward(reward)}>{received ? <><Check size={17}/>已来到</> : available ? <><Gift size={17}/>邀请入园</> : <>还差 {reward.threshold - current} {reward.source === 'hanzi' ? '字' : '首'}</>}</button>
         </article>;
-      })}</div> : <p className="zoo-reward-complete">全部邀请函都收到了！点照顾朋友，继续建设自己的动物园。</p>}
+      })}</div> : <p className="zoo-reward-complete">全部邀请函都收到了！点选择园区，继续照顾自己的动物朋友。</p>}
       <PagePicker label={`奖励`} page={currentRewardPage} pages={rewardPageCount} onPage={setRewardPage}/>
     </section>
     <div className="zoo-feedback" aria-live="polite"><Heart size={22}/><p>{feedback}</p><button className="zoo-icon-button" onClick={() => onSpeak(feedbackSpeech)} aria-label="再听一次提示"><Waves size={20}/></button></div>

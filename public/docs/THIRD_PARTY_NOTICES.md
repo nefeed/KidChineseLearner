@@ -32,6 +32,7 @@ Required Notice: Copyright (c) 2026 nefeed and KidChineseLearner contributors (h
 | [opencc-python-reimplemented 0.1.7](https://github.com/yichen0831/opencc-python) | 诗词快照繁简转换工具 | [Apache License 2.0](licenses/opencc-Apache-2.0.txt) |
 | [Kokoro 0.9.4](https://github.com/hexgrad/kokoro) | 本地语音合成程序；在开发环境安装，不随网页分发 Python 包 | [上游 Apache License 2.0](licenses/kokoro-Apache-2.0.txt) |
 | [Misaki 0.9.4](https://github.com/hexgrad/misaki) | 中文文本与读音前端；在开发环境安装，不随网页分发 Python 包 | [上游 Apache License 2.0](licenses/misaki-Apache-2.0.txt) |
+| [MLX Audio 0.5.7](https://github.com/Blaizzy/mlx-audio)，Copyright (c) 2024 Prince Canuma | Apple Silicon上的本地Qwen3语音合成；不随网页分发Python包 | [MIT](licenses/mlx-audio-MIT.txt) |
 
 Chinese Xinhua 上游说明数据为网上收集抓取，并承诺收到侵权反馈时删除。其 MIT 声明不能单独证明所有更早词典来源的授权链；本项目未把开发快照声称为已完成权利清查的出版词典。该限制与网页课程已经原创改写是两件事。
 
@@ -41,7 +42,9 @@ Chinese Xinhua 上游说明数据为网上收集抓取，并承诺收到侵权�
 
 ## 生成语音与音乐
 
-自然语音采用 [hexgrad/Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh)，模型卡标示 Apache License 2.0。使用固定 revision `01e7505bd6a7a2ac4975463114c3a7650a9f7218`，官方模型 SHA256 为 `b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b`。模型及女声文件由生成脚本下载到本机缓存，不随本 Git 仓库分发；完整 Apache 许可原文见 [Kokoro 上游副本](licenses/kokoro-Apache-2.0.txt)。这项上游许可保持原状，不改为本项目的非商业许可。
+历史Kokoro自然语音采用 [hexgrad/Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh)，模型卡标示 Apache License 2.0。使用固定 revision `01e7505bd6a7a2ac4975463114c3a7650a9f7218`，官方模型 SHA256 为 `b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b`。模型及女声文件由生成脚本下载到本机缓存，不随本 Git 仓库分发；完整 Apache 许可原文见 [Kokoro 上游副本](licenses/kokoro-Apache-2.0.txt)。这项上游许可保持原状，不改为本项目的非商业许可。
+
+新版女声生成流程使用 [Qwen3-TTS-12Hz-1.7B-CustomVoice](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice) 的 Vivian，以及 [MLX六位量化转换](https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-6bit)，两者模型卡均标示 Apache-2.0。固定转换版本为 `1c6c0ff58c43afa8df571facde2efa077efd85e2`，完整许可副本见 [Qwen3-TTS Apache-2.0](licenses/qwen3-tts-Apache-2.0.txt)，下载校验与本地生成方式见 [Qwen3生成说明](QWEN3_AUDIO.md)。不调用付费云端语音，不克隆任何指定真人声音；模型权重不随Git仓库分发。
 
 课程生成语音的音源、版本、数量、听审覆盖和实际交付范围以 [README](README.md)、`public/audio/manifest.json` 及 [验证记录](VERIFICATION.md) 为准。输入使用项目原创课文及公有领域诗文。随项目提供的录音明确标为 AI 合成，不能描述为真人录音或完整人类听审通过。上游模型许可不等于取得个人声纹所有权，也不据此声称每份 AI 输出必然具有独占著作权。阿里云 Qwen 调用仅作候选方案核对，免费额度试调用被拒绝，不属于本次交付语音。
 

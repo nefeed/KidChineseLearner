@@ -1,0 +1,8 @@
+# Apple Silicon, Python 3.12. Model weights are downloaded separately.
+mlx-audio==0.5.7
+mlx==0.32.3
+mlx-metal==0.32.3
+transformers==5.18.0
+soundfile==0.14.0
+numpy==2.5.3
+httpx[socks]==0.28.1

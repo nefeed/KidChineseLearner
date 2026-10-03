@@ -1,0 +1,93 @@
+{
+  "scope": "Region navigation and tablet controls, source server at 127.0.0.1:5174. New voice release is audited separately.",
+  "reports": {
+    "regions-navigation": {
+      "startTime": "2026-10-02T14:59:34.420Z",
+      "duration": 22645.644,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-zoo-functional": {
+      "startTime": "2026-10-02T14:55:57.140Z",
+      "duration": 17366.039,
+      "expected": 7,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-layout-chromium": {
+      "startTime": "2026-10-02T14:57:13.942Z",
+      "duration": 35332.816999999995,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-layout-webkit": {
+      "startTime": "2026-10-02T14:53:19.165Z",
+      "duration": 33052.407,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-layout-safe": {
+      "startTime": "2026-10-02T15:11:51.313Z",
+      "duration": 19499.98,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-touch-full": {
+      "startTime": "2026-10-02T15:27:10.225Z",
+      "duration": 58089.094000000005,
+      "expected": 29,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-prompt-chromium": {
+      "startTime": "2026-10-02T15:18:10.089Z",
+      "duration": 8808.765000000001,
+      "expected": 7,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-prompt-webkit": {
+      "startTime": "2026-10-02T15:01:25.958Z",
+      "duration": 15300.43,
+      "expected": 7,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "regions-touch-upstream": {
+      "startTime": "2026-10-02T16:29:27.485Z",
+      "duration": 100414.917,
+      "expected": 30,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "sourceSHA256": {
+    "src/components/Zoo.tsx": "a6cd645c077edbfb6dd4e82604625ec9cfb74e6715cdb3fd47cf36e07d818941",
+    "src/components/ZooScenery.tsx": "3d6a5b15b19875c372e4d1c172506982307e6532b0f6ee5104502ce64def5985",
+    "src/data/zoo-regions.ts": "e38b3b55e42a12ecac053f2b453c57a44ecd02f16866f072291dc7432e0e2cdb",
+    "src/zoo-layout.ts": "3eed22dd5d51f0d6f7b153a49c745d5794ea9f94c02db0b1bbe79200ef6ad2ef",
+    "src/zoo.css": "eb1d264e18711ec75208792b6ecc699de9645ab925a397bfe43d1a8b83c90c77",
+    "src/zoo-narration.ts": "2da097666aa90c1bc82a99dee498a3e67961d5f747050d6b65883c4670746aa7",
+    "tests/ipad-touch.spec.ts": "3f5144c923248605c4caee0450d819786641e4cb8ce0bb366b391200b9f39f9e"
+  },
+  "boundary": "Isolated browser profiles and synthetic course completion. Not physical iPad or child-user acceptance.",
+  "upstreamIntegration": {
+    "base": "c7639d41e9c50541187512e4076d691c6defb300",
+    "nodeTests": 109,
+    "touchTests": 30,
+    "audioPlanUnchanged": true
+  }
+}

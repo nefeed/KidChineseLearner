@@ -415,6 +415,7 @@ for(const engine of ['chromium','webkit'] as const){
 
     test('animal drag and bathing persist; empty grass retains native pan behavior',async({page})=>{
       await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
+    await page.getByRole('button', { name: '进入小动物乐园', exact: true }).tap();
       await page.getByRole('button',{name:'布置动物园',exact:true}).tap();
       const start=await center(page,'.zoo-map-item--animal');
       const board=(await page.locator('.zoo-board').boundingBox())!;
@@ -431,6 +432,7 @@ for(const engine of ['chromium','webkit'] as const){
       await expect.poll(async()=>(await saved(page)).zoo.animals['welcome-rabbit'].cleanliness).toBe(90);
       await session?.detach();await page.reload();
       await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
+    await page.getByRole('button', { name: '进入小动物乐园', exact: true }).tap();
       expect((await saved(page)).zoo.animals['welcome-rabbit'].cleanliness).toBe(90);
       expect((await saved(page)).zoo.animals['welcome-rabbit'].x).toBeGreaterThan(65);
     });
@@ -471,6 +473,7 @@ test.describe('isolated Chromium Touch → Pointer multi-finger regressions',()=
   });
   test('swiping empty grass keeps the tablet page and selected animal stationary',async({page})=>{
     await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
+    await page.getByRole('button', { name: '进入小动物乐园', exact: true }).tap();
     await page.getByRole('button',{name:'布置动物园',exact:true}).tap();
     const board=page.locator('.zoo-board');await board.scrollIntoViewIfNeeded();
     expect(await board.evaluate(element=>getComputedStyle(element).touchAction)).toBe('pan-y');
@@ -495,7 +498,9 @@ test.describe('isolated Chromium Touch → Pointer multi-finger regressions',()=
     await expect.poll(async()=>(await saved(page)).hanzi[word.id].strokeIndex).toBe(1);await session.detach();
   });
   test('secondary scrub touches are ignored and cancellation stops the brush',async({page})=>{
-    await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();await page.getByRole('button',{name:'洗澡',exact:true}).tap();
+    await seed(page);await page.getByRole('button',{name:'我的动物园',exact:true}).tap();
+    await page.getByRole('button',{name:/进入小动物乐园/}).tap();
+    await page.getByRole('button',{name:'洗澡',exact:true}).tap();
     await page.locator('.zoo-bath-surface').scrollIntoViewIfNeeded();
     const mark=(await page.locator('.zoo-dirt').first().boundingBox())!,session=await page.context().newCDPSession(page),touch=new Touch(session);
     const start={x:mark.x-8,y:mark.y+mark.height/2},end={x:mark.x+mark.width+10,y:start.y};

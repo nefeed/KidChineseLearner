@@ -24,6 +24,7 @@ npm run dev
 ```sh
 npm test
 python3 -B tests/test_kokoro_cache_guard.py
+python3 -B tests/test_qwen3_generator.py
 npm run audit:content
 npm run audio:audit
 npm run build
@@ -66,9 +67,11 @@ Safari 网页、主屏幕 Web App、不同 IP 或端口可能使用不同存储�
 
 - 1000 个不同汉字及对应笔顺路径、中线，六环节学习、分笔练习和首次过关奖励。
 - 300 首唐诗宋词原文、拼音和六环节课程，提供排序、填空与亲子背诵练习。
-- 24 种原创 SVG 动物、12 种建筑与 160 个学习奖励，可喂食、拖动洗澡、命名和保存布局。
+- 24 种原创 SVG 动物、12 种建筑与 160 个学习奖励；进入动物园先选择六个园区，可喂食、拖动洗澡、命名和保存布局。
 - 独立儿童档案、课程阶段和笔画恢复、复习计划、JSON 备份与损坏存档保护。
 - 本地普通话合成语音、系统普通话声音后备，以及可独立调整的原创背景音乐。
+
+动物园分为小动物乐园、草原大动物区、森林探险区、鸟儿乐园、蓝色海湾和熊猫竹林。每个园区有相应的场景、动物和建筑；空园区可直接查看入园目标。完成10个汉字或5首诗词后，按「小岛邀请函」中的奖励表领取朋友，领取后自动进入它的园区。已有动物和照顾进度会保留，完整分配表见 [动物园说明与验证](docs/ZOO_VERIFICATION.md)。
 
 1000 字与 300 首是长期内容库，不是 3 岁孩子的达标要求。默认每次 10 分钟、每天 3 字，鼓励亲子交流、生活中的实际练习与随时休息。跟读、朗读和背诵由陪同家长确认，当前不提供自动发音准确度评分。
 
@@ -76,9 +79,11 @@ Safari 网页、主屏幕 Web App、不同 IP 或端口可能使用不同存储�
 
 《小岛微光》是本项目原创的 16 小节、3/4 拍、72 BPM 音乐，40 秒循环，由 Web Audio 实时合成，没有使用外部录音或采样。默认音乐音量为 22%；朗读期间降至当前音乐音量的 7%，整段朗读及句后停顿结束后再等待 500 毫秒，并用 1.5 秒逐渐恢复。首次点击或触摸后才启动音乐，进入后台暂停；家长小屋可调整音乐开关和音量，设置随儿童档案保存。关闭总声音也会关闭音乐。
 
-自然语音使用免费、本地运行的 [Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh)。音频属于 **AI 合成语音，不是真人录音**；当前女声为 `zf_001`，生成速度 `0.85`。单字卡和教学位置有局部读音校正，完整音素计划、1000个字卡目标读音、2000条测验单字读法和126条拼音示范已核对，保留上下文轻声及三声变调；这不等于逐段人工听审。音频已在生成时放慢，manifest 的 `defaultPlaybackRate: 1.0` 将家长默认朗读档位 `0.8` 映射为音频正常播放速度；调整播放速度时保留音高。播放器在开始前使用固定的 `0.96` 倍舒缓速率，末字保持完整音量；默认句后停顿260毫秒。临近结束的新提示等上一句结束后再播放，退出、静音和切后台仍立即停止。
+朗读使用本机运行的 [Qwen3-TTS 1.7B CustomVoice](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)，通过MLX在Apple Silicon上合成，女声为 **Vivian**（[试听动物园欢迎语](docs/audio-preview/mandarin-female-sample.m4a)）。语气指令为明亮、灵动、亲切，普通话咬字清晰、语速适中、句尾自然。音频属于 **AI合成语音，不是真人录音**。不调用付费云端语音；下载公开模型后，课程文本在离线模式下处理。
 
-**自然女声音频已全量完成并通过发布审计。** 23905 条文本映射对应22853份唯一Kokoro女声录音，生成速度0.85，累计78855秒。完整性检查确认当前课程计划、读音配置、全部AAC文件和映射一致，缺失与多余文件均为0。旧Tingting录音已移出公开资源，不随仓库分发。当前交付证据见 [验证记录](docs/VERIFICATION.md)、[iPad与局域网验证](docs/IPAD_VERIFICATION.md) 和 `public/audio/manifest.json`；这些检查不等于全量人类听审。
+**全量新女声已生成并通过发布完整性审计。** 23917条文本映射对应22865份唯一Qwen3录音，累计99180秒。汉字、词语、句子、诗词、学习反馈和六个园区提示使用同一声音；公开音频目录不混用旧Kokoro或Tingting文件。生成器检查每段是否自然结束、波形与AAC时长是否一致，并保留完整末字；录音后补180毫秒静音，播放器默认句后停顿260毫秒。临近结束的新提示会等待上一句，退出、静音和切后台仍立即停止。
+
+录音不再使用Kokoro的0.85生成速度。manifest的 `defaultPlaybackRate: 1.0` 将家长默认朗读档位0.8映射为音频正常速度；播放器再使用固定0.96倍舒缓速率并保留音高，不在句末突然减速或降低音量。多音字保留课程例词语境，明确教学位置采用局部读音提示。资源、配置和媒体事件检查不能代替逐段人类听审，旧Kokoro的音素检查也不能作为新Qwen3的听审证据。生成方法、来源与边界见 [本地Qwen3说明](docs/QWEN3_AUDIO.md)，实际发布配置见 `public/audio/manifest.json`。
 
 本轮还补齐了种树、喂食、颜色与动物园等动态提示的本地录音，避免普通操作切换到系统声音。书写页增加沿笔画移动的星星，修正擦字卡点按、先听后学、静音学习、奖励入口与备份等提示和实际操作不一致的问题。详见 [操作提示与语音验证](docs/INTERACTION_VERIFICATION.md)。
 
@@ -90,27 +95,20 @@ Safari 网页、主屏幕 Web App、不同 IP 或端口可能使用不同存储�
 - 诗词：`python scripts/build-poems.py`，使用 `pypinyin==0.55.0`、`opencc-python-reimplemented==0.1.7`；`--check` 检查结构和对齐。
 - 音频计划：`npx tsx scripts/export-audio-plan.mjs narration-plan.json`。计划区分界面标签与实际朗读文本，保留选定的多音字语境。
 
-当前 Kokoro 音频生成脚本使用 macOS 的 `/usr/bin/afconvert` 编码 AAC/M4A，需要 Python 3.12。以下依赖组合已在隔离环境安装并验证启动：
+当前Qwen3生成流程需要Apple Silicon Mac、Python 3.12和macOS自带的AAC编码工具。普通浏览器使用者不需要安装这些开发依赖。
 
 ```sh
-python3.12 -m venv .audio-cache/kokoro/venv
-.audio-cache/kokoro/venv/bin/python -m pip install \
-  'kokoro==0.9.4' 'misaki[zh]==0.9.4' 'torch==2.7.1' \
-  'transformers==4.51.3' 'spacy<3.9' 'spacy-curated-transformers<1' 'pypinyin==0.55.0' \
-  'pypinyin-dict==0.9.0' 'jieba==0.42.1' 'cn2an==0.5.24' soundfile
-.audio-cache/kokoro/venv/bin/python scripts/build-kokoro-audio.py \
-  --device cpu --voice zf_001 --speed 0.85 --threads 2 --workers 4
+python3.12 -m venv .audio-cache/qwen3/venv
+.audio-cache/qwen3/venv/bin/python -m pip install -r scripts/requirements-qwen3.txt
+python3 scripts/download-qwen3-model.py
+.audio-cache/qwen3/venv/bin/python scripts/build-qwen3-audio.py --samples --batch-size 8
+.audio-cache/qwen3/venv/bin/python scripts/build-qwen3-audio.py --batch-size 16
+npx tsx scripts/audit-audio.mjs --complete --directory .audio-cache/qwen3/release --no-write
 ```
 
-首次运行会从官方 Hugging Face 仓库下载公开模型配置、权重与所选女声；不需要 API 密钥，不上传课程文本。模型 revision 固定为 `01e7505bd6a7a2ac4975463114c3a7650a9f7218`，脚本校验官方模型 SHA256。模型、Python 环境与生成检查点留在 `.audio-cache`，不进入 Git。可在同一 Python 环境运行 `python scripts/audit-kokoro-guides.py` 复核拼音教学的音素提示，也可运行 `python scripts/audit-kokoro-readings.py` 复核课程目标与测验单字读法；它不依赖模型权重，也不替代实际听审。
+模型revision与两个权重文件的SHA256均固定；下载与生成可以断点恢复，生成阶段禁用云端连接。试听写入独立samples目录；完整录音先写入私有release目录，只有所有录音与当前文本计划都通过检查，才写完整manifest。发布时再替换公开音频并重新构建网页。详细配置、缓存规则和失败重试见 [本地生成说明](docs/QWEN3_AUDIO.md)。
 
-生成器按合成配置与实际朗读文本计算哈希，使用 `kokoro-` 文件前缀，复用已验证音频并原子提交新文件。它保留首尾轻声、修剪多余静音并加入 5 毫秒淡入淡出，长文本按标点分段，检查未知音素及输出时长。4 个工作进程处理互不重叠的语句，全部成功后再统一验证并写公开 manifest。中断后以同一命令恢复；`--limit` 只生成有限数量，不替换公开 manifest。样本使用独立输出目录：
-
-```sh
-.audio-cache/kokoro/venv/bin/python scripts/build-kokoro-audio.py \
-  --samples --voice zf_001 --speed 0.85 --device cpu \
-  --output-dir .audio-cache/kokoro/samples-zf001
-```
+`scripts/build-kokoro-audio.py`、相应读音审计和缓存测试保留为历史版本的开发记录，不是当前女声的生成方式；需要该历史流程时可使用 `npm run audio:legacy-kokoro`。历史Kokoro前端的发音审计不能替代新音源听审。
 
 `scripts/build-audio.mjs` 保留为旧 macOS 系统声音生成流程的开发记录，只写入被 Git 忽略的 `.audio-cache/legacy-macos-audio`，不会覆盖公开音频。其录音不具备本项目公开分享的许可依据，不作为新版公开语音的生成方式。
 

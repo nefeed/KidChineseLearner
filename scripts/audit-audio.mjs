@@ -10,6 +10,7 @@ import {createHash} from 'node:crypto';
 
 const defaultDirectory=fileURLToPath(new URL('../public/audio/',import.meta.url));
 const defaultGenerator=fileURLToPath(new URL('./build-kokoro-audio.py',import.meta.url));
+const qwenGenerator=fileURLToPath(new URL('./build-qwen3-audio.py',import.meta.url));
 const defaultReport=fileURLToPath(new URL('./verification/audio-audit.json',import.meta.url));
 const sha256=text=>createHash('sha256').update(text).digest('hex');
 
@@ -34,6 +35,7 @@ print(json.dumps({
     'model': module.REPO, 'revision': module.REVISION,
     'modelSHA256': module.MODEL_SHA256, 'filePrefix': module.PREFIX,
     'sampleRate': module.RATE,
+    'rendererConfiguration': module.renderer_configuration() if hasattr(module, 'renderer_configuration') else None,
 }))`;
   const result=spawnSync('python3',['-B','-c',source,generator,manifestPath],{encoding:'utf8',timeout:30000});
   if(result.error)throw result.error;
@@ -43,27 +45,38 @@ print(json.dumps({
 
 // Exported so temporary fixtures can exercise release rejection without writing
 // or replacing the real audio-audit.json while narration is being generated.
-export function auditAudio({directory=defaultDirectory,entries=[...plan.values()],complete=false,generator=defaultGenerator}={}){
+export function auditAudio({directory=defaultDirectory,entries=[...plan.values()],complete=false,generator}={}){
   directory=resolve(directory);
   const manifestPath=join(directory,'manifest.json');
   const manifest=JSON.parse(readFileSync(manifestPath,'utf8'));
   const files=manifest.files && typeof manifest.files==='object' && !Array.isArray(manifest.files) ? manifest.files : {};
   const currentPlanSHA256=sha256(JSON.stringify(entries));
-  const rendererMatches=manifest.renderer==='kokoro-local' && manifest.hashAlgorithm==='sha256-renderer-null-spoken-v1' && manifest.filePrefix==='kokoro-';
-  const kokoro=manifest.renderer==='kokoro-local' || manifest.hashAlgorithm==='sha256-renderer-null-spoken-v1';
+  const qwen=manifest.renderer==='qwen3-mlx-local';
+  const filePrefix=qwen?'qwen3-':'kokoro-';
+  const rendererMatches=(qwen || manifest.renderer==='kokoro-local') && manifest.hashAlgorithm==='sha256-renderer-null-spoken-v1' && manifest.filePrefix===filePrefix;
+  const local=rendererMatches || manifest.hashAlgorithm==='sha256-renderer-null-spoken-v1';
   const signatureErrors=[];
   let configuration=null,signature=null,overrideMatches=null;
-  if(kokoro){
+  if(local){
     try{
-      configuration=currentGeneratorConfiguration(resolve(generator),manifestPath);
+      configuration=currentGeneratorConfiguration(resolve(generator??(qwen?qwenGenerator:defaultGenerator)),manifestPath);
       signature=JSON.parse(manifest.rendererSignature);
       if(!signature || typeof signature!=='object' || Array.isArray(signature))throw Error('Renderer signature must be an object');
-      for(const [field,expected] of Object.entries({
+      const expectedSignature=qwen?configuration.rendererConfiguration:{
         renderer:'kokoro-local-v1',model:configuration.model,revision:configuration.revision,
         modelSHA256:configuration.modelSHA256,sampleRate:configuration.sampleRate,
         voice:manifest.voice,speed:manifest.rate,
-      }))if(signature[field]!==expected)signatureErrors.push(`rendererSignature.${field} differs from current generator or manifest`);
-      for(const field of ['configSHA256','voiceSHA256'])if(!/^[a-f0-9]{64}$/.test(signature[field]??''))signatureErrors.push(`rendererSignature.${field} is not a SHA256`);
+      };
+      if(!expectedSignature)throw Error('Generator does not describe this renderer');
+      const stable=value=>value && typeof value==='object' && !Array.isArray(value)
+        ? Object.fromEntries(Object.keys(value).sort().map(key=>[key,stable(value[key])])) : value;
+      for(const [field,expected] of Object.entries(expectedSignature))if(JSON.stringify(stable(signature[field]))!==JSON.stringify(stable(expected)))signatureErrors.push(`rendererSignature.${field} differs from current generator or manifest`);
+      for(const field of (qwen?['configSHA256']:['configSHA256','voiceSHA256']))if(!/^[a-f0-9]{64}$/.test(signature[field]??''))signatureErrors.push(`rendererSignature.${field} is not a SHA256`);
+      if(qwen){
+        if(manifest.voice!==expectedSignature.voice || manifest.rate!==expectedSignature.speed)signatureErrors.push('manifest voice or rate differs from current renderer');
+        if(manifest.generationValidation?.naturalStops!==manifest.uniqueRequiredFiles || manifest.generationValidation?.sha256Verified!==manifest.uniqueRequiredFiles)
+          signatureErrors.push('generationValidation does not cover all required clips');
+      }
       for(const [field,expected] of Object.entries({
         model:configuration.model,modelRevision:configuration.revision,modelSHA256:configuration.modelSHA256,
         filePrefix:configuration.filePrefix,modelLicense:'Apache-2.0',defaultPlaybackRate:1,
@@ -78,7 +91,7 @@ export function auditAudio({directory=defaultDirectory,entries=[...plan.values()
     }catch(error){signatureErrors.push(String(error.message));}
   }
   const expectedFile=entry=>manifest.hashAlgorithm==='sha256-renderer-null-spoken-v1'
-    ? `kokoro-${sha256(`${typeof manifest.rendererSignature==='string' ? manifest.rendererSignature : ''}\0${entry.spoken}`).slice(0,20)}.m4a`
+    ? `${filePrefix}${sha256(`${typeof manifest.rendererSignature==='string' ? manifest.rendererSignature : ''}\0${entry.spoken}`).slice(0,20)}.m4a`
     : entry.file;
   const requiredFiles=new Set(entries.map(expectedFile));
   const requiredTexts=new Set(entries.map(entry=>entry.text));
@@ -124,7 +137,9 @@ export function auditAudio({directory=defaultDirectory,entries=[...plan.values()
 }
 
 if(process.argv[1] && import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
-  const {report,failed}=auditAudio({complete:process.argv.includes('--complete')});
+  const directoryIndex=process.argv.indexOf('--directory');
+  const {report,failed}=auditAudio({complete:process.argv.includes('--complete'),
+    ...(directoryIndex<0?{}:{directory:process.argv[directoryIndex+1]})});
   if(!process.argv.includes('--no-write')){
     mkdirSync(dirname(defaultReport),{recursive:true});
     writeFileSync(defaultReport,JSON.stringify(report,null,2));

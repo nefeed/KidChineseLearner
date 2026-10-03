@@ -72,6 +72,7 @@ async function boot(page: Page) {
   expect(served.planSHA256).toBe(manifest.planSHA256);
   for (const clip of clips) expect(served.files[clip.text]).toBe(clip.path);
   await page.getByRole('button', { name: '我的动物园', exact: true }).tap();
+  await page.getByRole('button', { name: '进入小动物乐园', exact: true }).click();
 }
 
 async function events(page: Page) { return page.evaluate(() => window.__zooMedia.events); }
@@ -121,7 +122,7 @@ for (const engine of ['chromium', 'webkit'] as const) test.describe(`正式App�
       const evidence = await page.evaluate(() => window.__zooMedia);
       expect(evidence.nativeAudio.length).toBeGreaterThanOrEqual(3);
       expect(evidence.nativeAudio.every(Boolean)).toBe(true);
-      expect(evidence.events.filter(event => event.kind === 'ended')).toHaveLength(4);
+      expect(evidence.events.filter(event => event.kind === 'ended' && clips.some(clip => clip.path === event.path))).toHaveLength(4);
       const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), STORAGE_KEY);
       const animal = saved.profiles[0].zoo.animals['welcome-rabbit'];
       expect(animal.name).toBe('云朵小兔');
@@ -133,5 +134,16 @@ for (const engine of ['chromium', 'webkit'] as const) test.describe(`正式App�
         manifestSHA256: createHash('sha256').update(manifestBytes).digest('hex'), planSHA256: manifest.planSHA256, clips, requests,
         ...await page.evaluate(() => window.__zooMedia) }, null, 2) });
     }
+  });
+  test('园区选择和空海湾提示使用完整本地女声，并保持一屏操作', async ({ page }) => {
+    test.setTimeout(120000);
+    await boot(page);
+    await playToEnd(page,zooNarration.welcomeRegions,() => page.getByRole('button',{name:'返回园区',exact:true}).tap());
+    await expect(page.locator('.zoo-region-card')).toHaveCount(6);
+    const coast=zooNarration.enterRegion('蓝色海湾');
+    expect(manifest.files[coast]).toMatch(/^\/audio\/qwen3-/);
+    await playToEnd(page,coast,() => page.getByRole('button',{name:'进入蓝色海湾',exact:true}).tap());
+    await expect(page.getByRole('button',{name:'看看入园目标',exact:true})).toBeVisible();
+    expect(await page.evaluate(() => document.scrollingElement!.scrollHeight-document.scrollingElement!.clientHeight)).toBeLessThanOrEqual(2);
   });
 });

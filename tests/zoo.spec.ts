@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { ZOO_REGIONS, regionFor } from '../src/data/zoo-regions';
 import { ANIMALS, BUILDINGS, FOODS, REWARDS } from '../src/data/rewards';
 import { createProfile, STORAGE_KEY, validateSave } from '../src/store';
 import type { Profile, SaveData } from '../src/types';
@@ -38,6 +39,7 @@ async function seed(page: Page, data: SaveData) {
 
 async function openZoo(page: Page) {
   await page.getByRole('button', { name: '我的动物园', exact: true }).click();
+  await page.getByRole('button', { name: '进入小动物乐园', exact: true }).click();
   await expect(page.locator('.zoo-heading h1')).toContainText('我的小小动物园');
 }
 
@@ -192,6 +194,7 @@ test('移动、动物园及动物命名均保存并可恢复', async ({ page }) 
   await page.getByRole('button', { name: '记住名字', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: '我的动物园', exact: true }).click();
+  await page.getByRole('button', { name: '进入小动物乐园', exact: true }).click();
   await expect(page.locator('.zoo-heading h1')).toContainText('风吹叶子岛');
   await expect(page.getByRole('heading', { name: '小棉球', exact: true })).toBeVisible();
   const animal = (await profileSave(page)).zoo.animals['welcome-rabbit'];
@@ -218,22 +221,25 @@ test('10 字及 5 首诗的奖励可领取，双击幂等，刷新后仍已领�
   expect((await profileSave(page)).zoo.claimed.sort()).toEqual(['hanzi-10', 'poems-5']);
 });
 
-test('领取全部 160 份后按 12 个分区，卡片分页可以选中最后奖励，手机无横向溢出', async ({ page }) => {
-  await seed(page, fixture(1000, 300, true));
-  await expect(page.locator('.zoo-map-item')).toHaveCount(12);
-  const grassPages = page.getByRole('combobox', { name: '选择草地页码', exact: true });
-  await expect(grassPages.locator('option')).toHaveCount(14);
-  const last = REWARDS.at(-1)!;
-  await grassPages.selectOption('13');
-  await expect(grassPages).toHaveValue('13');
-  await page.getByRole('button', { name: '下一页朋友卡片', exact: true }).click();
-  const lastName = last.kind === 'animal' ? `${last.title}${REWARDS.length}` : BUILDINGS.find(building => building.id === last.species)!.name;
-  const lastCard = page.locator('.zoo-collection button').filter({ hasText: lastName });
-  await expect(lastCard).toHaveCount(1);
-  await lastCard.click();
-  await expect(page.locator('.zoo-map-item.is-selected')).toHaveCount(1);
-  await expect(page.locator('.zoo-map-item.is-selected')).toHaveAttribute('aria-label', `选择${lastName}`);
-  await expect(page.locator('.zoo-map-item')).toHaveCount(5);
-  await page.setViewportSize({ width: 390, height: 844 });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+test('满园动物和建筑在各自园区分页，每一位都能找到且不丢失存档', async ({ page }) => {
+  const data=fixture(1000,300,true),profile=data.profiles[0];
+  await seed(page,data);await page.getByRole('button',{name:'返回园区',exact:true}).click();
+  const seen:string[]=[];
+  for(const region of ZOO_REGIONS){
+    await page.getByRole('button',{name:`进入${region.name}`,exact:true}).click();
+    const expected=[...Object.entries(profile.zoo.animals).filter(([,item])=>regionFor('animal',item.id).id===region.id).map(([,item])=>`选择${item.name}`),...Object.entries(profile.zoo.buildings).filter(([,item])=>regionFor('building',item.id).id===region.id).map(([,item])=>`选择${BUILDINGS.find(b=>b.id===item.id)!.name}`)];
+    const actual:string[]=[];
+    const pages=page.getByRole('combobox',{name:'选择园区场地页码',exact:true});
+    for(let index=0;index<await pages.locator('option').count();index++){
+      await pages.selectOption(String(index));
+      actual.push(...await page.locator('.zoo-map-item').evaluateAll(items=>items.map(item=>item.getAttribute('aria-label')!)));
+      const item=page.locator('.zoo-map-item').last();await item.click();await expect(item).toHaveClass(/is-selected/);
+    }
+    expect(actual.sort()).toEqual(expected.sort());seen.push(...actual);
+    await page.getByRole('button',{name:'返回园区',exact:true}).click();
+  }
+  expect(seen).toHaveLength(161);
+  expect((await profileSave(page)).zoo).toEqual(profile.zoo);
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

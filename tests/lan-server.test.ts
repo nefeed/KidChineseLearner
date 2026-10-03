@@ -18,6 +18,7 @@ test('LAN release server streams media ranges, handles HEAD and cache validation
   const root=mkdtempSync(join(tmpdir(),'kidchinese-lan-'));
   mkdirSync(join(root,'audio'));writeFileSync(join(root,'index.html'),'<h1>小岛</h1>');
   writeFileSync(join(root,'audio','test.m4a'),Buffer.from('0123456789'));
+  writeFileSync(join(root,'audio','qwen3-1234567890abcdef1234.m4a'),Buffer.from('0123456789'));
   writeFileSync(join(root,'.env'),'private');
   const server=createLanServer(root);
   try{
@@ -28,6 +29,9 @@ test('LAN release server streams media ranges, handles HEAD and cache validation
     assert.equal(media.status,206);assert.equal(media.headers.get('content-range'),'bytes 2-5/10');assert.equal(media.headers.get('content-type'),'audio/mp4');assert.equal(await media.text(),'2345');
     const head=await fetch(url+'/audio/test.m4a',{method:'HEAD'});assert.equal(head.headers.get('content-length'),'10');assert.equal(await head.text(),'');
     const cached=await fetch(url+'/audio/test.m4a',{headers:{'If-None-Match':head.headers.get('etag')!}});assert.equal(cached.status,304);
+    const qwen=await fetch(url+'/audio/qwen3-1234567890abcdef1234.m4a',{method:'HEAD'});
+    assert.equal(qwen.headers.get('cache-control'),'public, max-age=31536000, immutable');
+    assert.equal(head.headers.get('cache-control'),'no-cache');
     const invalid=await fetch(url+'/audio/test.m4a',{headers:{Range:'bytes=20-'}});assert.equal(invalid.status,416);
     assert.equal((await fetch(url+'/%2eenv')).status,403);
     assert.equal((await fetch(url+'/audio/missing.m4a')).status,404);

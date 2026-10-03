@@ -1,5 +1,5 @@
 import { mkdirSync, copyFileSync, cpSync, readFileSync, writeFileSync } from 'node:fs';
-const files=['SPEC.md','RESEARCH.md','HANZI_SOURCES.md','POETRY_SOURCES.md','VERIFICATION.md','REVIEW.md','LICENSING.md','ZOO_VERIFICATION.md', 'IPAD_VERIFICATION.md','INTERACTION_VERIFICATION.md'];
+const files=['SPEC.md','RESEARCH.md','HANZI_SOURCES.md','POETRY_SOURCES.md','VERIFICATION.md','REVIEW.md','LICENSING.md','ZOO_VERIFICATION.md', 'IPAD_VERIFICATION.md','INTERACTION_VERIFICATION.md','QWEN3_AUDIO.md'];
 mkdirSync('public/docs',{recursive:true});
 for(const file of files)copyFileSync(`docs/${file}`,`public/docs/${file}`);
 for(const file of ['LICENSE','THIRD_PARTY_NOTICES.md','README.md']){
@@ -9,5 +9,6 @@ for(const file of ['LICENSE','THIRD_PARTY_NOTICES.md','README.md']){
 }
 cpSync('docs/licenses','public/docs/licenses',{recursive:true});
 cpSync('docs/screenshots','public/docs/screenshots',{recursive:true});
+cpSync('docs/audio-preview','public/docs/audio-preview',{recursive:true});
 mkdirSync('public/data/strokes',{recursive:true});
 copyFileSync('docs/licenses/hanzi-writer-data-ARPHICPL.TXT','public/data/strokes/ARPHICPL.TXT');

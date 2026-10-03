@@ -10,15 +10,23 @@
 
 这是非商业源码许可。它限制商业目的，不满足 [OSI 开源定义第 6 项](https://opensource.org/osd) 中对商业领域不能歧视的要求，所以 README 不应称其为 OSI 开源。第三方材料继续遵守自己的原许可；尤其 Arphic Public License 第 5 条禁止给其接收者追加限制，独立原创程序和课程内容与字体图形并列不会把字体改成非商业许可。
 
-## 本地 Kokoro 中文合成语音
+## 本地 Qwen3 年轻女声
 
-公开语音替换采用 [hexgrad/Kokoro-82M-v1.1-zh 官方模型卡](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh)，其许可字段为 `apache-2.0`。模型卡说明中文训练材料由 LongMaoData 授予上游使用；这是上游对训练来源的说明，本项目没有重新核验其全部训练合同。当前生成脚本固定 revision `01e7505bd6a7a2ac4975463114c3a7650a9f7218`，对应 [固定版本的模型卡](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh/blob/01e7505bd6a7a2ac4975463114c3a7650a9f7218/README.md)，并校验模型 SHA256 `b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b`。
+新女声流程使用 [Qwen官方CustomVoice模型卡](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice) 与 [MLX六位量化转换模型卡](https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-6bit)，二者均标示Apache-2.0。转换版固定 revision `1c6c0ff58c43afa8df571facde2efa077efd85e2`；主模型与语音编解码器逐文件校验SHA256，详见 [本地生成说明](QWEN3_AUDIO.md)。使用预设女声Vivian，不需要真人参考录音。
+
+[Qwen3-TTS上游LICENSE](https://github.com/QwenLM/Qwen3-TTS/blob/main/LICENSE) 的完整正文保存为 [qwen3-tts-Apache-2.0.txt](licenses/qwen3-tts-Apache-2.0.txt)；[MLX Audio上游LICENSE](https://github.com/Blaizzy/mlx-audio/blob/main/LICENSE) 保存为 [mlx-audio-MIT.txt](licenses/mlx-audio-MIT.txt)。这些第三方许可保持原状。模型参数、运行环境和下载缓存不随Git仓库分发。
+
+用户明确选择本地生成；本流程不调用付费云语音，下载公开权重后合成在离线模式运行。输入课程采用项目原创文本与公有领域诗文，输出明确标识为AI合成。模型许可不等于真人声纹权利或生成输出的独占版权；实际发布的音源、录音数量和验证范围仍以公开manifest及对应验证记录为准。
+
+## 历史本地 Kokoro 中文合成语音
+
+此前的公开语音替换采用 [hexgrad/Kokoro-82M-v1.1-zh 官方模型卡](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh)，其许可字段为 `apache-2.0`。模型卡说明中文训练材料由 LongMaoData 授予上游使用；这是上游对训练来源的说明，本项目没有重新核验其全部训练合同。当前生成脚本固定 revision `01e7505bd6a7a2ac4975463114c3a7650a9f7218`，对应 [固定版本的模型卡](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh/blob/01e7505bd6a7a2ac4975463114c3a7650a9f7218/README.md)，并校验模型 SHA256 `b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b`。
 
 Python 合成程序 [Kokoro 官方 LICENSE](https://github.com/hexgrad/kokoro/blob/main/LICENSE) 与中文读音前端 [Misaki 官方 LICENSE](https://github.com/hexgrad/misaki/blob/main/LICENSE) 均为 Apache License 2.0。原文逐字保存在 [kokoro-Apache-2.0.txt](licenses/kokoro-Apache-2.0.txt) 与 [misaki-Apache-2.0.txt](licenses/misaki-Apache-2.0.txt)；两份文件均为 11357 字节、SHA256 `c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4`。模型许可的映射依据是模型卡，Kokoro 的副本提供该完整许可正文，不将程序许可证自行视为另一模型的授权证明。
 
 Kokoro 模型和工具保留 Apache 许可，不能因与本项目并列使用而改为非商业许可。输入采用项目有权使用的原创课程文本与公有领域诗文；输出明确标注 AI 合成，不作为真人录音。模型许可与声音文件的使用不等于取得任何个人的声纹所有权，也不据此保证每份生成输出必然具有独占著作权。项目可许可的原创程序、课程文本、音乐与编排仍按本项目许可使用，古典原文及第三方材料保持原有状态。
 
-合成在本机运行，没有付费语音 API 调用；首次下载公开权重后，课程文本不需要发送给语音云服务。权重、所选女声文件、Python 环境和缓存不随 Git 仓库分发。当前采用女声 `zf_001`、速度 `0.85`，CPU 生成；样本与生成记录用于核对音源和数量，文件结构审计不能证明全部发音已经听审通过。完整依赖与恢复命令见 [README](../README.md)，最终交付范围见 [验证记录](VERIFICATION.md) 与公开 manifest。
+合成在本机运行，没有付费语音 API 调用；首次下载公开权重后，课程文本不需要发送给语音云服务。权重、所选女声文件、Python 环境和缓存不随 Git 仓库分发。该历史流程采用女声 `zf_001`、速度 `0.85`，CPU 生成；样本与生成记录用于核对音源和数量，文件结构审计不能证明全部发音已经听审通过。完整依赖与恢复命令见 [README](../README.md)，最终交付范围见 [验证记录](VERIFICATION.md) 与公开 manifest。
 
 ## Apple 系统声音旧录音
 
@@ -26,9 +34,9 @@ Kokoro 模型和工具保留 Apache 许可，不能因与本项目并列使用�
 
 本次 `sw_vers` 返回 27.0.1，已查到对应 macOS 27 的 Apple 官方公开许可，2F 条款确有上述系统声音限制。[Apple 官方许可索引](https://www.apple.com/legal/sla/) 同时说明购买时随产品的许可可能与网上当前版本不同。本次依据已核对的公开条款，旧 Tingting 系统声音录音不随新仓库推送。
 
-## 未交付的 Qwen 候选方案
+## 未交付的云端 Qwen 候选方案
 
-阿里云百炼 Qwen 曾作为候选音源核对，但本次试调用返回 HTTP 403、`FreeTierOnly`，未采用该方案，也未交付其生成音频。公开发行使用上述本地 Kokoro 流程，不把候选方案、免费额度限制或付费服务评估写成已交付成果。
+阿里云百炼 Qwen 曾作为候选音源核对，但本次试调用返回 HTTP 403、`FreeTierOnly`，未采用该方案，也未交付其生成音频。后续按用户选择改用本地模型合成。云端候选方案与本地Qwen权重的运行方式、费用和许可依据分别记录，不把云端试调用当作已交付音频。
 
 保留历史核对入口：[百炼相关协议](https://help.aliyun.com/zh/model-studio/related-agreements) 链接的 [百炼服务协议](https://terms.alicdn.com/legal-agreement/terms/common_platform_service/20230728213935489/20230728213935489.html) 区分客户业务数据控制权、合法输入情况下的合成内容权利和另外约定等条件；模型权重许可与云服务合同也不是同一授权。若将来改用该服务，应按实际账号的订购页面、适用服务说明与协议重新核对，不能把本次公开文档核对代替账号专有约定。
 

@@ -1,5 +1,5 @@
 // Reproducible Mandarin narration labels and spoken contexts, independent of renderer.
-// The published generator uses local Kokoro; this plan makes no network calls.
+// Local Qwen3 and historical Kokoro share this plan; it makes no network calls.
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pronunciationParts, pronunciationText, narrationText } from '../src/pronunciation.ts';

@@ -3,6 +3,7 @@ import {existsSync,readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {buildSync} from 'esbuild';
 import {createProfile,initialProgress,STORAGE_KEY} from '../src/store';
+import {ZOO_REGIONS} from '../src/data/zoo-regions';
 import {REWARDS} from '../src/data/rewards';
 import type {Hanzi,LessonProgress,Poem,Profile,SaveData} from '../src/types';
 
@@ -513,7 +514,7 @@ for(const viewport of viewports){
       await expect(page.getByRole('dialog',{name:'休息提醒',exact:true})).toBeVisible();await fits(page,info,'rest-reminder');
     });
     test('zoo feed, bathing, placement and name editing',async({page},info)=>{
-      await boot(page);await page.getByRole('button',{name:'我的动物园',exact:true}).click();await fits(page,info,'zoo-feed');
+      await boot(page);await page.getByRole('button',{name:'我的动物园',exact:true}).click();await fits(page,info,'zoo-entrance');await page.getByRole('button',{name:'进入小动物乐园',exact:true}).click();await fits(page,info,'zoo-feed');
       await remainingPages(page,info,'下一页食物','zoo-foods');
       await page.getByRole('button',{name:'洗澡',exact:true}).click();await fits(page,info,'zoo-bath');
       await page.getByRole('button',{name:'布置动物园',exact:true}).click();await fits(page,info,'zoo-placement');
@@ -525,12 +526,18 @@ for(const viewport of viewports){
       await page.getByRole('button',{name:'查看全部 160 份奖励',exact:true}).click();await fits(page,info,'zoo-all-rewards');
       await remainingPages(page,info,'奖励下一页','zoo-rewards');
     });
-    test('mature zoo all grassland pages and building details',async({page},info)=>{
-      await boot(page,{matureZoo:true});await page.getByRole('button',{name:'我的动物园',exact:true}).click();await fits(page,info,'mature-zoo-first');
-      await remainingPages(page,info,'草地下一页','mature-zoo');
-      const building=page.locator('.zoo-map-item--building').first();await expect(building).toBeVisible();
-      await building.click();await expect(page.getByRole('button',{name:'安排位置',exact:true})).toBeVisible();await fits(page,info,'mature-zoo-building');
-      await page.getByRole('button',{name:'安排位置',exact:true}).click();await fits(page,info,'mature-zoo-building-placement');
+    test('mature zoo all region pages and building details',async({page},info)=>{
+      await boot(page,{matureZoo:true});await page.getByRole('button',{name:'我的动物园',exact:true}).click();await fits(page,info,'mature-zoo-entrance');
+      for(const region of ZOO_REGIONS){
+        await page.getByRole('button',{name:`进入${region.name}`,exact:true}).click();await fits(page,info,`region-${region.id}`);
+        await remainingPages(page,info,'园区场地下一页',`mature-${region.id}`);
+        const building=page.locator('.zoo-map-item--building').first();
+        if(await building.count()){
+          await building.click();await expect(page.getByRole('button',{name:'安排位置',exact:true})).toBeVisible();await fits(page,info,`building-${region.id}`);
+          await page.getByRole('button',{name:'安排位置',exact:true}).click();await fits(page,info,`placement-${region.id}`);
+        }
+        await page.getByRole('button',{name:'返回园区',exact:true}).click();await fits(page,info,'return-regions');
+      }
       await page.getByRole('button',{name:/小岛邀请函/}).click();await fits(page,info,'mature-zoo-earned-all');
     });
 
