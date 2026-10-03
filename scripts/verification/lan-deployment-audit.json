@@ -1,79 +1,313 @@
 {
-  "checkedAt": "2026-10-02T12:26:28.041Z",
+  "checkedAt": "2026-10-03T12:44:20.897Z",
+  "sourceCommit": "f24eeca5648917349bcb1eb375cc0d52e2d41ec8",
+  "remoteAudit": {
+    "repository": "https://github.com/nefeed/KidChineseLearner",
+    "defaultBranch": "master",
+    "latestSourceCommit": "f24eeca5648917349bcb1eb375cc0d52e2d41ec8",
+    "workflow": "Verify",
+    "workflowRun": "https://github.com/nefeed/KidChineseLearner/actions/runs/37098071857",
+    "workflowConclusion": "success",
+    "workflowCompletedAt": "2026-10-03T05:19:26Z",
+    "openIssues": 0,
+    "openPullRequests": 0,
+    "githubDeploymentRecords": 0,
+    "githubPagesConfigured": false
+  },
+  "previousDeployment": {
+    "checkoutCommitBeforeSync": "be27d8bbbfe9387e4c7d2a9031c236da3bc4189e",
+    "behindCommits": 6,
+    "indexSHA256": "f97d2ff4400943f98c8cb61987e6120ec843cc3e5ee6ac3c32017740e6f4fdcf",
+    "assets": [
+      "/assets/index-DEmgYT_s.js",
+      "/assets/react-BEiHexpT.js",
+      "/assets/lessons-hanzi-CeHEC6Vo.js",
+      "/assets/lessons-poems-Byzi9uPE.js",
+      "/assets/pinyin-haNF1LmB.js",
+      "/assets/index-DvHtWrUk.css"
+    ]
+  },
+  "deployment": {
+    "sourceUpdatedBy": "git merge --ff-only origin/master",
+    "buildCommand": "npm run build -- --outDir .audio-cache/deployment-20261003/dist",
+    "backupDirectory": ".audio-cache/deployment-20261003/previous-dist",
+    "previousFingerprintAssetsRetained": true,
+    "serviceState": "running"
+  },
   "base": "http://192.168.31.48:5173",
   "bind": "0.0.0.0:5173",
   "service": "com.nefeed.kidchineselearner",
-  "pid": 82934,
+  "pid": 17102,
   "results": [
     {
       "path": "/",
       "status": 200,
       "type": "text/html; charset=utf-8",
-      "bytes": 1190,
-      "sha256": "ce011211eaa92b0f501400ed1c49dbc111fecbbc6802107d42ca6665426bb7d9"
+      "bytes": 1511,
+      "sha256": "8332fba2f889b1d94f2e3a8b52e44d199100f34cfd91689e44cb0ac711187c26",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
       "path": "/manifest.webmanifest",
       "status": 200,
       "type": "application/manifest+json; charset=utf-8",
       "bytes": 724,
-      "sha256": "1cffb93a34e2138f53dd31ab8b2fca72d5ba8606856fb419fa73ba3f029cea0a"
+      "sha256": "1cffb93a34e2138f53dd31ab8b2fca72d5ba8606856fb419fa73ba3f029cea0a",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
       "path": "/icons/apple-touch-icon.png",
       "status": 200,
       "type": "image/png",
       "bytes": 8443,
-      "sha256": "33a1db76a321de3e73757f7f74ac996a31423ee0794efe19e75b6fd58df72413"
+      "sha256": "33a1db76a321de3e73757f7f74ac996a31423ee0794efe19e75b6fd58df72413",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
       "path": "/icons/island-512.png",
       "status": 200,
       "type": "image/png",
       "bytes": 23272,
-      "sha256": "de31b3531ba4c5d3efede5190c10df854ade9e0ee19694d59f66732dfcb53411"
+      "sha256": "de31b3531ba4c5d3efede5190c10df854ade9e0ee19694d59f66732dfcb53411",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
       "path": "/LICENSE",
       "status": 200,
       "type": "text/plain; charset=utf-8",
       "bytes": 4563,
-      "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
+      "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
       "path": "/docs/IPAD_VERIFICATION.md",
       "status": 200,
       "type": "text/plain; charset=utf-8",
-      "bytes": 6500,
-      "sha256": "7011de481b3ed40beb0d97f32d94a01075ab999a4543357de2c6b05705d02e8b"
+      "bytes": 8063,
+      "sha256": "c62e328b61b7752408b61afdc8da10457de1dc6ffd42c99dc0130f99e76c62e3",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
     },
     {
-      "path": "/assets/index-DyKERcVQ.js",
+      "path": "/audio/manifest.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "bytes": 2001413,
+      "sha256": "015a0ab22b08a9522cef1892811224595096a2fb3337278ee272f7725f0e868b",
+      "cacheControl": "no-cache",
+      "matchesDisk": true
+    },
+    {
+      "path": "/assets/index-pws26yKd.js",
       "status": 200,
       "type": "text/javascript; charset=utf-8",
-      "bytes": 1513982,
-      "sha256": "98c80c8cfe7079fde0b325a4c65ef124a76bde6592104309de65e6fabff05e4f"
+      "bytes": 240228,
+      "sha256": "81bc772f8245cdd9783d23ced165b055f0e67881ca8b30ca0e91c5c2866db5f0",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
     },
     {
-      "path": "/assets/index-D2AuYFvJ.css",
+      "path": "/assets/react-BEiHexpT.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8",
+      "bytes": 223223,
+      "sha256": "e5ec19c5f3230a6b5eea808ecbf67581195a22fb3996b99c91b480bc469b0ef6",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
+    },
+    {
+      "path": "/assets/lessons-hanzi-CeHEC6Vo.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8",
+      "bytes": 308044,
+      "sha256": "08714bd2bc8b793452a75a547070c94b42313b5285ee925e20582a4ab2bfa278",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
+    },
+    {
+      "path": "/assets/lessons-poems-Byzi9uPE.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8",
+      "bytes": 456853,
+      "sha256": "fdf6365ef8f564bbf1982380462551af4b104cad99b0eeb5e24e8e5b177f1618",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
+    },
+    {
+      "path": "/assets/pinyin-haNF1LmB.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8",
+      "bytes": 302257,
+      "sha256": "0d29031365458afa72cc4dd328b8bdc72c526ffe6701c697ba0c3390b63fc1c7",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
+    },
+    {
+      "path": "/assets/index-CaNIg05I.css",
       "status": 200,
       "type": "text/css; charset=utf-8",
-      "bytes": 143037,
-      "sha256": "924bf3c7c800772a965a8342dd2b078e61112d1789aaebd64fa61572f0d181b4"
+      "bytes": 147174,
+      "sha256": "c69255c70d2bcb862d7569aabb7f86b91e3b5b90e310acb1a08a287a0e6f30e1",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "matchesDisk": true
     }
   ],
   "range": {
-    "filename": "/audio/kokoro-b8bea0a7d8eae7703f07.m4a",
+    "filename": "/audio/qwen3-6ce39a89c289b85c8111.m4a",
     "status": 206,
-    "contentRange": "bytes 0-1023/8570",
-    "bytes": 1024
+    "contentRange": "bytes 0-1023/10517",
+    "bytes": 1024,
+    "cacheControl": "public, max-age=31536000, immutable",
+    "matchesDisk": true,
+    "headStatus": 200,
+    "notModifiedStatus": 304
   },
   "manifestComplete": true,
-  "audioFiles": 22453,
-  "limit": "Requests from this Mac to its LAN IP; external iPad access and router isolation not tested",
+  "audioFiles": 22865,
   "productionAssets": [
-    "/assets/index-DyKERcVQ.js",
-    "/assets/index-D2AuYFvJ.css"
+    "/assets/index-pws26yKd.js",
+    "/assets/react-BEiHexpT.js",
+    "/assets/lessons-hanzi-CeHEC6Vo.js",
+    "/assets/lessons-poems-Byzi9uPE.js",
+    "/assets/pinyin-haNF1LmB.js",
+    "/assets/index-CaNIg05I.css"
   ],
-  "release": "iPad Air 5 one-screen layout, maximum profile names and safe-area adaptation"
+  "localValidation": {
+    "unitTests": {
+      "command": "npm test",
+      "passed": 109,
+      "failed": 0
+    },
+    "pythonTests": {
+      "commands": [
+        "python3 -B tests/test_kokoro_cache_guard.py",
+        "python3 -B tests/test_qwen3_generator.py"
+      ],
+      "passed": 16,
+      "failed": 0
+    },
+    "contentAudit": {
+      "command": "npm run audit:content",
+      "characters": 1000,
+      "poems": 300,
+      "issues": [],
+      "missingAudio": 0
+    },
+    "audioAudit": {
+      "command": "npm run audio:audit -- --no-write",
+      "requiredTexts": 23917,
+      "coveredTexts": 23917,
+      "requiredAACFiles": 22865,
+      "validAACFiles": 22865,
+      "invalidAACFiles": 0,
+      "unexpectedFiles": 0
+    },
+    "browserTests": {
+      "passed": 71,
+      "skipped": 1,
+      "failed": 0,
+      "flaky": 0,
+      "skippedReason": "WebKit does not run the Chromium-specific fullscreen check",
+      "runs": [
+        {
+          "name": "candidate-chromium",
+          "engine": "chromium",
+          "origin": "http://127.0.0.1:5183",
+          "specs": [
+            "tests/profile-sync.spec.ts",
+            "tests/prompt-navigation.spec.ts"
+          ],
+          "grep": "native|parent gate focus",
+          "startedAt": "2026-10-03T12:39:01.408Z",
+          "durationMs": 56781,
+          "passed": 18,
+          "skipped": 0,
+          "failed": 0,
+          "flaky": 0
+        },
+        {
+          "name": "candidate-webkit",
+          "engine": "webkit",
+          "origin": "http://127.0.0.1:5183",
+          "specs": [
+            "tests/profile-sync.spec.ts",
+            "tests/prompt-navigation.spec.ts"
+          ],
+          "grep": "native|parent gate focus",
+          "startedAt": "2026-10-03T12:39:01.408Z",
+          "durationMs": 54202,
+          "passed": 18,
+          "skipped": 0,
+          "failed": 0,
+          "flaky": 0
+        },
+        {
+          "name": "layout-chromium",
+          "engine": "chromium",
+          "origin": "http://127.0.0.1:5183",
+          "specs": [
+            "tests/ipad-layout.spec.ts"
+          ],
+          "grep": "mature zoo|zoo native map hover",
+          "startedAt": "2026-10-03T12:39:42.377Z",
+          "durationMs": 29338,
+          "passed": 8,
+          "skipped": 0,
+          "failed": 0,
+          "flaky": 0
+        },
+        {
+          "name": "layout-webkit",
+          "engine": "webkit",
+          "origin": "http://127.0.0.1:5183",
+          "specs": [
+            "tests/ipad-layout.spec.ts"
+          ],
+          "grep": "mature zoo|zoo native map hover",
+          "startedAt": "2026-10-03T12:39:42.376Z",
+          "durationMs": 32279,
+          "passed": 8,
+          "skipped": 0,
+          "failed": 0,
+          "flaky": 0
+        },
+        {
+          "name": "live-chromium-aac",
+          "engine": "PWA Chromium; zoo AAC Chromium and WebKit",
+          "origin": "http://192.168.31.48:5173",
+          "specs": [
+            "tests/pwa.spec.ts",
+            "tests/zoo-narration.spec.ts"
+          ],
+          "startedAt": "2026-10-03T12:41:37.738Z",
+          "durationMs": 102497,
+          "passed": 12,
+          "skipped": 0,
+          "failed": 0,
+          "flaky": 0
+        },
+        {
+          "name": "live-webkit",
+          "engine": "webkit",
+          "origin": "http://192.168.31.48:5173",
+          "specs": [
+            "tests/pwa.spec.ts"
+          ],
+          "startedAt": "2026-10-03T12:41:37.741Z",
+          "durationMs": 6265,
+          "passed": 7,
+          "skipped": 1,
+          "failed": 0,
+          "flaky": 0
+        }
+      ]
+    }
+  },
+  "release": "Latest master peer progress, native modal input and zoo WebKit stability fixes",
+  "limit": "HTTP requests from this Mac to its LAN IP and isolated desktop Chromium/WebKit contexts with synthetic test profiles. Physical iPad Safari, router isolation, other-device reachability and full human audio listening were not tested."
 }
